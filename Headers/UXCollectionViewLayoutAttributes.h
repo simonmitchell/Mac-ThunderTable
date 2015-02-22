@@ -15,13 +15,13 @@
     unsigned long long _hash;
     NSString *_elementKind;
     NSString *_reuseIdentifier;
-    struct CGRect _frame;
+    CGRect _frame;
     struct CGPoint _center;
-    struct CGSize _size;
+    CGSize _size;
     double _alpha;
     long long _zIndex;
     BOOL _isFloating;
-    struct CGRect _floatingFrame;
+    CGRect _floatingFrame;
     BOOL _isFloatingPinned;
     NSIndexPath *_indexPath;
     NSString *_representedElementKind;
@@ -34,16 +34,16 @@
     } _layoutFlags;
 }
 
-+ (id)layoutAttributesForDecorationViewOfKind:(id)arg1 withIndexPath:(id)arg2;
-+ (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 withIndexPath:(id)arg2;
-+ (id)layoutAttributesForCellWithIndexPath:(id)arg1;
++ (id)layoutAttributesForDecorationViewOfKind:(id)arg1 withIndexPath:(NSIndexPath *)indexPath;
++ (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 withIndexPath:(NSIndexPath *)indexPath;
++ (id)layoutAttributesForCellWithIndexPath:(NSIndexPath *)indexPath;
 @property(retain, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 @property(nonatomic) BOOL isFloatingPinned; // @synthesize isFloatingPinned=_isFloatingPinned;
-@property(nonatomic) struct CGRect floatingFrame; // @synthesize floatingFrame=_floatingFrame;
+@property(nonatomic) CGRect floatingFrame; // @synthesize floatingFrame=_floatingFrame;
 @property(nonatomic) BOOL isFloating; // @synthesize isFloating=_isFloating;
 @property(nonatomic) long long zIndex; // @synthesize zIndex=_zIndex;
 @property(nonatomic) double alpha; // @synthesize alpha=_alpha;
-@property(nonatomic) struct CGSize size; // @synthesize size=_size;
+@property(nonatomic) CGSize size; // @synthesize size=_size;
 @property(nonatomic) struct CGPoint center; // @synthesize center=_center;
 @property(readonly, nonatomic) NSString *representedElementKind; // @synthesize representedElementKind=_representedElementKind;
 @property(readonly, nonatomic) unsigned long long representedElementCategory;
@@ -55,12 +55,12 @@
 - (BOOL)_isEquivalentTo:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
-@property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
-@property(nonatomic) struct CGRect bounds;
+@property(nonatomic) CGRect frame; // @synthesize frame=_frame;
+@property(nonatomic) CGRect bounds;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)_setIndexPath:(id)arg1;
+- (void)_setIndexPath:(NSIndexPath *)indexPath;
 - (id)_reuseIdentifier;
-- (void)_setReuseIdentifier:(id)arg1;
+- (void)_setReuseIdentifier:(NSString *)reuseIdentifier;
 - (id)_elementKind;
 - (void)_setElementKind:(id)arg1;
 - (BOOL)_isClone;

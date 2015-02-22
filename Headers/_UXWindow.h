@@ -16,7 +16,7 @@
 - (void)beginCriticalSheet:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)beginSheet:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)initWithContentRect:(struct CGRect)arg1;
+- (id)initWithContentRect:(CGRect)arg1;
 
 // Remaining properties
 //@property id <_UXWindowDelegate> delegate; // @dynamic delegate;

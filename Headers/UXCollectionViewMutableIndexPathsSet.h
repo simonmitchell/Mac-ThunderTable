@@ -10,9 +10,9 @@
 {
 }
 
-- (void)adjustForDeletionOfIndexPath:(id)arg1;
+- (void)adjustForDeletionOfIndexPath:(NSIndexPath *)indexPath;
 - (void)adjustForDeletionOfItems:(id)arg1 inSection:(unsigned long long)arg2;
-- (void)adjustForInsertionOfIndexPath:(id)arg1;
+- (void)adjustForInsertionOfIndexPath:(NSIndexPath *)indexPath;
 - (void)adjustForInsertionOfItems:(id)arg1 inSection:(unsigned long long)arg2;
 - (void)adjustForDeletionOfSections:(id)arg1;
 - (void)adjustForDeletionOfSection:(unsigned long long)arg1;
@@ -24,11 +24,11 @@
 - (void)removeAllIndexPaths;
 - (void)removeIndexPathsSet:(id)arg1;
 - (void)removeIndexPaths:(id)arg1;
-- (void)removeIndexPath:(id)arg1;
+- (void)removeIndexPath:(NSIndexPath *)indexPath;
 - (void)addSection:(long long)arg1 itemsInRange:(struct _NSRange)arg2;
 - (void)addIndexPathsSet:(id)arg1;
 - (void)addIndexPaths:(id)arg1;
-- (void)addIndexPath:(id)arg1;
+- (void)addIndexPath:(NSIndexPath *)indexPath;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

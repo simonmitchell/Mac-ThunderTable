@@ -33,6 +33,7 @@
 @property(readonly, nonatomic) NSBox *separator; // @synthesize separator=_separator;
 @property(readonly, nonatomic) _UXContainerView *detailView; // @synthesize detailView=_detailView;
 @property(readonly, nonatomic) _UXContainerView *masterView; // @synthesize masterView=_masterView;
+
 - (void)cxx_destruct;
 - (id)accessibilityRole;
 - (id)accessibilityChildren;
@@ -47,9 +48,9 @@
 - (void)_startSeparatorLiveResize;
 - (void)_resizeToWidth:(double)arg1;
 @property(readonly, nonatomic) NSCursor *separatorCursor;
-- (void)setCollapsed:(BOOL)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)setCollapsed:(BOOL)collapsed animated:(BOOL)animated completion:(CDUnknownBlockType)completion;
 @property(nonatomic) double masterWidth;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(CGRect)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -20,7 +20,7 @@
     UXViewController *_toolbarViewController;
     NSArray *_toolbarItems;
     BOOL _hidesBottomBarWhenPushed;
-    struct CGSize _ux_preferredContentSize;
+    CGSize _ux_preferredContentSize;
     BOOL _viewDidLoad;
     BOOL _ignoreViewController;
     id <UXLayoutSupport> _topLayoutGuide;
@@ -45,12 +45,12 @@
 - (void)_setupLayoutGuidesForView:(id)arg1;
 - (void)didUpdateLayoutGuides;
 - (void)invalidateIntrinsicLayoutInsets;
-- (struct NSEdgeInsets)intrinsicLayoutInsets;
-- (struct CGSize)preferredContentSizeCappedToSize:(struct CGSize)arg1;
-@property struct CGSize preferredContentSize;
+- (NSEdgeInsets)intrinsicLayoutInsets;
+- (CGSize)preferredContentSizeCappedToSize:(CGSize)arg1;
+@property CGSize preferredContentSize;
 - (BOOL)_requiresWindowForTransitionPreparation;
 - (id)_ancestorViewControllerOfClass:(Class)arg1;
-- (void)_animateView:(id)arg1 fromFrame:(struct CGRect)arg2 toFrame:(struct CGRect)arg3;
+- (void)_animateView:(id)arg1 fromFrame:(CGRect)arg2 toFrame:(CGRect)arg3;
 - (id)transitionCoordinator;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
@@ -72,7 +72,7 @@
 - (void)viewWillAppear;
 - (void)_sendViewDidLoad;
 - (void)loadView;
-- (struct CGRect)_defaultInitialFrame;
+- (CGRect)_defaultInitialFrame;
 - (BOOL)acceptsFirstResponder;
 - (void)awakeFromNib;
 @property(readonly, nonatomic) NSResponder *preferredFirstResponder;

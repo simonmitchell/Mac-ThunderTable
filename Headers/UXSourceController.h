@@ -9,7 +9,7 @@
 #import "UXNavigationControllerDelegate-Protocol.h"
 #import "_UXSourceSplitViewDelegate-Protocol.h"
 
-@class NSArray, NSMapTable, NSOperationQueue, NSSegmentedControl, NSString, NSView, UXTransitionController, _UXSourceSplitView, _UXViewControllerOneToOneTransitionContext;
+@class NSArray, NSMapTable, NSOperationQueue, NSSegmentedControl, NSString, NSView, UXTransitionController, _UXSourceSplitView, _UXViewControllerOneToOneTransitionContext, UXNavigationController;
 
 @interface UXSourceController : UXViewController <UXNavigationControllerDelegate, _UXSourceSplitViewDelegate>
 {
@@ -45,12 +45,12 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) long long preferredStyle; // @synthesize preferredStyle=_preferredStyle;
 - (void)cxx_destruct;
-- (void)_setupDelegateForNavigationController:(id)arg1 operation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
-- (BOOL)navigationController:(id)arg1 shouldBeginInteractivePopFromViewController:(id)arg2 toViewController:(id)arg3;
-- (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
-- (id)navigationController:(id)arg1 interactionControllerForAnimationController:(id)arg2;
-- (void)navigationController:(id)arg1 didShowViewController:(id)arg2;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2;
+- (void)_setupDelegateForNavigationController:(UXNavigationController *)navigationController operation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
+- (BOOL)navigationController:(UXNavigationController *)navigationController shouldBeginInteractivePopFromViewController:(id)arg2 toViewController:(id)arg3;
+- (id)navigationController:(UXNavigationController *)navigationController animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
+- (id)navigationController:(UXNavigationController *)navigationController interactionControllerForAnimationController:(id)arg2;
+- (void)navigationController:(UXNavigationController *)navigationController didShowViewController:(id)arg2;
+- (void)navigationController:(UXNavigationController *)navigationController willShowViewController:(id)arg2;
 - (void)sourceSplitView:(id)arg1 didResizeMasterWidth:(double)arg2;
 - (id)_contextForTransitionOperation:(long long)arg1 fromViewController:(id)arg2 toViewController:(id)arg3 transition:(unsigned long long)arg4;
 - (void)_beginTransitionWithContext:(id)arg1 operation:(long long)arg2;

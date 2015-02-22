@@ -42,7 +42,7 @@
 - (void)windowDidResize:(NSNotification *)arg1;
 - (void)window:(NSWindow *)arg1 didDecodeRestorableState:(NSCoder *)arg2;
 - (void)window:(NSWindow *)arg1 willEncodeRestorableState:(NSCoder *)arg2;
-- (struct CGSize)window:(NSWindow *)arg1 willResizeForVersionBrowserWithMaxPreferredSize:(struct CGSize)arg2 maxAllowedSize:(struct CGSize)arg3;
+- (CGSize)window:(NSWindow *)arg1 willResizeForVersionBrowserWithMaxPreferredSize:(CGSize)arg2 maxAllowedSize:(CGSize)arg3;
 - (void)windowDidFailToExitFullScreen:(NSWindow *)arg1;
 - (void)window:(NSWindow *)arg1 startCustomAnimationToEnterFullScreenOnScreen:(NSScreen *)arg2 withDuration:(double)arg3;
 - (NSArray *)customWindowsToEnterFullScreenForWindow:(NSWindow *)arg1 onScreen:(NSScreen *)arg2;
@@ -52,14 +52,14 @@
 - (void)window:(NSWindow *)arg1 startCustomAnimationToEnterFullScreenWithDuration:(double)arg2;
 - (NSArray *)customWindowsToEnterFullScreenForWindow:(NSWindow *)arg1;
 - (unsigned long long)window:(NSWindow *)arg1 willUseFullScreenPresentationOptions:(unsigned long long)arg2;
-- (struct CGSize)window:(NSWindow *)arg1 willUseFullScreenContentSize:(struct CGSize)arg2;
+- (CGSize)window:(NSWindow *)arg1 willUseFullScreenContentSize:(CGSize)arg2;
 - (BOOL)window:(NSWindow *)arg1 shouldDragDocumentWithEvent:(NSEvent *)arg2 from:(struct CGPoint)arg3 withPasteboard:(NSPasteboard *)arg4;
 - (BOOL)window:(NSWindow *)arg1 shouldPopUpDocumentPathMenu:(NSMenu *)arg2;
-- (struct CGRect)window:(NSWindow *)arg1 willPositionSheet:(NSWindow *)arg2 usingRect:(struct CGRect)arg3;
+- (CGRect)window:(NSWindow *)arg1 willPositionSheet:(NSWindow *)arg2 usingRect:(CGRect)arg3;
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)arg1;
-- (BOOL)windowShouldZoom:(NSWindow *)arg1 toFrame:(struct CGRect)arg2;
-- (struct CGRect)windowWillUseStandardFrame:(NSWindow *)arg1 defaultFrame:(struct CGRect)arg2;
-- (struct CGSize)windowWillResize:(NSWindow *)arg1 toSize:(struct CGSize)arg2;
+- (BOOL)windowShouldZoom:(NSWindow *)arg1 toFrame:(CGRect)arg2;
+- (CGRect)windowWillUseStandardFrame:(NSWindow *)arg1 defaultFrame:(CGRect)arg2;
+- (CGSize)windowWillResize:(NSWindow *)arg1 toSize:(CGSize)arg2;
 - (id)windowWillReturnFieldEditor:(NSWindow *)arg1 toObject:(id)arg2;
 - (BOOL)windowShouldClose:(id)arg1;
 @end

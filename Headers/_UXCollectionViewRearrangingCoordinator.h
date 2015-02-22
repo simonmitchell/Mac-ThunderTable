@@ -82,6 +82,7 @@
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) BOOL isRearranging; // @synthesize isRearranging=_isRearranging;
 @property(readonly, nonatomic) UXCollectionView *collectionView; // @synthesize collectionView=_collectionView;
+
 - (void)updateDraggingItemsForDrag:(id)arg1;
 - (BOOL)wantsPeriodicDraggingUpdates;
 - (void)draggingEnded:(id)arg1;
@@ -99,7 +100,7 @@
 - (void)_autoscrollWithWindowLocation:(struct CGPoint)arg1;
 - (void)_moveItemsAtIndexPaths:(id)arg1 toIndexPaths:(id)arg2;
 - (void)_beginDraggingSessionForIndexPaths:(id)arg1;
-- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
+- (id)layoutAttributesForElementsInRect:(CGRect)arg1;
 - (void)resetDragGestureRecogizer;
 - (void)_finishRearrangingForLocation:(struct CGPoint)arg1 shouldComplete:(BOOL)arg2;
 - (void)_reloadCollectionViewWithAnimation;

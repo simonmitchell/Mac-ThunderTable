@@ -10,12 +10,12 @@
 
 @interface _UXFlowLayoutItem : NSObject
 {
-    struct CGRect _itemFrame;
+    CGRect _itemFrame;
     _UXFlowLayoutSection *_section;
     _UXFlowLayoutRow *_rowObject;
 }
 
-@property(nonatomic) struct CGRect itemFrame; // @synthesize itemFrame=_itemFrame;
+@property(nonatomic) CGRect itemFrame; // @synthesize itemFrame=_itemFrame;
 @property(nonatomic) _UXFlowLayoutRow *rowObject; // @synthesize rowObject=_rowObject;
 @property(nonatomic) _UXFlowLayoutSection *section; // @synthesize section=_section;
 - (id)copy;

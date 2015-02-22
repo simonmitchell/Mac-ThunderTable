@@ -8,6 +8,10 @@
 
 @class NSColor, NSLayoutConstraint, NSMutableArray, UXLabel, UXView, _UXButton;
 
+typedef NS_ENUM(NSUInteger, UXTableViewCellStyle) {
+    UXTableViewCellStyleDefault = 0
+};
+
 @interface UXTableViewCell : UXCollectionViewCell
 {
     long long _style;
@@ -34,7 +38,7 @@
     double __separatorHeight;
     NSColor *__separatorColor;
     NSMutableArray *__addedConstraints;
-    struct NSEdgeInsets _separatorInset;
+    NSEdgeInsets _separatorInset;
 }
 
 @property(retain, nonatomic) NSMutableArray *_addedConstraints; // @synthesize _addedConstraints=__addedConstraints;
@@ -43,7 +47,7 @@
 @property(nonatomic, setter=_setSeparatorHeight:) double _separatorHeight; // @synthesize _separatorHeight=__separatorHeight;
 @property(nonatomic, setter=_setSeparatorStyle:) long long _separatorStyle; // @synthesize _separatorStyle=__separatorStyle;
 @property(nonatomic, setter=_setHighlightingForContext:) BOOL _highlightingForContext; // @synthesize _highlightingForContext=__highlightingForContext;
-@property(nonatomic) struct NSEdgeInsets separatorInset; // @synthesize separatorInset=_separatorInset;
+@property(nonatomic) NSEdgeInsets separatorInset; // @synthesize separatorInset=_separatorInset;
 @property(nonatomic) double indentationWidth; // @synthesize indentationWidth=_indentationWidth;
 @property(nonatomic) long long indentationLevel; // @synthesize indentationLevel=_indentationLevel;
 @property(nonatomic) long long selectionStyle; // @synthesize selectionStyle=_selectionStyle;
@@ -56,21 +60,24 @@
 @property(retain, nonatomic) UXView *selectedBackgroundView; // @synthesize selectedBackgroundView=_selectedBackgroundView;
 @property(retain, nonatomic) UXView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(nonatomic) long long style; // @synthesize style=_style;
+
 - (void)cxx_destruct;
 - (id)accessibilityLabel;
 - (unsigned long long)_detailTextAlignment;
 - (void)_configureInternalAccessoryViewForType:(long long)arg1;
 - (void)_updateTextColor;
+
 @property(readonly, nonatomic) UXView *lowerSpace;
 @property(readonly, nonatomic) UXView *upperSpace;
 @property(readonly, nonatomic) UXView *defaultSelectedBackgroundView;
 @property(readonly, nonatomic) _UXButton *internalAccessoryView;
+
 - (void)prepareForReuse;
 - (void)setSelected:(BOOL)arg1;
 - (void)updateConstraints;
 - (void)viewDidMoveToWindow;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithStyle:(long long)style reuseIdentifier:(NSString *)reuseIdentifier;
+- (id)initWithFrame:(CGRect)arg1;
+- (id)initWithStyle:(UXTableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
 @end
 

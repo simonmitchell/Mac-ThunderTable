@@ -36,7 +36,7 @@
 
 @implementation TSCTableViewController
 
-- (id)initWithStyle:(long long)style
+- (id)initWithStyle:(UXTableViewStyle)style
 {
     self = [super initWithStyle:style];
     
@@ -498,7 +498,7 @@
     UXTableViewCell *cell = self.dynamicHeightCells[classNameString];
     
     if (!cell) {
-        cell = [[tableViewCellClass alloc] initWithStyle:0 reuseIdentifier:classNameString];
+        cell = [[tableViewCellClass alloc] initWithStyle:UXTableViewCellStyleDefault reuseIdentifier:classNameString];
         self.dynamicHeightCells[classNameString] = cell;
     }
     

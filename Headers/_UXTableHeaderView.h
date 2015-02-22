@@ -23,7 +23,7 @@
 - (void)cxx_destruct;
 - (void)mouseDown:(id)arg1;
 - (void)prepareForReuse;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(CGRect)arg1;
 
 @end
 

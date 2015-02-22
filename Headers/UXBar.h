@@ -35,7 +35,7 @@
 - (void)cxx_destruct;
 - (void)_updateBarPostion;
 @property(readonly, nonatomic) long long barPosition;
-- (struct CGSize)intrinsicContentSize;
+- (CGSize)intrinsicContentSize;
 - (void)_completeInteractiveTransition:(BOOL)arg1;
 - (void)_finishInteractiveTransition:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_updateInteractiveTransition:(double)arg1;
@@ -45,7 +45,7 @@
 @property(retain, nonatomic) NSColor *borderColor;
 @property(nonatomic) BOOL bordered;
 - (void)viewWillMoveToSuperview:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(CGRect)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

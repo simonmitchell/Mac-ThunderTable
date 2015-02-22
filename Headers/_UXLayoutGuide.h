@@ -24,7 +24,7 @@
 - (void)_setUpDimensionConstraintWithLength:(double)arg1;
 - (void)_setUpCounterDimensionConstraint;
 @property(nonatomic) double length;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(CGRect)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

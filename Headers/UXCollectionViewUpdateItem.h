@@ -27,12 +27,12 @@
 - (id)_indexPath;
 - (long long)_action;
 - (id)description;
-- (void)_setNewIndexPath:(id)arg1;
+- (void)_setNewIndexPath:(NSIndexPath *)indexPath;
 - (id)_newIndexPath;
 - (void)dealloc;
-- (id)initWithOldIndexPath:(id)arg1 newIndexPath:(id)arg2;
-- (id)initWithAction:(long long)arg1 forIndexPath:(id)arg2;
-- (id)initWithInitialIndexPath:(id)arg1 finalIndexPath:(id)arg2 updateAction:(long long)arg3;
+- (id)initWithOldIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)indexPath;
+- (id)initWithAction:(long long)arg1 forIndexPath:(NSIndexPath *)indexPath;
+- (id)initWithInitialIndexPath:(NSIndexPath *)indexPath finalIndexPath:(NSIndexPath *)indexPath updateAction:(long long)arg3;
 
 @end
 

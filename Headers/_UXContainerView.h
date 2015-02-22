@@ -14,8 +14,8 @@
 {
 }
 
-- (void)addSubview:(id)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
-- (void)addSubview:(id)arg1;
+- (void)addSubview:(NSView *)view positioned:(long long)arg2 relativeTo:(id)arg3;
+- (void)addSubview:(NSView *)view;
 - (id)init;
 
 // Remaining properties

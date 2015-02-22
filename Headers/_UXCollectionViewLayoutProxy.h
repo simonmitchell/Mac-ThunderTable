@@ -23,12 +23,12 @@
 @property(retain, nonatomic) NSMapTable *methodSignituresBySelector; // @synthesize methodSignituresBySelector=_methodSignituresBySelector;
 @property(readonly, nonatomic) UXCollectionViewLayout *layout; // @synthesize layout=_layout;
 @property(nonatomic) id <UXCollectionViewLayoutProxyDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
-- (id)methodSignatureForSelector:(SEL)arg1;
-- (void)forwardInvocation:(id)arg1;
+- (id)layoutAttributesForElementsInRect:(CGRect)rect;
+- (id)methodSignatureForSelector:(SEL)aSelector;
+- (void)forwardInvocation:(id)invocation;
 - (Class)class;
 - (void)dealloc;
-- (id)initWithLayout:(id)arg1;
+- (id)initWithLayout:(id)layout;
 
 @end
 

@@ -11,8 +11,8 @@
 }
 
 - (unsigned long long)_controlState;
-- (void)drawImage:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
-- (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
+- (void)drawImage:(NSImage *)image withFrame:(CGRect)frame inView:(NSView *)view;
+- (CGRect)drawTitle:(NSString *)title withFrame:(CGRect)frame inView:(NSView *)view;
 
 @end
 

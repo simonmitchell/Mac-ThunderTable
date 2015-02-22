@@ -8,7 +8,7 @@
 
 @protocol NSAccessibilityElement <NSObject>
 - (id)accessibilityParent;
-- (struct CGRect)accessibilityFrame;
+- (CGRect)accessibilityFrame;
 
 @optional
 - (NSString *)accessibilityIdentifier;

@@ -28,7 +28,7 @@
 - (BOOL)_isInUpdateAnimation;
 - (void)_setCollectionView:(id)arg1;
 - (id)_collectionView;
-- (void)_setReuseIdentifier:(id)arg1;
+- (void)_setReuseIdentifier:(NSString *)reuseIdentifier;
 - (id)_layoutAttributes;
 - (void)_setLayoutAttributes:(id)arg1;
 - (void)_setBaseLayoutAttributes:(id)arg1;
@@ -40,7 +40,7 @@
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(CGRect)arg1;
 - (id)_layoutSectionAccessibility;
 - (id)_accessibilityIndexPath;
 - (id)_accessibilityDefaultRole;

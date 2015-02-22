@@ -16,9 +16,9 @@
 
 + (id)indexPathsSetWithIndexPathsSet:(id)arg1;
 + (id)indexPathsSetWithIndexPaths:(id)arg1;
-+ (id)indexPathsSetWithIndexPath:(id)arg1;
++ (id)indexPathsSetWithIndexPath:(NSIndexPath *)indexPath;
 + (id)indexPathsSet;
-- (BOOL)containsIndexPath:(id)arg1;
+- (BOOL)containsIndexPath:(NSIndexPath *)indexPath;
 - (void)enumerateIndexPathsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)lastIndexPath;
 - (id)firstIndexPath;
@@ -27,8 +27,8 @@
 - (id)indexPathsForSection:(long long)arg1;
 - (id)sections;
 - (unsigned long long)count;
-- (void)_removeOneIndexPath:(id)arg1;
-- (void)_addOneIndexPath:(id)arg1;
+- (void)_removeOneIndexPath:(NSIndexPath *)indexPath;
+- (void)_addOneIndexPath:(NSIndexPath *)indexPath;
 - (void)_enumerateSectionItemIndexesWithBlock:(CDUnknownBlockType)arg1;
 - (void)_removeItemIndexesForSection:(unsigned long long)arg1;
 - (id)_itemIndexesForSection:(unsigned long long)arg1 allowingCreation:(BOOL)arg2;
@@ -40,7 +40,7 @@
 - (void)dealloc;
 - (id)initWithIndexPathsSet:(id)arg1;
 - (id)initWithIndexPaths:(id)arg1;
-- (id)initWithIndexPath:(id)arg1;
+- (id)initWithIndexPath:(NSIndexPath *)indexPath;
 - (id)init;
 
 @end

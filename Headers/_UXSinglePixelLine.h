@@ -14,8 +14,9 @@
 }
 
 @property(retain, nonatomic) NSColor *color; // @synthesize color=_color;
+
 - (void)cxx_destruct;
-- (void)drawRect:(struct CGRect)arg1;
+- (void)drawRect:(CGRect)rect;
 - (void)viewDidChangeBackingProperties;
 - (void)viewDidMoveToSuperview;
 - (void)updateHeight;

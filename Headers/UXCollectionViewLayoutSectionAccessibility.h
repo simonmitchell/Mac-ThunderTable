@@ -27,7 +27,7 @@
 - (unsigned long long)accessibilityIndexOfChild:(id)arg1;
 - (id)accessibilityVisibleChildren;
 - (id)accessibilityChildren;
-- (struct CGRect)accessibilityFrame;
+- (CGRect)accessibilityFrame;
 - (id)accessibilitySubrole;
 - (id)accessibilityRole;
 - (id)accessibilityHitTest:(struct CGPoint)arg1;

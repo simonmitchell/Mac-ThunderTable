@@ -11,9 +11,9 @@
 
 @implementation TSCTableViewCell
 
-- (id)initWithStyle:(long long)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UXTableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    if (self = [super initWithStyle:3 reuseIdentifier:reuseIdentifier]) {
+    if (self = [super initWithStyle:UXTableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
         
         self.textLabel.numberOfLines = 0;
         self.textLabel.backgroundColor = [NSColor clearColor];

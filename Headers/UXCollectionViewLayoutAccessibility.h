@@ -31,8 +31,8 @@
 - (unsigned long long)accessibilityIndexOfChild:(id)arg1;
 - (id)accessibilityChildren;
 @property(readonly, copy, nonatomic) NSArray *accessibilityVisibleChildren; // @synthesize accessibilityVisibleChildren=_accessibilityVisibleChildren;
-- (struct CGRect)accessibilityFrameInParentSpace;
-- (struct CGRect)accessibilityFrame;
+- (CGRect)accessibilityFrameInParentSpace;
+- (CGRect)accessibilityFrame;
 - (long long)accessibilityColumnCount;
 - (long long)accessibilityRowCount;
 - (id)accessibilityLabel;

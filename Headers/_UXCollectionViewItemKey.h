@@ -19,25 +19,27 @@
     unsigned long long _type;
 }
 
-+ (id)collectionItemKeyForLayoutAttributes:(id)arg1;
-+ (id)collectionItemKeyForDecorationViewOfKind:(id)arg1 andIndexPath:(id)arg2;
-+ (id)collectionItemKeyForSupplementaryViewOfKind:(id)arg1 andIndexPath:(id)arg2;
-+ (id)collectionItemKeyForCellWithIndexPath:(id)arg1;
++ (id)collectionItemKeyForLayoutAttributes:(id)attributes;
++ (id)collectionItemKeyForDecorationViewOfKind:(id)kind andIndexPath:(NSIndexPath *)indexPath;
++ (id)collectionItemKeyForSupplementaryViewOfKind:(id)kind andIndexPath:(NSIndexPath *)indexPath;
++ (id)collectionItemKeyForCellWithIndexPath:(NSIndexPath *)indexPath;
+
 @property(readonly, nonatomic) BOOL isClone; // @synthesize isClone=_isClone;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(readonly, retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, retain, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
+
 - (unsigned long long)hash;
-- (void)setType:(unsigned long long)arg1;
-- (void)setIdentifier:(id)arg1;
-- (void)setIndexPath:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (id)copyAsClone:(BOOL)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)description;
+- (void)setType:(unsigned long long)type;
+- (void)setIdentifier:(NSString *)identifier;
+- (void)setIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)isEqual:(id)item;
+- (id)copyAsClone:(BOOL)isClone;
+- (id)copyWithZone:(struct _NSZone *)zone;
+- (NSString *)description;
 - (void)dealloc;
-- (id)initWithType:(unsigned long long)arg1 indexPath:(id)arg2 identifier:(id)arg3 clone:(BOOL)arg4;
-- (id)initWithType:(unsigned long long)arg1 indexPath:(id)arg2 identifier:(id)arg3;
+- (id)initWithType:(unsigned long long)type indexPath:(NSIndexPath *)indexPath identifier:(NSString *)identifier clone:(BOOL)isClone;
+- (id)initWithType:(unsigned long long)type indexPath:(NSIndexPath *)indexPath identifier:(NSString *)identifier;
 
 @end
 

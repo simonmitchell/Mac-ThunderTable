@@ -9,7 +9,7 @@
 @interface UXCollectionViewLayout : NSObject
 {
     UXCollectionView *_collectionView;
-    struct CGSize _collectionViewBoundsSize;
+    CGSize _collectionViewBoundsSize;
     NSMutableDictionary *_initialAnimationLayoutAttributesDict;
     NSMutableDictionary *_finalAnimationLayoutAttributesDict;
     NSMutableDictionary *_deletedSupplementaryIndexPathsDict;
@@ -48,13 +48,13 @@
 - (id)indexPathsForItemRangeSelectionFrom:(id)arg1 to:(id)arg2;
 - (id)lastSelectableItemIndexPath;
 - (id)firstSelectableItemIndexPath;
-- (BOOL)_selectableItemAtIndexPath:(id)arg1;
+- (BOOL)_selectableItemAtIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)_isValidSection:(long long)arg1 item:(long long)arg2;
-- (struct NSEdgeInsets)insetsForScrollingItemAtIndexPath:(id)arg1 toScrollPosition:(unsigned long long)arg2;
-- (struct CGRect)backingAlignedRect:(struct CGRect)arg1 options:(unsigned long long)arg2;
+- (NSEdgeInsets)insetsForScrollingItemAtIndexPath:(NSIndexPath *)indexPath toScrollPosition:(unsigned long long)arg2;
+- (CGRect)backingAlignedRect:(CGRect)arg1 options:(unsigned long long)arg2;
 - (long long)userInterfaceLayoutDirection;
 - (struct CGPoint)updatesContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
-- (struct CGPoint)transitionContentOffsetForProposedContentOffset:(struct CGPoint)arg1 keyItemIndexPath:(id)arg2;
+- (struct CGPoint)transitionContentOffsetForProposedContentOffset:(struct CGPoint)arg1 keyItemIndexPath:(NSIndexPath *)indexPath;
 - (void)_didFinishLayoutTransitionAnimations:(BOOL)arg1;
 - (void)finalizeLayoutTransition;
 - (void)prepareForTransitionFromLayout:(id)arg1;
@@ -64,25 +64,25 @@
 - (void)_prepareForTransitionToLayout:(id)arg1;
 - (void)registerNib:(id)arg1 forDecorationViewOfKind:(id)arg2;
 - (void)registerClass:(Class)arg1 forDecorationViewOfKind:(id)arg2;
-- (id)snapshottedLayoutAttributeForItemAtIndexPath:(id)arg1;
+- (id)snapshottedLayoutAttributeForItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)finalizeCollectionViewUpdates;
 - (void)prepareForCollectionViewUpdates:(id)arg1;
-- (struct CGRect)bounds;
-- (struct CGSize)collectionViewContentSize;
+- (CGRect)bounds;
+- (CGSize)collectionViewContentSize;
 - (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2;
 - (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2 type:(unsigned long long)arg3;
 - (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
 - (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1 withScrollingVelocity:(struct CGPoint)arg2;
-- (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
+- (id)invalidationContextForBoundsChange:(CGRect)arg1;
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)arg1;
 - (BOOL)shouldInvalidateLayoutForScaleFactorChangeFrom:(double)arg1 to:(double)arg2;
 - (void)invalidateLayoutWithContext:(id)arg1;
 - (void)invalidateLayout;
 - (void)prepareLayout;
-- (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)layoutAttributesForItemAtIndexPath:(id)arg1;
-- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
+- (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (id)layoutAttributesForElementsInRect:(CGRect)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -100,21 +100,21 @@
 - (id)_indexPathsToInsertForSupplementaryViewOfKind:(id)arg1;
 - (id)_indexPathsToDeleteForDecorationViewOfKind:(id)arg1;
 - (id)_indexPathsToDeleteForSupplementaryViewOfKind:(id)arg1;
-- (id)finalLayoutAttributesForDisappearingDecorationElementOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)initialLayoutAttributesForAppearingDecorationElementOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(id)arg1;
-- (id)initialLayoutAttributesForAppearingItemAtIndexPath:(id)arg1;
+- (id)finalLayoutAttributesForDisappearingDecorationElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (id)initialLayoutAttributesForAppearingDecorationElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (id)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (id)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)indexPath;
+- (id)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)_prepareToAnimateFromCollectionViewItems:(id)arg1 atContentOffset:(struct CGPoint)arg2 toItems:(id)arg3 atContentOffset:(struct CGPoint)arg4;
 - (void)finalizeAnimatedBoundsChange;
-- (void)prepareForAnimatedBoundsChange:(struct CGRect)arg1;
-- (void)_setCollectionViewBoundsSize:(struct CGSize)arg1;
+- (void)prepareForAnimatedBoundsChange:(CGRect)arg1;
+- (void)_setCollectionViewBoundsSize:(CGSize)arg1;
 - (void)_setCollectionView:(id)arg1;
 - (id)proposedDropIndexPathForDraggingPoint:(struct CGPoint)arg1;
-- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1 withIndexPaths:(id)arg2 exchangedWithIndexPaths:(id)arg3;
-- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1 withIndexPaths:(id)arg2 movedToIndexPath:(id)arg3 atPoint:(struct CGPoint)arg4;
-- (long long)dropPositionForPoint:(struct CGPoint)arg1 withIndexPaths:(id)arg2 movedToIndexPath:(id)arg3;
+- (id)layoutAttributesForElementsInRect:(CGRect)arg1 withIndexPaths:(id)arg2 exchangedWithIndexPaths:(id)arg3;
+- (id)layoutAttributesForElementsInRect:(CGRect)arg1 withIndexPaths:(id)arg2 movedToIndexPath:(NSIndexPath *)indexPath atPoint:(struct CGPoint)arg4;
+- (long long)dropPositionForPoint:(struct CGPoint)arg1 withIndexPaths:(id)arg2 movedToIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

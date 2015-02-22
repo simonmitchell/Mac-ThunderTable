@@ -35,9 +35,9 @@
 - (void)cxx_destruct;
 - (id)accessibilityChildren;
 - (id)menuForEvent:(id)arg1;
-- (id)snapshotViewFromRect:(struct CGRect)arg1;
+- (id)snapshotViewFromRect:(CGRect)arg1;
 - (id)snapshotView;
-- (id)snapshotForRect:(struct CGRect)arg1;
+- (id)snapshotForRect:(CGRect)arg1;
 - (void)sendSubviewToBack:(id)arg1;
 - (void)bringSubviewToFront:(id)arg1;
 @property(readonly, nonatomic) struct CGPoint center;
@@ -85,7 +85,7 @@
 - (id)makeBackingLayer;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(CGRect)arg1;
 - (void)_disableBlur;
 - (void)_enableBlur;
 - (BOOL)blurEnabled;

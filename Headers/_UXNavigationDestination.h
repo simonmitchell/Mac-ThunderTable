@@ -8,7 +8,7 @@
 
 #import "UXNavigationDestination-Protocol.h"
 
-@class NSString, UXAuxiliaryNavigationStore;
+@class NSString, UXAuxiliaryNavigationStore, UXViewController;
 
 @interface _UXNavigationDestination : NSObject <UXNavigationDestination>
 {
@@ -18,13 +18,13 @@
 }
 
 + (BOOL)supportsSecureCoding;
-+ (id)destinationForNavigationIdentifier:(id)arg1 title:(id)arg2;
-+ (id)destinationForViewController:(id)arg1;
++ (id)destinationForNavigationIdentifier:(id)arg1 title:(NSString *)title;
++ (id)destinationForViewController:(UXViewController *)arg1;
 @property(retain, nonatomic) UXAuxiliaryNavigationStore *auxiliaryNavigationStore; // @synthesize auxiliaryNavigationStore=_auxiliaryNavigationStore;
 @property(retain, nonatomic) NSString *destinationTitle; // @synthesize destinationTitle=_destinationTitle;
 @property(retain, nonatomic) NSString *destinationType; // @synthesize destinationType=_destinationType;
 - (void)cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
+- (void)encodeWithCoder:(NSCoder *)coder;
 - (id)initWithCoder:(id)arg1;
 
 // Remaining properties

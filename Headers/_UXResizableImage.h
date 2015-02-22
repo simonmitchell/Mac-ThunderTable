@@ -23,15 +23,15 @@
 
 @property(nonatomic) BOOL alwaysStretches; // @synthesize alwaysStretches=_alwaysStretches;
 - (void)cxx_destruct;
-- (struct CGRect)_contentRectInPixels;
-- (BOOL)_isTiledWhenStretchedToSize:(struct CGSize)arg1;
-- (struct CGRect)_contentStretchInPixels;
-- (struct CGSize)_sizeInPixels;
-- (struct CGRect)_contentInsetsInPixels:(struct NSEdgeInsets)arg1 emptySizeFallback:(CDUnknownBlockType)arg2;
-- (void)drawInRect:(struct CGRect)arg1 fromRect:(struct CGRect)arg2 operation:(unsigned long long)arg3 fraction:(double)arg4 respectFlipped:(BOOL)arg5 hints:(id)arg6;
-- (void)drawInRect:(struct CGRect)arg1 fromRect:(struct CGRect)arg2 operation:(unsigned long long)arg3 fraction:(double)arg4;
+- (CGRect)_contentRectInPixels;
+- (BOOL)_isTiledWhenStretchedToSize:(CGSize)arg1;
+- (CGRect)_contentStretchInPixels;
+- (CGSize)_sizeInPixels;
+- (CGRect)_contentInsetsInPixels:(NSEdgeInsets)arg1 emptySizeFallback:(CDUnknownBlockType)arg2;
+- (void)drawInRect:(CGRect)arg1 fromRect:(CGRect)arg2 operation:(unsigned long long)arg3 fraction:(double)arg4 respectFlipped:(BOOL)arg5 hints:(id)arg6;
+- (void)drawInRect:(CGRect)arg1 fromRect:(CGRect)arg2 operation:(unsigned long long)arg3 fraction:(double)arg4;
 - (void)_setupNinePartFromImage:(id)arg1;
-- (id)initWithImage:(id)arg1 capInsets:(struct NSEdgeInsets)arg2;
+- (id)initWithImage:(id)arg1 capInsets:(NSEdgeInsets)arg2;
 
 @end
 

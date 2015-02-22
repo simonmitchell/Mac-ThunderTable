@@ -12,18 +12,18 @@
 {
     NSMutableArray *_items;
     NSMutableArray *_rows;
-    struct NSEdgeInsets _sectionMagins;
+    NSEdgeInsets _sectionMagins;
     double _verticalInterstice;
     double _horizontalInterstice;
-    struct CGRect _headerFrame;
-    struct CGRect _footerFrame;
+    CGRect _headerFrame;
+    CGRect _footerFrame;
     double _headerDimension;
     double _footerDimension;
     BOOL _isValid;
-    struct CGRect _frame;
+    CGRect _frame;
     NSDictionary *_rowAlignmentOptions;
     BOOL _fixedItemSize;
-    struct CGSize _itemSize;
+    CGSize _itemSize;
     double _otherMargin;
     double _beginMargin;
     double _endMargin;
@@ -36,10 +36,10 @@
     long long _itemsByRowCount;
     long long _indexOfImcompleteRow;
     _UXFlowLayoutInfo *_layoutInfo;
-    struct NSEdgeInsets _sectionMargins;
+    NSEdgeInsets _sectionMargins;
 }
 
-@property(nonatomic) struct CGSize itemSize; // @synthesize itemSize=_itemSize;
+@property(nonatomic) CGSize itemSize; // @synthesize itemSize=_itemSize;
 @property(readonly, nonatomic) long long itemsByRowCount; // @synthesize itemsByRowCount=_itemsByRowCount;
 @property(nonatomic) long long itemsCount; // @synthesize itemsCount=_itemsCount;
 @property(readonly, nonatomic) long long indexOfImcompleteRow; // @synthesize indexOfImcompleteRow=_indexOfImcompleteRow;
@@ -53,13 +53,13 @@
 @property(readonly, nonatomic) double otherMargin; // @synthesize otherMargin=_otherMargin;
 @property(nonatomic) BOOL fixedItemSize; // @synthesize fixedItemSize=_fixedItemSize;
 @property(retain, nonatomic) NSDictionary *rowAlignmentOptions; // @synthesize rowAlignmentOptions=_rowAlignmentOptions;
-@property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
+@property(nonatomic) CGRect frame; // @synthesize frame=_frame;
 @property(nonatomic) _UXFlowLayoutInfo *layoutInfo; // @synthesize layoutInfo=_layoutInfo;
-@property(nonatomic) struct CGRect footerFrame; // @synthesize footerFrame=_footerFrame;
-@property(nonatomic) struct CGRect headerFrame; // @synthesize headerFrame=_headerFrame;
+@property(nonatomic) CGRect footerFrame; // @synthesize footerFrame=_footerFrame;
+@property(nonatomic) CGRect headerFrame; // @synthesize headerFrame=_headerFrame;
 @property(nonatomic) double footerDimension; // @synthesize footerDimension=_footerDimension;
 @property(nonatomic) double headerDimension; // @synthesize headerDimension=_headerDimension;
-@property(nonatomic) struct NSEdgeInsets sectionMargins; // @synthesize sectionMargins=_sectionMargins;
+@property(nonatomic) NSEdgeInsets sectionMargins; // @synthesize sectionMargins=_sectionMargins;
 @property(nonatomic) double horizontalInterstice; // @synthesize horizontalInterstice=_horizontalInterstice;
 @property(nonatomic) double verticalInterstice; // @synthesize verticalInterstice=_verticalInterstice;
 @property(readonly, nonatomic) NSMutableArray *rows; // @synthesize rows=_rows;

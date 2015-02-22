@@ -9,6 +9,8 @@
 @class _UXSourceSplitView;
 
 @protocol _UXSourceSplitViewDelegate <NSObject>
-- (void)sourceSplitView:(_UXSourceSplitView *)arg1 didResizeMasterWidth:(double)arg2;
+
+- (void)sourceSplitView:(_UXSourceSplitView *)view didResizeMasterWidth:(double)width;
+
 @end
 

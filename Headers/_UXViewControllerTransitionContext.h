@@ -68,8 +68,8 @@
 - (BOOL)_transitionIsCompleting;
 @property(nonatomic) BOOL transitionIsInFlight;
 - (BOOL)transitionWasCancelled;
-- (struct CGRect)finalFrameForViewController:(id)arg1;
-- (struct CGRect)initialFrameForViewController:(id)arg1;
+- (CGRect)finalFrameForViewController:(id)arg1;
+- (CGRect)initialFrameForViewController:(id)arg1;
 - (id)viewControllerForKey:(id)arg1;
 - (void)completeTransition:(BOOL)arg1;
 - (void)cancelInteractiveTransition;

@@ -11,8 +11,8 @@
 @interface _UXFlowLayoutRow : NSObject
 {
     NSMutableArray *_items;
-    struct CGSize _rowSize;
-    struct CGRect _rowFrame;
+    CGSize _rowSize;
+    CGRect _rowFrame;
     long long _index;
     BOOL _isValid;
     BOOL _complete;
@@ -26,8 +26,8 @@
 @property(nonatomic) BOOL complete; // @synthesize complete=_complete;
 @property(readonly, nonatomic) NSMutableArray *items; // @synthesize items=_items;
 @property(nonatomic) long long index; // @synthesize index=_index;
-@property(nonatomic) struct CGRect rowFrame; // @synthesize rowFrame=_rowFrame;
-@property(nonatomic) struct CGSize rowSize; // @synthesize rowSize=_rowSize;
+@property(nonatomic) CGRect rowFrame; // @synthesize rowFrame=_rowFrame;
+@property(nonatomic) CGSize rowSize; // @synthesize rowSize=_rowSize;
 @property(nonatomic) _UXFlowLayoutSection *section; // @synthesize section=_section;
 - (id)copyFromSection:(id)arg1;
 - (id)snapshot;

@@ -18,15 +18,15 @@
 - (void)cxx_destruct;
 - (BOOL)accessibilityPerformPress;
 - (id)accessibilityLabel;
-- (id)_textColorForState:(unsigned long long)arg1;
-- (id)_AttributedStringForState:(unsigned long long)arg1;
-- (void)setTitle:(id)arg1;
-- (void)mouseUp:(id)arg1;
-- (void)viewWillMoveToSuperview:(id)arg1;
+- (id)_textColorForState:(unsigned long long)state;
+- (id)_AttributedStringForState:(unsigned long long)state;
+- (void)setTitle:(NSString *)title;
+- (void)mouseUp:(id)up;
+- (void)viewWillMoveToSuperview:(UXView *)superView;
 - (void)tintColorDidChange;
-- (void)setTitleAttributes:(id)arg1 forState:(unsigned long long)arg2;
-- (void)setTitle:(id)arg1 forState:(unsigned long long)arg2;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (void)setTitleAttributes:(NSDictionary *)attributes forState:(unsigned long long)arg2;
+- (void)setTitle:(NSString *)title forState:(unsigned long long)arg2;
+- (id)initWithFrame:(CGRect)frame;
 
 @end
 

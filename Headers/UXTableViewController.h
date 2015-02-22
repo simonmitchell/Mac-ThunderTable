@@ -13,8 +13,12 @@
     id <UXTableViewDelegate> _tableViewDelegate;
 }
 
+typedef NS_ENUM(NSUInteger, UXTableViewStyle) {
+    UXTableViewStylePlain = 0,
+    UXTableViewStyleGrouped = 1
+};
+
 + (Class)collectionViewClass;
-@property(readonly, nonatomic) id <UXTableViewDelegate> tableViewDelegate; // @synthesize tableViewDelegate=_tableViewDelegate;
 - (void)cxx_destruct;
 - (void)_updateContentInsetFromLayoutGuides;
 - (id)preferredFirstResponder;
@@ -23,10 +27,12 @@
 - (void)viewDidLoad;
 - (void)didUpdateLayoutGuides;
 - (void)viewDidLayoutSubviews;
-@property(readonly, nonatomic) UXTableView *tableView;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
-- (id)initWithStyle:(long long)style;
+- (id)initWithStyle:(UXTableViewStyle)style;
+
+@property(readonly, nonatomic) id <UXTableViewDelegate> tableViewDelegate; // @synthesize tableViewDelegate=_tableViewDelegate;
+@property(readonly, nonatomic) UXTableView *tableView;
 
 @end
 

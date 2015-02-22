@@ -13,13 +13,17 @@
 
 @class UXTableView;
 @class UXTableViewCell;
+@class UXNavigationBar;
+@class _UXTableHeaderView;
+@class UXCollectionReusableView;
+
 
 @protocol UXNavigationBarDelegate <UXBarPositioningDelegate>
 @optional
--(BOOL)navigationBar:(id)arg1 shouldPushItem:(id)arg2;
--(void)navigationBar:(id)arg1 didPushItem:(id)arg2;
--(BOOL)navigationBar:(id)arg1 shouldPopItem:(id)arg2;
--(void)navigationBar:(id)arg1 didPopItem:(id)arg2;
+-(BOOL)navigationBar:(UXNavigationBar *)navigationBar shouldPushItem:(id)arg2;
+-(void)navigationBar:(UXNavigationBar *)navigationBar didPushItem:(id)arg2;
+-(BOOL)navigationBar:(UXNavigationBar *)navigationBar shouldPopItem:(id)arg2;
+-(void)navigationBar:(UXNavigationBar *)navigationBar didPopItem:(id)arg2;
 @end
 
 @protocol UXTableViewDataSource <NSObject>
@@ -54,8 +58,8 @@
 -(double)tableView:(UXTableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath;
 -(double)tableView:(UXTableView *)tableView estimatedHeightForHeaderInSection:(long long)section;
 -(double)tableView:(UXTableView *)tableView estimatedHeightForFooterInSection:(long long)section;
--(id)tableView:(UXTableView *)tableView viewForHeaderInSection:(long long)section;
--(id)tableView:(UXTableView *)tableView viewForFooterInSection:(long long)section;
+-(_UXTableHeaderView *)tableView:(UXTableView *)tableView viewForHeaderInSection:(long long)section;
+-(UXCollectionReusableView *)tableView:(UXTableView *)tableView viewForFooterInSection:(long long)section;
 -(long long)tableView:(UXTableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath;
 -(void)tableView:(UXTableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath;
 -(BOOL)tableView:(UXTableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath;

@@ -12,7 +12,7 @@
 }
 
 @property(nonatomic) BOOL overdrawEnabled; // @synthesize overdrawEnabled=_overdrawEnabled;
-- (void)prepareContentInRect:(struct CGRect)arg1;
+- (void)prepareContentInRect:(CGRect)rect;
 
 @end
 
