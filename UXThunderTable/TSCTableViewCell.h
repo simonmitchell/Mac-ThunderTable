@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 madebyphill.co.uk. All rights reserved.
 //
 
+#import "UXKit.h"
+
 @interface TSCTableViewCell : UXTableViewCell
 
 @property (nonatomic, weak) UXViewController *parentViewController;
