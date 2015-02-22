@@ -61,7 +61,7 @@
 - (void)validateLayoutInRect:(CGRect)arg1;
 - (void)_loadEverything;
 - (void)_setLayoutAttributes:(id)arg1 atGlobalItemIndex:(long long)arg2;
-- (id)_screenPageForPoint:(struct CGPoint)arg1;
+- (id)_screenPageForPoint:(CGPoint)arg1;
 - (void)_setupMutableIndexPath:(id *)arg1 forGlobalItemIndex:(long long)arg2;
 - (void)_prepareToLoadData;
 - (void)_validateContentSize;

@@ -45,9 +45,9 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) long long preferredStyle; // @synthesize preferredStyle=_preferredStyle;
 - (void)cxx_destruct;
-- (void)_setupDelegateForNavigationController:(UXNavigationController *)navigationController operation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
-- (BOOL)navigationController:(UXNavigationController *)navigationController shouldBeginInteractivePopFromViewController:(id)arg2 toViewController:(id)arg3;
-- (id)navigationController:(UXNavigationController *)navigationController animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
+- (void)_setupDelegateForNavigationController:(UXNavigationController *)navigationController operation:(long long)arg2 fromViewController:(UXViewController *)fromVC toViewController:(UXViewController *)toVC;
+- (BOOL)navigationController:(UXNavigationController *)navigationController shouldBeginInteractivePopFromViewController:(UXViewController *)fromVC toViewController:(UXViewController *)toVC;
+- (id)navigationController:(UXNavigationController *)navigationController animationControllerForOperation:(long long)arg2 fromViewController:(UXViewController *)fromVC toViewController:(UXViewController *)toVC;
 - (id)navigationController:(UXNavigationController *)navigationController interactionControllerForAnimationController:(id)arg2;
 - (void)navigationController:(UXNavigationController *)navigationController didShowViewController:(id)arg2;
 - (void)navigationController:(UXNavigationController *)navigationController willShowViewController:(id)arg2;
@@ -56,12 +56,12 @@
 - (void)_beginTransitionWithContext:(id)arg1 operation:(long long)arg2;
 - (void)_prepareViewController:(id)arg1 forAnimationInContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)transitionCoordinator;
-- (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)presentViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)removeDestination:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_removeDestination:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_navigateToDestination:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)navigateToDestination:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)dismissViewControllerAnimated:(BOOL)animated completion:(CDUnknownBlockType)arg2;
+- (void)presentViewController:(UXViewController *)vc animated:(BOOL)animated completion:(CDUnknownBlockType)arg3;
+- (void)removeDestination:(id)arg1 animated:(BOOL)animated completion:(CDUnknownBlockType)arg3;
+- (void)_removeDestination:(id)arg1 animated:(BOOL)animated completion:(CDUnknownBlockType)arg3;
+- (void)_navigateToDestination:(id)arg1 animated:(BOOL)animated completion:(CDUnknownBlockType)arg3;
+- (void)navigateToDestination:(id)arg1 animated:(BOOL)animated completion:(CDUnknownBlockType)arg3;
 - (id)preferredFirstResponder;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
@@ -102,7 +102,7 @@
 - (void)insertRootViewController:(id)arg1 atIndex:(long long)arg2;
 - (void)addRootViewController:(id)arg1;
 - (void)dealloc;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

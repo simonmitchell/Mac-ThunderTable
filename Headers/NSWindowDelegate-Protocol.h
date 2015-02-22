@@ -53,7 +53,7 @@
 - (NSArray *)customWindowsToEnterFullScreenForWindow:(NSWindow *)arg1;
 - (unsigned long long)window:(NSWindow *)arg1 willUseFullScreenPresentationOptions:(unsigned long long)arg2;
 - (CGSize)window:(NSWindow *)arg1 willUseFullScreenContentSize:(CGSize)arg2;
-- (BOOL)window:(NSWindow *)arg1 shouldDragDocumentWithEvent:(NSEvent *)arg2 from:(struct CGPoint)arg3 withPasteboard:(NSPasteboard *)arg4;
+- (BOOL)window:(NSWindow *)arg1 shouldDragDocumentWithEvent:(NSEvent *)arg2 from:(CGPoint)arg3 withPasteboard:(NSPasteboard *)arg4;
 - (BOOL)window:(NSWindow *)arg1 shouldPopUpDocumentPathMenu:(NSMenu *)arg2;
 - (CGRect)window:(NSWindow *)arg1 willPositionSheet:(NSWindow *)arg2 usingRect:(CGRect)arg3;
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)arg1;

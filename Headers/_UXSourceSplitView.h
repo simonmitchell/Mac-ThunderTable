@@ -43,14 +43,14 @@
 - (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)resetCursorRects;
-- (id)hitTest:(struct CGPoint)arg1;
+- (id)hitTest:(CGPoint)point;
 - (void)_endSeparatorLiveResize;
 - (void)_startSeparatorLiveResize;
 - (void)_resizeToWidth:(double)arg1;
 @property(readonly, nonatomic) NSCursor *separatorCursor;
 - (void)setCollapsed:(BOOL)collapsed animated:(BOOL)animated completion:(CDUnknownBlockType)completion;
 @property(nonatomic) double masterWidth;
-- (id)initWithFrame:(CGRect)arg1;
+- (id)initWithFrame:(CGRect)frame;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

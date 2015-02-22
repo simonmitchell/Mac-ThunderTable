@@ -30,7 +30,7 @@
 - (CGRect)accessibilityFrame;
 - (id)accessibilitySubrole;
 - (id)accessibilityRole;
-- (id)accessibilityHitTest:(struct CGPoint)arg1;
+- (id)accessibilityHitTest:(CGPoint)arg1;
 - (long long)compare:(id)arg1;
 - (id)_siblingInDirection:(unsigned long long)arg1 item:(id)arg2;
 - (id)siblingBelowItem:(id)arg1;

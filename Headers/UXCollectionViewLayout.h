@@ -53,8 +53,8 @@
 - (NSEdgeInsets)insetsForScrollingItemAtIndexPath:(NSIndexPath *)indexPath toScrollPosition:(unsigned long long)arg2;
 - (CGRect)backingAlignedRect:(CGRect)arg1 options:(unsigned long long)arg2;
 - (long long)userInterfaceLayoutDirection;
-- (struct CGPoint)updatesContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
-- (struct CGPoint)transitionContentOffsetForProposedContentOffset:(struct CGPoint)arg1 keyItemIndexPath:(NSIndexPath *)indexPath;
+- (CGPoint)updatesContentOffsetForProposedContentOffset:(CGPoint)arg1;
+- (CGPoint)transitionContentOffsetForProposedContentOffset:(CGPoint)arg1 keyItemIndexPath:(NSIndexPath *)indexPath;
 - (void)_didFinishLayoutTransitionAnimations:(BOOL)arg1;
 - (void)finalizeLayoutTransition;
 - (void)prepareForTransitionFromLayout:(id)arg1;
@@ -71,8 +71,8 @@
 - (CGSize)collectionViewContentSize;
 - (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2;
 - (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2 type:(unsigned long long)arg3;
-- (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
-- (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1 withScrollingVelocity:(struct CGPoint)arg2;
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)arg1;
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)arg1 withScrollingVelocity:(CGPoint)arg2;
 - (id)invalidationContextForBoundsChange:(CGRect)arg1;
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)arg1;
 - (BOOL)shouldInvalidateLayoutForScaleFactorChangeFrom:(double)arg1 to:(double)arg2;
@@ -106,15 +106,15 @@
 - (id)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
 - (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)indexPath;
 - (id)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)indexPath;
-- (void)_prepareToAnimateFromCollectionViewItems:(id)arg1 atContentOffset:(struct CGPoint)arg2 toItems:(id)arg3 atContentOffset:(struct CGPoint)arg4;
+- (void)_prepareToAnimateFromCollectionViewItems:(id)arg1 atContentOffset:(CGPoint)arg2 toItems:(id)arg3 atContentOffset:(CGPoint)arg4;
 - (void)finalizeAnimatedBoundsChange;
 - (void)prepareForAnimatedBoundsChange:(CGRect)arg1;
 - (void)_setCollectionViewBoundsSize:(CGSize)arg1;
 - (void)_setCollectionView:(id)arg1;
-- (id)proposedDropIndexPathForDraggingPoint:(struct CGPoint)arg1;
+- (id)proposedDropIndexPathForDraggingPoint:(CGPoint)arg1;
 - (id)layoutAttributesForElementsInRect:(CGRect)arg1 withIndexPaths:(id)arg2 exchangedWithIndexPaths:(id)arg3;
-- (id)layoutAttributesForElementsInRect:(CGRect)arg1 withIndexPaths:(id)arg2 movedToIndexPath:(NSIndexPath *)indexPath atPoint:(struct CGPoint)arg4;
-- (long long)dropPositionForPoint:(struct CGPoint)arg1 withIndexPaths:(id)arg2 movedToIndexPath:(NSIndexPath *)indexPath;
+- (id)layoutAttributesForElementsInRect:(CGRect)arg1 withIndexPaths:(id)arg2 movedToIndexPath:(NSIndexPath *)indexPath atPoint:(CGPoint)arg4;
+- (long long)dropPositionForPoint:(CGPoint)arg1 withIndexPaths:(id)arg2 movedToIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

@@ -42,7 +42,7 @@
 - (void)_updateItemsViews:(id)arg1 withNewViews:(id)arg2;
 - (void)setTitleCenteringTrackedView:(id)arg1 updateConstraints:(BOOL)arg2;
 - (void)updateConstraints;
-- (id)hitTest:(struct CGPoint)arg1;
+- (id)hitTest:(CGPoint)arg1;
 - (void)viewDidMoveToWindow;
 - (void)viewWillMoveToWindow:(id)arg1;
 - (id)subviewsIntersectedWithViews:(id)arg1;

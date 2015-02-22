@@ -77,13 +77,13 @@
 - (void)awakeFromNib;
 @property(readonly, nonatomic) NSResponder *preferredFirstResponder;
 @property(copy) NSString *title;
-- (void)setView:(id)arg1;
+- (void)setView:(UXView *)view;
 @property(readonly, nonatomic) UXView *uxView;
 - (void)_loadViewIfNotLoaded;
 - (void)_setupResponderChainIfNecessary;
 - (void)_prepareForAnimationInContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 - (id)init;
 @property(nonatomic) BOOL hidesBottomBarWhenPushed;
 - (long long)preferredToolbarPosition;

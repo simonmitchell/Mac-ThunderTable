@@ -25,7 +25,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)segmentChanged:(id)arg1;
 - (void)dealloc;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 
 @end
 

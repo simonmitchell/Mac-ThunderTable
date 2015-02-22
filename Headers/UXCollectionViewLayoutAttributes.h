@@ -16,7 +16,7 @@
     NSString *_elementKind;
     NSString *_reuseIdentifier;
     CGRect _frame;
-    struct CGPoint _center;
+    CGPoint _center;
     CGSize _size;
     double _alpha;
     long long _zIndex;
@@ -44,7 +44,7 @@
 @property(nonatomic) long long zIndex; // @synthesize zIndex=_zIndex;
 @property(nonatomic) double alpha; // @synthesize alpha=_alpha;
 @property(nonatomic) CGSize size; // @synthesize size=_size;
-@property(nonatomic) struct CGPoint center; // @synthesize center=_center;
+@property(nonatomic) CGPoint center; // @synthesize center=_center;
 @property(readonly, nonatomic) NSString *representedElementKind; // @synthesize representedElementKind=_representedElementKind;
 @property(readonly, nonatomic) unsigned long long representedElementCategory;
 - (BOOL)_isSupplementaryView;

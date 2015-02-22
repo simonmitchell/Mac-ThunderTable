@@ -63,7 +63,7 @@
 - (id)indexPathOfItemBefore:(id)arg1;
 - (id)indexPathOfItemAbove:(id)arg1;
 - (id)indexPathOfItemBelow:(id)arg1;
-- (id)indexPathForItemAtPoint:(struct CGPoint)arg1;
+- (id)indexPathForItemAtPoint:(CGPoint)arg1;
 - (id)indexesForSectionFootersInRect:(CGRect)arg1;
 - (id)indexesForSectionHeadersInRect:(CGRect)arg1;
 - (id)indexPathsForItemsInRect:(CGRect)arg1 usingData:(id)arg2;

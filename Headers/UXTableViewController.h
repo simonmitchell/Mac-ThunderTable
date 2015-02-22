@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, UXTableViewStyle) {
 - (void)viewDidLoad;
 - (void)didUpdateLayoutGuides;
 - (void)viewDidLayoutSubviews;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 - (id)init;
 - (id)initWithStyle:(UXTableViewStyle)style;
 

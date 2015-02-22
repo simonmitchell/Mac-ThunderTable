@@ -38,7 +38,7 @@
     UXCollectionViewUpdate *_currentUpdate;
     CGRect _visibleBounds;
     CGRect _previousBounds;
-    struct CGPoint _resizeBoundsOffset;
+    CGPoint _resizeBoundsOffset;
     long long _resizeAnimationCount;
     long long _updateCount;
     NSMutableArray *_insertItems;
@@ -62,7 +62,7 @@
     BOOL _rightMouseSimulated;
     CGSize _minReusedViewSize;
     BOOL _doneFirstLayout;
-    struct CGPoint _lastContentOffset;
+    CGPoint _lastContentOffset;
     CGSize _contentSize;
     long long _layoutTransitionAnimationCount;
     BOOL _scrolling;
@@ -70,15 +70,15 @@
     BOOL _involvesScrollWheel;
     BOOL _decelerating;
     BOOL _canDetectDeceleration;
-    struct CGPoint _lastScrollingDistance;
+    CGPoint _lastScrollingDistance;
     float _scrollingVelocity;
     double _lastScrollingTime;
     CGRect _lastPreparedOverdrawContentRect;
-    struct CGPoint _normalizedSavedScrollViewPosition;
+    CGPoint _normalizedSavedScrollViewPosition;
     BOOL _isPaintingSelectionRunning;
     BOOL _paintingSelectionType;
     CALayer *_lassoSelectionLayer;
-    struct CGPoint _lassoSelectionStartPoint;
+    CGPoint _lassoSelectionStartPoint;
     UXCollectionViewIndexPathsSet *_lassoInitiallySelectedItems;
     BOOL _lassoInvertsSelection;
     UXCollectionViewIndexPathsSet *_keyboardRangeSelectionPreviouslySelectedItems;
@@ -128,7 +128,7 @@
         unsigned int accessibilityDelegateAXRoleDescription:1;
         unsigned int viewIsPrepared:1;
     } _collectionViewFlags;
-    struct CGPoint _lastLayoutOffset;
+    CGPoint _lastLayoutOffset;
 }
 
 + (id)_reuseKeyForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier;
@@ -143,7 +143,7 @@
 @property(retain, nonatomic) UXCollectionViewLayout *collectionViewLayout; // @synthesize collectionViewLayout=_layout;
 - (BOOL)lassoInvertsSelection;
 - (void)setLassoInvertsSelection:(BOOL)arg1;
-- (id)accessibilityHitTest:(struct CGPoint)arg1;
+- (id)accessibilityHitTest:(CGPoint)arg1;
 - (BOOL)accessibilityPerformPressWithItemAtIndexPath:(NSIndexPath *)indexPath;
 - (id)accessibilityChildren;
 - (id)accessibilityContentSiblingCellFromIndexPath:(NSIndexPath *)indexPath direction:(id)arg2;
@@ -194,7 +194,7 @@
 - (void)scrollRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 withInsets:(NSEdgeInsets)arg3 animated:(BOOL)arg4;
 - (void)scrollToItemAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(unsigned long long)arg2 animated:(BOOL)arg3;
 - (void)_scrollRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 withInsets:(NSEdgeInsets)arg3 animated:(BOOL)arg4;
-- (struct CGPoint)_scrollAmountForMovingRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 inDestinationRect:(CGRect)arg3;
+- (CGPoint)_scrollAmountForMovingRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 inDestinationRect:(CGRect)arg3;
 - (id)nextIndexPath:(NSIndexPath *)indexPath;
 - (id)previousIndexPath:(NSIndexPath *)indexPath;
 - (id)contentSupplementaryViews;
@@ -216,9 +216,9 @@
 - (id)indexPathForSupplementaryView:(id)arg1;
 - (id)indexPathForCell:(id)arg1;
 - (id)_indexPathForView:(id)arg1 ofType:(unsigned long long)arg2;
-- (id)indexPathForSupplementaryElementOfKind:(id)arg1 atPoint:(struct CGPoint)arg2;
+- (id)indexPathForSupplementaryElementOfKind:(id)arg1 atPoint:(CGPoint)arg2;
 - (id)indexPathForSupplementaryElementOfKind:(id)arg1 hitByEvent:(id)arg2;
-- (id)indexPathForItemAtPoint:(struct CGPoint)arg1;
+- (id)indexPathForItemAtPoint:(CGPoint)arg1;
 - (id)indexPathForItemHitByEvent:(id)arg1;
 - (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
 - (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -258,13 +258,13 @@
 - (void)_didEndScrolling:(id)arg1;
 - (void)_willStartScrolling:(id)arg1;
 - (void)scrollWheel:(id)arg1;
-- (void)setContentOffset:(struct CGPoint)arg1 animated:(BOOL)arg2;
-- (void)setContentOffset:(struct CGPoint)arg1;
+- (void)setContentOffset:(CGPoint)arg1 animated:(BOOL)arg2;
+- (void)setContentOffset:(CGPoint)arg1;
 @property(nonatomic) CGSize contentSize;
 - (void)setDocumentBounds:(CGRect)arg1;
 - (CGRect)documentBounds;
 - (CGSize)documentSize;
-- (struct CGPoint)contentOffset;
+- (CGPoint)contentOffset;
 - (BOOL)wantsUpdateLayer;
 - (BOOL)isOpaque;
 - (void)viewWillMoveToSuperview:(id)arg1;
@@ -277,15 +277,15 @@
 - (void)_updateVisibleCellsNow:(BOOL)arg1;
 - (id)_createPreparedSupplementaryViewForElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath withLayoutAttributes:(id)arg3 applyAttributes:(BOOL)arg4;
 - (id)_createPreparedCellForItemAtIndexPath:(NSIndexPath *)indexPath withLayoutAttributes:(id)arg2 applyAttributes:(BOOL)arg3;
-- (struct CGPoint)layoutPointForCollectionViewPoint:(struct CGPoint)arg1;
-- (struct CGPoint)collectionViewPointForLayoutPoint:(struct CGPoint)arg1;
+- (CGPoint)layoutPointForCollectionViewPoint:(CGPoint)arg1;
+- (CGPoint)collectionViewPointForLayoutPoint:(CGPoint)arg1;
 - (void)setScrollerStyle:(long long)arg1;
 - (void)_setVisibleBounds:(CGRect)arg1;
 - (CGRect)_visibleBounds;
 - (void)setContentInsets:(NSEdgeInsets)arg1;
 - (void)setFrame:(CGRect)arg1;
 - (void)setBounds:(CGRect)arg1;
-- (struct CGPoint)_contentOffsetForNewFrame:(CGRect)arg1 oldFrame:(CGRect)arg2 newContentSize:(CGSize)arg3 andOldContentSize:(CGSize)arg4;
+- (CGPoint)_contentOffsetForNewFrame:(CGRect)arg1 oldFrame:(CGRect)arg2 newContentSize:(CGSize)arg3 andOldContentSize:(CGSize)arg4;
 - (BOOL)isBusy;
 - (void)_invalidateLayoutWithContext:(id)arg1;
 - (void)_invalidateLayoutIfNecessary;
@@ -345,9 +345,9 @@
 - (void)draggingExited:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
 - (unsigned long long)draggingEntered:(id)arg1;
-- (void)draggingSession:(id)arg1 endedAtPoint:(struct CGPoint)arg2 operation:(unsigned long long)arg3;
-- (void)draggingSession:(id)arg1 movedToPoint:(struct CGPoint)arg2;
-- (void)draggingSession:(id)arg1 willBeginAtPoint:(struct CGPoint)arg2;
+- (void)draggingSession:(id)arg1 endedAtPoint:(CGPoint)arg2 operation:(unsigned long long)arg3;
+- (void)draggingSession:(id)arg1 movedToPoint:(CGPoint)arg2;
+- (void)draggingSession:(id)arg1 willBeginAtPoint:(CGPoint)arg2;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
 - (void)rearrangingCoordinatorReloadLayout_;
 @property(readonly, nonatomic) BOOL isRearranging_;

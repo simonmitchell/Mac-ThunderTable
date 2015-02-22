@@ -41,7 +41,7 @@
 - (id)accessibilitySubrole;
 - (id)accessibilityRole;
 - (id)accessibilityParent;
-- (id)accessibilityHitTest:(struct CGPoint)arg1;
+- (id)accessibilityHitTest:(CGPoint)arg1;
 - (id)nextSectionForSection:(id)arg1;
 - (id)previousSectionForSection:(id)arg1;
 - (id)accessibilityParentForCell:(id)arg1;
