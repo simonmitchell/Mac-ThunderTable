@@ -8,7 +8,7 @@
 
 #import "UXAccessoryBarContainerProtocol.h"
 
-@class NSString, NSTitlebarAccessoryViewController, NSToolbarItem, UXToolbar, UXViewController;
+@class NSString, NSTitlebarAccessoryViewController, NSToolbarItem, UXToolbar, UXViewController, _UXWindow, UXNavigationController;
 
 @interface UXWindowController : NSWindowController <NSToolbarDelegate, UXAccessoryBarContainer, NSWindowDelegate>
 {
@@ -19,33 +19,39 @@
 
 + (id)defaultWindow;
 @property __weak NSToolbarItem *navigationBarToolbarItem; // @synthesize navigationBarToolbarItem=_navigationBarToolbarItem;
+
 - (void)cxx_destruct;
 - (void)windowDidBecomeFirstResponder:(id)arg1;
+
 - (void)windowDidRecalculateKeyViewLoop:(id)arg1;
 - (void)windowWillRecalculateKeyViewLoop:(id)arg1;
+
 - (void)windowWillExitFullScreen:(id)arg1;
 - (void)windowWillEnterFullScreen:(id)arg1;
-- (CGRect)window:(id)arg1 willPositionSheet:(id)arg2 usingRect:(CGRect)arg3;
+
+- (CGRect)window:(_UXWindow *)arg1 willPositionSheet:(id)arg2 usingRect:(CGRect)arg3;
 - (void)_updateAccessoryBar;
 - (void)_updateToolbarItem;
 - (void)_popoverWillShow:(id)arg1;
 - (void)_setupAccessoryBar;
 - (void)_setupNavigationBarToolbarItem;
-- (void)_setAccessoryBarHidden:(BOOL)arg1;
+- (void)_setAccessoryBarHidden:(BOOL)hidden;
+
 @property(readonly, nonatomic) double _accessoryBarHeight;
+
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
-- (id)toolbarDefaultItemIdentifiers:(id)arg1;
-- (id)toolbarAllowedItemIdentifiers:(id)arg1;
-- (void)setWindow:(id)arg1;
-- (id)rootNavigationController;
+- (id)toolbarDefaultItemIdentifiers:(id)identifiers;
+- (id)toolbarAllowedItemIdentifiers:(id)identifiers;
+- (void)setWindow:(_UXWindow *)window;
+- (UXNavigationController *)rootNavigationController;
 @property(retain, nonatomic) UXViewController *rootViewController;
 @property(readonly, nonatomic) NSTitlebarAccessoryViewController *titlebarAccessoryViewController;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)_tearDownViewControllerHierarchyForViewController:(id)arg1;
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
+- (void)_tearDownViewControllerHierarchyForViewController:(UXViewController *)arg1;
 - (void)teardownViewControllerHierarchy;
 - (void)dealloc;
-- (id)initWithWindow:(id)arg1;
-- (id)initWithRootViewController:(id)arg1;
+- (id)initWithWindow:(_UXWindow *)window;
+- (id)initWithRootViewController:(UXViewController *)vc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
