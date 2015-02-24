@@ -17,4 +17,6 @@
 @property (nonatomic, assign) BOOL shouldDisplaySeparators;
 @property (nonatomic, strong) UXImageView *imageView;
 
+- (void)setupViews;
+
 @end
