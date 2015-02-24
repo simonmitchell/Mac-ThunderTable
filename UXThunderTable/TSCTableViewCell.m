@@ -15,25 +15,35 @@
 {
     if (self = [super initWithStyle:UXTableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
         
-        self.textLabel.numberOfLines = 0;
-        self.textLabel.backgroundColor = [NSColor clearColor];
-        
-        self.detailTextLabel.numberOfLines = 0;
-        self.detailTextLabel.font = [NSFont systemFontOfSize:14];
-        self.detailTextLabel.textColor = [NSColor grayColor];
-        
-        self.separatorTopView = [NSView new];
-        self.separatorTopView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
-        [self.contentView addSubview:self.separatorTopView];
-        
-        self.separatorBottomView = [NSView new];
-        self.separatorBottomView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
-        [self.contentView addSubview:self.separatorBottomView];
-        
-//        [self.contentView.superview setClipsToBounds:NO];
+        [self setupViews];
     }
-    
     return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        
+        [self setupViews];
+    }
+    return self;
+}
+
+- (void)setupViews
+{
+    self.textLabel.numberOfLines = 0;
+    self.textLabel.backgroundColor = [NSColor clearColor];
+    
+    self.detailTextLabel.numberOfLines = 0;
+    self.detailTextLabel.textColor = [NSColor grayColor];
+    
+    self.separatorTopView = [NSView new];
+    self.separatorTopView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
+    [self.contentView addSubview:self.separatorTopView];
+    
+    self.separatorBottomView = [NSView new];
+    self.separatorBottomView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
+    [self.contentView addSubview:self.separatorBottomView];
 }
 
 - (void)layoutSubviews

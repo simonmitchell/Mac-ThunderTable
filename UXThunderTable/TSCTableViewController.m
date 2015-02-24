@@ -209,7 +209,6 @@
 - (Class)TSC_tableViewCellClassForIndexPath:(NSIndexPath *)indexPath
 {
     NSObject <TSCTableSectionDataSource> *section = self.dataSource[indexPath.section];
-    
     NSObject <TSCTableRowDataSource> *row = [section sectionItems][indexPath.row];
     
     Class tableViewCellClass = nil;

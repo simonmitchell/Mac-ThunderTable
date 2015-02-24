@@ -76,7 +76,7 @@ typedef NS_ENUM(NSUInteger, UXTableViewCellStyle) {
 - (void)setSelected:(BOOL)arg1;
 - (void)updateConstraints;
 - (void)viewDidMoveToWindow;
-- (id)initWithFrame:(CGRect)arg1;
+- (id)initWithFrame:(CGRect)frame;
 - (id)initWithStyle:(UXTableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
 @end
