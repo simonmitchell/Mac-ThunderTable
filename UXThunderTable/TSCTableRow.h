@@ -101,7 +101,7 @@
 /**
  @abstract The selection handler for selecting the row
  */
-@property (nonatomic, assign) TSCTableViewSelectionHandler selectionHandler;
+@property (nonatomic, strong) TSCTableViewSelectionHandler selectionHandler;
 
 ///---------------------------------------------------------------------------------------
 /// @name Row configuration

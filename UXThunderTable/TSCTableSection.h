@@ -53,6 +53,6 @@
  @abstract The block of code to run when a cell is selected in this section
  */
 
-@property (nonatomic, assign) TSCTableViewSectionSelectionHandler selectionHandler;
+@property (nonatomic, strong) TSCTableViewSectionSelectionHandler selectionHandler;
 
 @end
