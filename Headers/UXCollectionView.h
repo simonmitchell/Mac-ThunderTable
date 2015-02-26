@@ -212,7 +212,7 @@
 - (unsigned long long)numberOfContentCells;
 - (unsigned long long)numberOfVisibleCells;
 - (id)viewForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UXCollectionViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 - (id)indexPathForSupplementaryView:(id)arg1;
 - (id)indexPathForCell:(id)arg1;
 - (id)_indexPathForView:(id)arg1 ofType:(unsigned long long)arg2;
@@ -222,8 +222,8 @@
 - (id)indexPathForItemHitByEvent:(id)arg1;
 - (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
 - (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (long long)numberOfItemsInSection:(long long)arg1;
-- (long long)numberOfSections;
+- (NSUInteger)numberOfItemsInSection:(NSUInteger)arg1;
+- (NSUInteger)numberOfSections;
 - (void)_prepareCellsForOverdraw:(CGRect)arg1;
 - (void)resetScrollingOverdraw;
 - (CGRect)documentContentRect;

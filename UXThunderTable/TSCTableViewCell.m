@@ -46,9 +46,9 @@
     [self.contentView addSubview:self.separatorBottomView];
 }
 
-- (void)layoutSubviews
+- (void)layout
 {
-    [super layoutSubviews];
+    [super layout];
     
     if ([[NSScreen mainScreen] respondsToSelector:@selector(scale)] == YES && [[NSScreen mainScreen] scale] == 1.00) {
         self.separatorTopView.frame = CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 1);
