@@ -19,7 +19,7 @@
  - `TSCTableSection` for sections
  
  */
-@interface TSCTableViewController : UXTableViewController <UXTableViewDataSource, UXTableViewDelegate>
+@interface TSCTableViewController : UXCollectionViewController <UXCollectionViewDataSource, UXCollectionViewDelegate>
 
 ///---------------------------------------------------------------------------------------
 /// @name Initializing a TSCTableView Object
@@ -59,12 +59,6 @@
 ///---------------------------------------------------------------------------------------
 /// @name Configuring the Table View
 ///---------------------------------------------------------------------------------------
-
-/**
- @abstract The current table view
- @discussion Use this property for accessing information about the underlying table view
- */
-@property (nonatomic, strong) UXTableView *tableView;
 
 /**
  @abstract The current `UITableViewStyle` of the `tableView`

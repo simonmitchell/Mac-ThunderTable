@@ -222,8 +222,8 @@
 - (id)indexPathForItemHitByEvent:(id)arg1;
 - (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
 - (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (NSUInteger)numberOfItemsInSection:(NSUInteger)arg1;
-- (NSUInteger)numberOfSections;
+- (NSInteger)numberOfItemsInSection:(NSInteger)section;
+- (NSInteger)numberOfSections;
 - (void)_prepareCellsForOverdraw:(CGRect)arg1;
 - (void)resetScrollingOverdraw;
 - (CGRect)documentContentRect;
