@@ -9,12 +9,19 @@
 #import "TSCTableViewCell.h"
 #import "TSCThemeManager.h"
 
+static CGFloat sideMargin = 12.0;
+
+@interface TSCTableViewCell ()
+
+@end
+
 @implementation TSCTableViewCell
 
 - (id)initWithStyle:(UXTableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    if (self = [super initWithStyle:UXTableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
+    if (self = [super initWithFrame:CGRectZero]) {
         
+        self.style = style;
         [self setupViews];
     }
     return self;
@@ -31,24 +38,49 @@
 
 - (void)setupViews
 {
-    self.textLabel.numberOfLines = 0;
-    self.textLabel.backgroundColor = [NSColor clearColor];
     
+    self.textLabel = [UXLabel new];
+    self.textLabel.font = [NSFont systemFontOfSize:18];
+    self.textLabel.numberOfLines = 0;
+    self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.textLabel.backgroundColor = [NSColor clearColor];
+    [self.contentView addSubview:self.textLabel];
+    
+    self.detailTextLabel = [UXLabel new];
+    self.detailTextLabel.font = [NSFont systemFontOfSize:16];
+    self.detailTextLabel.numberOfLines = 0;
+    self.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.detailTextLabel.numberOfLines = 0;
     self.detailTextLabel.textColor = [NSColor grayColor];
+    [self.contentView addSubview:self.detailTextLabel];
     
     self.separatorTopView = [NSView new];
     self.separatorTopView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
-    [self.contentView addSubview:self.separatorTopView];
+    [self addSubview:self.separatorTopView];
     
     self.separatorBottomView = [NSView new];
     self.separatorBottomView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
-    [self.contentView addSubview:self.separatorBottomView];
+    [self addSubview:self.separatorBottomView];
 }
 
 - (void)layout
 {
     [super layout];
+    
+    NSLog(@"self.text : %@",self.textLabel.text);
+    NSLog(@"self.detailText : %@",self.detailTextLabel.text);
+    if (self.detailTextLabel.text && ![self.detailTextLabel.text isEqualToString:@""]) {
+        
+        CGSize detailLabelSize = [self.detailTextLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - sideMargin*2, MAXFLOAT)];
+        self.detailTextLabel.frame = CGRectMake(sideMargin, 12, detailLabelSize.width, detailLabelSize.height);
+        
+        CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - sideMargin*2, MAXFLOAT)];
+        self.textLabel.frame = CGRectMake(sideMargin, CGRectGetMaxY(self.detailTextLabel.frame) + 2, textLabelSize.width, textLabelSize.height);
+    } else {
+        
+        CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - sideMargin*2, MAXFLOAT)];
+        self.textLabel.frame = CGRectMake(sideMargin, self.frame.size.height - textLabelSize.height - 12, textLabelSize.width, textLabelSize.height);
+    }
     
     if ([[NSScreen mainScreen] respondsToSelector:@selector(scale)] == YES && [[NSScreen mainScreen] scale] == 1.00) {
         self.separatorTopView.frame = CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 1);

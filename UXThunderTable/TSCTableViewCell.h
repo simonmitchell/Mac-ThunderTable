@@ -8,7 +8,10 @@
 
 #import "UXKit.h"
 
-@interface TSCTableViewCell : UXTableViewCell
+@interface TSCTableViewCell : UXCollectionViewCell
+
+@property (nonatomic, strong) UXLabel *textLabel;
+@property (nonatomic, strong) UXLabel *detailTextLabel;
 
 @property (nonatomic, weak) UXViewController *parentViewController;
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
@@ -16,6 +19,8 @@
 @property (nonatomic, strong) NSView *separatorBottomView;
 @property (nonatomic, assign) BOOL shouldDisplaySeparators;
 @property (nonatomic, strong) UXImageView *imageView;
+
+@property (nonatomic, assign) UXTableViewCellStyle style;
 
 - (void)setupViews;
 

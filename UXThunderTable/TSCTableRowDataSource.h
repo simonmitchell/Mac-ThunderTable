@@ -9,7 +9,7 @@
 @import Foundation;
 #import "UXKit.h"
 
-@class TSCLink;
+@class TSCLink, TSCTableViewCell;
 @protocol TSCTableRowDataSource;
 
 typedef void (^TSCTableViewSelectionHandler)(id <TSCTableRowDataSource> row, UXTableViewCell *cell, NSIndexPath *indexPath);
@@ -68,7 +68,7 @@ typedef void (^TSCTableViewSelectionHandler)(id <TSCTableRowDataSource> row, UXT
  @param cell The cell that will be rendered, please return this when you are finished customising
  @note If you have overidden the class used by the row, this method will return a cell of that class type
  */
-- (UXTableViewCell *)tableViewCell:(UXTableViewCell *)cell;
+- (TSCTableViewCell *)tableViewCell:(TSCTableViewCell *)cell;
 
 /**
  @abstract Define a custom height for the cell to be rendered to

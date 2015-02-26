@@ -38,7 +38,11 @@
 
 - (id)initWithStyle:(UXTableViewStyle)style
 {
-    self = [super initWithStyle:style];
+    
+    UXCollectionViewFlowLayout *layout = [[UXCollectionViewFlowLayout alloc] init];
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 0;
+    self = [super initWithCollectionViewLayout:layout];
     
     if (self) {
         
@@ -63,7 +67,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -85,9 +88,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.automaticallyAdjustsScrollViewInsets = YES;
-    self.tableView.separatorStyle = 0;
 }
 
 -(void)viewDidLayoutSubviews
@@ -96,7 +97,7 @@
     
     if (!_didSetupFrame) {
         
-        self.tableView.frame = self.view.bounds;
+        self.collectionView.frame = self.view.bounds;
         _didSetupFrame = YES;
     }
 }
@@ -121,7 +122,7 @@
 //    if (refreshEnabled) {
 //        self.refreshControl = [[UIRefreshControl alloc] init];
 //        [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
-//        [self.tableView addSubview:self.refreshControl];
+//        [self.collectionView addSubview:self.refreshControl];
 //    } else {
 //        [self.refreshControl removeFromSuperview];
 //        self.refreshControl = nil;
@@ -155,13 +156,10 @@
 {
     _dataSource = dataSource;
     
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    
     if (animated) {
-        [self.tableView reloadData];
+        [self.collectionView reloadData];
     } else {
-        [self.tableView reloadData];
+        [self.collectionView reloadData];
     }
 }
 
@@ -178,32 +176,17 @@
     return flattenedDataSource;
 }
 
-#pragma mark UITableViewDataSource methods
+#pragma mark UXCollectionViewDataSource methods
 
-- (NSString *)tableView:(UXTableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    TSCTableSection *tableSection = self.dataSource[section];
-    
-    return tableSection.sectionHeader;
-}
-
-- (NSString *)tableView:(UXTableView *)tableView titleForFooterInSection:(NSInteger)section
-{
-    TSCTableSection *tableSection = self.dataSource[section];
-    
-    return tableSection.sectionFooter;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UXTableView *)tableView
-{
-    return self.dataSource.count;
-}
-
-- (NSInteger)tableView:(UXTableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSUInteger)collectionView:(UXCollectionView *)collectionView numberOfItemsInSection:(NSUInteger)section
 {
     NSObject <TSCTableSectionDataSource> *tableSection = self.dataSource[section];
-    
     return tableSection.sectionItems.count;
+}
+
+- (NSUInteger)numberOfSectionsInCollectionView:(UXCollectionView *)collectionView
+{
+    return self.dataSource.count;
 }
 
 - (Class)TSC_tableViewCellClassForIndexPath:(NSIndexPath *)indexPath
@@ -226,7 +209,7 @@
     return tableViewCellClass;
 }
 
-- (UXTableViewCell *)tableView:(UXTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UXCollectionViewCell *)collectionView:(UXCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     Class tableViewCellClass = [self TSC_tableViewCellClassForIndexPath:indexPath];
     NSString *reuseIdentifier = NSStringFromClass(tableViewCellClass);
@@ -235,10 +218,10 @@
     if (![self.registeredCellClasses containsObject:reuseIdentifier]) {
         
         [self.registeredCellClasses addObject:reuseIdentifier];
-        [self.tableView registerClass:tableViewCellClass forCellWithReuseIdentifier:reuseIdentifier];
+        [self.collectionView registerClass:tableViewCellClass forCellWithReuseIdentifier:reuseIdentifier];
     }
     
-    TSCTableViewCell *cell = (TSCTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    TSCTableViewCell *cell = (TSCTableViewCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     [self TSC_configureCell:cell withIndexPath:indexPath];
     
@@ -267,9 +250,9 @@
         cell.detailTextLabel.text = [row rowSubtitle];
     }
     
-    if ([row respondsToSelector:@selector(indentationLevel)]) {
-        cell.indentationLevel = [row indentationLevel];
-    }
+//    if ([row respondsToSelector:@selector(indentationLevel)]) {
+//        cell.indentationLevel = [row indentationLevel];
+//    }
     
 //    if ([row respondsToSelector:@selector(rowImageURL)]) {
 //        
@@ -284,24 +267,25 @@
         cell.imageView.image = [row rowImage];
     }
     
+#warning Fix accessory types
     if ([self isIndexPathSelectable:indexPath]) {
         
         if (![row respondsToSelector:@selector(shouldDisplaySelectionIndicator)] || [row shouldDisplaySelectionIndicator]) {
-            cell.accessoryType = 1;
+//            cell.accessoryType = 1;
         } else {
-            cell.accessoryType = 0;
+//            cell.accessoryType = 0;
         }
         
         if (![row respondsToSelector:@selector(shouldDisplaySelectionCell)] || [row shouldDisplaySelectionCell]) {
-            cell.selectionStyle = 3;
+//            cell.selectionStyle = 3;
         } else {
-            cell.selectionStyle = 0;
+//            cell.selectionStyle = 0;
         }
         
     } else {
         
-        cell.accessoryType = 0;
-        cell.selectionStyle = 0;
+//        cell.accessoryType = 0;
+//        cell.selectionStyle = 0;
     }
     
 //    if ([row conformsToProtocol:@protocol(TSCTableInputRowDataSource)]) {
@@ -314,7 +298,7 @@
 //    }
     
     if ([row respondsToSelector:@selector(rowAccessoryType)]) {
-        cell.accessoryType = [row rowAccessoryType];
+//        cell.accessoryType = [row rowAccessoryType];
     }
     
     cell.parentViewController = self;
@@ -337,69 +321,38 @@
     }
 }
 
-- (CGFloat)tableView:(UXTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGSize)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGFloat height;
+    
     NSObject <TSCTableSectionDataSource> *section = self.dataSource[indexPath.section];
     NSObject <TSCTableRowDataSource> *row = [section sectionItems][indexPath.row];
     
-    CGSize contentViewSize = CGSizeMake(self.tableView.frame.size.width, MAXFLOAT);
+    CGSize contentViewSize = CGSizeMake(self.collectionView.frame.size.width, MAXFLOAT);
     
     if ([row respondsToSelector:@selector(tableViewCellHeightConstrainedToSize:)]) {
         
-        float height = [row tableViewCellHeightConstrainedToSize:contentViewSize];
-        return height;
+        height = [row tableViewCellHeightConstrainedToSize:contentViewSize];
     } else if ([row respondsToSelector:@selector(tableViewCellHeightConstrainedToContentViewSize:tableViewSize:)]) {
         
-        float height = [row tableViewCellHeightConstrainedToContentViewSize:contentViewSize tableViewSize:self.tableView.frame.size];
-        return height;
+        height = [row tableViewCellHeightConstrainedToContentViewSize:contentViewSize tableViewSize:self.collectionView.frame.size];
     } else {
         
-        float height = [self TSC_dynamicCellHeightWithIndexPath:indexPath];
-        return height;
+        height = [self TSC_dynamicCellHeightWithIndexPath:indexPath];
     }
-}
-
-- (CGFloat)tableView:(UXTableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSObject <TSCTableSectionDataSource> *section = self.dataSource[indexPath.section];
-    NSObject <TSCTableRowDataSource> *row = [section sectionItems][indexPath.row];
     
-    if([row respondsToSelector:@selector(tableViewCellEstimatedHeight)]) {
-        return [row tableViewCellEstimatedHeight];
-    } else {
-        return [self tableView:tableView heightForRowAtIndexPath:indexPath];
-    }
+    return CGSizeMake(self.collectionView.frame.size.width, height);
 }
 
-#pragma mark UITableViewDelegate methods
+#pragma mark UXCollectionViewDelegate methods
 
-- (void)tableView:(UXTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UXCollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.collectionView deselectItemAtIndexPath:indexPath animated:true];
     
     if ([self isIndexPathSelectable:indexPath]) {
         [self TSC_handleTableViewSelectionWithIndexPath:indexPath];
     }
-}
-
-- (NSIndexPath *)tableView:(UXTableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return indexPath;
-}
-
-- (NSArray *)sectionIndexTitlesForTableView:(UXTableView *)tableView
-{
-    if (self.shouldDisplayAlphabeticalSectionIndexTitles) {
-        return nil;
-//        return [[UILocalizedIndexedCollation currentCollation] sectionTitles];
-    } else {
-        return nil;
-    }
-}
-
-- (long long)tableView:(UXTableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(long long)index
-{
-    return index;
 }
 
 - (BOOL)isIndexPathSelectable:(NSIndexPath *)indexPath
@@ -427,8 +380,8 @@
 - (void)TSC_handleTableViewSelectionWithIndexPath:(NSIndexPath *)indexPath
 {
     TSCTableSection *section = self.dataSource[indexPath.section];
-    NSObject <TSCTableRowDataSource> *row = section.items[indexPath.row];
-    UXTableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    id <TSCTableRowDataSource> row = section.items[indexPath.row];
+    UXTableViewCell *selectedCell = (UXTableViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     
     self.selectedIndexPath = indexPath;
     
@@ -441,14 +394,14 @@
     } else if ([section respondsToSelector:@selector(sectionSelectionHandler)]) {
         
         if ([section sectionSelectionHandler]) {
-            [section sectionSelectionHandler](row, indexPath);
+            [section sectionSelectionHandler](section, indexPath);
         }
     }
     
 //    // If row is an input
 //    if ([row conformsToProtocol:@protocol(TSCTableInputRowDataSource)]) {
 //        
-//        TSCTableInputViewCell *cell = (TSCTableInputViewCell *)[self.tableView cellForRowAtIndexPath:selection.indexPath];
+//        TSCTableInputViewCell *cell = (TSCTableInputViewCell *)[self.collectionView cellForRowAtIndexPath:selection.indexPath];
 //        
 //        if ([cell isKindOfClass:[TSCTableInputCheckViewCell class]]) {
 //            
@@ -462,39 +415,40 @@
 //        if ([cell isKindOfClass:[TSCTableInputTextFieldViewCell class]]) {
 //            [cell setEditing:YES animated:YES];
 //            [[(TSCTableInputTextFieldViewCell *)cell textField] becomeFirstResponder];
-//            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+//            [self.collectionView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 //        }
 //        
 //        if ([cell isKindOfClass:[TSCTableInputTextViewViewCell class]]) {
 //            [cell setEditing:YES animated:YES];
 //            [[(TSCTableInputTextViewViewCell *)cell textView] becomeFirstResponder];
-//            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+//            [self.collectionView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 //        }
 //        
 //        if ([cell isKindOfClass:[TSCTableInputDatePickerViewCell class]] || [cell isKindOfClass:[TSCTableInputPickerViewCell class]]) {
 //            
 //            [cell setEditing:YES animated:YES];
 //            [[(TSCTableInputPickerViewCell *)cell inputView] becomeFirstResponder];
-//            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+//            [self.collectionView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 //        }
 //    }
     
     if ([row respondsToSelector:@selector(shouldRemainSelected)]) {
         if (![row shouldRemainSelected]) {
-            [self.tableView deselectRowAtIndexPath:self.selectedIndexPath animated:YES];
+            [self.collectionView deselectItemAtIndexPath:indexPath animated:true];
         }
     } else {
-        [self.tableView deselectRowAtIndexPath:self.selectedIndexPath animated:YES];
+        [self.collectionView deselectItemAtIndexPath:indexPath animated:true];
     }
 }
 
-- (UXTableViewCell *)TSC_dequeueDynamicHeightCellProxyWithIndexPath:(NSIndexPath *)indexPath
+- (TSCTableViewCell *)TSC_dequeueDynamicHeightCellProxyWithIndexPath:(NSIndexPath *)indexPath
 {
     Class tableViewCellClass = [self TSC_tableViewCellClassForIndexPath:indexPath];
     
     NSString *classNameString = NSStringFromClass(tableViewCellClass);
     
-    UXTableViewCell *cell = self.dynamicHeightCells[classNameString];
+    TSCTableViewCell *cell = self.dynamicHeightCells[classNameString];
+    cell.contentView.frame = CGRectMake(0, 0, self.view.frame.size.width, 0);
     
     if (!cell) {
         cell = [[tableViewCellClass alloc] initWithStyle:UXTableViewCellStyleDefault reuseIdentifier:classNameString];
@@ -506,7 +460,7 @@
 
 //- (void)TSC_resignAnyResponders
 //{
-//    TSCTableInputViewCell *cell = (TSCTableInputViewCell *)[self.tableView cellForRowAtIndexPath:self.selectedIndexPath];
+//    TSCTableInputViewCell *cell = (TSCTableInputViewCell *)[self.collectionView cellForRowAtIndexPath:self.selectedIndexPath];
 //    [cell setEditing:NO animated:YES];
 //}
 
@@ -530,8 +484,8 @@
     
     [self TSC_configureCell:cell withIndexPath:indexPath];
     
-    cell.frame = CGRectMake(0, 0, self.view.bounds.size.width, 44);
-    [cell layoutSubviews];
+    cell.frame = CGRectMake(0, 0, self.view.bounds.size.width, 0);
+    [cell layout];
     
     NSArray *subviews = cell.contentView.subviews;
     CGFloat lowestYValue = 0;
@@ -540,22 +494,22 @@
     
     for (NSView *view in subviews) {
         
-        if (CGRectGetMaxY(view.frame) < CGRectGetMaxY(highestView.frame)) {
+        if (CGRectGetMaxY(view.frame) > CGRectGetMaxY(highestView.frame)) {
             highestView = view;
         }
         
-        if (view.frame.origin.y > lowestYValue) {
+        if (view.frame.origin.y < lowestYValue) {
             lowestYValue = view.frame.origin.y;
         }
     }
     
-    CGFloat cellHeight = CGRectGetMaxY(highestView.frame) + abs(lowestYValue) + 10;
+    CGFloat cellHeight = CGRectGetMaxY(highestView.frame) + abs(lowestYValue) + 12;
     
     NSObject <TSCTableSectionDataSource> *section = self.dataSource[indexPath.section];
     NSObject <TSCTableRowDataSource> *row = [section sectionItems][indexPath.row];
     
     if ([row respondsToSelector:@selector(rowPadding)]) {
-        cellHeight = (cellHeight - 10) + (long)[row rowPadding];
+        cellHeight = (cellHeight - 12) + (long)[row rowPadding];
     }
     
     return ceilf(cellHeight);
