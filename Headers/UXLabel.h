@@ -38,8 +38,8 @@
 @property(nonatomic) BOOL selectable;
 @property(nonatomic) BOOL centerVertically;
 @property(nonatomic) double preferredMaxLayoutWidth;
-@property(nonatomic) unsigned long long textAlignment;
-@property(nonatomic) unsigned long long lineBreakMode;
+@property(nonatomic) NSTextAlignment textAlignment;
+@property(nonatomic) NSLineBreakMode lineBreakMode;
 @property(copy, nonatomic) NSAttributedString *attributedText;
 @property(copy, nonatomic) NSString *text;
 @property(retain, nonatomic) NSFont *font;
