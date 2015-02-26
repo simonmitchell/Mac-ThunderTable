@@ -22,8 +22,6 @@
 @interface TSCTableViewController ()
 {
     UXBarButtonItem *TSC_editItem;
-    BOOL _isPendingSetDataSource;
-    BOOL _didSetupFrame;
     BOOL _viewHasAppearedBefore;
 }
 
@@ -38,10 +36,11 @@
 
 - (id)initWithStyle:(UXTableViewStyle)style
 {
-    
     UXCollectionViewFlowLayout *layout = [[UXCollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
+    layout.sectionInset = NSEdgeInsetsZero;
+    
     self = [super initWithCollectionViewLayout:layout];
     
     if (self) {
@@ -94,12 +93,7 @@
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    
-    if (!_didSetupFrame) {
-        
-        self.collectionView.frame = self.view.bounds;
-        _didSetupFrame = YES;
-    }
+    [self.collectionView reloadData];
 }
 
 #pragma mark Actions
@@ -341,7 +335,7 @@
         height = [self TSC_dynamicCellHeightWithIndexPath:indexPath];
     }
     
-    return CGSizeMake(self.collectionView.frame.size.width, height);
+    return CGSizeMake(self.collectionView.contentView.frame.size.width, height);
 }
 
 #pragma mark UXCollectionViewDelegate methods

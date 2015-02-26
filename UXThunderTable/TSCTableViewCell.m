@@ -67,8 +67,6 @@ static CGFloat sideMargin = 12.0;
 {
     [super layout];
     
-    NSLog(@"self.text : %@",self.textLabel.text);
-    NSLog(@"self.detailText : %@",self.detailTextLabel.text);
     if (self.detailTextLabel.text && ![self.detailTextLabel.text isEqualToString:@""]) {
         
         CGSize detailLabelSize = [self.detailTextLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - sideMargin*2, MAXFLOAT)];
@@ -88,9 +86,7 @@ static CGFloat sideMargin = 12.0;
     } else {
         self.separatorTopView.frame = CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 0.5);
         self.separatorBottomView.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
-    }
-    
-    self.shouldDisplaySeparators = true;
+    }    
 }
 
 - (void)setShouldDisplaySeparators:(BOOL)shouldDisplaySeparators
