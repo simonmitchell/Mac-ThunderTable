@@ -38,7 +38,7 @@
 {
     UXCollectionViewFlowLayout *layout = [[UXCollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 0;
-    layout.minimumLineSpacing = 0;
+    layout.minimumLineSpacing = 1;
     layout.sectionInset = NSEdgeInsetsZero;
     
     self = [super initWithCollectionViewLayout:layout];
@@ -48,7 +48,8 @@
         self.style = style;
         self.registeredCellClasses = [NSMutableArray new];
         self.dynamicHeightCells = [NSMutableDictionary dictionary];
-        self.shouldMakeFirstTextFieldFirstResponder = YES;
+        self.shouldMakeFirstTextFieldFirstResponder = true;
+        self.shouldDisplaySeparatorsOnCells = true;
     }
     
     return self;
@@ -335,7 +336,7 @@
         height = [self TSC_dynamicCellHeightWithIndexPath:indexPath];
     }
     
-    return CGSizeMake(self.collectionView.contentView.frame.size.width, height);
+    return CGSizeMake(self.collectionView.contentView.frame.size.width - 2, height);
 }
 
 #pragma mark UXCollectionViewDelegate methods
