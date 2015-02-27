@@ -54,13 +54,13 @@ static CGFloat sideMargin = 12.0;
     self.detailTextLabel.textColor = [NSColor grayColor];
     [self.contentView addSubview:self.detailTextLabel];
     
-    self.separatorTopView = [NSView new];
+    self.separatorTopView = [UXView new];
     self.separatorTopView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
-    [self addSubview:self.separatorTopView];
+    [self.contentView addSubview:self.separatorTopView];
     
-    self.separatorBottomView = [NSView new];
+    self.separatorBottomView = [UXView new];
     self.separatorBottomView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
-    [self addSubview:self.separatorBottomView];
+    [self.contentView addSubview:self.separatorBottomView];
 }
 
 - (void)layout
@@ -78,15 +78,13 @@ static CGFloat sideMargin = 12.0;
         
         CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - sideMargin*2, MAXFLOAT)];
         self.textLabel.frame = CGRectMake(sideMargin, self.frame.size.height - textLabelSize.height - 12, textLabelSize.width, textLabelSize.height);
+        
+        self.detailTextLabel.frame = CGRectZero;
     }
     
-    if ([[NSScreen mainScreen] respondsToSelector:@selector(scale)] == YES && [[NSScreen mainScreen] scale] == 1.00) {
-        self.separatorTopView.frame = CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 1);
-        self.separatorBottomView.frame = CGRectMake(0, 0, self.bounds.size.width, 1);
-    } else {
-        self.separatorTopView.frame = CGRectMake(0, self.bounds.size.height, self.bounds.size.width, 0.5);
-        self.separatorBottomView.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
-    }    
+
+    self.separatorTopView.frame = CGRectMake(0, self.contentView.bounds.size.height, self.contentView.bounds.size.width, 0.5);
+    self.separatorBottomView.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
 }
 
 - (void)setShouldDisplaySeparators:(BOOL)shouldDisplaySeparators
