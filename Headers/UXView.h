@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@import  AppKit;
+@import AppKit;
 
 @class NSArray, NSMutableArray, NSVisualEffectView, UXViewController;
 
@@ -35,16 +35,16 @@
 - (void)cxx_destruct;
 - (id)accessibilityChildren;
 - (id)menuForEvent:(id)arg1;
-- (id)snapshotViewFromRect:(CGRect)arg1;
+- (id)snapshotViewFromRect:(CGRect)rect;
 - (id)snapshotView;
-- (id)snapshotForRect:(CGRect)arg1;
+- (id)snapshotForRect:(CGRect)rect;
 - (void)sendSubviewToBack:(id)arg1;
 - (void)bringSubviewToFront:(id)arg1;
 @property(readonly, nonatomic) CGPoint center;
 @property(readonly, nonatomic) NSArray *eventTrackers;
 - (void)removeEventTracker:(id)arg1;
 - (void)addEventTracker:(id)arg1;
-- (void)_applyTintColorIfNotUXView:(id)arg1;
+- (void)_applyTintColorIfNotUXview:(NSView *)arg1;
 - (void)touchesCancelledWithEvent:(id)arg1;
 - (void)touchesEndedWithEvent:(id)arg1;
 - (void)touchesMovedWithEvent:(id)arg1;
@@ -73,9 +73,9 @@
 - (BOOL)canBecomeKeyView;
 - (id)hitTest:(CGPoint)arg1;
 @property(nonatomic) long long contentMode;
-- (void)addSubview:(id)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
-- (void)addSubview:(id)arg1;
-- (void)viewWillMoveToSuperview:(id)arg1;
+- (void)addSubview:(NSView *)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
+- (void)addSubview:(NSView *)arg1;
+- (void)viewWillMoveToSuperview:(NSView *)arg1;
 - (void)updateConstraintsForSubtreeIfNeeded;
 - (void)viewDidEndLiveResize;
 - (void)viewWillStartLiveResize;
@@ -84,8 +84,8 @@
 - (BOOL)wantsUpdateLayer;
 - (id)makeBackingLayer;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
+- (id)initWithCoder:(NSCoder *)arg1;
+- (id)initWithFrame:(CGRect)frame;
 - (void)_disableBlur;
 - (void)_enableBlur;
 - (BOOL)blurEnabled;

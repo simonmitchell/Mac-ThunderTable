@@ -5,9 +5,9 @@
 //
 
 #import "UXViewController.h"
-
 #import "UXToolbarDelegate-Protocol.h"
-//#import "_UXAccessoryBarContainer-Protocol.h"
+#import "UXNavigationControllerDelegate-Protocol.h"
+#import "UXAccessoryBarContainerProtocol.h"
 
 @class NSArray, NSLayoutConstraint, NSMutableArray, NSString, UXEventTracker, UXNavigationBar, UXToolbar, UXTransitionController, _UXContainerView, _UXViewControllerOneToOneTransitionContext;
 
@@ -38,7 +38,7 @@
     long long __toolbarPosition;
     unsigned long long __defaultPushTransition;
     unsigned long long __defaultPopTransition;
-//    id <_UXAccessoryBarContainer> _accessoryBarContainer;
+    id <UXAccessoryBarContainer> _accessoryBarContainer;
     NSMutableArray *_internalViewControllers;
     _UXContainerView *_containerView;
     NSMutableArray *_addedConstraints;
@@ -59,7 +59,7 @@
 
 + (id)keyPathsForValuesAffectingPreferredContentSize;
 @property(retain, nonatomic) UXViewController *provisionalPreviousViewController; // @synthesize provisionalPreviousViewController=_provisionalPreviousViewController;
-@property(nonatomic) __weak UXViewController *observedViewController; // @synthesize observedViewController=_observedViewController;
+@property(retain, nonatomic) UXViewController *observedViewController; // @synthesize observedViewController=_observedViewController;
 @property(retain, nonatomic) UXTransitionController *defaultTransitionController; // @synthesize defaultTransitionController=_defaultTransitionController;
 @property(nonatomic) long long currentOperation; // @synthesize currentOperation=_currentOperation;
 @property(retain, nonatomic) _UXViewControllerOneToOneTransitionContext *currentTransitionContext; // @synthesize currentTransitionContext=_currentTransitionContext;
@@ -78,7 +78,7 @@
 @property(readonly, nonatomic) BOOL isTransitioning; // @synthesize isTransitioning=_isTransitioning;
 @property(nonatomic, setter=_setBackBarButtonItemBordered:) BOOL _backBarButtonItemBordered; // @synthesize _backBarButtonItemBordered=__backBarButtonItemBordered;
 @property(nonatomic, setter=_setHidesBackTitles:) BOOL _hidesBackTitles; // @synthesize _hidesBackTitles=__hidesBackTitles;
-//@property(nonatomic) __weak id <_UXAccessoryBarContainer> accessoryBarContainer; // @synthesize accessoryBarContainer=_accessoryBarContainer;
+@property(nonatomic) __weak id <UXAccessoryBarContainer> accessoryBarContainer; // @synthesize accessoryBarContainer=_accessoryBarContainer;
 @property(nonatomic, setter=_setDefaultPopTransition:) unsigned long long _defaultPopTransition; // @synthesize _defaultPopTransition=__defaultPopTransition;
 @property(nonatomic, setter=_setDefaultPushTransition:) unsigned long long _defaultPushTransition; // @synthesize _defaultPushTransition=__defaultPushTransition;
 @property(nonatomic, setter=_setToolbarPosition:) long long _toolbarPosition; // @synthesize _toolbarPosition=__toolbarPosition;
@@ -94,25 +94,25 @@
 - (long long)positionForBar:(id)arg1;
 - (void)_endObservingTopViewController;
 - (void)_beginObservingTopViewController;
-- (id)_backItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
-- (void)_transitionFromViewController:(id)arg1 toViewController:(id)arg2 operation:(long long)arg3;
+- (id)_backItemWithTitle:(NSString *)title target:(id)target action:(SEL)aSelector;
+- (void)_transitionFromViewController:(UXViewController *)arg1 toViewController:(UXViewController *)arg2 operation:(long long)arg3;
 - (void)_addBackBarItemFromNavigationItem:(id)arg1 toNavigationItem:(id)arg2;
-- (void)_setupLayoutGuidesForViewController:(id)arg1;
+- (void)_setupLayoutGuidesForViewController:(UXViewController *)arg1;
 - (id)_customInteractionControllerForAnimationController:(id)arg1 transition:(unsigned long long)arg2;
-- (id)_customAnimationControllerForOperation:(long long)arg1 fromViewController:(id)arg2 toViewController:(id)arg3 transition:(unsigned long long)arg4;
-- (id)_contextForTransitionOperation:(long long)arg1 fromViewController:(id)arg2 toViewController:(id)arg3 transition:(unsigned long long)arg4;
+- (id)_customAnimationControllerForOperation:(long long)arg1 fromViewController:(UXViewController *)arg2 toViewController:(UXViewController *)arg3 transition:(unsigned long long)arg4;
+- (id)_contextForTransitionOperation:(long long)arg1 fromViewController:(UXViewController *)arg2 toViewController:(UXViewController *)arg3 transition:(unsigned long long)arg4;
 - (void)_handleInteractiveUpdateWithEvent:(id)arg1;
 - (void)_beginTransitionWithContext:(id)arg1 operation:(long long)arg2;
-- (void)_removeConstraintsForContainedView:(id)arg1;
-- (void)_addConstraintsForContainedView:(id)arg1 leftInset:(double)arg2;
-- (void)_prepareViewController:(id)arg1 forAnimationInContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)_popToViewController:(id)arg1 transition:(unsigned long long)arg2;
-- (void)_pushViewController:(id)arg1 transition:(unsigned long long)arg2;
-- (id)popToViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)_removeConstraintsForContainedview:(NSView *)arg1;
+- (void)_addConstraintsForContainedview:(NSView *)arg1 leftInset:(double)arg2;
+- (void)_prepareViewController:(UXViewController *)arg1 forAnimationInContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)_popToViewController:(UXViewController *)arg1 transition:(unsigned long long)arg2;
+- (void)_pushViewController:(UXViewController *)arg1 transition:(unsigned long long)arg2;
+- (id)popToViewController:(UXViewController *)arg1 animated:(BOOL)arg2;
 - (id)popToRootViewControllerAnimated:(BOOL)arg1;
 - (id)popViewControllerAnimated:(BOOL)arg1;
-- (void)pushViewController:(id)arg1 animated:(BOOL)arg2;
-- (id)visibleViewController;
+- (void)pushViewController:(UXViewController *)arg1 animated:(BOOL)arg2;
+- (UXViewController *)visibleViewController;
 - (id)topViewController;
 - (void)setViewControllers:(id)arg1 animated:(BOOL)arg2;
 - (void)detachNavigationBar;
@@ -133,7 +133,7 @@
 - (id)transitionCoordinator;
 - (BOOL)_requiresWindowForTransitionPreparation;
 - (void)_prepareForAnimationInContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (NSEdgeInsets)_intrinsicLayoutInsetsForChildViewController:(id)arg1;
+- (NSEdgeInsets)_intrinsicLayoutInsetsForChildViewController:(UXViewController *)arg1;
 - (id)_verticalToolbarLayoutConstraint;
 - (void)invalidateIntrinsicLayoutInsets;
 - (NSEdgeInsets)intrinsicLayoutInsets;
@@ -147,8 +147,8 @@
 - (BOOL)wantsForwardedScrollEventsForAxis:(long long)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
-- (id)initWithRootViewController:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)initWithRootViewController:(UXViewController *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

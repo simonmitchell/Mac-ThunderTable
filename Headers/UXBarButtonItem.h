@@ -5,7 +5,6 @@
 //
 
 #import "UXBarItem.h"
-
 #import "UXKitAppearance-Protocol.h"
 
 @class NSColor, NSString, NSView, UXViewController;
@@ -16,9 +15,11 @@ typedef NS_ENUM(NSUInteger, UXBarButtonItemStyle) {
     UXBarButtonItemStyleButton = 1
 };
 
+
 @interface UXBarButtonItem : UXBarItem <UXKitAppearance>
 {
     NSView *__view;
+    BOOL _ignoresMultiClick;
     NSColor *_tintColor;
     long long _tintAdjustmentMode;
     long long _style;
@@ -37,6 +38,7 @@ typedef NS_ENUM(NSUInteger, UXBarButtonItemStyle) {
 @property(nonatomic, setter=_setWidthConstrainingItem:) __weak UXBarButtonItem *_widthConstrainingItem; // @synthesize _widthConstrainingItem=__widthConstrainingItem;
 @property(readonly, nonatomic) long long systemItem; // @synthesize systemItem=_systemItem;
 @property(readonly, nonatomic) UXViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
+@property(nonatomic) BOOL ignoresMultiClick; // @synthesize ignoresMultiClick=_ignoresMultiClick;
 @property(nonatomic) unsigned long long keyEquivalentModifierMask; // @synthesize keyEquivalentModifierMask=_keyEquivalentModifierMask;
 @property(retain, nonatomic) NSString *keyEquivalent; // @synthesize keyEquivalent=_keyEquivalent;
 @property(retain, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
@@ -47,10 +49,10 @@ typedef NS_ENUM(NSUInteger, UXBarButtonItemStyle) {
 @property(nonatomic) UXBarButtonItemStyle style; // @synthesize style=_style;
 - (void)cxx_destruct;
 @property(readonly, nonatomic) NSView *_view;
-- (void)_performAction:(id)action;
-- (id)_viewOfClass:(Class)class;
-- (void)setImage:(NSImage *)image;
-- (void)setEnabled:(BOOL)enabled;
+- (void)_performAction:(id)arg1;
+- (id)_viewOfClass:(Class)arg1;
+- (void)setImage:(NSImage *)arg1;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setTitle:(NSString *)title;
 - (void)tintColorDidChange;
 @property(nonatomic) long long tintAdjustmentMode; // @synthesize tintAdjustmentMode=_tintAdjustmentMode;
@@ -61,6 +63,7 @@ typedef NS_ENUM(NSUInteger, UXBarButtonItemStyle) {
 - (id)initWithBarButtonSystemItem:(long long)arg1 target:(id)target action:(SEL)action;
 - (id)initWithTitle:(NSString *)title style:(UXBarButtonItemStyle)style target:(id)target action:(SEL)action;
 - (id)initWithImage:(NSImage *)image style:(UXBarButtonItemStyle)style target:(id)target action:(SEL)action;
+
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

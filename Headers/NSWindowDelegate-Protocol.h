@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
+@import AppKit;
 
 @class NSArray, NSCoder, NSEvent, NSMenu, NSNotification, NSPasteboard, NSScreen, NSUndoManager, NSWindow;
 
@@ -57,7 +57,7 @@
 - (BOOL)window:(NSWindow *)arg1 shouldPopUpDocumentPathMenu:(NSMenu *)arg2;
 - (CGRect)window:(NSWindow *)arg1 willPositionSheet:(NSWindow *)arg2 usingRect:(CGRect)arg3;
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)arg1;
-- (BOOL)windowShouldZoom:(NSWindow *)arg1 toFrame:(CGRect)arg2;
+- (BOOL)windowShouldZoom:(NSWindow *)arg1 toFrame:(CGRect)toFrame;
 - (CGRect)windowWillUseStandardFrame:(NSWindow *)arg1 defaultFrame:(CGRect)arg2;
 - (CGSize)windowWillResize:(NSWindow *)arg1 toSize:(CGSize)arg2;
 - (id)windowWillReturnFieldEditor:(NSWindow *)arg1 toObject:(id)arg2;

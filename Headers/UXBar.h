@@ -5,13 +5,11 @@
 //
 
 #import "UXView.h"
-
-@import  AppKit;
-#import "UXBarPositioning-Protocol.h"
-#import "_UXBarItemsContainer-Protocol.h"
 #import "_UXSinglePixelLine.h"
+@import AppKit;
+#import "UXBarPositioning-Protocol.h"
 
-@class NSColor, NSString, _UXSinglePixelLine;
+@class NSColor, NSString, UXView, _UXSinglePixelLine;
 
 @interface UXBar : UXView <NSAccessibilityGroup, UXBarPositioning>
 {
@@ -44,8 +42,8 @@
 - (void)_transitionToContainer:(id)arg1 transition:(unsigned long long)arg2 duration:(double)arg3;
 @property(retain, nonatomic) NSColor *borderColor;
 @property(nonatomic) BOOL bordered;
-- (void)viewWillMoveToSuperview:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
+- (void)viewWillMoveToSuperview:(NSView *)arg1;
+- (id)initWithFrame:(CGRect)frame;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

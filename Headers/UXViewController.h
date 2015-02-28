@@ -6,9 +6,6 @@
 
 @import AppKit;
 
-#import "UXLayoutSupport-Protocol.h"
-#import "CDStructures.h"
-
 @class NSArray, NSResponder, NSString, UXNavigationController, UXNavigationItem, UXSourceController, UXTabBarItem, UXView;
 
 @interface UXViewController : NSViewController
@@ -42,7 +39,7 @@
 - (id)menuForEvent:(id)arg1;
 - (id)bottomLayoutGuide;
 - (id)topLayoutGuide;
-- (void)_setupLayoutGuidesForView:(id)arg1;
+- (void)_setupLayoutGuidesForview:(NSView *)arg1;
 - (void)didUpdateLayoutGuides;
 - (void)invalidateIntrinsicLayoutInsets;
 - (NSEdgeInsets)intrinsicLayoutInsets;
@@ -50,17 +47,19 @@
 @property CGSize preferredContentSize;
 - (BOOL)_requiresWindowForTransitionPreparation;
 - (id)_ancestorViewControllerOfClass:(Class)arg1;
-- (void)_animateView:(id)arg1 fromFrame:(CGRect)arg2 toFrame:(CGRect)arg3;
+- (void)_animateview:(NSView *)arg1 fromFrame:(CGRect)toFrame toFrame:(CGRect)toFrame;
 - (id)transitionCoordinator;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)presentViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)presentViewController:(UXViewController *)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) UXViewController *presentedViewController;
-- (void)didMoveToParentViewController:(id)arg1;
-- (void)willMoveToParentViewController:(id)arg1;
+- (void)didMoveToParentViewController:(UXViewController *)arg1;
+- (void)willMoveToParentViewController:(UXViewController *)arg1;
 - (void)removeFromParentViewController;
 - (void)removeChildViewControllerAtIndex:(long long)arg1;
-- (void)addChildViewController:(id)arg1;
+- (void)addChildViewController:(UXViewController *)arg1;
+- (void)windowDidRecalculateKeyViewLoop;
+- (void)windowWillRecalculateKeyViewLoop;
 - (void)viewDidLiveResize;
 - (void)viewWillLiveResize;
 - (void)viewDidLayoutSubviews;
@@ -77,25 +76,25 @@
 - (void)awakeFromNib;
 @property(readonly, nonatomic) NSResponder *preferredFirstResponder;
 @property(copy) NSString *title;
-- (void)setView:(UXView *)view;
+- (void)setview:(NSView *)arg1;
 @property(readonly, nonatomic) UXView *uxView;
 - (void)_loadViewIfNotLoaded;
 - (void)_setupResponderChainIfNecessary;
 - (void)_prepareForAnimationInContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
+- (id)initWithCoder:(NSCoder *)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
 @property(nonatomic) BOOL hidesBottomBarWhenPushed;
 - (long long)preferredToolbarPosition;
 - (id)toolbarViewController;
-- (void)setToolbarViewController:(id)arg1;
+- (void)setToolbarViewController:(UXViewController *)arg1;
 - (id)toolbarItems;
 - (void)setToolbarItems:(id)arg1 animated:(BOOL)arg2;
 - (void)setToolbarItems:(id)arg1;
 - (id)accessoryBarItems;
 - (void)setAccessoryBarItems:(id)arg1;
 - (id)accessoryViewController;
-- (void)setAccessoryViewController:(id)arg1;
+- (void)setAccessoryViewController:(UXViewController *)arg1;
 @property(readonly, nonatomic) UXNavigationItem *navigationItem;
 @property(readonly, nonatomic) UXNavigationController *navigationController;
 - (id)tabBarController;
@@ -104,10 +103,10 @@
 - (void)updateViewConstraints;
 - (void)prepareForTransitionWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) long long interfaceOrientation;
-- (void)viewDidDisappear:(BOOL)animated;
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)viewDidAppear:(BOOL)animated;
-- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 @property(nonatomic) BOOL hidesSourceListWhenPushed;
 - (BOOL)isTransitory;
 - (void)setTransitory:(BOOL)arg1;

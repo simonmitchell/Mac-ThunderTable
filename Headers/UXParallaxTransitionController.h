@@ -13,10 +13,10 @@
     UXView *_dimmingView;
 }
 
-+ (void)_addShadowToView:(id)arg1 withAlpha:(double)arg2;
++ (void)_addShadowToview:(NSView *)arg1 withAlpha:(double)arg2;
 - (void)cxx_destruct;
-- (BOOL)navigationController:(id)arg1 shouldBeginInteractivePopFromViewController:(id)arg2 toViewController:(id)arg3;
-- (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
+- (BOOL)navigationController:(id)arg1 shouldBeginInteractivePopFromViewController:(UXViewController *)arg2 toViewController:(UXViewController *)arg3;
+- (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(UXViewController *)arg3 toViewController:(UXViewController *)arg4;
 - (id)navigationController:(id)arg1 interactionControllerForAnimationController:(id)arg2;
 - (void)_setupDimmingViewInContext:(id)arg1 withAlpha:(double)arg2;
 - (void)updateInteractiveTransition:(double)arg1 inContext:(id)arg2;

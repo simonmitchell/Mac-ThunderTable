@@ -5,8 +5,7 @@
 //
 
 #import "UXView.h"
-
-@import  AppKit;
+@import AppKit;
 
 @class NSImage, NSString;
 
@@ -14,10 +13,12 @@
 {
     double _backingScaleFactor;
     CGSize _proposedSize;
+    NSString *accessibilityLabel;
     NSImage *_image;
 }
 
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
+@property(retain, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel;
 - (void)cxx_destruct;
 - (void)sizeToFit;
 - (void)_updateBackingScaleFactorForWindow:(id)arg1;
@@ -28,11 +29,10 @@
 - (void)viewWillMoveToWindow:(id)arg1;
 - (void)viewDidChangeBackingProperties;
 - (CGSize)intrinsicContentSize;
-- (id)initWithImage:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
+- (id)initWithImage:(NSImage *)arg1;
+- (id)initWithFrame:(CGRect)frame;
 
 // Remaining properties
-@property(retain, nonatomic) NSString *accessibilityLabel;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) NSUInteger hash;

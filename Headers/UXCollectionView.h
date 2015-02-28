@@ -6,23 +6,19 @@
 
 @import AppKit;
 
-#import "UXCollectionViewLayout.h"
-#import "UXCollectionViewIndexPathsSet.h"
-#import "UXCollectionViewData.h"
-#import "UXCollectionViewUpdate.h"
-#import "UXCollectionViewDelegate-Protocol.h"
 #import "UXCollectionViewDataSource-Protocol.h"
-#import "UXCollectionDocumentView.h"
-#import "UXCollectionViewMutableIndexPathsSet.h"
+#import "UXCollectionViewDelegate-Protocol.h"
 
+@protocol UXCollectionViewAccessibilityDelegate;
 
-@class CALayer, NSArray, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, UXCollectionDocumentView, UXCollectionViewData, UXCollectionViewIndexPathsSet, UXCollectionViewLayout, UXCollectionViewMutableIndexPathsSet, UXCollectionViewUpdate, _UXCollectionViewRearrangingCoordinator;
+@class UXCollectionDocumentView, UXCollectionViewData, UXCollectionViewIndexPathsSet, UXCollectionViewLayout, UXCollectionViewMutableIndexPathsSet, UXCollectionViewUpdate, _UXCollectionViewRearrangingCoordinator;
 
 @interface UXCollectionView : NSScrollView
 {
     UXCollectionDocumentView *_collectionDocumentView;
     NSObject<UXCollectionViewDataSource> *_dataSource;
     NSObject<UXCollectionViewDelegate> *_delegate;
+    NSObject<UXCollectionViewAccessibilityDelegate> *_accessibilityDelegate;
     UXCollectionViewLayout *_layout;
     UXCollectionViewMutableIndexPathsSet *_indexPathsForSelectedItems;
     NSMutableDictionary *_cellReuseQueues;
@@ -36,8 +32,8 @@
     UXCollectionViewMutableIndexPathsSet *_pendingDeselectionIndexPaths;
     UXCollectionViewData *_collectionViewData;
     UXCollectionViewUpdate *_currentUpdate;
-    CGRect _visibleBounds;
-    CGRect _previousBounds;
+     CGRect _visibleBounds;
+     CGRect _previousBounds;
     CGPoint _resizeBoundsOffset;
     long long _resizeAnimationCount;
     long long _updateCount;
@@ -73,7 +69,7 @@
     CGPoint _lastScrollingDistance;
     float _scrollingVelocity;
     double _lastScrollingTime;
-    CGRect _lastPreparedOverdrawContentRect;
+     CGRect _lastPreparedOverdrawContentRect;
     CGPoint _normalizedSavedScrollViewPosition;
     BOOL _isPaintingSelectionRunning;
     BOOL _paintingSelectionType;
@@ -131,7 +127,7 @@
     CGPoint _lastLayoutOffset;
 }
 
-+ (id)_reuseKeyForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier;
++ (id)_reuseKeyForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)arg2;
 + (BOOL)isCompatibleWithResponsiveScrolling;
 + (void)initialize;
 + (Class)documentClass;
@@ -144,9 +140,9 @@
 - (BOOL)lassoInvertsSelection;
 - (void)setLassoInvertsSelection:(BOOL)arg1;
 - (id)accessibilityHitTest:(CGPoint)arg1;
-- (BOOL)accessibilityPerformPressWithItemAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)accessibilityPerformPressWithItemAtIndexPath:(NSIndexPath *)arg1;
 - (id)accessibilityChildren;
-- (id)accessibilityContentSiblingCellFromIndexPath:(NSIndexPath *)indexPath direction:(id)arg2;
+- (id)accessibilityContentSiblingCellFromIndexPath:(NSIndexPath *)arg1 direction:(id)arg2;
 - (void)keyDown:(id)arg1;
 - (BOOL)_performScrollingForKey:(unsigned short)arg1;
 - (void)_scrollPage:(BOOL)arg1;
@@ -156,7 +152,7 @@
 - (void)mouseDragged:(id)arg1;
 - (void)rightMouseDown:(id)arg1;
 - (void)accessibilitySelectItemsAtIndexPaths:(id)arg1;
-- (void)accessibilitySelected:(BOOL)arg1 itemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)accessibilitySelected:(BOOL)arg1 itemAtIndexPath:(NSIndexPath *)arg2;
 - (id)_retrieveAccessibiltyRoleDescriptionFromAXDelegate;
 - (void)_notifyAccessibilityDelegateToPrepareSection:(id)arg1;
 - (void)mouseDown:(id)arg1;
@@ -164,8 +160,8 @@
 - (id)_indexPathForSupplementaryElementOfKind:(id)arg1 hitByEvent:(id)arg2;
 - (id)_indexPathOfSelectableItemHitByEvent:(id)arg1;
 - (void)_respondToDoubleClick;
-- (void)_performItemSelectionForMouseEvent:(id)arg1 onCell:(id)arg2 atIndexPath:(NSIndexPath *)indexPath;
-- (id)_selectableIndexPathForItemContainingHitView:(id)arg1;
+- (void)_performItemSelectionForMouseEvent:(id)arg1 onCell:(id)arg2 atIndexPath:(NSIndexPath *)arg3;
+- (id)_selectableIndexPathForItemContainingHitview:(NSView *)arg1;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 - (BOOL)acceptsFirstResponder;
@@ -179,7 +175,7 @@
 - (void)_prepareLayoutForUpdates;
 - (void)_endItemAnimations;
 - (void)_setupCellAnimations;
-- (void)moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)indexPath;
+- (void)moveItemAtIndexPath:(NSIndexPath *)arg1 toIndexPath:(NSIndexPath *)arg2;
 - (void)reloadItemsAtIndexPaths:(id)arg1;
 - (void)deleteItemsAtIndexPaths:(id)arg1;
 - (void)insertItemsAtIndexPaths:(id)arg1;
@@ -191,12 +187,12 @@
 - (void)_updateSections:(id)arg1 updateAction:(long long)arg2;
 - (id)_arrayForUpdateAction:(long long)arg1;
 - (id)_currentUpdate;
-- (void)scrollRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 withInsets:(NSEdgeInsets)arg3 animated:(BOOL)arg4;
-- (void)scrollToItemAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(unsigned long long)arg2 animated:(BOOL)arg3;
-- (void)_scrollRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 withInsets:(NSEdgeInsets)arg3 animated:(BOOL)arg4;
-- (CGPoint)_scrollAmountForMovingRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 inDestinationRect:(CGRect)arg3;
-- (id)nextIndexPath:(NSIndexPath *)indexPath;
-- (id)previousIndexPath:(NSIndexPath *)indexPath;
+- (void)scrollRect:(CGRect)rect toScrollPosition:(unsigned long long)arg2 withInsets:(NSEdgeInsets)arg3 animated:(BOOL)arg4;
+- (void)scrollToItemAtIndexPath:(NSIndexPath *)arg1 atScrollPosition:(unsigned long long)arg2 animated:(BOOL)arg3;
+- (void)_scrollRect:(CGRect)rect toScrollPosition:(unsigned long long)arg2 withInsets:(NSEdgeInsets)arg3 animated:(BOOL)arg4;
+- (CGPoint)_scrollAmountForMovingRect:(CGRect)rect toScrollPosition:(unsigned long long)arg2 inDestinationRect:(CGRect)arg3;
+- (id)nextIndexPath:(NSIndexPath *)arg1;
+- (id)previousIndexPath:(NSIndexPath *)arg1;
 - (id)contentSupplementaryViews;
 - (id)visibleSupplementaryViews;
 - (id)_supplementaryViewsIncludingOverdrawArea:(BOOL)arg1;
@@ -211,40 +207,40 @@
 - (id)_dictionaryOfIndexPathsAndContentCells;
 - (unsigned long long)numberOfContentCells;
 - (unsigned long long)numberOfVisibleCells;
-- (id)viewForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (UXCollectionViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (id)indexPathForSupplementaryView:(id)arg1;
+- (id)viewForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2;
+- (id)cellForItemAtIndexPath:(NSIndexPath *)arg1;
+- (id)indexPathForSupplementaryview:(NSView *)arg1;
 - (id)indexPathForCell:(id)arg1;
-- (id)_indexPathForView:(id)arg1 ofType:(unsigned long long)arg2;
+- (id)_indexPathForview:(NSView *)arg1 ofType:(unsigned long long)arg2;
 - (id)indexPathForSupplementaryElementOfKind:(id)arg1 atPoint:(CGPoint)arg2;
 - (id)indexPathForSupplementaryElementOfKind:(id)arg1 hitByEvent:(id)arg2;
 - (id)indexPathForItemAtPoint:(CGPoint)arg1;
 - (id)indexPathForItemHitByEvent:(id)arg1;
-- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (NSInteger)numberOfItemsInSection:(NSInteger)section;
-- (NSInteger)numberOfSections;
+- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2;
+- (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)arg1;
+- (long long)numberOfItemsInSection:(long long)arg1;
+- (long long)numberOfSections;
 - (void)_prepareCellsForOverdraw:(CGRect)arg1;
 - (void)resetScrollingOverdraw;
 - (CGRect)documentContentRect;
-- (void)_addControlledSubview:(id)arg1 atZIndex:(long long)arg2;
+- (void)_addControlledSubview:(NSView *)arg1 atZIndex:(long long)arg2;
 - (void)updateLayout;
 - (void)_setCollectionViewLayout:(id)arg1 animated:(BOOL)arg2 isInteractive:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)setCollectionViewLayout:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setCollectionViewLayout:(id)arg1 animated:(BOOL)arg2;
-- (void)_reuseSupplementaryView:(id)arg1;
+- (void)_reuseSupplementaryview:(NSView *)arg1;
 - (void)_reuseCell:(id)arg1;
 - (long long)_maxNumberOfReusedViews;
 - (long long)_numberOfReusedViewsForIdentifier:(id)arg1;
-- (id)dequeueReusableSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
-- (id)dequeueReusableCellWithReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
-- (id)_dequeueReusableViewOfKind:(id)arg1 withIdentifier:(id)arg2 forIndexPath:(NSIndexPath *)indexPath viewCategory:(unsigned long long)arg4;
-- (void)registerNib:(id)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(id)arg3;
-- (void)registerClass:(Class)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(id)arg3;
-- (Class)registeredClassForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier;
-- (void)registerNib:(id)arg1 forCellWithReuseIdentifier:(NSString *)reuseIdentifier;
-- (void)registerClass:(Class)arg1 forCellWithReuseIdentifier:(NSString *)reuseIdentifier;
-- (Class)registeredClassForCellWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (id)dequeueReusableSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)arg2 forIndexPath:(NSIndexPath *)arg3;
+- (id)dequeueReusableCellWithReuseIdentifier:(NSString *)arg1 forIndexPath:(NSIndexPath *)arg2;
+- (id)_dequeueReusableViewOfKind:(id)arg1 withIdentifier:(id)arg2 forIndexPath:(NSIndexPath *)arg3 viewCategory:(unsigned long long)arg4;
+- (void)registerNib:(id)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(NSString *)arg3;
+- (void)registerClass:(Class)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(NSString *)arg3;
+- (Class)registeredClassForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)arg2;
+- (void)registerNib:(id)arg1 forCellWithReuseIdentifier:(NSString *)arg2;
+- (void)registerClass:(Class)arg1 forCellWithReuseIdentifier:(NSString *)arg2;
+- (Class)registeredClassForCellWithReuseIdentifier:(NSString *)arg1;
 - (BOOL)_visible;
 - (void)layoutSubviews;
 - (CGSize)contentSizeForFrameSize:(CGSize)arg1;
@@ -260,32 +256,32 @@
 - (void)scrollWheel:(id)arg1;
 - (void)setContentOffset:(CGPoint)arg1 animated:(BOOL)arg2;
 - (void)setContentOffset:(CGPoint)arg1;
-@property(nonatomic) CGSize contentSize;
+@property(nonatomic) CGSize contentSize; // @dynamic contentSize;
 - (void)setDocumentBounds:(CGRect)arg1;
 - (CGRect)documentBounds;
 - (CGSize)documentSize;
 - (CGPoint)contentOffset;
 - (BOOL)wantsUpdateLayer;
 - (BOOL)isOpaque;
-- (void)viewWillMoveToSuperview:(id)arg1;
+- (void)viewWillMoveToSuperview:(NSView *)arg1;
 - (void)viewDidMoveToWindow;
 - (void)viewWillMoveToWindow:(id)arg1;
 - (void)_viewPrepare;
 - (void)_viewCleanup;
-- (id)_doubleSidedAnimationsForView:(id)arg1 withStartingLayoutAttributes:(id)arg2 startingLayout:(id)arg3 endingLayoutAttributes:(id)arg4 endingLayout:(id)arg5 withAnimationSetup:(CDUnknownBlockType)arg6 animationCompletion:(CDUnknownBlockType)arg7 enableCustomAnimations:(BOOL)arg8 customAnimationsType:(unsigned long long)arg9;
-- (void)_updateCellsInRect:(CGRect)arg1 createIfNecessary:(BOOL)arg2;
+- (id)_doubleSidedAnimationsForview:(NSView *)arg1 withStartingLayoutAttributes:(id)arg2 startingLayout:(id)arg3 endingLayoutAttributes:(id)arg4 endingLayout:(id)arg5 withAnimationSetup:(CDUnknownBlockType)arg6 animationCompletion:(CDUnknownBlockType)arg7 enableCustomAnimations:(BOOL)arg8 customAnimationsType:(unsigned long long)arg9;
+- (void)_updateCellsInRect:(CGRect)rect createIfNecessary:(BOOL)arg2;
 - (void)_updateVisibleCellsNow:(BOOL)arg1;
-- (id)_createPreparedSupplementaryViewForElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath withLayoutAttributes:(id)arg3 applyAttributes:(BOOL)arg4;
-- (id)_createPreparedCellForItemAtIndexPath:(NSIndexPath *)indexPath withLayoutAttributes:(id)arg2 applyAttributes:(BOOL)arg3;
+- (id)_createPreparedSupplementaryViewForElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2 withLayoutAttributes:(id)arg3 applyAttributes:(BOOL)arg4;
+- (id)_createPreparedCellForItemAtIndexPath:(NSIndexPath *)arg1 withLayoutAttributes:(id)arg2 applyAttributes:(BOOL)arg3;
 - (CGPoint)layoutPointForCollectionViewPoint:(CGPoint)arg1;
 - (CGPoint)collectionViewPointForLayoutPoint:(CGPoint)arg1;
 - (void)setScrollerStyle:(long long)arg1;
 - (void)_setVisibleBounds:(CGRect)arg1;
 - (CGRect)_visibleBounds;
 - (void)setContentInsets:(NSEdgeInsets)arg1;
-- (void)setFrame:(CGRect)arg1;
+- (void)setFrame:(CGRect)frame;
 - (void)setBounds:(CGRect)arg1;
-- (CGPoint)_contentOffsetForNewFrame:(CGRect)arg1 oldFrame:(CGRect)arg2 newContentSize:(CGSize)arg3 andOldContentSize:(CGSize)arg4;
+- (CGPoint)_contentOffsetForNewFrame:(CGRect)frame oldFrame:(CGRect)arg2 newContentSize:(CGSize)arg3 andOldContentSize:(CGSize)arg4;
 - (BOOL)isBusy;
 - (void)_invalidateLayoutWithContext:(id)arg1;
 - (void)_invalidateLayoutIfNecessary;
@@ -300,42 +296,43 @@
 - (void)deselectAllItems:(BOOL)arg1;
 - (void)selectAllItems:(BOOL)arg1;
 - (void)deselectItemsAtIndexPaths:(id)arg1 animated:(BOOL)arg2;
-- (void)deselectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)arg2;
-- (BOOL)_toggleSelectionStateOfItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)arg2 notifyDelegate:(BOOL)arg3;
+- (void)deselectItemAtIndexPath:(NSIndexPath *)arg1 animated:(BOOL)arg2;
+- (BOOL)_toggleSelectionStateOfItemAtIndexPath:(NSIndexPath *)arg1 animated:(BOOL)arg2 notifyDelegate:(BOOL)arg3;
 - (BOOL)_deselectItemsAtIndexPaths:(id)arg1 animated:(BOOL)arg2 notifyDelegate:(BOOL)arg3;
 - (void)selectItemsAtIndexPaths:(id)arg1 byExtendingSelection:(BOOL)arg2 animated:(BOOL)arg3 scrollItemAtIndex:(id)arg4 toPosition:(unsigned long long)arg5;
 - (void)selectItemsAtIndexPaths:(id)arg1 byExtendingSelection:(BOOL)arg2 animated:(BOOL)arg3;
-- (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)arg2 scrollPosition:(unsigned long long)arg3;
+- (void)selectItemAtIndexPath:(NSIndexPath *)arg1 animated:(BOOL)arg2 scrollPosition:(unsigned long long)arg3;
 - (void)_deselectAllAnimated:(BOOL)arg1 notifyDelegate:(BOOL)arg2;
-- (BOOL)_selectRangeOfItemsFromIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)indexPath byExtendingSelection:(BOOL)arg3 animated:(BOOL)arg4 scroll:(BOOL)arg5 toPosition:(unsigned long long)arg6 notifyDelegate:(BOOL)arg7 candidateLastSelectedItemIndexPath:(id *)arg8;
+- (BOOL)_selectRangeOfItemsFromIndexPath:(NSIndexPath *)arg1 toIndexPath:(NSIndexPath *)arg2 byExtendingSelection:(BOOL)arg3 animated:(BOOL)arg4 scroll:(BOOL)arg5 toPosition:(unsigned long long)arg6 notifyDelegate:(BOOL)arg7 candidateLastSelectedItemIndexPath:(id *)arg8;
 - (BOOL)_selectItemsInIndexPathsSet:(id)arg1 byExtendingSelection:(BOOL)arg2 animated:(BOOL)arg3 scrollingKeyItem:(id)arg4 toPosition:(unsigned long long)arg5 notifyDelegate:(BOOL)arg6;
 - (id)_firstSelectableItemIndexPath;
-- (BOOL)selectedItemAtIndexPath:(NSIndexPath *)indexPath;
-- (BOOL)selectableItemAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)selectedItemAtIndexPath:(NSIndexPath *)arg1;
+- (BOOL)selectableItemAtIndexPath:(NSIndexPath *)arg1;
 - (unsigned long long)numberOfSelectedItems;
 - (id)_keyItemIndexPathForItemIndexPathsSet:(id)arg1;
 - (id)_keyItemIndexPathForItemIndexPaths:(id)arg1;
 - (id)_visibleViewsDict;
 - (id)_collectionViewData;
-- (id)_layoutAttributesForItemsInRect:(CGRect)arg1;
+- (id)_layoutAttributesForItemsInRect:(CGRect)rect;
 - (id)indexPathsForSelectedItems;
 - (BOOL)_dataSourceImplementsNumberOfSections;
 - (void)_reloadDataIfNeeded;
+@property(nonatomic) __weak NSObject<UXCollectionViewAccessibilityDelegate> *accessibilityDelegate; // @synthesize accessibilityDelegate=_accessibilityDelegate;
 @property(nonatomic) __weak NSObject<UXCollectionViewDataSource> *dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak NSObject<UXCollectionViewDelegate> *delegate; // @synthesize delegate=_delegate;
-- (id)_visibleDecorationViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)_visibleSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)_visibleSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath isDecorationView:(BOOL)arg3;
+- (id)_visibleDecorationViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2;
+- (id)_visibleSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2;
+- (id)_visibleSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2 isDecorationView:(BOOL)arg3;
 - (id)_keysForObject:(id)arg1 inDictionary:(id)arg2;
 - (void)_addEntriesFromDictionary:(id)arg1 inDictionary:(id)arg2;
 - (void)_addEntriesFromDictionary:(id)arg1 inDictionary:(id)arg2 andSet:(id)arg3;
-- (void)_setObject:(id)arg1 inDictionary:(id)arg2 forKind:(id)arg3 IndexPath:(NSIndexPath *)indexPath;
-- (id)_objectInDictionary:(id)arg1 forKind:(id)arg2 IndexPath:(NSIndexPath *)indexPath;
+- (void)_setObject:(id)arg1 inDictionary:(id)arg2 forKind:(id)arg3 indexPath:(NSIndexPath *)arg4;
+- (id)_objectInDictionary:(id)arg1 forKind:(id)arg2 indexPath:(NSIndexPath *)arg3;
 - (id)description;
 - (void)dealloc;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1 collectionViewLayout:(id)arg2;
-- (id)initWithFrame:(CGRect)arg1;
+- (id)initWithCoder:(NSCoder *)arg1;
+- (id)initWithFrame:(CGRect)frame collectionViewLayout:(id)arg2;
+- (id)initWithFrame:(CGRect)frame;
 - (void)updateDraggingItemsForDrag:(id)arg1;
 - (BOOL)wantsPeriodicDraggingUpdates;
 - (void)draggingEnded:(id)arg1;

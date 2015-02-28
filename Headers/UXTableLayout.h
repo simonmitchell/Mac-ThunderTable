@@ -5,6 +5,7 @@
 //
 
 #import "UXCollectionViewFlowLayout.h"
+@protocol UXCollectionViewDelegateFlowLayout;
 
 @class NSMutableArray, NSMutableDictionary;
 
@@ -28,8 +29,8 @@
 @property(readonly, nonatomic) NSMutableDictionary *headerAttributesByIndexPath; // @synthesize headerAttributesByIndexPath=_headerAttributesByIndexPath;
 @property(readonly, nonatomic) NSMutableArray *layoutAttributesArray; // @synthesize layoutAttributesArray=_layoutAttributesArray;
 - (void)cxx_destruct;
-- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)layoutAttributesForElementsInRect:(CGRect)arg1;
+- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2;
+- (id)layoutAttributesForElementsInRect:(CGRect)rect;
 - (void)invalidateLayoutWithContext:(id)arg1;
 - (id)invalidationContextForBoundsChange:(CGRect)arg1;
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)arg1;
@@ -39,8 +40,8 @@
 @property(nonatomic) BOOL showsSectionFooterForSingleSection;
 @property(nonatomic) BOOL showsSectionHeaderForSingleSection;
 @property(nonatomic) BOOL floatingHeadersDisabled;
-//@property(readonly, nonatomic) id <UXCollectionViewDelegateFlowLayout> delegateFlowLayout;
-- (void)_setCollectionView:(id)arg1;
+@property(readonly, nonatomic) id <UXCollectionViewDelegateFlowLayout> delegateFlowLayout;
+- (void)_setCollectionView:(UXCollectionView *)collectionView;
 - (id)init;
 
 @end

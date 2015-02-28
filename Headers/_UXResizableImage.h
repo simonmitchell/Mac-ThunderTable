@@ -30,8 +30,8 @@
 - (CGRect)_contentInsetsInPixels:(NSEdgeInsets)arg1 emptySizeFallback:(CDUnknownBlockType)arg2;
 - (void)drawInRect:(CGRect)arg1 fromRect:(CGRect)arg2 operation:(unsigned long long)arg3 fraction:(double)arg4 respectFlipped:(BOOL)arg5 hints:(id)arg6;
 - (void)drawInRect:(CGRect)arg1 fromRect:(CGRect)arg2 operation:(unsigned long long)arg3 fraction:(double)arg4;
-- (void)_setupNinePartFromImage:(id)arg1;
-- (id)initWithImage:(id)arg1 capInsets:(NSEdgeInsets)arg2;
+- (void)_setupNinePartFromImage:(NSImage *)arg1;
+- (id)initWithImage:(NSImage *)arg1 capInsets:(NSEdgeInsets)arg2;
 
 @end
 

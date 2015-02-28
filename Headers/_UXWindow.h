@@ -4,7 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@import  AppKit;
+@import AppKit;
+
+@protocol _UXWindowDelegate;
 
 @interface _UXWindow : NSWindow
 {
@@ -16,10 +18,10 @@
 - (void)beginCriticalSheet:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)beginSheet:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)initWithContentRect:(CGRect)arg1;
+- (id)initWithContentRect:(CGRect)rect;
 
 // Remaining properties
-//@property id <_UXWindowDelegate> delegate; // @dynamic delegate;
+@property id <_UXWindowDelegate> delegate; // @dynamic delegate;
 
 @end
 

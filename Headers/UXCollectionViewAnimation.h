@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
+@import AppKit;
 
 @class NSMutableArray, UXCollectionReusableView, UXCollectionViewLayoutAttributes;
 
@@ -40,7 +40,7 @@
 @property(readonly, nonatomic) BOOL animateFromCurrentPosition;
 - (id)description;
 - (void)dealloc;
-- (id)initWithView:(id)arg1 viewType:(unsigned long long)arg2 finalLayoutAttributes:(id)arg3 startFraction:(double)arg4 endFraction:(double)arg5 animateFromCurrentPosition:(BOOL)arg6 deleteAfterAnimation:(BOOL)arg7 customAnimations:(CDUnknownBlockType)arg8;
+- (id)initWithview:(NSView *)arg1 viewType:(unsigned long long)arg2 finalLayoutAttributes:(id)arg3 startFraction:(double)arg4 endFraction:(double)arg5 animateFromCurrentPosition:(BOOL)arg6 deleteAfterAnimation:(BOOL)arg7 customAnimations:(CDUnknownBlockType)arg8;
 
 @end
 

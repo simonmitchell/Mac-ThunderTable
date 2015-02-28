@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
+@import AppKit;
 
 @class NSArray, NSMutableArray, NSString, NSView, UXBarButtonItem, UXLabel;
 
@@ -53,7 +53,7 @@
 - (void)setLeftBarButtonItem:(id)arg1 animated:(BOOL)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (id)initWithTitle:(id)arg1;
+- (id)initWithTitle:(NSString *)title;
 
 @end
 

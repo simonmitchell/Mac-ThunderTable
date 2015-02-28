@@ -4,9 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
-
-@import  AppKit;
+@import AppKit;
 
 @class NSIndexPath, NSString;
 
@@ -15,13 +13,13 @@
     unsigned long long _hash;
     NSString *_elementKind;
     NSString *_reuseIdentifier;
-    CGRect _frame;
+     CGRect _frame;
     CGPoint _center;
     CGSize _size;
     double _alpha;
     long long _zIndex;
     BOOL _isFloating;
-    CGRect _floatingFrame;
+     CGRect _floatingFrame;
     BOOL _isFloatingPinned;
     NSIndexPath *_indexPath;
     NSString *_representedElementKind;
@@ -32,14 +30,16 @@
         unsigned int isHidden:1;
         unsigned int isClone:1;
     } _layoutFlags;
+    BOOL _isPushing;
 }
 
-+ (id)layoutAttributesForDecorationViewOfKind:(id)arg1 withIndexPath:(NSIndexPath *)indexPath;
-+ (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 withIndexPath:(NSIndexPath *)indexPath;
-+ (id)layoutAttributesForCellWithIndexPath:(NSIndexPath *)indexPath;
++ (id)layoutAttributesForDecorationViewOfKind:(id)arg1 withIndexPath:(NSIndexPath *)arg2;
++ (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 withIndexPath:(NSIndexPath *)arg2;
++ (id)layoutAttributesForCellWithIndexPath:(NSIndexPath *)arg1;
 @property(retain, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
+@property(nonatomic) BOOL isPushing; // @synthesize isPushing=_isPushing;
 @property(nonatomic) BOOL isFloatingPinned; // @synthesize isFloatingPinned=_isFloatingPinned;
-@property(nonatomic) CGRect floatingFrame; // @synthesize floatingFrame=_floatingFrame;
+@property(nonatomic)  CGRect floatingFrame; // @synthesize floatingFrame=_floatingFrame;
 @property(nonatomic) BOOL isFloating; // @synthesize isFloating=_isFloating;
 @property(nonatomic) long long zIndex; // @synthesize zIndex=_zIndex;
 @property(nonatomic) double alpha; // @synthesize alpha=_alpha;
@@ -55,12 +55,12 @@
 - (BOOL)_isEquivalentTo:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
-@property(nonatomic) CGRect frame; // @synthesize frame=_frame;
-@property(nonatomic) CGRect bounds;
+@property(nonatomic)  CGRect frame; // @synthesize frame=_frame;
+@property(nonatomic)  CGRect bounds;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)_setIndexPath:(NSIndexPath *)indexPath;
+- (void)_setIndexPath:(NSIndexPath *)arg1;
 - (id)_reuseIdentifier;
-- (void)_setReuseIdentifier:(NSString *)reuseIdentifier;
+- (void)_setReuseIdentifier:(NSString *)arg1;
 - (id)_elementKind;
 - (void)_setElementKind:(id)arg1;
 - (BOOL)_isClone;

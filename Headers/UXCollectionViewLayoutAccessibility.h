@@ -4,8 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@import  AppKit;
-
+@import AppKit;
 @class NSArray, NSMutableArray, UXCollectionView, UXCollectionViewLayout;
 
 @interface UXCollectionViewLayoutAccessibility : NSAccessibilityElement
@@ -45,7 +44,7 @@
 - (id)nextSectionForSection:(id)arg1;
 - (id)previousSectionForSection:(id)arg1;
 - (id)accessibilityParentForCell:(id)arg1;
-- (id)accessibilityParentForReusableView:(id)arg1;
+- (id)accessibilityParentForReusableview:(NSView *)arg1;
 - (void)_dumpVisibleChildren;
 - (void)accessibilityPrepareLayout;
 - (void)accessibilityInvalidateLayout;

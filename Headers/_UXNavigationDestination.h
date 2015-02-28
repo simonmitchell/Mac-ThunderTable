@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+@import AppKit;
 
+#import "_UXNavigationDestination.h"
 
-#import "UXNavigationDestination-Protocol.h"
-
-@class NSString, UXAuxiliaryNavigationStore, UXViewController;
+@class NSString, UXAuxiliaryNavigationStore;
 
 @interface _UXNavigationDestination : NSObject <UXNavigationDestination>
 {
@@ -24,8 +24,8 @@
 @property(retain, nonatomic) NSString *destinationTitle; // @synthesize destinationTitle=_destinationTitle;
 @property(retain, nonatomic) NSString *destinationType; // @synthesize destinationType=_destinationType;
 - (void)cxx_destruct;
-- (void)encodeWithCoder:(NSCoder *)coder;
-- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(NSCoder *)arg1;
+- (id)initWithCoder:(NSCoder *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

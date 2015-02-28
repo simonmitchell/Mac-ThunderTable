@@ -6,8 +6,6 @@
 
 #import "UXBar.h"
 
-#import "UXNavigationControllerDelegate-Protocol.h"
-
 @class NSArray, NSImage, NSMutableArray, NSView, UXNavigationItem, _UXNavigationItemContainerView;
 
 @interface UXNavigationBar : UXBar
@@ -60,6 +58,7 @@
 - (void)_snapshot;
 - (id)_popNavigationItemAnimated:(BOOL)arg1 duration:(double)arg2;
 - (void)_pushNavigationItem:(id)arg1 animated:(BOOL)arg2 duration:(double)arg3;
+- (id)buttonForAction:(SEL)aSelector;
 - (void)_updateTitleView;
 - (id)_popNavigationItem;
 - (void)_removeItem:(id)arg1;
@@ -76,7 +75,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (long long)barPosition;
 - (void)dealloc;
-- (id)initWithFrame:(CGRect)arg1;
+- (id)initWithFrame:(CGRect)frame;
 
 @end
 

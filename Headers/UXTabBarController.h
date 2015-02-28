@@ -6,15 +6,17 @@
 
 #import "UXViewController.h"
 
-@class NSArray, NSSegmentedControl;
+@class NSArray, NSSegmentedControl, UXNavigationItem;
 
 @interface UXTabBarController : UXViewController
 {
     NSArray *_viewControllers;
     UXViewController *_selectedViewController;
     NSSegmentedControl *_segmentedControl;
+    UXNavigationItem *_observedNavigationItem;
 }
 
+@property(readonly, nonatomic) UXNavigationItem *observedNavigationItem; // @synthesize observedNavigationItem=_observedNavigationItem;
 @property(readonly, nonatomic) NSSegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 @property(nonatomic) __weak UXViewController *selectedViewController; // @synthesize selectedViewController=_selectedViewController;
 @property(copy, nonatomic) NSArray *viewControllers; // @synthesize viewControllers=_viewControllers;
@@ -25,7 +27,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)segmentChanged:(id)arg1;
 - (void)dealloc;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

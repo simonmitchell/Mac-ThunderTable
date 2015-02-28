@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
+@import AppKit;
 
 #import "UXViewControllerContextTransitioning-Protocol.h"
 
@@ -68,8 +68,8 @@
 - (BOOL)_transitionIsCompleting;
 @property(nonatomic) BOOL transitionIsInFlight;
 - (BOOL)transitionWasCancelled;
-- (CGRect)finalFrameForViewController:(id)arg1;
-- (CGRect)initialFrameForViewController:(id)arg1;
+- (CGRect)finalFrameForViewController:(UXViewController *)arg1;
+- (CGRect)initialFrameForViewController:(UXViewController *)arg1;
 - (id)viewControllerForKey:(id)arg1;
 - (void)completeTransition:(BOOL)arg1;
 - (void)cancelInteractiveTransition;

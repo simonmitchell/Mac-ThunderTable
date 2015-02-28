@@ -4,9 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
-
-@import  AppKit;
+@import AppKit;
 
 @class NSMutableDictionary, NSString, UXSourceController;
 
@@ -22,8 +20,8 @@
 @property(nonatomic) __weak UXSourceController *sourceController; // @synthesize sourceController=_sourceController;
 - (void)cxx_destruct;
 - (id)_dictionaryForNamespace:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(NSCoder *)arg1;
+- (id)initWithCoder:(NSCoder *)arg1;
 - (id)_allowedClassesForNSCoding;
 - (id)nextActionForNamespace:(id)arg1;
 - (void)setNextAction:(id)arg1 forNamespace:(id)arg2;

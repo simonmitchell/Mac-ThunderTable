@@ -12,23 +12,23 @@
 {
     UXViewController *_fromViewController;
     UXViewController *_toViewController;
-    CGRect _fromStartFrame;
-    CGRect _fromEndFrame;
-    CGRect _toEndFrame;
-    CGRect _toStartFrame;
+     CGRect _fromStartFrame;
+     CGRect _fromEndFrame;
+     CGRect _toEndFrame;
+     CGRect _toStartFrame;
 }
 
-@property(nonatomic) CGRect toStartFrame; // @synthesize toStartFrame=_toStartFrame;
-@property(nonatomic) CGRect toEndFrame; // @synthesize toEndFrame=_toEndFrame;
-@property(nonatomic) CGRect fromEndFrame; // @synthesize fromEndFrame=_fromEndFrame;
-@property(nonatomic) CGRect fromStartFrame; // @synthesize fromStartFrame=_fromStartFrame;
+@property(nonatomic)  CGRect toStartFrame; // @synthesize toStartFrame=_toStartFrame;
+@property(nonatomic)  CGRect toEndFrame; // @synthesize toEndFrame=_toEndFrame;
+@property(nonatomic)  CGRect fromEndFrame; // @synthesize fromEndFrame=_fromEndFrame;
+@property(nonatomic)  CGRect fromStartFrame; // @synthesize fromStartFrame=_fromStartFrame;
 @property(retain, nonatomic) UXViewController *toViewController; // @synthesize toViewController=_toViewController;
 @property(retain, nonatomic) UXViewController *fromViewController; // @synthesize fromViewController=_fromViewController;
 - (void)cxx_destruct;
 @property(readonly, nonatomic) UXView *fromView;
 @property(readonly, nonatomic) UXView *toView;
-- (CGRect)finalFrameForViewController:(id)arg1;
-- (CGRect)initialFrameForViewController:(id)arg1;
+- (CGRect)finalFrameForViewController:(UXViewController *)arg1;
+- (CGRect)initialFrameForViewController:(UXViewController *)arg1;
 - (id)viewControllerForKey:(id)arg1;
 
 @end

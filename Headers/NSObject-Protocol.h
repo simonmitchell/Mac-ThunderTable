@@ -15,14 +15,14 @@
 - (id)autorelease;
 - (oneway void)release;
 - (id)retain;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (BOOL)respondsToSelector:(SEL)aSelector;
 - (BOOL)conformsToProtocol:(Protocol *)arg1;
 - (BOOL)isMemberOfClass:(Class)arg1;
 - (BOOL)isKindOfClass:(Class)arg1;
 - (BOOL)isProxy;
-- (id)performSelector:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
-- (id)performSelector:(SEL)arg1 withObject:(id)arg2;
-- (id)performSelector:(SEL)arg1;
+- (id)performSelector:(SEL)aSelector withObject:(id)arg2 withObject:(id)arg3;
+- (id)performSelector:(SEL)aSelector withObject:(id)arg2;
+- (id)performSelector:(SEL)aSelector;
 - (id)self;
 - (Class)class;
 - (BOOL)isEqual:(id)arg1;

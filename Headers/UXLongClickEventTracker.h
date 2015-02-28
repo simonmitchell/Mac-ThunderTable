@@ -23,7 +23,7 @@
 - (void)_minimumDurationElapsed:(id)arg1;
 - (void)_stopTimer;
 - (void)_startTimer;
-- (CGPoint)initialLocationInView:(id)arg1;
+- (CGPoint)initialLocationInview:(NSView *)arg1;
 - (void)reset;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDragged:(id)arg1;

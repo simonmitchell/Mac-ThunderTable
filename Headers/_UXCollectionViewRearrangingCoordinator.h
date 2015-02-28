@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+@import AppKit;
 
+#import "NSDraggingDestination.h"
+#import "NSDraggingSource.h"
+#import "NSGestureRecognizerDelegate.h"
+#import "UXCollectionViewLayoutProxyDelegate.h"
 
-@import  AppKit;
-@import  AppKit;
-@import  AppKit;
-#import "UXCollectionViewLayoutProxyDelegate-Protocol.h"
-
-@class NSArray, NSGestureRecognizer, NSString, UXCollectionView, UXCollectionViewLayout, _UXCollectionViewLayoutProxy;
+@class NSArray, NSEvent, NSGestureRecognizer, NSString, UXCollectionView, UXCollectionViewLayout, _UXCollectionViewLayoutProxy;
 
 @interface _UXCollectionViewRearrangingCoordinator : NSObject <UXCollectionViewLayoutProxyDelegate, NSGestureRecognizerDelegate, NSDraggingSource, NSDraggingDestination>
 {
@@ -50,6 +50,7 @@
     BOOL _updatesLayoutOnDrag;
     BOOL _autoscrolling;
     unsigned long long _sequenceNumber;
+    NSEvent *_mouseDownEvent;
     BOOL _isRearranging;
     BOOL _enabled;
     BOOL _allowDragOutsideCells;
@@ -82,7 +83,6 @@
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) BOOL isRearranging; // @synthesize isRearranging=_isRearranging;
 @property(readonly, nonatomic) UXCollectionView *collectionView; // @synthesize collectionView=_collectionView;
-
 - (void)updateDraggingItemsForDrag:(id)arg1;
 - (BOOL)wantsPeriodicDraggingUpdates;
 - (void)draggingEnded:(id)arg1;
@@ -100,7 +100,7 @@
 - (void)_autoscrollWithWindowLocation:(CGPoint)arg1;
 - (void)_moveItemsAtIndexPaths:(id)arg1 toIndexPaths:(id)arg2;
 - (void)_beginDraggingSessionForIndexPaths:(id)arg1;
-- (id)layoutAttributesForElementsInRect:(CGRect)arg1;
+- (id)layoutAttributesForElementsInRect:(CGRect)rect;
 - (void)resetDragGestureRecogizer;
 - (void)_finishRearrangingForLocation:(CGPoint)arg1 shouldComplete:(BOOL)arg2;
 - (void)_reloadCollectionViewWithAnimation;
@@ -117,7 +117,7 @@
 @property(readonly, nonatomic) UXCollectionViewLayout *collectionViewLayout;
 - (void)reloadLayout;
 - (void)dealloc;
-- (id)initWithCollectionView:(id)arg1;
+- (id)initWithCollectionView:(UXCollectionView *)collectionView;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

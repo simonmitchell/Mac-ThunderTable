@@ -4,8 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
-
+@import AppKit;
 @class NSIndexPath;
 
 @interface UXCollectionViewUpdateItem : NSObject
@@ -27,12 +26,12 @@
 - (id)_indexPath;
 - (long long)_action;
 - (id)description;
-- (void)_setNewIndexPath:(NSIndexPath *)indexPath;
+- (void)_setNewIndexPath:(NSIndexPath *)arg1;
 - (id)_newIndexPath;
 - (void)dealloc;
-- (id)initWithOldIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)indexPath;
-- (id)initWithAction:(long long)arg1 forIndexPath:(NSIndexPath *)indexPath;
-- (id)initWithInitialIndexPath:(NSIndexPath *)indexPath finalIndexPath:(NSIndexPath *)indexPath updateAction:(long long)arg3;
+- (id)initWithOldIndexPath:(NSIndexPath *)arg1 newIndexPath:(NSIndexPath *)arg2;
+- (id)initWithAction:(long long)arg1 forIndexPath:(NSIndexPath *)arg2;
+- (id)initWithInitialIndexPath:(NSIndexPath *)arg1 finalIndexPath:(NSIndexPath *)arg2 updateAction:(long long)arg3;
 
 @end
 

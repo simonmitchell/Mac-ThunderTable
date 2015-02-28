@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
+@import AppKit;
 
 @class NSArray, NSMutableArray, UXCollectionViewUpdateItem;
 
@@ -14,13 +14,13 @@
     UXCollectionViewUpdateItem *_lastUpdateItem;
     NSMutableArray *_deleteItems;
     NSMutableArray *_insertItems;
-    CGRect _beginningRect;
-    CGRect _endingRect;
+     CGRect _beginningRect;
+     CGRect _endingRect;
 }
 
 + (id)gapWithUpdateItem:(id)arg1;
-@property(nonatomic) CGRect endingRect; // @synthesize endingRect=_endingRect;
-@property(nonatomic) CGRect beginningRect; // @synthesize beginningRect=_beginningRect;
+@property(nonatomic)  CGRect endingRect; // @synthesize endingRect=_endingRect;
+@property(nonatomic)  CGRect beginningRect; // @synthesize beginningRect=_beginningRect;
 @property(readonly, nonatomic) NSArray *insertItems; // @synthesize insertItems=_insertItems;
 @property(readonly, nonatomic) NSArray *deleteItems; // @synthesize deleteItems=_deleteItems;
 @property(retain, nonatomic) UXCollectionViewUpdateItem *lastUpdateItem; // @synthesize lastUpdateItem=_lastUpdateItem;

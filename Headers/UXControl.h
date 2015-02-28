@@ -23,12 +23,12 @@
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
 - (void)cxx_destruct;
-- (void)setTarget:(id)arg1 action:(SEL)arg2;
+- (void)setTarget:(id)arg1 action:(SEL)aSelector;
 - (void)mouseDown:(id)arg1;
-- (BOOL)sendAction:(SEL)arg1 to:(id)arg2;
+- (BOOL)sendAction:(SEL)aSelector to:(id)arg2;
 - (BOOL)isFlipped;
 - (BOOL)_locationInsideForEvent:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
+- (id)initWithFrame:(CGRect)frame;
 
 @end
 

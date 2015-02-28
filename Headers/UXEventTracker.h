@@ -4,8 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@import  AppKit;
-
+@import AppKit;
 @class NSEvent, NSMapTable, UXView;
 
 @interface UXEventTracker : NSResponder
@@ -41,13 +40,13 @@
 - (BOOL)eventTrackerRequiresTouches;
 - (void)reset;
 @property(readonly, nonatomic) unsigned long long numberOfTouches;
-- (CGPoint)locationOfTouch:(unsigned long long)arg1 inView:(id)arg2;
-- (CGPoint)locationInView:(id)arg1;
+- (CGPoint)locationOfTouch:(unsigned long long)arg1 inview:(NSView *)arg2;
+- (CGPoint)locationInview:(NSView *)arg1;
 - (void)cancelTracking;
 - (void)removeTarget:(id)arg1;
-- (void)addTarget:(id)arg1 action:(SEL)arg2;
+- (void)addTarget:(id)arg1 action:(SEL)aSelector;
 - (id)init;
-- (id)initWithTarget:(id)arg1 action:(SEL)arg2;
+- (id)initWithTarget:(id)arg1 action:(SEL)aSelector;
 
 @end
 

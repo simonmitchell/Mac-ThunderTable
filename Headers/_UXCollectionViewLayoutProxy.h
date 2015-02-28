@@ -4,31 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@import  AppKit;
-
+@import AppKit;
 #import "UXCollectionViewLayoutProxyDelegate-Protocol.h"
 
-@class NSMapTable, UXCollectionViewLayout;
+@class UXCollectionViewLayout;
 
-@interface _UXCollectionViewLayoutProxy : NSProxy
+@interface _UXCollectionViewLayoutProxy : NSObject
 {
     id <UXCollectionViewLayoutProxyDelegate> _delegate;
     UXCollectionViewLayout *_layout;
-    NSMapTable *_methodSignituresBySelector;
 }
 
 + (Class)invalidationContextClass;
 + (Class)layoutAttributesClass;
 + (Class)class;
-@property(retain, nonatomic) NSMapTable *methodSignituresBySelector; // @synthesize methodSignituresBySelector=_methodSignituresBySelector;
 @property(readonly, nonatomic) UXCollectionViewLayout *layout; // @synthesize layout=_layout;
 @property(nonatomic) id <UXCollectionViewLayoutProxyDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)forwardingTargetForSelector:(SEL)aSelector;
 - (id)layoutAttributesForElementsInRect:(CGRect)rect;
-- (id)methodSignatureForSelector:(SEL)aSelector;
-- (void)forwardInvocation:(id)invocation;
 - (Class)class;
 - (void)dealloc;
-- (id)initWithLayout:(id)layout;
+- (id)initWithLayout:(id)arg1;
 
 @end
 

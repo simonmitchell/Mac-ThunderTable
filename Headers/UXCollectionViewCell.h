@@ -21,13 +21,13 @@
 - (void)resizeSubviewsWithOldSize:(CGSize)arg1;
 - (BOOL)wantsUpdateLayer;
 - (void)dealloc;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
+- (id)initWithCoder:(NSCoder *)arg1;
+- (id)initWithFrame:(CGRect)frame;
 - (id)_accessibilityIndexPath;
 - (id)_accessibilityDefaultRole;
 - (id)_dynamicAccessibilityParent;
 - (void)setAccessibilitySelected:(BOOL)arg1;
-- (BOOL)isAccessibilitySelectorAllowed:(SEL)arg1;
+- (BOOL)isAccessibilitySelectorAllowed:(SEL)aSelector;
 - (BOOL)isAccessibilitySelected;
 - (id)_axSimulateClick:(unsigned long long)arg1 withNumberOfClicks:(unsigned long long)arg2;
 - (BOOL)accessibilityPerformPress;

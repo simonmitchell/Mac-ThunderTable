@@ -5,6 +5,7 @@
 //
 
 #import "UXViewControllerContextTransitioning-Protocol.h"
+@import AppKit;
 
 @protocol UXViewControllerAnimatedTransitioning <NSObject>
 - (void)animateTransition:(id <UXViewControllerContextTransitioning>)arg1;

@@ -34,9 +34,9 @@
 -(BOOL)tableView:(UXTableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 -(BOOL)tableView:(UXTableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath;
 -(id)sectionIndexTitlesFortableView:(UXTableView *)tableView;
--(long long)tableView:(UXTableView *)tableView sectionForSectionIndexTitle:(id)arg2 atIndex:(long long)arg3;
+-(long long)tableView:(UXTableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(long long)arg3;
 -(void)tableView:(UXTableView *)tableView commitEditingStyle:(long long)arg2 forRowAtIndexPath:(NSIndexPath *)indexPath;
--(void)tableView:(UXTableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(id)toIndexPath;
+-(void)tableView:(UXTableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;
 
 @required
 -(long long)tableView:(UXTableView *)tableView numberOfRowsInSection:(long long)section;
@@ -47,11 +47,11 @@
 
 @optional
 -(void)tableView:(UXTableView *)tableView willDisplayCell:(UXTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
--(void)tableView:(UXTableView *)tableView willDisplayHeaderView:(id)arg2 forSection:(long long)section;
--(void)tableView:(UXTableView *)tableView willDisplayFooterView:(id)arg2 forSection:(long long)section;
+-(void)tableView:(UXTableView *)tableView willDisplayHeaderview:(NSView *)arg2 forSection:(long long)section;
+-(void)tableView:(UXTableView *)tableView willDisplayFooterview:(NSView *)arg2 forSection:(long long)section;
 -(void)tableView:(UXTableView *)tableView didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(NSIndexPath *)indexPath;
--(void)tableView:(UXTableView *)tableView didEndDisplayingHeaderView:(id)arg2 forSection:(long long)section;
--(void)tableView:(UXTableView *)tableView didEndDisplayingFooterView:(id)arg2 forSection:(long long)section;
+-(void)tableView:(UXTableView *)tableView didEndDisplayingHeaderview:(NSView *)arg2 forSection:(long long)section;
+-(void)tableView:(UXTableView *)tableView didEndDisplayingFooterview:(NSView *)arg2 forSection:(long long)section;
 -(double)tableView:(UXTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 -(double)tableView:(UXTableView *)tableView heightForHeaderInSection:(long long)section;
 -(double)tableView:(UXTableView *)tableView heightForFooterInSection:(long long)section;

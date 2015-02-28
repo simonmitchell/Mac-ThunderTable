@@ -10,7 +10,7 @@
 {
 }
 
-- (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
+- (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(UXViewController *)arg3 toViewController:(UXViewController *)arg4;
 - (id)navigationController:(id)arg1 interactionControllerForAnimationController:(id)arg2;
 - (void)updateInteractiveTransition:(double)arg1 inContext:(id)arg2;
 - (void)startInteractiveTransition:(id)arg1;

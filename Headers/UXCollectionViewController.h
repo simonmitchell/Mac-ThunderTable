@@ -9,7 +9,7 @@
 #import "UXCollectionViewDataSource-Protocol.h"
 #import "UXCollectionViewDelegate-Protocol.h"
 
-@class NSString, UXCollectionView, UXCollectionViewLayout, NSScrollView;
+@class NSString, UXCollectionView, UXCollectionViewLayout;
 
 @interface UXCollectionViewController : UXViewController <UXCollectionViewDataSource, UXCollectionViewDelegate>
 {
@@ -19,7 +19,6 @@
 
 + (Class)collectionViewClass;
 @property(retain, nonatomic) UXCollectionView *collectionView; // @synthesize collectionView=_collectionView;
-
 - (void)cxx_destruct;
 - (double)scrollView:(NSScrollView *)scrollView pageAlignedOriginOnAxis:(NSInteger)axis forProposedDestination:(double)arg3 currentOrigin:(double)arg4 initialOrigin:(double)arg5 velocity:(double)arg6;
 - (id)collectionView:(UXCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;

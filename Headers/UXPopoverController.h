@@ -5,9 +5,8 @@
 //
 
 #import "UXViewController.h"
-//#import "UXPopoverControllerDelegate-Protocol.h"
 
-@import  AppKit;
+#import "NSPopoverDelegate.h"
 
 @class NSArray, NSString, UXPopover;
 
@@ -24,7 +23,7 @@
 - (void)dismissPopoverAnimated:(BOOL)arg1;
 - (void)dismissPopover;
 - (void)presentPopoverFromBarButtonItem:(id)arg1 permittedArrowDirections:(unsigned long long)arg2 animated:(BOOL)arg3;
-- (void)presentPopoverFromRect:(CGRect)arg1 inView:(id)arg2 preferredEdge:(unsigned long long)arg3;
+- (void)presentPopoverFromRect:(CGRect)rect inview:(NSView *)arg2 preferredEdge:(unsigned long long)arg3;
 @property(retain, nonatomic) UXViewController *contentViewController;
 @property(nonatomic) CGSize popoverContentSize;
 - (void)setPopoverContentSize:(CGSize)arg1 animated:(BOOL)arg2;
@@ -36,7 +35,7 @@
 - (void)_updateContentSize;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (id)initWithContentViewController:(id)arg1;
+- (id)initWithContentViewController:(UXViewController *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
+@import AppKit;
 
 @class NSArray, NSMapTable, NSMutableArray, NSMutableDictionary, UXCollectionView, UXCollectionViewLayout;
 
@@ -17,7 +17,7 @@
     NSMutableDictionary *_supplementaryLayoutAttributes;
     NSMutableDictionary *_decorationLayoutAttributes;
     NSMutableDictionary *_invalidatedSupplementaryViews;
-    CGRect _validLayoutRect;
+     CGRect _validLayoutRect;
     long long _numItems;
     long long _numSections;
     long long *_sectionItemCounts;
@@ -37,28 +37,28 @@
 @property(readonly, nonatomic) NSArray *clonedLayoutAttributes; // @synthesize clonedLayoutAttributes=_clonedLayoutAttributes;
 @property(nonatomic, getter=isLayoutLocked) BOOL layoutLocked;
 @property(readonly, nonatomic) BOOL layoutIsPrepared;
-- (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2;
+- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2;
 - (id)knownDecorationElementKinds;
 - (id)knownSupplementaryElementKinds;
 - (id)existingSupplementaryLayoutAttributes;
 - (id)existingSupplementaryLayoutAttributesInSection:(long long)arg1;
-- (id)layoutAttributesForElementsInRect:(CGRect)arg1;
+- (id)layoutAttributesForElementsInRect:(CGRect)rect;
 - (id)layoutAttributesForElementsInSection:(long long)arg1;
 - (id)layoutAttributesForGlobalItemIndex:(long long)arg1;
-- (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (CGRect)rectForDecorationElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (CGRect)rectForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)arg1;
+- (CGRect)rectForDecorationElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2;
+- (CGRect)rectForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)arg2;
 - (CGRect)rectForGlobalItemIndex:(long long)arg1;
 - (CGRect)collectionViewContentRect;
-- (CGRect)rectForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGRect)rectForItemAtIndexPath:(NSIndexPath *)arg1;
 - (id)indexPathForItemAtGlobalIndex:(long long)arg1;
-- (long long)globalIndexForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (long long)globalIndexForItemAtIndexPath:(NSIndexPath *)arg1;
 - (long long)numberOfItemsBeforeSection:(long long)arg1;
 - (long long)numberOfItemsInSection:(long long)arg1;
 - (long long)numberOfItems;
 - (long long)numberOfSections;
-- (void)validateLayoutInRect:(CGRect)arg1;
+- (void)validateLayoutInRect:(CGRect)rect;
 - (void)_loadEverything;
 - (void)_setLayoutAttributes:(id)arg1 atGlobalItemIndex:(long long)arg2;
 - (id)_screenPageForPoint:(CGPoint)arg1;
@@ -72,7 +72,7 @@
 - (void)invalidateSupplementaryViews:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithCollectionView:(id)arg1 layout:(id)arg2;
+- (id)initWithCollectionView:(UXCollectionView *)collectionView layout:(id)arg2;
 
 @end
 

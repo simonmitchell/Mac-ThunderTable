@@ -29,7 +29,7 @@
 
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 - (void)cxx_destruct;
-- (CGPoint)locationOfTouch:(unsigned long long)arg1 inView:(id)arg2;
+- (CGPoint)locationOfTouch:(unsigned long long)arg1 inview:(NSView *)arg2;
 - (CGPoint)locationOfTouch:(id)arg1;
 - (id)_touchForTouchIdentity:(id)arg1;
 - (double)_distanceBetweenMonitoredTouches;
@@ -42,7 +42,7 @@
 - (void)rotateWithEvent:(id)arg1;
 - (void)magnifyWithEvent:(id)arg1;
 - (void)reset;
-- (CGPoint)locationInView:(id)arg1;
+- (CGPoint)locationInview:(NSView *)arg1;
 - (void)setTrackingEvent:(id)arg1;
 - (id)init;
 - (BOOL)eventTrackerRequiresTouches;

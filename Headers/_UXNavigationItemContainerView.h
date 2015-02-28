@@ -5,7 +5,6 @@
 //
 
 #import "UXView.h"
-
 #import "_UXBarItemsContainer-Protocol.h"
 
 @class NSLayoutConstraint, NSMutableArray, NSString, NSView, UXImageView, UXNavigationBar, UXNavigationItem;
@@ -40,7 +39,7 @@
 @property(readonly, nonatomic) UXNavigationItem *item; // @synthesize item=_item;
 - (void)cxx_destruct;
 - (void)_updateItemsViews:(id)arg1 withNewViews:(id)arg2;
-- (void)setTitleCenteringTrackedView:(id)arg1 updateConstraints:(BOOL)arg2;
+- (void)setTitleCenteringTrackedview:(NSView *)arg1 updateConstraints:(BOOL)arg2;
 - (void)updateConstraints;
 - (id)hitTest:(CGPoint)arg1;
 - (void)viewDidMoveToWindow;

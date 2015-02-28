@@ -14,10 +14,10 @@
 }
 
 - (void)cxx_destruct;
-- (void)didMoveToParentViewController:(id)arg1;
+- (void)didMoveToParentViewController:(UXViewController *)arg1;
 - (BOOL)isViewLoaded;
 - (id)view;
-- (id)initWithView:(id)arg1;
+- (id)initWithview:(NSView *)arg1;
 
 @end
 

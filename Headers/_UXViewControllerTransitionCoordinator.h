@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
+@import AppKit;
 
 #import "UXViewControllerTransitionCoordinator-Protocol.h"
 
@@ -27,7 +27,7 @@
 - (void)cxx_destruct;
 - (void)notifyWhenInteractionEndsUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)animateAlongsideTransition:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
-- (BOOL)animateAlongsideTransitionInView:(id)arg1 animation:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (BOOL)animateAlongsideTransitionInview:(NSView *)arg1 animation:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_applyBlocks:(id)arg1 releaseBlocks:(CDUnknownBlockType)arg2;
 - (id)_alongsideCompletions:(BOOL)arg1;
 - (id)_alongsideAnimations:(BOOL)arg1;
