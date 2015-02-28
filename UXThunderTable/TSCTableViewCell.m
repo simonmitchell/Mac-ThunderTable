@@ -69,15 +69,15 @@ static CGFloat sideMargin = 12.0;
     
     if (self.detailTextLabel.text && ![self.detailTextLabel.text isEqualToString:@""]) {
         
-        CGSize detailLabelSize = [self.detailTextLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - sideMargin*2, MAXFLOAT)];
-        self.detailTextLabel.frame = CGRectMake(sideMargin, 12, detailLabelSize.width, detailLabelSize.height);
+        CGSize detailLabelSize = [self.detailTextLabel sizeThatFits:CGSizeMake(self.frame.size.width - sideMargin*2, MAXFLOAT)];
+        self.detailTextLabel.frame = CGRectMake(sideMargin, 12, self.frame.size.width - sideMargin*2, detailLabelSize.height);
         
-        CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - sideMargin*2, MAXFLOAT)];
-        self.textLabel.frame = CGRectMake(sideMargin, CGRectGetMaxY(self.detailTextLabel.frame) + 2, textLabelSize.width, textLabelSize.height);
+        CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.frame.size.width - sideMargin*2, MAXFLOAT)];
+        self.textLabel.frame = CGRectMake(sideMargin, CGRectGetMaxY(self.detailTextLabel.frame) + 2, self.frame.size.width - sideMargin*2, textLabelSize.height);
     } else {
         
-        CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - sideMargin*2, MAXFLOAT)];
-        self.textLabel.frame = CGRectMake(sideMargin, self.frame.size.height - textLabelSize.height - 12, textLabelSize.width, textLabelSize.height);
+        CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.frame.size.width - sideMargin*2, MAXFLOAT)];
+        self.textLabel.frame = CGRectMake(sideMargin, self.frame.size.height - textLabelSize.height - 12, self.frame.size.width - sideMargin*2, textLabelSize.height);
         
         self.detailTextLabel.frame = CGRectZero;
     }
