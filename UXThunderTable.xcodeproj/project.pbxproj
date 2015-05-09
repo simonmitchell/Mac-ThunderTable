@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1D7ECFB1AFEB6050061B7AD /* UXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BE7E871A9A2FD200BC2F3D /* UXKit.framework */; };
+		B1D7ED031AFEC5F40061B7AD /* UXSourceList-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D7ED021AFEC50A0061B7AD /* UXSourceList-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2807B291A9A33B70025249A /* TSCDefaultTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B221A9A33B70025249A /* TSCDefaultTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2807B2A1A9A33B70025249A /* TSCDefaultTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = C2807B231A9A33B70025249A /* TSCDefaultTheme.m */; };
 		C2807B2B1A9A33B70025249A /* TSCTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B241A9A33B70025249A /* TSCTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,7 +33,6 @@
 		C2BE7E671A9A2FB500BC2F3D /* UXThunderTable.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7E661A9A2FB500BC2F3D /* UXThunderTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7E6D1A9A2FB500BC2F3D /* UXThunderTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BE7E611A9A2FB500BC2F3D /* UXThunderTable.framework */; };
 		C2BE7E741A9A2FB500BC2F3D /* UXThunderTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BE7E731A9A2FB500BC2F3D /* UXThunderTableTests.m */; };
-		C2BE7F201A9A2FD200BC2F3D /* UXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BE7E871A9A2FD200BC2F3D /* UXKit.framework */; };
 		C2BE7F211A9A2FD200BC2F3D /* _UXBarItemsContainer-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7E891A9A2FD200BC2F3D /* _UXBarItemsContainer-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F221A9A2FD200BC2F3D /* _UXButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7E8A1A9A2FD200BC2F3D /* _UXButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F231A9A2FD200BC2F3D /* _UXButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7E8B1A9A2FD200BC2F3D /* _UXButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -200,7 +201,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 7;
+			dstSubfolderSpec = 10;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +209,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B1D7ED021AFEC50A0061B7AD /* UXSourceList-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UXSourceList-Protocol.h"; sourceTree = "<group>"; };
 		C2807B221A9A33B70025249A /* TSCDefaultTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCDefaultTheme.h; sourceTree = "<group>"; };
 		C2807B231A9A33B70025249A /* TSCDefaultTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCDefaultTheme.m; sourceTree = "<group>"; };
 		C2807B241A9A33B70025249A /* TSCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCTableViewController.h; sourceTree = "<group>"; };
@@ -394,7 +396,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2BE7F201A9A2FD200BC2F3D /* UXKit.framework in Frameworks */,
+				B1D7ECFB1AFEB6050061B7AD /* UXKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +660,7 @@
 				C2BE7F091A9A2FD200BC2F3D /* UXProxyViewController.h */,
 				C2BE7F0A1A9A2FD200BC2F3D /* UXSlideTransitionController.h */,
 				C2BE7F0B1A9A2FD200BC2F3D /* UXSourceController.h */,
+				B1D7ED021AFEC50A0061B7AD /* UXSourceList-Protocol.h */,
 				C2BE7F0C1A9A2FD200BC2F3D /* UXTabBarController.h */,
 				C2BE7F0D1A9A2FD200BC2F3D /* UXTabBarItem.h */,
 				C2BE7F0E1A9A2FD200BC2F3D /* UXTableLayout.h */,
@@ -697,6 +700,7 @@
 				C2BE7F3B1A9A2FD200BC2F3D /* _UXViewControllerOneToOneTransitionContext.h in Headers */,
 				C2BE7F391A9A2FD200BC2F3D /* _UXTableHeaderView.h in Headers */,
 				C2BE7FB71A9A2FD200BC2F3D /* UXZoomingCrossfadeTransitionController.h in Headers */,
+				B1D7ED031AFEC5F40061B7AD /* UXSourceList-Protocol.h in Headers */,
 				C2BE7F3A1A9A2FD200BC2F3D /* _UXToolbarItemsContainer.h in Headers */,
 				C2807B4E1A9A368A0025249A /* TSCTableImageViewCell.h in Headers */,
 				C2BE7FAC1A9A2FD200BC2F3D /* UXTransitionController.h in Headers */,

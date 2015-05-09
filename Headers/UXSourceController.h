@@ -10,6 +10,7 @@
 #import "_UXSourceSplitViewDelegate-Protocol.h"
 
 @class NSArray, NSMapTable, NSOperationQueue, NSSegmentedControl, NSString, NSView, UXTransitionController, _UXSourceSplitView, _UXViewControllerOneToOneTransitionContext, UXNavigationController;
+@protocol UXSourceList;
 
 @interface UXSourceController : UXViewController <UXNavigationControllerDelegate, _UXSourceSplitViewDelegate>
 {
@@ -39,7 +40,7 @@
 @property(readonly, nonatomic) _UXSourceSplitView *splitView; // @synthesize splitView=_splitView;
 @property(readonly, nonatomic) NSSegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 @property(copy, nonatomic) NSString *sourceListAutosaveName; // @synthesize sourceListAutosaveName=_sourceListAutosaveName;
-@property(retain, nonatomic) UXViewController<UXSourceList> *sourceListViewController; // @synthesize sourceListViewController=_sourceListViewController;
+@property(retain, nonatomic) UXViewController <UXSourceList> *sourceListViewController; // @synthesize sourceListViewController=_sourceListViewController;
 @property(retain, nonatomic) UXViewController *selectedViewController; // @synthesize selectedViewController=_selectedViewController;
 @property(copy, nonatomic) NSArray *rootViewControllers; // @synthesize rootViewControllers=_rootViewControllers;
 @property(nonatomic) long long style; // @synthesize style=_style;
