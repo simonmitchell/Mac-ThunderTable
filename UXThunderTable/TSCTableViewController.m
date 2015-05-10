@@ -638,8 +638,8 @@
 
 - (void)presentMissingRequiredInputRowsWarning
 {
-    NSMutableString *requiredFieldNames = [NSMutableString string];
-    NSArray *missingRequiredInputRows = self.missingRequiredInputRows;
+//    NSMutableString *requiredFieldNames = [NSMutableString string];
+//    NSArray *missingRequiredInputRows = self.missingRequiredInputRows;
     
 //    [missingRequiredInputRows enumerateObjectsUsingBlock:^(TSCTableInputRow *row, NSUInteger index, BOOL *stop) {
 //        
