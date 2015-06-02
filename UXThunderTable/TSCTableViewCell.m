@@ -38,7 +38,6 @@ static CGFloat sideMargin = 12.0;
 
 - (void)setupViews
 {
-    
     self.textLabel = [UXLabel new];
     self.textLabel.font = [NSFont systemFontOfSize:18];
     self.textLabel.numberOfLines = 0;

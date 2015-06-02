@@ -87,7 +87,7 @@
 #import "_UXFlowLayoutItem.h"
 #import "NSMutableCopying-Protocol.h"
 #import "UXCollectionViewAnimation.h"
-//#import "UXPopoverController.h"
+#import "UXPopoverController.h"
 #import "_UXFlowLayoutRow.h"
 #import "NSNull-NSAccessibility.h"
 #import "UXCollectionViewCell.h"

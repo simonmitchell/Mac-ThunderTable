@@ -91,9 +91,9 @@
     self.automaticallyAdjustsScrollViewInsets = YES;
 }
 
--(void)viewDidLayoutSubviews
+-(void)viewDidLayout
 {
-    [super viewDidLayoutSubviews];
+    [super viewDidLayout];
     [self.collectionView reloadData];
 }
 
@@ -227,7 +227,7 @@
 {
     NSObject <TSCTableSectionDataSource> *section = self.dataSource[indexPath.section];
     NSObject <TSCTableRowDataSource> *row = [section sectionItems][indexPath.row];
-    
+        
     cell.currentIndexPath = indexPath;
     cell.detailTextLabel.text = nil;
     cell.textLabel.text = nil;

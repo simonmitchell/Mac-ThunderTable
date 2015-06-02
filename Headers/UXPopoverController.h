@@ -14,12 +14,12 @@
 @interface UXPopoverController : UXViewController <NSPopoverDelegate>
 {
     UXPopover *_popover;
-    id <UXPopoverControllerDelegate> _delegate;
+//    id <UXPopoverControllerDelegate> _delegate;
     NSArray *_passthroughViews;
 }
 
 @property(copy, nonatomic) NSArray *passthroughViews; // @synthesize passthroughViews=_passthroughViews;
-@property(nonatomic) __weak id <UXPopoverControllerDelegate> delegate; // @synthesize delegate=_delegate;
+//@property(nonatomic) __weak id <UXPopoverControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)cxx_destruct;
 - (void)dismissPopoverAnimated:(BOOL)arg1;
 - (void)dismissPopover;
