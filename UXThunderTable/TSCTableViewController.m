@@ -55,6 +55,27 @@
     return self;
 }
 
+- (id)init
+{
+    UXCollectionViewFlowLayout *layout = [[UXCollectionViewFlowLayout alloc] init];
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 1;
+    layout.sectionInset = NSEdgeInsetsZero;
+    
+    self = [super initWithCollectionViewLayout:layout];
+    
+    if (self) {
+        
+        self.style = UXTableViewStyleGrouped;
+        self.registeredCellClasses = [NSMutableArray new];
+        self.dynamicHeightCells = [NSMutableDictionary dictionary];
+        self.shouldMakeFirstTextFieldFirstResponder = true;
+        self.shouldDisplaySeparatorsOnCells = true;
+    }
+    
+    return self;
+}
+
 #pragma mark View life cycle
 
 - (void)viewWillDisappear:(BOOL)animated
