@@ -55,11 +55,11 @@ static CGFloat sideMargin = 12.0;
     
     self.separatorTopView = [UXView new];
     self.separatorTopView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
-    [self.contentView addSubview:self.separatorTopView];
+    [self addSubview:self.separatorTopView];
     
     self.separatorBottomView = [UXView new];
     self.separatorBottomView.backgroundColor = [[TSCThemeManager sharedTheme] tableSeperatorColor];
-    [self.contentView addSubview:self.separatorBottomView];
+    [self addSubview:self.separatorBottomView];
 }
 
 - (void)layout
@@ -69,19 +69,18 @@ static CGFloat sideMargin = 12.0;
     if (self.detailTextLabel.text && ![self.detailTextLabel.text isEqualToString:@""]) {
         
         CGSize detailLabelSize = [self.detailTextLabel sizeThatFits:CGSizeMake(self.frame.size.width - sideMargin*2, MAXFLOAT)];
-        self.detailTextLabel.frame = CGRectMake(sideMargin, 12, self.frame.size.width - sideMargin*2, detailLabelSize.height);
+        self.detailTextLabel.frame = CGRectMake(sideMargin, 6, self.frame.size.width - sideMargin*2, detailLabelSize.height);
         
         CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.frame.size.width - sideMargin*2, MAXFLOAT)];
         self.textLabel.frame = CGRectMake(sideMargin, CGRectGetMaxY(self.detailTextLabel.frame) + 2, self.frame.size.width - sideMargin*2, textLabelSize.height);
     } else {
         
         CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.frame.size.width - sideMargin*2, MAXFLOAT)];
-        self.textLabel.frame = CGRectMake(sideMargin, self.frame.size.height - textLabelSize.height - 12, self.frame.size.width - sideMargin*2, textLabelSize.height);
+        self.textLabel.frame = CGRectMake(sideMargin, self.frame.size.height - textLabelSize.height - 6, self.frame.size.width - sideMargin*2, textLabelSize.height);
         
         self.detailTextLabel.frame = CGRectZero;
     }
     
-
     self.separatorTopView.frame = CGRectMake(0, self.contentView.bounds.size.height, self.contentView.bounds.size.width, 0.5);
     self.separatorBottomView.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
 }
