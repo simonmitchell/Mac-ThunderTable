@@ -502,9 +502,7 @@
     
     cell.frame = CGRectMake(0, 0, self.view.bounds.size.width, 0);
     [cell layout];
-    
-    NSLog(@"cell height contentView frame : %@",NSStringFromRect(cell.contentView.frame));
-    
+        
     NSArray *subviews = cell.contentView.subviews;
     
     // This is all very confusing because the coordinate system is flipped on mac :/
