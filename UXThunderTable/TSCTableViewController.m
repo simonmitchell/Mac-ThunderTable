@@ -503,23 +503,30 @@
     cell.frame = CGRectMake(0, 0, self.view.bounds.size.width, 0);
     [cell layout];
     
-    NSArray *subviews = cell.contentView.subviews;
-    CGFloat lowestYValue = 0;
+    NSLog(@"cell height contentView frame : %@",NSStringFromRect(cell.contentView.frame));
     
+    NSArray *subviews = cell.contentView.subviews;
+    
+    // This is all very confusing because the coordinate system is flipped on mac :/
     NSView *highestView;
+    NSView *lowestView;
     
     for (NSView *view in subviews) {
+        
+        if (CGRectIsEmpty(view.frame)) {
+            continue;
+        }
         
         if (CGRectGetMaxY(view.frame) > CGRectGetMaxY(highestView.frame)) {
             highestView = view;
         }
         
-        if (view.frame.origin.y < lowestYValue) {
-            lowestYValue = view.frame.origin.y;
+        if (view.frame.origin.y < lowestView.frame.origin.y) {
+            lowestView = view;
         }
     }
     
-    CGFloat cellHeight = CGRectGetMaxY(highestView.frame) + abs(lowestYValue) + 12;
+    CGFloat cellHeight = fabs(CGRectGetMaxY(highestView.frame)) + fabs(lowestView.frame.origin.y) + 12;
     
     NSObject <TSCTableSectionDataSource> *section = self.dataSource[indexPath.section];
     NSObject <TSCTableRowDataSource> *row = [section sectionItems][indexPath.row];
