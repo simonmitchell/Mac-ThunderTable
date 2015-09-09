@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B1D7ECFB1AFEB6050061B7AD /* UXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BE7E871A9A2FD200BC2F3D /* UXKit.framework */; };
+		B1B4C8A61BA06A7A008FB448 /* UXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B4C8A51BA06A7A008FB448 /* UXKit.framework */; settings = {ASSET_TAGS = (); }; };
 		B1D7ED031AFEC5F40061B7AD /* UXSourceList-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D7ED021AFEC50A0061B7AD /* UXSourceList-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2807B291A9A33B70025249A /* TSCDefaultTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B221A9A33B70025249A /* TSCDefaultTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2807B2A1A9A33B70025249A /* TSCDefaultTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = C2807B231A9A33B70025249A /* TSCDefaultTheme.m */; };
@@ -209,6 +209,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B1B4C8A51BA06A7A008FB448 /* UXKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UXKit.framework; path = Frameworks/UXKit.framework; sourceTree = "<group>"; };
 		B1D7ED021AFEC50A0061B7AD /* UXSourceList-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UXSourceList-Protocol.h"; sourceTree = "<group>"; };
 		C2807B221A9A33B70025249A /* TSCDefaultTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCDefaultTheme.h; sourceTree = "<group>"; };
 		C2807B231A9A33B70025249A /* TSCDefaultTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCDefaultTheme.m; sourceTree = "<group>"; };
@@ -237,7 +238,6 @@
 		C2BE7E6C1A9A2FB500BC2F3D /* UXThunderTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UXThunderTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BE7E721A9A2FB500BC2F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2BE7E731A9A2FB500BC2F3D /* UXThunderTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UXThunderTableTests.m; sourceTree = "<group>"; };
-		C2BE7E871A9A2FD200BC2F3D /* UXKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UXKit.framework; sourceTree = "<group>"; };
 		C2BE7E891A9A2FD200BC2F3D /* _UXBarItemsContainer-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "_UXBarItemsContainer-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7E8A1A9A2FD200BC2F3D /* _UXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _UXButton.h; sourceTree = "<group>"; };
 		C2BE7E8B1A9A2FD200BC2F3D /* _UXButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _UXButtonCell.h; sourceTree = "<group>"; };
@@ -396,7 +396,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1D7ECFB1AFEB6050061B7AD /* UXKit.framework in Frameworks */,
+				B1B4C8A61BA06A7A008FB448 /* UXKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +456,7 @@
 		C2BE7E571A9A2FB500BC2F3D = {
 			isa = PBXGroup;
 			children = (
+				B1B4C8A51BA06A7A008FB448 /* UXKit.framework */,
 				C2BE7E631A9A2FB500BC2F3D /* UXThunderTable */,
 				C2BE7E701A9A2FB500BC2F3D /* UXThunderTableTests */,
 				C2BE7E861A9A2FD200BC2F3D /* Frameworks */,
@@ -521,7 +522,6 @@
 		C2BE7E861A9A2FD200BC2F3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C2BE7E871A9A2FD200BC2F3D /* UXKit.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
