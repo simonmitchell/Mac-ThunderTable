@@ -12,7 +12,7 @@
 @class TSCLink, TSCTableViewCell;
 @protocol TSCTableRowDataSource;
 
-typedef void (^TSCTableViewSelectionHandler)(id <TSCTableRowDataSource> row, UXTableViewCell *cell, NSIndexPath *indexPath);
+typedef void (^TSCTableViewSelectionHandler)(id <TSCTableRowDataSource> row, UXTableViewCell *cell, UXCollectionView *tableView, NSIndexPath *indexPath);
 
 /**
  All objects that can be displayed in a `TSCTableViewController` must conform to the `TSCTableRowDataSource` protocol. This protocol is useful for defininig how a object should represent itself in a tableview without the need to build a custom cell for display in a number of circumstances

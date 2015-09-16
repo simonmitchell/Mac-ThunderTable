@@ -362,7 +362,7 @@
 
 #pragma mark UXCollectionViewDelegate methods
 
-- (void)collectionView:(UXCollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UXCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.collectionView deselectItemAtIndexPath:indexPath animated:true];
     
@@ -404,7 +404,7 @@
     if ([row respondsToSelector:@selector(rowSelectionHandler)]) {
         
         if ([row rowSelectionHandler]) {
-            [row rowSelectionHandler](row, selectedCell, indexPath);
+            [row rowSelectionHandler](row, selectedCell, self.collectionView, indexPath);
         }
         
     } else if ([section respondsToSelector:@selector(sectionSelectionHandler)]) {
