@@ -250,20 +250,20 @@
     NSObject <TSCTableRowDataSource> *row = [section sectionItems][indexPath.row];
         
     cell.currentIndexPath = indexPath;
-    cell.detailTextLabel.text = nil;
-    cell.textLabel.text = nil;
-    cell.imageView.image = nil;
+    cell.cellDetailTextLabel.text = nil;
+    cell.cellTextLabel.text = nil;
+    cell.cellImageView.image = nil;
     
     // Setup basic defaults
     if ([row respondsToSelector:@selector(textColor)]) {
-        cell.textLabel.textColor = ((TSCTableRow *)row).textColor;
+        cell.cellTextLabel.textColor = ((TSCTableRow *)row).textColor;
     }
     if ([row respondsToSelector:@selector(rowTitle)]) {
-        cell.textLabel.text = [row rowTitle];
+        cell.cellTextLabel.text = [row rowTitle];
     }
     
     if ([row respondsToSelector:@selector(rowSubtitle)]) {
-        cell.detailTextLabel.text = [row rowSubtitle];
+        cell.cellDetailTextLabel.text = [row rowSubtitle];
     }
     
 //    if ([row respondsToSelector:@selector(indentationLevel)]) {
@@ -280,7 +280,7 @@
 //    }
     
     if ([row respondsToSelector:@selector(rowImage)]) {
-        cell.imageView.image = [row rowImage];
+        cell.cellImageView.image = [row rowImage];
     }
     
 #warning Fix accessory types

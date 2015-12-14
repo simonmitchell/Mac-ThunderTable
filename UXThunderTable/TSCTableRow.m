@@ -121,7 +121,7 @@
     TSCTableViewCell *standardCell = (TSCTableViewCell *)cell;
     
     if (self.textColor) {
-        standardCell.textLabel.textColor = self.textColor;
+        standardCell.cellTextLabel.textColor = self.textColor;
     }
     
     return standardCell;

@@ -15,9 +15,9 @@
 {
     [super layoutSubviews];
     
-    self.imageView.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
-    self.imageView.layer.masksToBounds = YES;
-    self.imageView.layer.cornerRadius = 7;
+    self.cellImageView.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
+    self.cellImageView.layer.masksToBounds = YES;
+    self.cellImageView.layer.cornerRadius = 7;
 }
 
 @end
