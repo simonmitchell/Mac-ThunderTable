@@ -9,7 +9,9 @@
 @class NSColor, NSLayoutConstraint, NSMutableArray, UXLabel, UXView, _UXButton;
 
 typedef NS_ENUM(NSUInteger, UXTableViewCellStyle) {
-    UXTableViewCellStyleDefault = 0
+    UXTableViewCellStyleDefault = 0,
+    UXTableViewCellStyleSubtitle = 1,
+    UXTableViewCellStyleValue1 = 2
 };
 
 @interface UXTableViewCell : UXCollectionViewCell
