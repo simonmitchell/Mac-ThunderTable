@@ -266,6 +266,10 @@
         cell.cellDetailTextLabel.text = [row rowSubtitle];
     }
     
+    if ([row respondsToSelector:@selector(rowImage)]) {
+        cell.cellImageView.image = [row rowImage];
+    }
+    
 //    if ([row respondsToSelector:@selector(indentationLevel)]) {
 //        cell.indentationLevel = [row indentationLevel];
 //    }
@@ -502,35 +506,29 @@
     
     cell.frame = CGRectMake(0, 0, self.view.bounds.size.width, 0);
     [cell layout];
+    
+    NSArray *subviews = [cell.contentView.subviews filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSView *  _Nonnull view, NSDictionary<NSString *,id> * _Nullable bindings) {
         
-    NSArray *subviews = cell.contentView.subviews;
+        return !CGRectIsEmpty(view.frame);
+        
+    }]];
     
     // This is all very confusing because the coordinate system is flipped on mac :/
-    NSView *highestView;
-    NSView *lowestView;
+    NSView *highestView = [subviews sortedArrayUsingComparator:^NSComparisonResult(NSView  * _Nonnull view1, NSView * _Nonnull view2) {
+        return CGRectGetMaxY(view1.frame) < CGRectGetMaxY(view2.frame);
+    }].firstObject;
     
-    for (NSView *view in subviews) {
-        
-        if (CGRectIsEmpty(view.frame)) {
-            continue;
-        }
-        
-        if (CGRectGetMaxY(view.frame) > CGRectGetMaxY(highestView.frame)) {
-            highestView = view;
-        }
-        
-        if (view.frame.origin.y < lowestView.frame.origin.y) {
-            lowestView = view;
-        }
-    }
+    NSView *lowestView = [subviews sortedArrayUsingComparator:^NSComparisonResult(NSView * _Nonnull view1, NSView * _Nonnull view2) {
+        return CGRectGetMaxY(view1.frame) > CGRectGetMaxY(view2.frame);
+    }].firstObject;
     
-    CGFloat cellHeight = fabs(CGRectGetMaxY(highestView.frame)) + fabs(lowestView.frame.origin.y) + 12;
+    CGFloat cellHeight = fabs(CGRectGetMaxY(highestView.frame)) - fabs(lowestView.frame.origin.y) + 16;
     
     NSObject <TSCTableSectionDataSource> *section = self.dataSource[indexPath.section];
     NSObject <TSCTableRowDataSource> *row = [section sectionItems][indexPath.row];
     
     if ([row respondsToSelector:@selector(rowPadding)]) {
-        cellHeight = (cellHeight - 12) + (long)[row rowPadding];
+        cellHeight = (cellHeight - 16) + (long)[row rowPadding];
     }
     
     return ceilf(cellHeight);

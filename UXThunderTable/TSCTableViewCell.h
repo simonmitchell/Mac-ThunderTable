@@ -26,4 +26,6 @@
 
 - (void)setupViews;
 
+- (NSEdgeInsets)edgeInsets;
+
 @end

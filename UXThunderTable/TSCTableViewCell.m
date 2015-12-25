@@ -75,9 +75,10 @@ static CGFloat sideMargin = 12.0;
     if (self.cellImageView.image) {
         
         [self.cellImageView sizeToFit];
-        CGRect imageFrame = self.cellImageView.frame;
+        CGRect imageFrame = self.cellImageView.bounds;
         imageFrame.origin.x = 12;
         self.cellImageView.frame = imageFrame;
+        
     } else {
         self.cellImageView.frame = CGRectZero;
     }
@@ -95,12 +96,11 @@ static CGFloat sideMargin = 12.0;
     
     // Only set the center if we have superview to avoid breaking automatic cell height calculations
     if (self.superview) {
-        
-        self.cellImageView.layer.position = CGPointMake(self.cellImageView.center.x, MAX(self.cellImageView.frame.size.height/2, self.contentView.bounds.size.height/2));
+        self.cellImageView.layer.position = CGPointMake(self.cellImageView.layer.position.x, self.cellTextLabel.center.y);
     }
     
     self.separatorTopView.frame = CGRectMake(0, self.contentView.bounds.size.height, self.contentView.bounds.size.width, 0.5);
-    self.separatorBottomView.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
+    self.separatorBottomView.frame = CGRectMake(0, 0, self.contentView.bounds.size.width, 0.5);
 }
 
 - (void)value1Layout
@@ -108,36 +108,37 @@ static CGFloat sideMargin = 12.0;
     NSEdgeInsets edgeInsets = [self edgeInsets];
     
     CGSize textLabelSize = [self.cellTextLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - edgeInsets.left - edgeInsets.right, MAXFLOAT)];
-    CGRect textLabelFrame = CGRectMake(edgeInsets.left, edgeInsets.top, textLabelSize.width, textLabelSize.height);
-    NSInteger textNumberOfLines = MAX((int)(textLabelFrame.size.height/[[NSLayoutManager new] defaultLineHeightForFont:self.cellTextLabel.font]),0);
+    CGRect textLabelFrame = CGRectMake(edgeInsets.left, edgeInsets.bottom, textLabelSize.width, textLabelSize.height);
     
-    CGRect remainingRect;
+    CGRect detailLabelFrame;
     CGRect slice;
-    CGRectDivide(self.contentView.frame, &slice, &remainingRect, textLabelSize.width + edgeInsets.right, CGRectMinXEdge);
+    CGRectDivide(self.contentView.frame, &slice, &detailLabelFrame, textLabelSize.width + edgeInsets.right, CGRectMinXEdge);
     
-    CGSize detailLabelSize = [self.cellDetailTextLabel sizeThatFits:CGSizeMake(remainingRect.size.width, MAXFLOAT)];
-    remainingRect.size.height = detailLabelSize.height;
-    NSInteger detailNumberOfLines = MAX((int)(remainingRect.size.height/[[NSLayoutManager new] defaultLineHeightForFont:self.cellTextLabel.font]),0);
+    CGSize detailLabelSize = [self.cellDetailTextLabel sizeThatFits:CGSizeMake(detailLabelFrame.size.width, MAXFLOAT)];
+    detailLabelFrame.size.height = detailLabelSize.height;
+    
+    NSInteger textNumberOfLines = MAX((int)(textLabelFrame.size.height/[[NSLayoutManager new] defaultLineHeightForFont:self.cellTextLabel.font]),0);
+    NSInteger detailNumberOfLines = MAX((int)(detailLabelFrame.size.height/[[NSLayoutManager new] defaultLineHeightForFont:self.cellDetailTextLabel.font]),0);
     
     if (textNumberOfLines == detailNumberOfLines) {
         
         textLabelFrame.origin.y = self.contentView.frame.size.height / 2 - textLabelFrame.size.height / 2;
-        remainingRect.origin.y = self.contentView.frame.size.height / 2 - remainingRect.size.height / 2;
+        detailLabelFrame.origin.y = self.contentView.frame.size.height / 2 - detailLabelFrame.size.height / 2;
     }
     
     self.cellTextLabel.frame = CGRectIntegral(textLabelFrame);
-    self.cellDetailTextLabel.frame = CGRectIntegral(remainingRect);
+    self.cellDetailTextLabel.frame = CGRectIntegral(detailLabelFrame);
 }
 
 - (void)subtitleLayout
 {
     NSEdgeInsets edgeInsets = [self edgeInsets];
     
-    CGSize textLabelSize = [self.cellTextLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - edgeInsets.left - edgeInsets.right, MAXFLOAT)];
-    CGRect textLabelFrame = CGRectMake(edgeInsets.left, self.contentView.frame.size.height - edgeInsets.top - textLabelSize.height, self.contentView.frame.size.width - edgeInsets.left - edgeInsets.right, textLabelSize.height);
-    
     CGSize detailLabelSize = [self.cellDetailTextLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - edgeInsets.left - edgeInsets.right, MAXFLOAT)];
-    CGRect detailLabelFrame =  CGRectMake(edgeInsets.left, CGRectGetMinY(textLabelFrame) - detailLabelSize.height, self.contentView.frame.size.width - edgeInsets.left - edgeInsets.right, detailLabelSize.height);
+    CGRect detailLabelFrame =  CGRectMake(edgeInsets.left, edgeInsets.bottom, self.contentView.frame.size.width - edgeInsets.left - edgeInsets.right, detailLabelSize.height);
+    
+    CGSize textLabelSize = [self.cellTextLabel sizeThatFits:CGSizeMake(self.contentView.frame.size.width - edgeInsets.left - edgeInsets.right, MAXFLOAT)];
+    CGRect textLabelFrame = CGRectMake(edgeInsets.left, CGRectGetMaxY(detailLabelFrame), self.contentView.frame.size.width - edgeInsets.left - edgeInsets.right, textLabelSize.height);
     
     // If no detail text then center the text label
     if (!self.cellDetailTextLabel.text || [[self.cellDetailTextLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString:@""]) {
@@ -165,34 +166,10 @@ static CGFloat sideMargin = 12.0;
         leftIndentation = CGRectGetMaxX(self.cellImageView.frame) + leftIndentation;
     }
     
-    NSEdgeInsets edgeInsets = NSEdgeInsetsMake(8, leftIndentation, 0, 12);
+    NSEdgeInsets edgeInsets = NSEdgeInsetsMake(8, leftIndentation, 8, 12);
     
     return edgeInsets;
 }
-
-//
-//- (void)layout
-//{
-//    [super layout];
-//    
-//    if (self.detailTextLabel.text && ![self.detailTextLabel.text isEqualToString:@""]) {
-//        
-//        CGSize detailLabelSize = [self.detailTextLabel sizeThatFits:CGSizeMake(self.frame.size.width - sideMargin*2, MAXFLOAT)];
-//        self.detailTextLabel.frame = CGRectMake(sideMargin, 6, self.frame.size.width - sideMargin*2, detailLabelSize.height);
-//        
-//        CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.frame.size.width - sideMargin*2, MAXFLOAT)];
-//        self.textLabel.frame = CGRectMake(sideMargin, CGRectGetMaxY(self.detailTextLabel.frame) + 2, self.frame.size.width - sideMargin*2, textLabelSize.height);
-//    } else {
-//        
-//        CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.frame.size.width - sideMargin*2, MAXFLOAT)];
-//        self.textLabel.frame = CGRectMake(sideMargin, self.frame.size.height - textLabelSize.height - 6, self.frame.size.width - sideMargin*2, textLabelSize.height);
-//        
-//        self.detailTextLabel.frame = CGRectZero;
-//    }
-//    
-//    self.separatorTopView.frame = CGRectMake(0, self.contentView.bounds.size.height, self.contentView.bounds.size.width, 0.5);
-//    self.separatorBottomView.frame = CGRectMake(0, 0, self.bounds.size.width, 0.5);
-//}
 
 - (void)setShouldDisplaySeparators:(BOOL)shouldDisplaySeparators
 {
