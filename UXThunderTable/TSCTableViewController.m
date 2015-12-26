@@ -522,7 +522,7 @@
         return CGRectGetMaxY(view1.frame) > CGRectGetMaxY(view2.frame);
     }].firstObject;
     
-    CGFloat cellHeight = fabs(CGRectGetMaxY(highestView.frame)) - fabs(lowestView.frame.origin.y) + 16;
+    CGFloat cellHeight = fabs((CGRectGetMaxY(highestView.frame) - lowestView.frame.origin.y)) + 16;
     
     NSObject <TSCTableSectionDataSource> *section = self.dataSource[indexPath.section];
     NSObject <TSCTableRowDataSource> *row = [section sectionItems][indexPath.row];
