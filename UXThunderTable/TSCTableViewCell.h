@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UXLabel *cellDetailTextLabel;
 @property (nonatomic, strong) UXImageView *cellImageView;
 
-@property (nonatomic, weak) UXViewController *parentViewController;
+@property (nonatomic, weak) UXCollectionViewController *parentViewController;
 
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
 @property (nonatomic, strong) NSView *separatorTopView;
