@@ -16,7 +16,7 @@
 #import "UXCollectionViewMutableIndexPathsSet.h"
 
 
-@class CALayer, NSArray, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, UXCollectionDocumentView, UXCollectionViewData, UXCollectionViewIndexPathsSet, UXCollectionViewLayout, UXCollectionViewMutableIndexPathsSet, UXCollectionViewUpdate, _UXCollectionViewRearrangingCoordinator;
+@class CALayer, NSArray, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, UXCollectionDocumentView, UXCollectionViewData, UXCollectionViewIndexPathsSet, UXCollectionViewLayout, UXCollectionViewMutableIndexPathsSet, UXCollectionViewUpdate, _UXCollectionViewRearrangingCoordinator, UXCollectionViewCell, UXCollectionReusableView;
 
 @interface UXCollectionView : NSScrollView
 {
@@ -236,9 +236,9 @@
 - (void)_reuseCell:(id)arg1;
 - (long long)_maxNumberOfReusedViews;
 - (long long)_numberOfReusedViewsForIdentifier:(id)arg1;
-- (id)dequeueReusableSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
-- (id)dequeueReusableCellWithReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
-- (id)_dequeueReusableViewOfKind:(id)arg1 withIdentifier:(id)arg2 forIndexPath:(NSIndexPath *)indexPath viewCategory:(unsigned long long)arg4;
+- (UXCollectionReusableView *)dequeueReusableSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
+- (UXCollectionViewCell *)dequeueReusableCellWithReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
+- (UXCollectionReusableView *)_dequeueReusableViewOfKind:(id)arg1 withIdentifier:(id)arg2 forIndexPath:(NSIndexPath *)indexPath viewCategory:(unsigned long long)arg4;
 - (void)registerNib:(id)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(id)arg3;
 - (void)registerClass:(Class)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(id)arg3;
 - (Class)registeredClassForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier;
@@ -260,7 +260,6 @@
 - (void)scrollWheel:(id)arg1;
 - (void)setContentOffset:(CGPoint)arg1 animated:(BOOL)arg2;
 - (void)setContentOffset:(CGPoint)arg1;
-@property(nonatomic) CGSize contentSize;
 - (void)setDocumentBounds:(CGRect)arg1;
 - (CGRect)documentBounds;
 - (CGSize)documentSize;
