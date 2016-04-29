@@ -220,8 +220,8 @@
 - (id)indexPathForSupplementaryElementOfKind:(id)arg1 hitByEvent:(id)arg2;
 - (id)indexPathForItemAtPoint:(CGPoint)arg1;
 - (id)indexPathForItemHitByEvent:(id)arg1;
-- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (id _Nullable)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (id _Nullable)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 - (NSInteger)numberOfSections;
 - (void)_prepareCellsForOverdraw:(CGRect)arg1;
@@ -316,8 +316,8 @@
 - (id)_keyItemIndexPathForItemIndexPaths:(id)arg1;
 - (id)_visibleViewsDict;
 - (id)_collectionViewData;
-- (id)_layoutAttributesForItemsInRect:(CGRect)arg1;
-- (id)indexPathsForSelectedItems;
+- (id _Nullable)_layoutAttributesForItemsInRect:(CGRect)arg1;
+- (NSArray <NSIndexPath *> * _Nullable)indexPathsForSelectedItems;
 - (BOOL)_dataSourceImplementsNumberOfSections;
 - (void)_reloadDataIfNeeded;
 @property(nonatomic) __weak NSObject<UXCollectionViewDataSource> *dataSource; // @synthesize dataSource=_dataSource;

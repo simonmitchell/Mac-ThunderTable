@@ -43,7 +43,7 @@
 - (id)knownSupplementaryElementKinds;
 - (id)existingSupplementaryLayoutAttributes;
 - (id)existingSupplementaryLayoutAttributesInSection:(long long)arg1;
-- (id)layoutAttributesForElementsInRect:(CGRect)arg1;
+- (NSArray <UXCollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect;
 - (id)layoutAttributesForElementsInSection:(long long)arg1;
 - (id)layoutAttributesForGlobalItemIndex:(long long)arg1;
 - (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;

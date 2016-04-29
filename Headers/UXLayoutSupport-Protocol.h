@@ -5,6 +5,8 @@
 //
 
 @protocol UXLayoutSupport <NSObject>
+
 @property(nonatomic) double length;
+
 @end
 

@@ -48,7 +48,7 @@
 @property(nonatomic) double minimumInteritemSpacing; // @synthesize minimumInteritemSpacing=_interitemSpacing;
 @property(nonatomic) double minimumLineSpacing; // @synthesize minimumLineSpacing=_lineSpacing;
 @property(nonatomic) long long scrollDirection;
-- (id)layoutAttributesForElementsInRect:(CGRect)arg1;
+- (NSArray <UXCollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect;
 - (id)indexPathsForItemsInRect:(CGRect)arg1;
 - (id)_layoutAttributesForItemsInRect:(CGRect)arg1;
 - (BOOL)shouldUpdateVisibleCellLayoutAttributes;

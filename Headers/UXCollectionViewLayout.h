@@ -79,10 +79,10 @@
 - (void)invalidateLayoutWithContext:(id)arg1;
 - (void)invalidateLayout;
 - (void)prepareLayout;
-- (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (id)layoutAttributesForElementsInRect:(CGRect)arg1;
+- (UXCollectionViewLayoutAttributes * _Nullable)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (UXCollectionViewLayoutAttributes * _Nullable)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+- (UXCollectionViewLayoutAttributes * _Nullable)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (NSArray <UXCollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

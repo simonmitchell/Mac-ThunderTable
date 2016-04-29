@@ -5,22 +5,12 @@
 //
 
 #import "UXCollectionView.h"
-#import "_UXCollectionViewOverdraw-Protocol.h"
 
 @class NSString;
 
-@interface _UXCollectionView : UXCollectionView <_UXCollectionViewOverdraw>
-{
-}
+@interface _UXCollectionView : UXCollectionView
 
-+ (Class)documentClass;
 @property(nonatomic) BOOL overdrawEnabled;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
 
 @end
 

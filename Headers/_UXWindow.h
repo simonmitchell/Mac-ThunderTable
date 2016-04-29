@@ -8,14 +8,13 @@
 
 @interface _UXWindow : NSWindow
 {
+    
 }
 
-- (BOOL)makeFirstResponder:(id)arg1;
 - (void)recalculateKeyViewLoop;
+
 - (void)tintColorDidChange;
-- (void)beginCriticalSheet:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)beginSheet:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)dealloc;
+
 - (id)initWithContentRect:(CGRect)arg1;
 
 // Remaining properties
