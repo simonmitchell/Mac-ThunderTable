@@ -7,15 +7,8 @@
 #import "UXEventTracker.h"
 
 @interface UXClickEventTracker : UXEventTracker
-{
-    unsigned long long _numberOfClicksRequired;
-}
 
-@property(nonatomic) unsigned long long numberOfClicksRequired; // @synthesize numberOfClicksRequired=_numberOfClicksRequired;
-- (id)description;
-- (void)mouseUp:(id)arg1;
-- (void)mouseDown:(id)arg1;
-- (id)init;
+@property(nonatomic) NSUInteger numberOfClicksRequired; // @synthesize numberOfClicksRequired=_numberOfClicksRequired;
 
 @end
 

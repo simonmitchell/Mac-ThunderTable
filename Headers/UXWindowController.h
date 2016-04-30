@@ -6,11 +6,9 @@
 
 @import AppKit;
 
-#import "UXAccessoryBarContainerProtocol.h"
-
 @class NSString, NSTitlebarAccessoryViewController, NSToolbarItem, UXToolbar, UXViewController, _UXWindow, UXNavigationController;
 
-@interface UXWindowController : NSWindowController <NSToolbarDelegate, UXAccessoryBarContainer, NSWindowDelegate>
+@interface UXWindowController : NSWindowController <NSToolbarDelegate, NSWindowDelegate>
 {
     NSTitlebarAccessoryViewController *_titlebarAccessoryViewController;
     UXToolbar *_currentAccessoryToolbar;

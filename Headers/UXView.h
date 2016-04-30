@@ -6,97 +6,52 @@
 
 @import  AppKit;
 
-@class NSArray, NSMutableArray, NSVisualEffectView, UXViewController;
+NS_ASSUME_NONNULL_BEGIN
+
+@class NSArray, NSMutableArray, NSVisualEffectView, UXViewController, UXEventTracker;
 
 @interface UXView : NSView
-{
-    BOOL _blurEnabled;
-    BOOL _exclusiveTouch;
-    BOOL _userInteractionEnabled;
-    BOOL _accessibilityChildrenHidden;
-    NSVisualEffectView *__visualEffectsView;
-    UXViewController *_viewControllerProxy;
-    NSMutableArray *_internalTrackers;
-}
 
-+ (void)animateWithDuration:(double)duration delay:(double)delay usingSpringWithDamping:(double)damping initialSpringVelocity:(double)velocity options:(unsigned long long)options animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion;
-+ (void)animateWithDuration:(double)duration animations:(void (^)(void))animations;
-+ (void)animateWithDuration:(double)duration animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion;
-+ (void)animateWithDuration:(double)duration delay:(double)delay options:(unsigned long long)options animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion;
-+ (id)defaultSpringAnimationForKey:(id)arg1 mass:(double)arg2 stiffness:(double)arg3 damping:(double)arg4 velocity:(double)arg5;
-+ (long long)_contentModeForLayerContentsGravity:(id)arg1;
-+ (Class)layerClass;
-@property(retain, nonatomic) NSMutableArray *internalTrackers; // @synthesize internalTrackers=_internalTrackers;
-@property(nonatomic) __weak UXViewController *viewControllerProxy; // @synthesize viewControllerProxy=_viewControllerProxy;
-@property(readonly) NSVisualEffectView *_visualEffectsView; // @synthesize _visualEffectsView=__visualEffectsView;
-@property(nonatomic) BOOL accessibilityChildrenHidden; // @synthesize accessibilityChildrenHidden=_accessibilityChildrenHidden;
-@property(nonatomic) BOOL userInteractionEnabled; // @synthesize userInteractionEnabled=_userInteractionEnabled;
-@property(nonatomic, getter=isExclusiveTouch) BOOL exclusiveTouch; // @synthesize exclusiveTouch=_exclusiveTouch;
-- (void)cxx_destruct;
-- (id)accessibilityChildren;
-- (id)menuForEvent:(id)arg1;
-- (id)snapshotViewFromRect:(CGRect)arg1;
-- (id)snapshotView;
-- (id)snapshotForRect:(CGRect)arg1;
-- (void)sendSubviewToBack:(id)arg1;
-- (void)bringSubviewToFront:(id)arg1;
++ (void)animateWithDuration:(double)duration delay:(double)delay usingSpringWithDamping:(double)damping initialSpringVelocity:(double)velocity options:(unsigned long long)options animations:(void (^ __null_unspecified)(void))animations completion:(void (^ __nullable)(BOOL finished))completion;
+
++ (void)animateWithDuration:(double)duration animations:(void (^ __null_unspecified)(void))animations;
+
++ (void)animateWithDuration:(double)duration animations:(void (^ __null_unspecified)(void))animations completion:(void (^ __nullable)(BOOL finished))completion;
+
++ (void)animateWithDuration:(double)duration delay:(double)delay options:(unsigned long long)options animations:(void (^ __null_unspecified)(void))animations completion:(void (^ __nullable)(BOOL finished))completion;
+
++ (id)defaultSpringAnimationForKey:(NSString * _Nonnull)key mass:(CGFloat)mass stiffness:(CGFloat)stiffness damping:(CGFloat)damping velocity:(CGFloat)velocity;
+
+@property(nonatomic) BOOL accessibilityChildrenHidden;
+
+@property(nonatomic) BOOL userInteractionEnabled;
+
+@property(nonatomic, getter=isExclusiveTouch) BOOL exclusiveTouch;
+
+- (id _Nonnull)snapshotViewFromRect:(CGRect)arg1;
+
+- (id _Nonnull)snapshotView;
+
+- (id _Nonnull)snapshotForRect:(CGRect)arg1;
+
+- (void)sendSubviewToBack:(NSView * _Nonnull)view;
+
+- (void)bringSubviewToFront:(NSView * _Nonnull)view;
+
 @property(readonly, nonatomic) CGPoint center;
+
 @property(readonly, nonatomic) NSArray *eventTrackers;
-- (void)removeEventTracker:(id)arg1;
-- (void)addEventTracker:(id)arg1;
-- (void)_applyTintColorIfNotUXView:(id)arg1;
-- (void)touchesCancelledWithEvent:(id)arg1;
-- (void)touchesEndedWithEvent:(id)arg1;
-- (void)touchesMovedWithEvent:(id)arg1;
-- (void)touchesBeganWithEvent:(id)arg1;
-- (void)smartMagnifyWithEvent:(id)arg1;
-- (void)endGestureWithEvent:(id)arg1;
-- (void)beginGestureWithEvent:(id)arg1;
-- (void)swipeWithEvent:(id)arg1;
-- (void)rotateWithEvent:(id)arg1;
-- (void)magnifyWithEvent:(id)arg1;
-- (void)tabletProximity:(id)arg1;
-- (void)tabletPoint:(id)arg1;
-- (void)flagsChanged:(id)arg1;
-- (void)mouseExited:(id)arg1;
-- (void)mouseEntered:(id)arg1;
-- (void)otherMouseDragged:(id)arg1;
-- (void)rightMouseDragged:(id)arg1;
-- (void)scrollWheel:(id)arg1;
-- (void)mouseDragged:(id)arg1;
-- (void)otherMouseUp:(id)arg1;
-- (void)rightMouseUp:(id)arg1;
-- (void)mouseUp:(id)arg1;
-- (void)otherMouseDown:(id)arg1;
-- (void)rightMouseDown:(id)arg1;
-- (void)mouseDown:(id)arg1;
-- (BOOL)canBecomeKeyView;
-- (id)hitTest:(CGPoint)arg1;
+
+- (void)removeEventTracker:(UXEventTracker *)tracker;
+
+- (void)addEventTracker:(UXEventTracker *)tracker;
+
 @property(nonatomic) long long contentMode;
-- (void)addSubview:(id)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
-- (void)addSubview:(id)arg1;
-- (void)viewWillMoveToSuperview:(id)arg1;
-- (void)updateConstraintsForSubtreeIfNeeded;
-- (void)viewDidEndLiveResize;
-- (void)viewWillStartLiveResize;
-- (void)layout;
-- (void)updateLayer;
-- (BOOL)wantsUpdateLayer;
-- (id)makeBackingLayer;
-- (id)actionForLayer:(id)arg1 forKey:(id)arg2;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
-- (void)_disableBlur;
-- (void)_enableBlur;
+
 - (BOOL)blurEnabled;
+
 - (void)setBlurEnabled:(BOOL)arg1;
-- (id)_infoWithParents;
-- (id)_infoForWindow;
-- (id)_infoWithChildren;
-- (id)recursiveDescription;
-- (id)_superDescription;
-- (id)description;
-- (id)_autoresizingDescription;
 
 @end
 
+NS_ASSUME_NONNULL_END

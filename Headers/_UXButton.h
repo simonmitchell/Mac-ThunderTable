@@ -14,8 +14,6 @@
     NSMutableDictionary *_titleAttributesByState;
 }
 
-- (void)viewWillMoveToSuperview:(UXView * _Nullable)superView;
-
 - (void)tintColorDidChange;
 
 - (void)setTitleAttributes:(NSDictionary * _Nullable)attributes forState:(unsigned long long)arg2;

@@ -6,8 +6,12 @@
 
 @import  AppKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSImage (UXKit)
-- (id)resizableImageWithCapInsets:(NSEdgeInsets)arg1 resizingMode:(long long)arg2;
-- (id)resizableImageWithCapInsets:(NSEdgeInsets)arg1;
+- (NSImage *)resizableImageWithCapInsets:(NSEdgeInsets)capInsets resizingMode:(long long)resizingMode;
+- (NSImage *)resizableImageWithCapInsets:(NSEdgeInsets)arg1;
 @end
+
+NS_ASSUME_NONNULL_END
 

@@ -5,28 +5,28 @@
 //
 
 @import  AppKit;
+#import "UITextInputTraits-Protocol.h"
 
 @class NSString;
 
 @interface NSTextView (Compatibility) <UITextInputTraits>
-- (NSEdgeInsets)__textContainerInset;
-- (void)__setTextContainerInset:(NSEdgeInsets)arg1;
+
 @property(nonatomic) unsigned long long textAlignment;
+
 - (CGSize)sizeThatFits:(CGSize)arg1;
-@property(copy, nonatomic) NSString *text;
+
+@property(copy, nonatomic) NSString * _Nullable text;
 
 // Remaining properties
-@property(nonatomic) long long autocapitalizationType;
-@property(nonatomic) long long autocorrectionType;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(nonatomic) BOOL enablesReturnKeyAutomatically;
-@property(readonly) NSUInteger hash;
-@property(nonatomic) long long keyboardAppearance;
-@property(nonatomic) long long keyboardType;
-@property(nonatomic) long long returnKeyType;
+
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
-@property(nonatomic) long long spellCheckingType;
-@property(readonly) Class superclass;
+@property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(nonatomic) UIReturnKeyType returnKeyType;
+@property(nonatomic) UIKeyboardAppearance keyboardAppearance;
+@property(nonatomic) UIKeyboardType keyboardType;
+@property(nonatomic) UITextSpellCheckingType spellCheckingType;
+@property(nonatomic) UITextAutocorrectionType autocorrectionType;
+@property(nonatomic) UITextAutocapitalizationType autocapitalizationType;
+
 @end
 

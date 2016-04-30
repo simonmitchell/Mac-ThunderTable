@@ -9,16 +9,10 @@
 @class NSArray;
 
 @interface NSViewAnimationContext : NSObject
-{
-    NSArray *_viewAnimations;
-    long long _animationCount;
-    id _completionHandler;
-}
 
-@property(readonly, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
-@property(nonatomic) long long animationCount; // @synthesize animationCount=_animationCount;
-@property(retain, nonatomic) NSArray *viewAnimations; // @synthesize viewAnimations=_viewAnimations;
-- (void)dealloc;
+@property(readonly, nonatomic) CDUnknownBlockType completionHandler;
+@property(nonatomic) long long animationCount;
+@property(retain, nonatomic) NSArray * _Nullable viewAnimations;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 
 @end

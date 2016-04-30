@@ -8,6 +8,8 @@
 
 @class NSArray, NSEvent, NSIndexPath, NSString, UXCollectionReusableView, UXCollectionView, UXCollectionViewCell;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol UXCollectionViewDelegate <NSObject>
 
 @optional
@@ -30,5 +32,9 @@
 - (void)collectionViewDidEndScrolling:(UXCollectionView *)collectionView;
 - (void)collectionViewDidScroll:(UXCollectionView *)collectionView;
 - (void)collectionViewWillBeginScrolling:(UXCollectionView *)collectionView;
+
 @end
+
+NS_ASSUME_NONNULL_END
+
 

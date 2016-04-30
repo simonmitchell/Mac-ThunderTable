@@ -7,6 +7,8 @@
 @import  AppKit;
 
 @interface NSTextFieldCell (UXKit)
+
 @property(nonatomic) BOOL centerVertically;
+
 @end
 

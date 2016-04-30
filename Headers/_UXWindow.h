@@ -15,7 +15,7 @@
 
 - (void)tintColorDidChange;
 
-- (id)initWithContentRect:(CGRect)arg1;
+- (id)initWithContentRect:(CGRect)contentRect;
 
 // Remaining properties
 //@property id <_UXWindowDelegate> delegate; // @dynamic delegate;

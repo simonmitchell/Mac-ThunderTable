@@ -9,8 +9,12 @@
 @class NSColor;
 
 @protocol UXKitAppearance <NSObject>
+
 @property(nonatomic) long long tintAdjustmentMode;
-@property(retain, nonatomic) NSColor *tintColor;
+
+@property(retain, nonatomic) NSColor * _Nullable tintColor;
+
 - (void)tintColorDidChange;
+
 @end
 

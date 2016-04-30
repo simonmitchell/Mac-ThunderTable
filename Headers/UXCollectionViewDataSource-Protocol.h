@@ -8,12 +8,21 @@
 
 @class NSIndexPath, NSString, UXCollectionReusableView, UXCollectionView, UXCollectionViewCell;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol UXCollectionViewDataSource <NSObject>
+
 - (UXCollectionViewCell *)collectionView:(UXCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (NSInteger)collectionView:(UXCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
 
 @optional
+
 - (UXCollectionReusableView *)collectionView:(UXCollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath;
+
 - (NSInteger)numberOfSectionsInCollectionView:(UXCollectionView *)collectionView;
+
 @end
+
+NS_ASSUME_NONNULL_END
 

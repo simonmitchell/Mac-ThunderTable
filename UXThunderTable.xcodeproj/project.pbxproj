@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B17D9A0A1CD4DD490089F5A2 /* UXBar.h in Headers */ = {isa = PBXBuildFile; fileRef = B17D9A091CD4DD490089F5A2 /* UXBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B4C8A61BA06A7A008FB448 /* UXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B4C8A51BA06A7A008FB448 /* UXKit.framework */; };
 		B1D7ED031AFEC5F40061B7AD /* UXSourceList-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D7ED021AFEC50A0061B7AD /* UXSourceList-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2807B291A9A33B70025249A /* TSCDefaultTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B221A9A33B70025249A /* TSCDefaultTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,38 +49,22 @@
 		C2BE7F3E1A9A2FD200BC2F3D /* _UXWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EA61A9A2FD200BC2F3D /* _UXWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F3F1A9A2FD200BC2F3D /* CDStructures.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EA71A9A2FD200BC2F3D /* CDStructures.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F401A9A2FD200BC2F3D /* MissingTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EA81A9A2FD200BC2F3D /* MissingTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F411A9A2FD200BC2F3D /* NSAccessibilityElement-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EA91A9A2FD200BC2F3D /* NSAccessibilityElement-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F421A9A2FD200BC2F3D /* NSAccessibilityGroup-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EAA1A9A2FD200BC2F3D /* NSAccessibilityGroup-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F431A9A2FD200BC2F3D /* NSAccessibilityImage-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EAB1A9A2FD200BC2F3D /* NSAccessibilityImage-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F441A9A2FD200BC2F3D /* NSAccessibilityStaticText-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EAC1A9A2FD200BC2F3D /* NSAccessibilityStaticText-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F451A9A2FD200BC2F3D /* NSCoding-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EAD1A9A2FD200BC2F3D /* NSCoding-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F461A9A2FD200BC2F3D /* NSColor-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EAE1A9A2FD200BC2F3D /* NSColor-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F471A9A2FD200BC2F3D /* NSControl-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EAF1A9A2FD200BC2F3D /* NSControl-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F481A9A2FD200BC2F3D /* NSCopying-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB01A9A2FD200BC2F3D /* NSCopying-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F491A9A2FD200BC2F3D /* NSDraggingDestination-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB11A9A2FD200BC2F3D /* NSDraggingDestination-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F4A1A9A2FD200BC2F3D /* NSDraggingSource-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB21A9A2FD200BC2F3D /* NSDraggingSource-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F4B1A9A2FD200BC2F3D /* NSEvent-UXCollectionViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB31A9A2FD200BC2F3D /* NSEvent-UXCollectionViewAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F4C1A9A2FD200BC2F3D /* NSGestureRecognizer-UXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB41A9A2FD200BC2F3D /* NSGestureRecognizer-UXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F4D1A9A2FD200BC2F3D /* NSGestureRecognizerDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB51A9A2FD200BC2F3D /* NSGestureRecognizerDelegate-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F4E1A9A2FD200BC2F3D /* NSImage-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB61A9A2FD200BC2F3D /* NSImage-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F4F1A9A2FD200BC2F3D /* NSImage-UXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB71A9A2FD200BC2F3D /* NSImage-UXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F501A9A2FD200BC2F3D /* NSIndexPath-UXCollectionViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB81A9A2FD200BC2F3D /* NSIndexPath-UXCollectionViewAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F511A9A2FD200BC2F3D /* NSIndexPath-UXTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EB91A9A2FD200BC2F3D /* NSIndexPath-UXTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F521A9A2FD200BC2F3D /* NSMenuItem-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EBA1A9A2FD200BC2F3D /* NSMenuItem-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F531A9A2FD200BC2F3D /* NSMutableCopying-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EBB1A9A2FD200BC2F3D /* NSMutableCopying-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F541A9A2FD200BC2F3D /* NSNull-NSAccessibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EBC1A9A2FD200BC2F3D /* NSNull-NSAccessibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F551A9A2FD200BC2F3D /* NSObject-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EBD1A9A2FD200BC2F3D /* NSObject-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F561A9A2FD200BC2F3D /* NSObject-UXCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EBE1A9A2FD200BC2F3D /* NSObject-UXCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F571A9A2FD200BC2F3D /* NSPopoverDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EBF1A9A2FD200BC2F3D /* NSPopoverDelegate-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F581A9A2FD200BC2F3D /* NSProgressIndicator-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC01A9A2FD200BC2F3D /* NSProgressIndicator-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F591A9A2FD200BC2F3D /* NSResponder-UXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC11A9A2FD200BC2F3D /* NSResponder-UXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F5A1A9A2FD200BC2F3D /* NSScreen-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC21A9A2FD200BC2F3D /* NSScreen-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F5B1A9A2FD200BC2F3D /* NSScrollView-UXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC31A9A2FD200BC2F3D /* NSScrollView-UXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F5C1A9A2FD200BC2F3D /* NSSecureCoding-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC41A9A2FD200BC2F3D /* NSSecureCoding-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F5D1A9A2FD200BC2F3D /* NSTextField-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC51A9A2FD200BC2F3D /* NSTextField-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F5E1A9A2FD200BC2F3D /* NSTextFieldCell-UXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC61A9A2FD200BC2F3D /* NSTextFieldCell-UXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F5F1A9A2FD200BC2F3D /* NSTextView-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC71A9A2FD200BC2F3D /* NSTextView-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F601A9A2FD200BC2F3D /* NSToolbarDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC81A9A2FD200BC2F3D /* NSToolbarDelegate-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F611A9A2FD200BC2F3D /* NSView-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC91A9A2FD200BC2F3D /* NSView-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F621A9A2FD200BC2F3D /* NSView-UXCollectionViewRearrangingCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECA1A9A2FD200BC2F3D /* NSView-UXCollectionViewRearrangingCoordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F631A9A2FD200BC2F3D /* NSView-UXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECB1A9A2FD200BC2F3D /* NSView-UXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,39 +72,26 @@
 		C2BE7F651A9A2FD200BC2F3D /* NSViewAnimationContext.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECD1A9A2FD200BC2F3D /* NSViewAnimationContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F661A9A2FD200BC2F3D /* NSViewController-UXViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECE1A9A2FD200BC2F3D /* NSViewController-UXViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F671A9A2FD200BC2F3D /* NSWindow-UXKitAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECF1A9A2FD200BC2F3D /* NSWindow-UXKitAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F681A9A2FD200BC2F3D /* NSWindowDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED01A9A2FD200BC2F3D /* NSWindowDelegate-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F691A9A2FD200BC2F3D /* UIMutableIndexPath.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED11A9A2FD200BC2F3D /* UIMutableIndexPath.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F6A1A9A2FD200BC2F3D /* UITextInputTraits-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED21A9A2FD200BC2F3D /* UITextInputTraits-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F6B1A9A2FD200BC2F3D /* UXAccessoryBarContainerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED31A9A2FD200BC2F3D /* UXAccessoryBarContainerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F6C1A9A2FD200BC2F3D /* UXAuxiliaryNavigationStore.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED41A9A2FD200BC2F3D /* UXAuxiliaryNavigationStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F6D1A9A2FD200BC2F3D /* UXBackButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED51A9A2FD200BC2F3D /* UXBackButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F6E1A9A2FD200BC2F3D /* UXBackButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED61A9A2FD200BC2F3D /* UXBackButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F6F1A9A2FD200BC2F3D /* UXBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED71A9A2FD200BC2F3D /* UXBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F701A9A2FD200BC2F3D /* UXBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED81A9A2FD200BC2F3D /* UXBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F711A9A2FD200BC2F3D /* UXBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ED91A9A2FD200BC2F3D /* UXBarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F721A9A2FD200BC2F3D /* UXBarPositioning-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EDA1A9A2FD200BC2F3D /* UXBarPositioning-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F731A9A2FD200BC2F3D /* UXBarPositioningDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EDB1A9A2FD200BC2F3D /* UXBarPositioningDelegate-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F741A9A2FD200BC2F3D /* UXClickEventTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EDC1A9A2FD200BC2F3D /* UXClickEventTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F751A9A2FD200BC2F3D /* UXCollectionClipView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EDD1A9A2FD200BC2F3D /* UXCollectionClipView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F761A9A2FD200BC2F3D /* UXCollectionDocumentView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EDE1A9A2FD200BC2F3D /* UXCollectionDocumentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F771A9A2FD200BC2F3D /* UXCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EDF1A9A2FD200BC2F3D /* UXCollectionReusableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F781A9A2FD200BC2F3D /* UXCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE01A9A2FD200BC2F3D /* UXCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F791A9A2FD200BC2F3D /* UXCollectionViewAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE11A9A2FD200BC2F3D /* UXCollectionViewAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F7A1A9A2FD200BC2F3D /* UXCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE21A9A2FD200BC2F3D /* UXCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F7B1A9A2FD200BC2F3D /* UXCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE31A9A2FD200BC2F3D /* UXCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F7C1A9A2FD200BC2F3D /* UXCollectionViewData.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE41A9A2FD200BC2F3D /* UXCollectionViewData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F7D1A9A2FD200BC2F3D /* UXCollectionViewDataSource-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE51A9A2FD200BC2F3D /* UXCollectionViewDataSource-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F7E1A9A2FD200BC2F3D /* UXCollectionViewDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE61A9A2FD200BC2F3D /* UXCollectionViewDelegate-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F7F1A9A2FD200BC2F3D /* UXCollectionViewFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE71A9A2FD200BC2F3D /* UXCollectionViewFlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F801A9A2FD200BC2F3D /* UXCollectionViewFlowLayoutInvalidationContext.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE81A9A2FD200BC2F3D /* UXCollectionViewFlowLayoutInvalidationContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F811A9A2FD200BC2F3D /* UXCollectionViewIndexPathsSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EE91A9A2FD200BC2F3D /* UXCollectionViewIndexPathsSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F821A9A2FD200BC2F3D /* UXCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EEA1A9A2FD200BC2F3D /* UXCollectionViewLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F831A9A2FD200BC2F3D /* UXCollectionViewLayoutAccessibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EEB1A9A2FD200BC2F3D /* UXCollectionViewLayoutAccessibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F841A9A2FD200BC2F3D /* UXCollectionViewLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EEC1A9A2FD200BC2F3D /* UXCollectionViewLayoutAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F851A9A2FD200BC2F3D /* UXCollectionViewLayoutInvalidationContext.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EED1A9A2FD200BC2F3D /* UXCollectionViewLayoutInvalidationContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F861A9A2FD200BC2F3D /* UXCollectionViewLayoutProxyDelegate-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EEE1A9A2FD200BC2F3D /* UXCollectionViewLayoutProxyDelegate-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F871A9A2FD200BC2F3D /* UXCollectionViewLayoutSectionAccessibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EEF1A9A2FD200BC2F3D /* UXCollectionViewLayoutSectionAccessibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F881A9A2FD200BC2F3D /* UXCollectionViewMutableIndexPathsSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EF01A9A2FD200BC2F3D /* UXCollectionViewMutableIndexPathsSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F891A9A2FD200BC2F3D /* UXCollectionViewRearrangingCoordinatorDragRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EF11A9A2FD200BC2F3D /* UXCollectionViewRearrangingCoordinatorDragRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F8A1A9A2FD200BC2F3D /* UXCollectionViewUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EF21A9A2FD200BC2F3D /* UXCollectionViewUpdate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F8B1A9A2FD200BC2F3D /* UXCollectionViewUpdateGap.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EF31A9A2FD200BC2F3D /* UXCollectionViewUpdateGap.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -192,6 +164,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B17D9A091CD4DD490089F5A2 /* UXBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXBar.h; sourceTree = "<group>"; };
 		B1B4C8A51BA06A7A008FB448 /* UXKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UXKit.framework; path = Frameworks/UXKit.framework; sourceTree = "<group>"; };
 		B1D7ED021AFEC50A0061B7AD /* UXSourceList-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UXSourceList-Protocol.h"; sourceTree = "<group>"; };
 		C2807B221A9A33B70025249A /* TSCDefaultTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCDefaultTheme.h; sourceTree = "<group>"; };
@@ -236,38 +209,22 @@
 		C2BE7EA61A9A2FD200BC2F3D /* _UXWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _UXWindow.h; sourceTree = "<group>"; };
 		C2BE7EA71A9A2FD200BC2F3D /* CDStructures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDStructures.h; sourceTree = "<group>"; };
 		C2BE7EA81A9A2FD200BC2F3D /* MissingTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissingTypes.h; sourceTree = "<group>"; };
-		C2BE7EA91A9A2FD200BC2F3D /* NSAccessibilityElement-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAccessibilityElement-Protocol.h"; sourceTree = "<group>"; };
-		C2BE7EAA1A9A2FD200BC2F3D /* NSAccessibilityGroup-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAccessibilityGroup-Protocol.h"; sourceTree = "<group>"; };
-		C2BE7EAB1A9A2FD200BC2F3D /* NSAccessibilityImage-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAccessibilityImage-Protocol.h"; sourceTree = "<group>"; };
-		C2BE7EAC1A9A2FD200BC2F3D /* NSAccessibilityStaticText-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAccessibilityStaticText-Protocol.h"; sourceTree = "<group>"; };
-		C2BE7EAD1A9A2FD200BC2F3D /* NSCoding-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCoding-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EAE1A9A2FD200BC2F3D /* NSColor-Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor-Compatibility.h"; sourceTree = "<group>"; };
 		C2BE7EAF1A9A2FD200BC2F3D /* NSControl-Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSControl-Compatibility.h"; sourceTree = "<group>"; };
-		C2BE7EB01A9A2FD200BC2F3D /* NSCopying-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCopying-Protocol.h"; sourceTree = "<group>"; };
-		C2BE7EB11A9A2FD200BC2F3D /* NSDraggingDestination-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDraggingDestination-Protocol.h"; sourceTree = "<group>"; };
-		C2BE7EB21A9A2FD200BC2F3D /* NSDraggingSource-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDraggingSource-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EB31A9A2FD200BC2F3D /* NSEvent-UXCollectionViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEvent-UXCollectionViewAdditions.h"; sourceTree = "<group>"; };
 		C2BE7EB41A9A2FD200BC2F3D /* NSGestureRecognizer-UXKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSGestureRecognizer-UXKit.h"; sourceTree = "<group>"; };
-		C2BE7EB51A9A2FD200BC2F3D /* NSGestureRecognizerDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSGestureRecognizerDelegate-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EB61A9A2FD200BC2F3D /* NSImage-Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage-Compatibility.h"; sourceTree = "<group>"; };
 		C2BE7EB71A9A2FD200BC2F3D /* NSImage-UXKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage-UXKit.h"; sourceTree = "<group>"; };
-		C2BE7EB81A9A2FD200BC2F3D /* NSIndexPath-UXCollectionViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath-UXCollectionViewAdditions.h"; sourceTree = "<group>"; };
-		C2BE7EB91A9A2FD200BC2F3D /* NSIndexPath-UXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath-UXTableView.h"; sourceTree = "<group>"; };
 		C2BE7EBA1A9A2FD200BC2F3D /* NSMenuItem-Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMenuItem-Compatibility.h"; sourceTree = "<group>"; };
-		C2BE7EBB1A9A2FD200BC2F3D /* NSMutableCopying-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableCopying-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EBC1A9A2FD200BC2F3D /* NSNull-NSAccessibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull-NSAccessibility.h"; sourceTree = "<group>"; };
-		C2BE7EBD1A9A2FD200BC2F3D /* NSObject-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EBE1A9A2FD200BC2F3D /* NSObject-UXCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-UXCollectionView.h"; sourceTree = "<group>"; };
-		C2BE7EBF1A9A2FD200BC2F3D /* NSPopoverDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPopoverDelegate-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EC01A9A2FD200BC2F3D /* NSProgressIndicator-Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProgressIndicator-Compatibility.h"; sourceTree = "<group>"; };
 		C2BE7EC11A9A2FD200BC2F3D /* NSResponder-UXKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSResponder-UXKit.h"; sourceTree = "<group>"; };
 		C2BE7EC21A9A2FD200BC2F3D /* NSScreen-Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen-Compatibility.h"; sourceTree = "<group>"; };
 		C2BE7EC31A9A2FD200BC2F3D /* NSScrollView-UXKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScrollView-UXKit.h"; sourceTree = "<group>"; };
-		C2BE7EC41A9A2FD200BC2F3D /* NSSecureCoding-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSecureCoding-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EC51A9A2FD200BC2F3D /* NSTextField-Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextField-Compatibility.h"; sourceTree = "<group>"; };
 		C2BE7EC61A9A2FD200BC2F3D /* NSTextFieldCell-UXKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextFieldCell-UXKit.h"; sourceTree = "<group>"; };
 		C2BE7EC71A9A2FD200BC2F3D /* NSTextView-Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView-Compatibility.h"; sourceTree = "<group>"; };
-		C2BE7EC81A9A2FD200BC2F3D /* NSToolbarDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSToolbarDelegate-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EC91A9A2FD200BC2F3D /* NSView-Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView-Compatibility.h"; sourceTree = "<group>"; };
 		C2BE7ECA1A9A2FD200BC2F3D /* NSView-UXCollectionViewRearrangingCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView-UXCollectionViewRearrangingCoordinator.h"; sourceTree = "<group>"; };
 		C2BE7ECB1A9A2FD200BC2F3D /* NSView-UXKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView-UXKit.h"; sourceTree = "<group>"; };
@@ -275,39 +232,26 @@
 		C2BE7ECD1A9A2FD200BC2F3D /* NSViewAnimationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSViewAnimationContext.h; sourceTree = "<group>"; };
 		C2BE7ECE1A9A2FD200BC2F3D /* NSViewController-UXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSViewController-UXViewController.h"; sourceTree = "<group>"; };
 		C2BE7ECF1A9A2FD200BC2F3D /* NSWindow-UXKitAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow-UXKitAppearance.h"; sourceTree = "<group>"; };
-		C2BE7ED01A9A2FD200BC2F3D /* NSWindowDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindowDelegate-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7ED11A9A2FD200BC2F3D /* UIMutableIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMutableIndexPath.h; sourceTree = "<group>"; };
 		C2BE7ED21A9A2FD200BC2F3D /* UITextInputTraits-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextInputTraits-Protocol.h"; sourceTree = "<group>"; };
-		C2BE7ED31A9A2FD200BC2F3D /* UXAccessoryBarContainerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXAccessoryBarContainerProtocol.h; sourceTree = "<group>"; };
-		C2BE7ED41A9A2FD200BC2F3D /* UXAuxiliaryNavigationStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXAuxiliaryNavigationStore.h; sourceTree = "<group>"; };
-		C2BE7ED51A9A2FD200BC2F3D /* UXBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXBackButton.h; sourceTree = "<group>"; };
-		C2BE7ED61A9A2FD200BC2F3D /* UXBackButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXBackButtonCell.h; sourceTree = "<group>"; };
-		C2BE7ED71A9A2FD200BC2F3D /* UXBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXBar.h; sourceTree = "<group>"; };
 		C2BE7ED81A9A2FD200BC2F3D /* UXBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXBarButtonItem.h; sourceTree = "<group>"; };
 		C2BE7ED91A9A2FD200BC2F3D /* UXBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXBarItem.h; sourceTree = "<group>"; };
 		C2BE7EDA1A9A2FD200BC2F3D /* UXBarPositioning-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UXBarPositioning-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EDB1A9A2FD200BC2F3D /* UXBarPositioningDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UXBarPositioningDelegate-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EDC1A9A2FD200BC2F3D /* UXClickEventTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXClickEventTracker.h; sourceTree = "<group>"; };
-		C2BE7EDD1A9A2FD200BC2F3D /* UXCollectionClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionClipView.h; sourceTree = "<group>"; };
 		C2BE7EDE1A9A2FD200BC2F3D /* UXCollectionDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionDocumentView.h; sourceTree = "<group>"; };
 		C2BE7EDF1A9A2FD200BC2F3D /* UXCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionReusableView.h; sourceTree = "<group>"; };
 		C2BE7EE01A9A2FD200BC2F3D /* UXCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionView.h; sourceTree = "<group>"; };
-		C2BE7EE11A9A2FD200BC2F3D /* UXCollectionViewAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewAnimation.h; sourceTree = "<group>"; };
 		C2BE7EE21A9A2FD200BC2F3D /* UXCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewCell.h; sourceTree = "<group>"; };
 		C2BE7EE31A9A2FD200BC2F3D /* UXCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewController.h; sourceTree = "<group>"; };
-		C2BE7EE41A9A2FD200BC2F3D /* UXCollectionViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewData.h; sourceTree = "<group>"; };
 		C2BE7EE51A9A2FD200BC2F3D /* UXCollectionViewDataSource-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UXCollectionViewDataSource-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EE61A9A2FD200BC2F3D /* UXCollectionViewDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UXCollectionViewDelegate-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EE71A9A2FD200BC2F3D /* UXCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		C2BE7EE81A9A2FD200BC2F3D /* UXCollectionViewFlowLayoutInvalidationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewFlowLayoutInvalidationContext.h; sourceTree = "<group>"; };
-		C2BE7EE91A9A2FD200BC2F3D /* UXCollectionViewIndexPathsSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewIndexPathsSet.h; sourceTree = "<group>"; };
 		C2BE7EEA1A9A2FD200BC2F3D /* UXCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewLayout.h; sourceTree = "<group>"; };
-		C2BE7EEB1A9A2FD200BC2F3D /* UXCollectionViewLayoutAccessibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewLayoutAccessibility.h; sourceTree = "<group>"; };
 		C2BE7EEC1A9A2FD200BC2F3D /* UXCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
 		C2BE7EED1A9A2FD200BC2F3D /* UXCollectionViewLayoutInvalidationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewLayoutInvalidationContext.h; sourceTree = "<group>"; };
 		C2BE7EEE1A9A2FD200BC2F3D /* UXCollectionViewLayoutProxyDelegate-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UXCollectionViewLayoutProxyDelegate-Protocol.h"; sourceTree = "<group>"; };
 		C2BE7EEF1A9A2FD200BC2F3D /* UXCollectionViewLayoutSectionAccessibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewLayoutSectionAccessibility.h; sourceTree = "<group>"; };
-		C2BE7EF01A9A2FD200BC2F3D /* UXCollectionViewMutableIndexPathsSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewMutableIndexPathsSet.h; sourceTree = "<group>"; };
 		C2BE7EF11A9A2FD200BC2F3D /* UXCollectionViewRearrangingCoordinatorDragRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewRearrangingCoordinatorDragRecognizer.h; sourceTree = "<group>"; };
 		C2BE7EF21A9A2FD200BC2F3D /* UXCollectionViewUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewUpdate.h; sourceTree = "<group>"; };
 		C2BE7EF31A9A2FD200BC2F3D /* UXCollectionViewUpdateGap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewUpdateGap.h; sourceTree = "<group>"; };
@@ -510,38 +454,22 @@
 				C2BE7EA61A9A2FD200BC2F3D /* _UXWindow.h */,
 				C2BE7EA71A9A2FD200BC2F3D /* CDStructures.h */,
 				C2BE7EA81A9A2FD200BC2F3D /* MissingTypes.h */,
-				C2BE7EA91A9A2FD200BC2F3D /* NSAccessibilityElement-Protocol.h */,
-				C2BE7EAA1A9A2FD200BC2F3D /* NSAccessibilityGroup-Protocol.h */,
-				C2BE7EAB1A9A2FD200BC2F3D /* NSAccessibilityImage-Protocol.h */,
-				C2BE7EAC1A9A2FD200BC2F3D /* NSAccessibilityStaticText-Protocol.h */,
-				C2BE7EAD1A9A2FD200BC2F3D /* NSCoding-Protocol.h */,
 				C2BE7EAE1A9A2FD200BC2F3D /* NSColor-Compatibility.h */,
 				C2BE7EAF1A9A2FD200BC2F3D /* NSControl-Compatibility.h */,
-				C2BE7EB01A9A2FD200BC2F3D /* NSCopying-Protocol.h */,
-				C2BE7EB11A9A2FD200BC2F3D /* NSDraggingDestination-Protocol.h */,
-				C2BE7EB21A9A2FD200BC2F3D /* NSDraggingSource-Protocol.h */,
 				C2BE7EB31A9A2FD200BC2F3D /* NSEvent-UXCollectionViewAdditions.h */,
 				C2BE7EB41A9A2FD200BC2F3D /* NSGestureRecognizer-UXKit.h */,
-				C2BE7EB51A9A2FD200BC2F3D /* NSGestureRecognizerDelegate-Protocol.h */,
 				C2BE7EB61A9A2FD200BC2F3D /* NSImage-Compatibility.h */,
 				C2BE7EB71A9A2FD200BC2F3D /* NSImage-UXKit.h */,
-				C2BE7EB81A9A2FD200BC2F3D /* NSIndexPath-UXCollectionViewAdditions.h */,
-				C2BE7EB91A9A2FD200BC2F3D /* NSIndexPath-UXTableView.h */,
 				C2BE7EBA1A9A2FD200BC2F3D /* NSMenuItem-Compatibility.h */,
-				C2BE7EBB1A9A2FD200BC2F3D /* NSMutableCopying-Protocol.h */,
 				C2BE7EBC1A9A2FD200BC2F3D /* NSNull-NSAccessibility.h */,
-				C2BE7EBD1A9A2FD200BC2F3D /* NSObject-Protocol.h */,
 				C2BE7EBE1A9A2FD200BC2F3D /* NSObject-UXCollectionView.h */,
-				C2BE7EBF1A9A2FD200BC2F3D /* NSPopoverDelegate-Protocol.h */,
 				C2BE7EC01A9A2FD200BC2F3D /* NSProgressIndicator-Compatibility.h */,
 				C2BE7EC11A9A2FD200BC2F3D /* NSResponder-UXKit.h */,
 				C2BE7EC21A9A2FD200BC2F3D /* NSScreen-Compatibility.h */,
 				C2BE7EC31A9A2FD200BC2F3D /* NSScrollView-UXKit.h */,
-				C2BE7EC41A9A2FD200BC2F3D /* NSSecureCoding-Protocol.h */,
 				C2BE7EC51A9A2FD200BC2F3D /* NSTextField-Compatibility.h */,
 				C2BE7EC61A9A2FD200BC2F3D /* NSTextFieldCell-UXKit.h */,
 				C2BE7EC71A9A2FD200BC2F3D /* NSTextView-Compatibility.h */,
-				C2BE7EC81A9A2FD200BC2F3D /* NSToolbarDelegate-Protocol.h */,
 				C2BE7EC91A9A2FD200BC2F3D /* NSView-Compatibility.h */,
 				C2BE7ECA1A9A2FD200BC2F3D /* NSView-UXCollectionViewRearrangingCoordinator.h */,
 				C2BE7ECB1A9A2FD200BC2F3D /* NSView-UXKit.h */,
@@ -549,39 +477,27 @@
 				C2BE7ECD1A9A2FD200BC2F3D /* NSViewAnimationContext.h */,
 				C2BE7ECE1A9A2FD200BC2F3D /* NSViewController-UXViewController.h */,
 				C2BE7ECF1A9A2FD200BC2F3D /* NSWindow-UXKitAppearance.h */,
-				C2BE7ED01A9A2FD200BC2F3D /* NSWindowDelegate-Protocol.h */,
 				C2BE7ED11A9A2FD200BC2F3D /* UIMutableIndexPath.h */,
 				C2BE7ED21A9A2FD200BC2F3D /* UITextInputTraits-Protocol.h */,
-				C2BE7ED31A9A2FD200BC2F3D /* UXAccessoryBarContainerProtocol.h */,
-				C2BE7ED41A9A2FD200BC2F3D /* UXAuxiliaryNavigationStore.h */,
-				C2BE7ED51A9A2FD200BC2F3D /* UXBackButton.h */,
-				C2BE7ED61A9A2FD200BC2F3D /* UXBackButtonCell.h */,
-				C2BE7ED71A9A2FD200BC2F3D /* UXBar.h */,
+				B17D9A091CD4DD490089F5A2 /* UXBar.h */,
 				C2BE7ED81A9A2FD200BC2F3D /* UXBarButtonItem.h */,
 				C2BE7ED91A9A2FD200BC2F3D /* UXBarItem.h */,
 				C2BE7EDA1A9A2FD200BC2F3D /* UXBarPositioning-Protocol.h */,
 				C2BE7EDB1A9A2FD200BC2F3D /* UXBarPositioningDelegate-Protocol.h */,
 				C2BE7EDC1A9A2FD200BC2F3D /* UXClickEventTracker.h */,
-				C2BE7EDD1A9A2FD200BC2F3D /* UXCollectionClipView.h */,
 				C2BE7EDE1A9A2FD200BC2F3D /* UXCollectionDocumentView.h */,
 				C2BE7EDF1A9A2FD200BC2F3D /* UXCollectionReusableView.h */,
 				C2BE7EE01A9A2FD200BC2F3D /* UXCollectionView.h */,
-				C2BE7EE11A9A2FD200BC2F3D /* UXCollectionViewAnimation.h */,
 				C2BE7EE21A9A2FD200BC2F3D /* UXCollectionViewCell.h */,
 				C2BE7EE31A9A2FD200BC2F3D /* UXCollectionViewController.h */,
-				C2BE7EE41A9A2FD200BC2F3D /* UXCollectionViewData.h */,
 				C2BE7EE51A9A2FD200BC2F3D /* UXCollectionViewDataSource-Protocol.h */,
 				C2BE7EE61A9A2FD200BC2F3D /* UXCollectionViewDelegate-Protocol.h */,
 				C2BE7EE71A9A2FD200BC2F3D /* UXCollectionViewFlowLayout.h */,
-				C2BE7EE81A9A2FD200BC2F3D /* UXCollectionViewFlowLayoutInvalidationContext.h */,
-				C2BE7EE91A9A2FD200BC2F3D /* UXCollectionViewIndexPathsSet.h */,
 				C2BE7EEA1A9A2FD200BC2F3D /* UXCollectionViewLayout.h */,
-				C2BE7EEB1A9A2FD200BC2F3D /* UXCollectionViewLayoutAccessibility.h */,
 				C2BE7EEC1A9A2FD200BC2F3D /* UXCollectionViewLayoutAttributes.h */,
 				C2BE7EED1A9A2FD200BC2F3D /* UXCollectionViewLayoutInvalidationContext.h */,
 				C2BE7EEE1A9A2FD200BC2F3D /* UXCollectionViewLayoutProxyDelegate-Protocol.h */,
 				C2BE7EEF1A9A2FD200BC2F3D /* UXCollectionViewLayoutSectionAccessibility.h */,
-				C2BE7EF01A9A2FD200BC2F3D /* UXCollectionViewMutableIndexPathsSet.h */,
 				C2BE7EF11A9A2FD200BC2F3D /* UXCollectionViewRearrangingCoordinatorDragRecognizer.h */,
 				C2BE7EF21A9A2FD200BC2F3D /* UXCollectionViewUpdate.h */,
 				C2BE7EF31A9A2FD200BC2F3D /* UXCollectionViewUpdateGap.h */,
@@ -645,7 +561,6 @@
 				C2BE7F8F1A9A2FD200BC2F3D /* UXEventTracker.h in Headers */,
 				C2BE7F871A9A2FD200BC2F3D /* UXCollectionViewLayoutSectionAccessibility.h in Headers */,
 				C2BE7F541A9A2FD200BC2F3D /* NSNull-NSAccessibility.h in Headers */,
-				C2BE7F6C1A9A2FD200BC2F3D /* UXAuxiliaryNavigationStore.h in Headers */,
 				C2BE7F391A9A2FD200BC2F3D /* _UXTableHeaderView.h in Headers */,
 				C2BE7FB71A9A2FD200BC2F3D /* UXZoomingCrossfadeTransitionController.h in Headers */,
 				B1D7ED031AFEC5F40061B7AD /* UXSourceList-Protocol.h in Headers */,
@@ -661,17 +576,14 @@
 				C2BE7FA01A9A2FD200BC2F3D /* UXPopoverController.h in Headers */,
 				C2BE7F5E1A9A2FD200BC2F3D /* NSTextFieldCell-UXKit.h in Headers */,
 				C2BE7F821A9A2FD200BC2F3D /* UXCollectionViewLayout.h in Headers */,
-				C2BE7F511A9A2FD200BC2F3D /* NSIndexPath-UXTableView.h in Headers */,
 				C2BE7F241A9A2FD200BC2F3D /* _UXCollectionDocumentView.h in Headers */,
 				C2BE7FB41A9A2FD200BC2F3D /* UXViewControllerTransitionCoordinatorContext-Protocol.h in Headers */,
 				C2BE7FB11A9A2FD200BC2F3D /* UXViewControllerContextTransitioning-Protocol.h in Headers */,
 				C2BE7F8B1A9A2FD200BC2F3D /* UXCollectionViewUpdateGap.h in Headers */,
 				C2BE7FB51A9A2FD200BC2F3D /* UXViewControllerWindowTransition.h in Headers */,
 				C2BE7F641A9A2FD200BC2F3D /* NSView-UXKitAppearance.h in Headers */,
-				C2BE7F601A9A2FD200BC2F3D /* NSToolbarDelegate-Protocol.h in Headers */,
 				C2807B321A9A361E0025249A /* TSCTableSection.h in Headers */,
 				C2BE7F941A9A2FD200BC2F3D /* UXLabel.h in Headers */,
-				C2BE7F6F1A9A2FD200BC2F3D /* UXBar.h in Headers */,
 				C2BE7F221A9A2FD200BC2F3D /* _UXButton.h in Headers */,
 				C2BE7F931A9A2FD200BC2F3D /* UXKitAppearance-Protocol.h in Headers */,
 				C2BE7F621A9A2FD200BC2F3D /* NSView-UXCollectionViewRearrangingCoordinator.h in Headers */,
@@ -681,35 +593,26 @@
 				C2BE7F991A9A2FD200BC2F3D /* UXNavigationControllerDelegate-Protocol.h in Headers */,
 				C2BE7F701A9A2FD200BC2F3D /* UXBarButtonItem.h in Headers */,
 				C2BE7F8E1A9A2FD200BC2F3D /* UXDragEventTracker.h in Headers */,
-				C2BE7F881A9A2FD200BC2F3D /* UXCollectionViewMutableIndexPathsSet.h in Headers */,
 				C2BE7F661A9A2FD200BC2F3D /* NSViewController-UXViewController.h in Headers */,
-				C2BE7F4D1A9A2FD200BC2F3D /* NSGestureRecognizerDelegate-Protocol.h in Headers */,
 				C2BE7F311A9A2FD200BC2F3D /* _UXLayoutGuide.h in Headers */,
 				C2BE7F7D1A9A2FD200BC2F3D /* UXCollectionViewDataSource-Protocol.h in Headers */,
 				C2BE7F731A9A2FD200BC2F3D /* UXBarPositioningDelegate-Protocol.h in Headers */,
 				C2BE7F781A9A2FD200BC2F3D /* UXCollectionView.h in Headers */,
 				C2BE7F7E1A9A2FD200BC2F3D /* UXCollectionViewDelegate-Protocol.h in Headers */,
 				C2BE7FAD1A9A2FD200BC2F3D /* UXView.h in Headers */,
-				C2BE7F451A9A2FD200BC2F3D /* NSCoding-Protocol.h in Headers */,
-				C2BE7F6B1A9A2FD200BC2F3D /* UXAccessoryBarContainerProtocol.h in Headers */,
-				C2BE7F7C1A9A2FD200BC2F3D /* UXCollectionViewData.h in Headers */,
 				C2BE7FA21A9A2FD200BC2F3D /* UXSlideTransitionController.h in Headers */,
 				C2BE7FB31A9A2FD200BC2F3D /* UXViewControllerTransitionCoordinator-Protocol.h in Headers */,
 				C2BE7F4B1A9A2FD200BC2F3D /* NSEvent-UXCollectionViewAdditions.h in Headers */,
 				C2BE7F981A9A2FD200BC2F3D /* UXNavigationController.h in Headers */,
 				C2BE7F841A9A2FD200BC2F3D /* UXCollectionViewLayoutAttributes.h in Headers */,
-				C2BE7F5C1A9A2FD200BC2F3D /* NSSecureCoding-Protocol.h in Headers */,
 				C2BE7F251A9A2FD200BC2F3D /* _UXCollectionSnapshotView.h in Headers */,
-				C2BE7F491A9A2FD200BC2F3D /* NSDraggingDestination-Protocol.h in Headers */,
 				C2BE7FA91A9A2FD200BC2F3D /* UXTableViewController.h in Headers */,
-				C2BE7F421A9A2FD200BC2F3D /* NSAccessibilityGroup-Protocol.h in Headers */,
 				C2807B3E1A9A365F0025249A /* TSCTableRowDataSource.h in Headers */,
 				C2BE7F671A9A2FD200BC2F3D /* NSWindow-UXKitAppearance.h in Headers */,
-				C2BE7F6D1A9A2FD200BC2F3D /* UXBackButton.h in Headers */,
 				C2BE7F5F1A9A2FD200BC2F3D /* NSTextView-Compatibility.h in Headers */,
 				C2BE7F9F1A9A2FD200BC2F3D /* UXPopover.h in Headers */,
-				C2BE7F531A9A2FD200BC2F3D /* NSMutableCopying-Protocol.h in Headers */,
 				C2BE7F371A9A2FD200BC2F3D /* _UXSourceSplitViewDelegate-Protocol.h in Headers */,
+				B17D9A0A1CD4DD490089F5A2 /* UXBar.h in Headers */,
 				C2BE7F971A9A2FD200BC2F3D /* UXNavigationBar.h in Headers */,
 				C2BE7F521A9A2FD200BC2F3D /* NSMenuItem-Compatibility.h in Headers */,
 				C2BE7F5D1A9A2FD200BC2F3D /* NSTextField-Compatibility.h in Headers */,
@@ -717,12 +620,9 @@
 				C2BE7F691A9A2FD200BC2F3D /* UIMutableIndexPath.h in Headers */,
 				C2BE7F851A9A2FD200BC2F3D /* UXCollectionViewLayoutInvalidationContext.h in Headers */,
 				C2BE7F3E1A9A2FD200BC2F3D /* _UXWindow.h in Headers */,
-				C2BE7F751A9A2FD200BC2F3D /* UXCollectionClipView.h in Headers */,
-				C2BE7F551A9A2FD200BC2F3D /* NSObject-Protocol.h in Headers */,
 				C2BE7F5A1A9A2FD200BC2F3D /* NSScreen-Compatibility.h in Headers */,
 				C2BE7FA11A9A2FD200BC2F3D /* UXProxyViewController.h in Headers */,
 				C2807B3D1A9A365F0025249A /* TSCTableInputSliderRowDataSource.h in Headers */,
-				C2BE7F431A9A2FD200BC2F3D /* NSAccessibilityImage-Protocol.h in Headers */,
 				C2BE7F9A1A9A2FD200BC2F3D /* UXNavigationDestination-Protocol.h in Headers */,
 				C2BE7FAF1A9A2FD200BC2F3D /* UXViewController.h in Headers */,
 				C2807B461A9A36700025249A /* TSCTableImageRow.h in Headers */,
@@ -732,23 +632,17 @@
 				C2BE7F651A9A2FD200BC2F3D /* NSViewAnimationContext.h in Headers */,
 				C2BE7FA71A9A2FD200BC2F3D /* UXTableView.h in Headers */,
 				C2BE7F7F1A9A2FD200BC2F3D /* UXCollectionViewFlowLayout.h in Headers */,
-				C2BE7F501A9A2FD200BC2F3D /* NSIndexPath-UXCollectionViewAdditions.h in Headers */,
 				C2BE7FAB1A9A2FD200BC2F3D /* UXToolbarDelegate-Protocol.h in Headers */,
 				C2BE7FB01A9A2FD200BC2F3D /* UXViewControllerAnimatedTransitioning-Protocol.h in Headers */,
 				C2BE7F231A9A2FD200BC2F3D /* _UXButtonCell.h in Headers */,
-				C2BE7F6E1A9A2FD200BC2F3D /* UXBackButtonCell.h in Headers */,
-				C2BE7F441A9A2FD200BC2F3D /* NSAccessibilityStaticText-Protocol.h in Headers */,
 				C2BE7FA61A9A2FD200BC2F3D /* UXTableLayout.h in Headers */,
 				C2BE7F4C1A9A2FD200BC2F3D /* NSGestureRecognizer-UXKit.h in Headers */,
 				C2BE7F8D1A9A2FD200BC2F3D /* UXControl.h in Headers */,
 				C2BE7F9E1A9A2FD200BC2F3D /* UXPinchEventTracker.h in Headers */,
 				C2BE7F921A9A2FD200BC2F3D /* UXKit.h in Headers */,
-				C2BE7F791A9A2FD200BC2F3D /* UXCollectionViewAnimation.h in Headers */,
 				C2BE7F351A9A2FD200BC2F3D /* _UXSinglePixelLine.h in Headers */,
-				C2BE7F481A9A2FD200BC2F3D /* NSCopying-Protocol.h in Headers */,
 				C2BE7F7A1A9A2FD200BC2F3D /* UXCollectionViewCell.h in Headers */,
 				C2BE7F741A9A2FD200BC2F3D /* UXClickEventTracker.h in Headers */,
-				C2BE7F411A9A2FD200BC2F3D /* NSAccessibilityElement-Protocol.h in Headers */,
 				C2BE7F7B1A9A2FD200BC2F3D /* UXCollectionViewController.h in Headers */,
 				C2BE7F261A9A2FD200BC2F3D /* _UXCollectionView.h in Headers */,
 				C2BE7F721A9A2FD200BC2F3D /* UXBarPositioning-Protocol.h in Headers */,
@@ -762,18 +656,15 @@
 				C2BE7FA31A9A2FD200BC2F3D /* UXSourceController.h in Headers */,
 				C2BE7F211A9A2FD200BC2F3D /* _UXBarItemsContainer-Protocol.h in Headers */,
 				C2BE7F861A9A2FD200BC2F3D /* UXCollectionViewLayoutProxyDelegate-Protocol.h in Headers */,
-				C2BE7F571A9A2FD200BC2F3D /* NSPopoverDelegate-Protocol.h in Headers */,
 				C2BE7F361A9A2FD200BC2F3D /* _UXSourceSplitView.h in Headers */,
 				C2BE7F961A9A2FD200BC2F3D /* UXLongClickEventTracker.h in Headers */,
 				C2807B4C1A9A368A0025249A /* TSCTableViewCell.h in Headers */,
-				C2BE7F801A9A2FD200BC2F3D /* UXCollectionViewFlowLayoutInvalidationContext.h in Headers */,
 				C2BE7F9B1A9A2FD200BC2F3D /* UXNavigationItem.h in Headers */,
 				C2BE7F581A9A2FD200BC2F3D /* NSProgressIndicator-Compatibility.h in Headers */,
 				C2BE7F951A9A2FD200BC2F3D /* UXLayoutSupport-Protocol.h in Headers */,
 				C2BE7F2C1A9A2FD200BC2F3D /* _UXContainerView.h in Headers */,
 				C2BE7F5B1A9A2FD200BC2F3D /* NSScrollView-UXKit.h in Headers */,
 				C2BE7FA41A9A2FD200BC2F3D /* UXTabBarController.h in Headers */,
-				C2BE7F4A1A9A2FD200BC2F3D /* NSDraggingSource-Protocol.h in Headers */,
 				C2BE7FB21A9A2FD200BC2F3D /* UXViewControllerInteractiveTransitioning-Protocol.h in Headers */,
 				C2BE7FB61A9A2FD200BC2F3D /* UXWindowController.h in Headers */,
 				C2BE7FA81A9A2FD200BC2F3D /* UXTableViewCell.h in Headers */,
@@ -782,10 +673,7 @@
 				C2807B2B1A9A33B70025249A /* TSCTableViewController.h in Headers */,
 				C2807B2E1A9A33B70025249A /* TSCThemeManager.h in Headers */,
 				C2807B2D1A9A33B70025249A /* TSCTheme.h in Headers */,
-				C2BE7F831A9A2FD200BC2F3D /* UXCollectionViewLayoutAccessibility.h in Headers */,
 				C2BE7F901A9A2FD200BC2F3D /* UXIdentityTransitionController.h in Headers */,
-				C2BE7F681A9A2FD200BC2F3D /* NSWindowDelegate-Protocol.h in Headers */,
-				C2BE7F811A9A2FD200BC2F3D /* UXCollectionViewIndexPathsSet.h in Headers */,
 				C2807B441A9A36700025249A /* TSCTableRow.h in Headers */,
 				C2BE7F711A9A2FD200BC2F3D /* UXBarItem.h in Headers */,
 				C2BE7F631A9A2FD200BC2F3D /* NSView-UXKit.h in Headers */,

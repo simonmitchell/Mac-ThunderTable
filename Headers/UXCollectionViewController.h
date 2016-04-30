@@ -9,33 +9,28 @@
 #import "UXCollectionViewDataSource-Protocol.h"
 #import "UXCollectionViewDelegate-Protocol.h"
 
-@class NSString, UXCollectionView, UXCollectionViewLayout, NSScrollView;
+@class NSString, UXCollectionView, UXCollectionViewLayout, UXCollectionViewCell, NSScrollView;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface UXCollectionViewController : UXViewController <UXCollectionViewDataSource, UXCollectionViewDelegate>
-{
-    UXCollectionViewLayout *_layout;
-    UXCollectionView *_collectionView;
-}
 
 + (Class)collectionViewClass;
-@property(retain, nonatomic) UXCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 
-- (void)cxx_destruct;
-- (double)scrollView:(NSScrollView *)scrollView pageAlignedOriginOnAxis:(NSInteger)axis forProposedDestination:(double)arg3 currentOrigin:(double)arg4 initialOrigin:(double)arg5 velocity:(double)arg6;
-- (id)collectionView:(UXCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+@property(retain, nonatomic) UXCollectionView *collectionView;
+
+- (double)scrollView:(NSScrollView *)scrollView pageAlignedOriginOnAxis:(NSInteger)axis forProposedDestination:(CGFloat)destination currentOrigin:(CGFloat)currentOrigin initialOrigin:(CGFloat)initialOrigin velocity:(CGFloat)velocity;
+
+- (UXCollectionViewCell *)collectionView:(UXCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (NSUInteger)collectionView:(UXCollectionView *)collectionView numberOfItemsInSection:(NSUInteger)section;
+
 - (NSUInteger)numberOfSectionsInCollectionView:(UXCollectionView *)collectionView;
-- (id)preferredFirstResponder;
-- (void)viewDidLoad;
-- (void)_sendViewDidLoad;
-- (void)dealloc;
+
 - (id)initWithCollectionViewLayout:(UXCollectionViewLayout *)layout;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
-
 @end
+
+NS_ASSUME_NONNULL_END
+
 

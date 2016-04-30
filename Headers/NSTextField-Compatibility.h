@@ -6,27 +6,40 @@
 
 @import  AppKit;
 
-//#import "NSTextInputTraits.h"
+#import "UITextInputTraits-Protocol.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @class NSString;
 
 @interface NSTextField (Compatibility) <UITextInputTraits>
-@property(nonatomic) unsigned long long textAlignment;
-@property(copy, nonatomic) NSString *placeholder;
-@property(copy, nonatomic) NSString *text;
 
-// Remaining properties
-@property(nonatomic) long long autocapitalizationType;
-@property(nonatomic) long long autocorrectionType;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
+@property(nonatomic) NSTextAlignment textAlignment;
+
+@property(copy, nonatomic) NSString * _Nullable placeholder;
+
+@property(copy, nonatomic) NSString * _Nullable text;
+
+@property(nonatomic) UITextAutocapitalizationType autocapitalizationType;
+
+@property(nonatomic) UITextAutocorrectionType autocorrectionType;
+
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
+
 @property(readonly) NSUInteger hash;
-@property(nonatomic) long long keyboardAppearance;
-@property(nonatomic) long long keyboardType;
-@property(nonatomic) long long returnKeyType;
+
+@property(nonatomic) UIKeyboardAppearance keyboardAppearance;
+
+@property(nonatomic) UIKeyboardType keyboardType;
+
+@property(nonatomic) UIReturnKeyType returnKeyType;
+
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
-@property(nonatomic) long long spellCheckingType;
-@property(readonly) Class superclass;
+
+@property(nonatomic) UITextSpellCheckingType spellCheckingType;
+
 @end
+
+NS_ASSUME_NONNULL_END
+
 

@@ -7,6 +7,8 @@
 @import  AppKit;
 
 @interface NSNull (NSAccessibility)
+
 - (void)accessibilityDidEndScrolling;
+
 @end
 

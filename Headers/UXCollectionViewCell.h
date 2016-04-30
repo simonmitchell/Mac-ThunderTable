@@ -8,29 +8,16 @@
 
 @class NSView;
 
-@interface UXCollectionViewCell : UXCollectionReusableView
-{
-    NSView *_contentView;
-    BOOL _selected;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-@property(readonly, nonatomic) NSView *contentView; // @synthesize contentView=_contentView;
-@property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_selected;
-- (void)_setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)prepareForReuse;
-- (void)resizeSubviewsWithOldSize:(CGSize)arg1;
-- (BOOL)wantsUpdateLayer;
-- (void)dealloc;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
-- (id)_accessibilityIndexPath;
-- (id)_accessibilityDefaultRole;
-- (id)_dynamicAccessibilityParent;
-- (void)setAccessibilitySelected:(BOOL)arg1;
-- (BOOL)isAccessibilitySelectorAllowed:(SEL)arg1;
-- (BOOL)isAccessibilitySelected;
-- (id)_axSimulateClick:(unsigned long long)arg1 withNumberOfClicks:(unsigned long long)arg2;
-- (BOOL)accessibilityPerformPress;
+@interface UXCollectionViewCell : UXCollectionReusableView
+
+@property(readonly, nonatomic) NSView *contentView;
+
+@property(nonatomic, getter=isSelected) BOOL selected;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
 

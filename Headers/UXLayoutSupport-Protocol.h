@@ -6,7 +6,12 @@
 
 @protocol UXLayoutSupport <NSObject>
 
-@property(nonatomic) double length;
+typedef NS_ENUM(NSInteger, UILayoutConstraintAxis) {
+    UILayoutConstraintAxisHorizontal = 0,
+    UILayoutConstraintAxisVertical = 1
+};
+
+@property (nonatomic) CGFloat length;
 
 @end
 
