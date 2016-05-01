@@ -10,13 +10,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol UXViewControllerAnimatedTransitioning <NSObject>
 
-- (void)animateTransition:(id <UXViewControllerContextTransitioning>)arg1;
+- (void)animateTransition:(id <UXViewControllerContextTransitioning>)transition;
 
-- (double)transitionDuration:(id <UXViewControllerContextTransitioning>)arg1;
+- (double)transitionDuration:(id <UXViewControllerContextTransitioning>)transition;
 
 @optional
 
-- (void)animationEnded:(BOOL)arg1;
+- (void)animationEnded:(BOOL)animated;
 
 @end
 

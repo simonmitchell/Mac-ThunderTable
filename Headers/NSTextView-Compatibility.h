@@ -13,7 +13,7 @@
 
 @property(nonatomic) unsigned long long textAlignment;
 
-- (CGSize)sizeThatFits:(CGSize)arg1;
+- (CGSize)sizeThatFits:(CGSize)fitSize;
 
 @property(copy, nonatomic) NSString * _Nullable text;
 

@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSImage (UXKit)
 - (NSImage *)resizableImageWithCapInsets:(NSEdgeInsets)capInsets resizingMode:(long long)resizingMode;
-- (NSImage *)resizableImageWithCapInsets:(NSEdgeInsets)arg1;
+- (NSImage *)resizableImageWithCapInsets:(NSEdgeInsets)capInsets;
 @end
 
 NS_ASSUME_NONNULL_END

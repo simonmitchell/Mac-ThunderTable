@@ -37,15 +37,15 @@ typedef NS_ENUM(NSInteger, UICollectionViewScrollDirection) {
 
 - (BOOL)shouldUpdateVisibleCellLayoutAttributes;
 
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)arg1;
+- (UXCollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)section;
 
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)arg1;
+- (UXCollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)section;
 
 - (UXCollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath usingData:(NSData *)data;
 
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)arg1 usingData:(NSData *)data;
+- (UXCollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)section usingData:(NSData *)data;
 
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)arg1 usingData:(NSData *)data;
+- (UXCollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)section usingData:(NSData *)data;
 
 - (NSIndexPath * _Nullable)indexPathForItemAtPoint:(CGPoint)point;
 

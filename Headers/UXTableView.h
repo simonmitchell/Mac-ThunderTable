@@ -123,7 +123,7 @@ typedef NS_ENUM(NSInteger, UITableViewRowAnimation) {
 
 @interface NSIndexPath (UXTableView)
 
-+ (id)indexPathForRow:(NSInteger)arg1 inSection:(NSInteger)arg2;
++ (id)indexPathForRow:(NSInteger)row inSection:(NSInteger)section;
 
 @property(readonly, nonatomic) NSInteger row;
 

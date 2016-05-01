@@ -8,7 +8,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol UXViewControllerInteractiveTransitioning <NSObject>
 
-- (void)startInteractiveTransition:(id <UXViewControllerContextTransitioning>)arg1;
+- (void)startInteractiveTransition:(id <UXViewControllerContextTransitioning>)transition;
 
 @optional
 

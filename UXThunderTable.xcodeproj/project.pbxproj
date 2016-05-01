@@ -20,8 +20,8 @@
 		C2807B2F1A9A33B70025249A /* TSCThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2807B281A9A33B70025249A /* TSCThemeManager.m */; };
 		C2807B321A9A361E0025249A /* TSCTableSection.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B301A9A361E0025249A /* TSCTableSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2807B331A9A361E0025249A /* TSCTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C2807B311A9A361E0025249A /* TSCTableSection.m */; };
-		C2807B3C1A9A365F0025249A /* TSCTableInputRowDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B381A9A365F0025249A /* TSCTableInputRowDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2807B3D1A9A365F0025249A /* TSCTableInputSliderRowDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B391A9A365F0025249A /* TSCTableInputSliderRowDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2807B3C1A9A365F0025249A /* TSCTableInputRowDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B381A9A365F0025249A /* TSCTableInputRowDataSource.h */; };
+		C2807B3D1A9A365F0025249A /* TSCTableInputSliderRowDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B391A9A365F0025249A /* TSCTableInputSliderRowDataSource.h */; };
 		C2807B3E1A9A365F0025249A /* TSCTableRowDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B3A1A9A365F0025249A /* TSCTableRowDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2807B3F1A9A365F0025249A /* TSCTableSectionDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B3B1A9A365F0025249A /* TSCTableSectionDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2807B441A9A36700025249A /* TSCTableRow.h in Headers */ = {isa = PBXBuildFile; fileRef = C2807B401A9A36700025249A /* TSCTableRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,7 +67,7 @@
 		C2BE7F5E1A9A2FD200BC2F3D /* NSTextFieldCell-UXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC61A9A2FD200BC2F3D /* NSTextFieldCell-UXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F5F1A9A2FD200BC2F3D /* NSTextView-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC71A9A2FD200BC2F3D /* NSTextView-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F611A9A2FD200BC2F3D /* NSView-Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7EC91A9A2FD200BC2F3D /* NSView-Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7F621A9A2FD200BC2F3D /* NSView-UXCollectionViewRearrangingCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECA1A9A2FD200BC2F3D /* NSView-UXCollectionViewRearrangingCoordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2BE7F621A9A2FD200BC2F3D /* NSView-UXCollectionViewRearrangingCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECA1A9A2FD200BC2F3D /* NSView-UXCollectionViewRearrangingCoordinator.h */; };
 		C2BE7F631A9A2FD200BC2F3D /* NSView-UXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECB1A9A2FD200BC2F3D /* NSView-UXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F641A9A2FD200BC2F3D /* NSView-UXKitAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECC1A9A2FD200BC2F3D /* NSView-UXKitAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7F651A9A2FD200BC2F3D /* NSViewAnimationContext.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7ECD1A9A2FD200BC2F3D /* NSViewAnimationContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,7 +125,7 @@
 		C2BE7FB21A9A2FD200BC2F3D /* UXViewControllerInteractiveTransitioning-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7F1A1A9A2FD200BC2F3D /* UXViewControllerInteractiveTransitioning-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7FB31A9A2FD200BC2F3D /* UXViewControllerTransitionCoordinator-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7F1B1A9A2FD200BC2F3D /* UXViewControllerTransitionCoordinator-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7FB41A9A2FD200BC2F3D /* UXViewControllerTransitionCoordinatorContext-Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7F1C1A9A2FD200BC2F3D /* UXViewControllerTransitionCoordinatorContext-Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2BE7FB51A9A2FD200BC2F3D /* UXViewControllerWindowTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7F1D1A9A2FD200BC2F3D /* UXViewControllerWindowTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2BE7FB51A9A2FD200BC2F3D /* UXViewControllerWindowTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7F1D1A9A2FD200BC2F3D /* UXViewControllerWindowTransition.h */; };
 		C2BE7FB61A9A2FD200BC2F3D /* UXWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7F1E1A9A2FD200BC2F3D /* UXWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2BE7FB71A9A2FD200BC2F3D /* UXZoomingCrossfadeTransitionController.h in Headers */ = {isa = PBXBuildFile; fileRef = C2BE7F1F1A9A2FD200BC2F3D /* UXZoomingCrossfadeTransitionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */

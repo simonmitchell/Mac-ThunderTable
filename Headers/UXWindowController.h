@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)teardownViewControllerHierarchy;
 
-- (id)initWithWindow:(_UXWindow *)window;
+- (id)initWithWindow:(_UXWindow * _Nullable)window;
 
 - (id)initWithRootViewController:(UXViewController *)rootViewController;
 

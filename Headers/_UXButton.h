@@ -16,9 +16,9 @@
 
 - (void)tintColorDidChange;
 
-- (void)setTitleAttributes:(NSDictionary * _Nullable)attributes forState:(unsigned long long)arg2;
+- (void)setTitleAttributes:(NSDictionary * _Nullable)attributes forState:(unsigned long long)state;
 
-- (void)setTitle:(NSString * _Nullable)title forState:(unsigned long long)arg2;
+- (void)setTitle:(NSString * _Nullable)title forState:(unsigned long long)state;
 
 @end
 

@@ -126,7 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UXViewController * _Nullable)toolbarViewController;
 
-- (void)setToolbarViewController:(UXViewController * _Nullable)arg1;
+- (void)setToolbarViewController:(UXViewController * _Nullable)toolbarViewController;
 
 - (NSArray <UXBarItem *> * _Nullable)toolbarItems;
 
@@ -172,9 +172,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setTransitory:(BOOL)transitory;
 
-- (void)viewControllersForNavigationDestination:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)viewControllersForNavigationDestination:(id <UXNavigationDestination>)navigationDestination completion:(CDUnknownBlockType)completion;
 
-- (void)willEncodeNavigationDestination:(id)arg1;
+- (void)willEncodeNavigationDestination:(id <UXNavigationDestination>)navigationDestination;
 
 - (id <UXNavigationDestination>)navigationDestination;
 

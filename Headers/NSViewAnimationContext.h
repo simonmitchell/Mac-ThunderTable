@@ -8,12 +8,15 @@
 
 @class NSArray;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSViewAnimationContext : NSObject
 
 @property(readonly, nonatomic) CDUnknownBlockType completionHandler;
 @property(nonatomic) long long animationCount;
 @property(retain, nonatomic) NSArray * _Nullable viewAnimations;
-- (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)initWithCompletionHandler:(CDUnknownBlockType)completion;
 
 @end
 
+NS_ASSUME_NONNULL_END

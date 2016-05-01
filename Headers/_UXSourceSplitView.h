@@ -11,6 +11,8 @@
 
 @class NSBox, NSCursor, NSLayoutConstraint, NSString, _UXContainerView;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface _UXSourceSplitView : UXView <NSAccessibilityGroup>
 
 @property(nonatomic) __weak id <_UXSourceSplitViewDelegate> _Nullable delegate; // @synthesize delegate=_delegate;
@@ -33,3 +35,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

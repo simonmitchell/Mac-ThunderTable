@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UXView *)containerView;
 
-- (UXViewController * _Nullable)viewControllerForKey:(NSString *)arg1;
+- (UXViewController * _Nullable)viewControllerForKey:(NSString *)key;
 
 - (UIViewAnimationCurve)completionCurve;
 

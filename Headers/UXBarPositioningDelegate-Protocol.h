@@ -10,7 +10,7 @@
 
 @optional
 
-- (UIBarPosition)positionForBar:(id <UXBarPositioning> _Nonnull)arg1;
+- (UIBarPosition)positionForBar:(id <UXBarPositioning> _Nonnull)bar;
 
 @end
 

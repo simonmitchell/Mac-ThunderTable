@@ -20,13 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(readonly, nonatomic, weak) UXCollectionView * _Nullable collectionView;
 
-- (NSIndexPath * _Nullable)indexPathOfItemBelow:(id)arg1;
+- (NSIndexPath * _Nullable)indexPathOfItemBelow:(id)below;
 
-- (NSIndexPath * _Nullable)indexPathOfItemAbove:(id)arg1;
+- (NSIndexPath * _Nullable)indexPathOfItemAbove:(id)above;
 
-- (NSIndexPath * _Nullable)indexPathOfItemAfter:(id)arg1;
+- (NSIndexPath * _Nullable)indexPathOfItemAfter:(id)after;
 
-- (NSIndexPath * _Nullable)indexPathOfItemBefore:(id)arg1;
+- (NSIndexPath * _Nullable)indexPathOfItemBefore:(id)before;
 
 - (NSArray <NSIndexPath *> * _Nullable)indexPathsForItemRangeSelectionFrom:(id)from to:(id)to;
 
@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)finalizeCollectionViewUpdates;
 
-- (void)prepareForCollectionViewUpdates:(id)arg1;
+- (void)prepareForCollectionViewUpdates:(id)updates;
 
 - (CGSize)collectionViewContentSize;
 

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(copy, nonatomic) NSSet *possibleTitles;
 
-- (instancetype)initWithTitle:(NSString * _Nullable)arg1;
+- (instancetype)initWithTitle:(NSString * _Nullable)title;
 
 @end
 

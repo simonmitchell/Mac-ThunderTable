@@ -35,11 +35,11 @@ typedef NS_ENUM(NSInteger, UIViewAnimationCurve) {
 
 @property(nonatomic, getter=isExclusiveTouch) BOOL exclusiveTouch;
 
-- (id _Nonnull)snapshotViewFromRect:(CGRect)arg1;
+- (id _Nonnull)snapshotViewFromRect:(CGRect)rect;
 
 - (id _Nonnull)snapshotView;
 
-- (id _Nonnull)snapshotForRect:(CGRect)arg1;
+- (id _Nonnull)snapshotForRect:(CGRect)rect;
 
 - (void)sendSubviewToBack:(NSView * _Nonnull)view;
 
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, UIViewAnimationCurve) {
 
 - (BOOL)blurEnabled;
 
-- (void)setBlurEnabled:(BOOL)arg1;
+- (void)setBlurEnabled:(BOOL)blur;
 
 @end
 
