@@ -7,6 +7,8 @@
 @import  AppKit;
 
 @interface NSView (UXCollectionViewRearrangingCoordinator)
-- (id)ancestorViewOfClass:(Class)arg1;
+
+- (id)ancestorViewOfClass:(Class)class;
+
 @end
 

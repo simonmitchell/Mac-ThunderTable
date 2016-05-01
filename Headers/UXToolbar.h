@@ -6,19 +6,19 @@
 
 #import "UXBar.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+@class UXBarButtonItem;
+
 @interface UXToolbar : UXBar
 {
     id <UXToolbarDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id <UXToolbarDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)cxx_destruct;
-- (long long)barPosition;
-- (void)_beginInteractiveTransitionForItems:(id)arg1;
-- (void)_setItems:(id)arg1 animated:(BOOL)arg2 duration:(double)arg3;
-- (void)setItems:(id)arg1 animated:(BOOL)arg2;
-- (void)mouseDown:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
+@property(nonatomic, weak) id <UXToolbarDelegate> _Nullable delegate;
+
+- (void)setItems:(nullable NSArray<UXBarButtonItem *> *)items animated:(BOOL)animated;
 
 @end
 
+NS_ASSUME_NONNULL_END

@@ -7,12 +7,8 @@
 @import  AppKit;
 
 @interface _UXButtonCell : NSButtonCell
-{
-}
 
-- (unsigned long long)_controlState;
-- (void)drawImage:(NSImage *)image withFrame:(CGRect)frame inView:(NSView *)view;
-- (CGRect)drawTitle:(NSString *)title withFrame:(CGRect)frame inView:(NSView *)view;
+
 
 @end
 

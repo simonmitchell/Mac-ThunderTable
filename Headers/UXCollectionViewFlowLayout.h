@@ -8,93 +8,74 @@
 
 @class NSDictionary, NSMutableDictionary;
 
+NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_ENUM(NSInteger, UICollectionViewScrollDirection) {
+    UICollectionViewScrollDirectionVertical,
+    UICollectionViewScrollDirectionHorizontal
+};
+
 @interface UXCollectionViewFlowLayout : UXCollectionViewLayout
-{
-    struct {
-        unsigned int delegateSizeForItem:1;
-        unsigned int delegateReferenceSizeForHeader:1;
-        unsigned int delegateReferenceSizeForFooter:1;
-        unsigned int delegateInsetForSection:1;
-        unsigned int delegateInteritemSpacingForSection:1;
-        unsigned int delegateLineSpacingForSection:1;
-        unsigned int delegateAlignmentOptions:1;
-        unsigned int layoutDataIsValid:1;
-        unsigned int delegateInfoIsValid:1;
-    } _gridLayoutFlags;
-    double _interitemSpacing;
-    double _lineSpacing;
-    CGSize _itemSize;
-    CGSize _headerReferenceSize;
-    CGSize _footerReferenceSize;
-    NSEdgeInsets _sectionInset;
-    id _data;
-    CGSize _currentLayoutSize;
-    NSMutableDictionary *_insertedItemsAttributesDict;
-    NSMutableDictionary *_insertedSectionHeadersAttributesDict;
-    NSMutableDictionary *_insertedSectionFootersAttributesDict;
-    NSMutableDictionary *_deletedItemsAttributesDict;
-    NSMutableDictionary *_deletedSectionHeadersAttributesDict;
-    NSMutableDictionary *_deletedSectionFootersAttributesDict;
-    long long _scrollDirection;
-    NSDictionary *_rowAlignmentsOptionsDictionary;
-    CGRect _visibleBounds;
-}
 
 + (Class)invalidationContextClass;
-@property(nonatomic) NSEdgeInsets sectionInset; // @synthesize sectionInset=_sectionInset;
-@property(nonatomic) CGSize footerReferenceSize; // @synthesize footerReferenceSize=_footerReferenceSize;
-@property(nonatomic) CGSize headerReferenceSize; // @synthesize headerReferenceSize=_headerReferenceSize;
-@property(nonatomic) CGSize itemSize; // @synthesize itemSize=_itemSize;
-@property(nonatomic) double minimumInteritemSpacing; // @synthesize minimumInteritemSpacing=_interitemSpacing;
-@property(nonatomic) double minimumLineSpacing; // @synthesize minimumLineSpacing=_lineSpacing;
-@property(nonatomic) long long scrollDirection;
-- (id)layoutAttributesForElementsInRect:(CGRect)arg1;
-- (id)indexPathsForItemsInRect:(CGRect)arg1;
-- (id)_layoutAttributesForItemsInRect:(CGRect)arg1;
+
+@property(nonatomic) NSEdgeInsets sectionInset;
+
+@property(nonatomic) CGSize footerReferenceSize;
+
+@property(nonatomic) CGSize headerReferenceSize;
+
+@property(nonatomic) CGSize itemSize;
+
+@property(nonatomic) CGFloat minimumInteritemSpacing;
+
+@property(nonatomic) CGFloat minimumLineSpacing;
+
+@property(nonatomic) UICollectionViewScrollDirection scrollDirection;
+
+- (NSArray <NSIndexPath *> *)indexPathsForItemsInRect:(CGRect)rect;
+
 - (BOOL)shouldUpdateVisibleCellLayoutAttributes;
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(long long)arg1;
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(long long)arg1;
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath usingData:(id)arg2;
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(long long)arg1 usingData:(id)arg2;
-- (UXCollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(long long)arg1 usingData:(id)arg2;
-- (id)indexPathOfItemAfter:(id)arg1;
-- (id)indexPathOfItemBefore:(id)arg1;
-- (id)indexPathOfItemAbove:(id)arg1;
-- (id)indexPathOfItemBelow:(id)arg1;
-- (id)indexPathForItemAtPoint:(CGPoint)arg1;
-- (id)indexesForSectionFootersInRect:(CGRect)arg1;
-- (id)indexesForSectionHeadersInRect:(CGRect)arg1;
-- (id)indexPathsForItemsInRect:(CGRect)arg1 usingData:(id)arg2;
-- (id)indexesForSectionFootersInRect:(CGRect)arg1 usingData:(id)arg2;
-- (id)indexesForSectionHeadersInRect:(CGRect)arg1 usingData:(id)arg2;
-- (CGSize)collectionViewContentSize;
-- (id)invalidationContextForBoundsChange:(CGRect)arg1;
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)arg1;
-- (void)invalidateLayoutWithContext:(id)arg1;
-- (void)dealloc;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)init;
-- (void)_invalidateButKeepAllInfo;
-- (void)_invalidateButKeepDelegateInfo;
+
+- (UXCollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)section;
+
+- (UXCollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)section;
+
+- (UXCollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath usingData:(NSData *)data;
+
+- (UXCollectionViewLayoutAttributes *)layoutAttributesForFooterInSection:(NSInteger)section usingData:(NSData *)data;
+
+- (UXCollectionViewLayoutAttributes *)layoutAttributesForHeaderInSection:(NSInteger)section usingData:(NSData *)data;
+
+- (NSIndexPath * _Nullable)indexPathForItemAtPoint:(CGPoint)point;
+
+- (NSArray <UXCollectionViewLayoutAttributes *> * _Nullable)indexesForSectionFootersInRect:(CGRect)rect;
+
+- (NSArray <UXCollectionViewLayoutAttributes *> * _Nullable)indexesForSectionHeadersInRect:(CGRect)rect;
+
+- (NSArray <NSIndexPath *> * _Nullable)indexPathsForItemsInRect:(CGRect)rect usingData:(NSData *)data;
+
+- (id)indexesForSectionFootersInRect:(CGRect)rect usingData:(NSData *)data;
+
+- (id)indexesForSectionHeadersInRect:(CGRect)rect usingData:(NSData *)data;
+
 - (CGSize)synchronizeLayout;
-- (id)finalLayoutAttributesForFooterInDeletedSection:(long long)arg1;
-- (id)finalLayoutAttributesForHeaderInDeletedSection:(long long)arg1;
-- (id)finalLayoutAttributesForDeletedItemAtIndexPath:(NSIndexPath *)indexPath;
-- (id)initialLayoutAttributesForFooterInInsertedSection:(long long)arg1;
-- (id)initialLayoutAttributesForHeaderInInsertedSection:(long long)arg1;
-- (id)initialLayoutAttributesForInsertedItemAtIndexPath:(NSIndexPath *)indexPath;
-- (void)finalizeCollectionViewUpdates;
-- (CGRect)_frameForFooterInSection:(long long)arg1 usingData:(id)arg2;
-- (CGRect)_frameForHeaderInSection:(long long)arg1 usingData:(id)arg2;
-- (CGRect)_frameForItemAtSection:(long long)arg1 andRow:(long long)arg2 usingData:(id)arg3;
-- (void)_fetchItemsInfo;
-- (void)_updateItemsLayout;
-- (void)_getSizingInfos;
-- (void)_updateDelegateFlags;
-@property(retain, nonatomic, setter=_setRowAlignmentsOptions:) NSDictionary *_rowAlignmentOptions;
+
+- (UXCollectionViewLayoutAttributes *)finalLayoutAttributesForFooterInDeletedSection:(NSInteger)section;
+
+- (UXCollectionViewLayoutAttributes *)finalLayoutAttributesForHeaderInDeletedSection:(NSInteger)section;
+
+- (UXCollectionViewLayoutAttributes *)finalLayoutAttributesForDeletedItemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (UXCollectionViewLayoutAttributes *)initialLayoutAttributesForFooterInInsertedSection:(NSInteger)section;
+
+- (UXCollectionViewLayoutAttributes *)initialLayoutAttributesForHeaderInInsertedSection:(NSInteger)section;
+
+- (UXCollectionViewLayoutAttributes *)initialLayoutAttributesForInsertedItemAtIndexPath:(NSIndexPath *)indexPath;
+
 
 @end
+
+NS_ASSUME_NONNULL_END
+
 

@@ -17,7 +17,7 @@ static CGFloat sideMargin = 12.0;
 
 @implementation TSCTableViewCell
 
-- (id)initWithStyle:(UXTableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithFrame:CGRectZero]) {
         
@@ -84,10 +84,10 @@ static CGFloat sideMargin = 12.0;
     }
     
     switch (self.style) {
-        case UXTableViewCellStyleDefault:
+        case UITableViewCellStyleDefault:
             [self subtitleLayout];
             break;
-        case UXTableViewCellStyleValue1:
+        case UITableViewCellStyleValue1:
             [self value1Layout];
             break;
         default:

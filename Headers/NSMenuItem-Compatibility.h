@@ -6,7 +6,12 @@
 
 @import  AppKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSMenuItem (Compatibility)
-- (id)initWithTitle:(id)arg1 action:(SEL)arg2;
+
+- (instancetype)initWithTitle:(NSString *)aString action:(nullable SEL)aSelector;
+
 @end
 
+NS_ASSUME_NONNULL_END

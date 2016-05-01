@@ -9,16 +9,9 @@
 @class NSColor;
 
 @interface _UXSinglePixelLine : NSView
-{
-    NSColor *_color;
-}
 
-@property(retain, nonatomic) NSColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) NSColor * _Nullable color; // @synthesize color=_color;
 
-- (void)cxx_destruct;
-- (void)drawRect:(CGRect)rect;
-- (void)viewDidChangeBackingProperties;
-- (void)viewDidMoveToSuperview;
 - (void)updateHeight;
 
 @end

@@ -22,7 +22,7 @@
 
 @property (nonatomic, assign) BOOL shouldDisplaySeparators;
 
-@property (nonatomic, assign) UXTableViewCellStyle style;
+@property (nonatomic, assign) UITableViewCellStyle style;
 
 - (void)setupViews;
 

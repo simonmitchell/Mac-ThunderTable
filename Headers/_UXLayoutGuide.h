@@ -11,26 +11,12 @@
 @class NSLayoutConstraint, NSString;
 
 @interface _UXLayoutGuide : UXView <UXLayoutSupport>
-{
-    NSLayoutConstraint *_counterDimensionConstraint;
-    NSLayoutConstraint *_dimensionConstraint;
-    BOOL _horizontal;
-    CDUnknownBlockType _lengthUpdateBlock;
-}
 
-@property(copy, nonatomic) CDUnknownBlockType lengthUpdateBlock; // @synthesize lengthUpdateBlock=_lengthUpdateBlock;
-@property(nonatomic) BOOL horizontal; // @synthesize horizontal=_horizontal;
-- (void)cxx_destruct;
-- (void)_setUpDimensionConstraintWithLength:(double)arg1;
-- (void)_setUpCounterDimensionConstraint;
-@property(nonatomic) double length;
-- (id)initWithFrame:(CGRect)arg1;
+@property(copy, nonatomic) CDUnknownBlockType lengthUpdateBlock;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
+@property(nonatomic) BOOL horizontal;
+
+@property(nonatomic) CGFloat length;
 
 @end
 

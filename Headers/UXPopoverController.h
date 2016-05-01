@@ -9,40 +9,47 @@
 
 @import  AppKit;
 
-@class NSArray, NSString, UXPopover;
+typedef NS_OPTIONS(NSUInteger, UIPopoverArrowDirection) {
+    UIPopoverArrowDirectionUp = 1UL << 0,
+    UIPopoverArrowDirectionDown = 1UL << 1,
+    UIPopoverArrowDirectionLeft = 1UL << 2,
+    UIPopoverArrowDirectionRight = 1UL << 3,
+    UIPopoverArrowDirectionAny = UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown | UIPopoverArrowDirectionLeft | UIPopoverArrowDirectionRight,
+    UIPopoverArrowDirectionUnknown = NSUIntegerMax
+};
+
+@class NSArray, NSString, UXPopover, UXBarButtonItem;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface UXPopoverController : UXViewController <NSPopoverDelegate>
-{
-    UXPopover *_popover;
-//    id <UXPopoverControllerDelegate> _delegate;
-    NSArray *_passthroughViews;
-}
 
-@property(copy, nonatomic) NSArray *passthroughViews; // @synthesize passthroughViews=_passthroughViews;
+@property(copy, nonatomic) NSArray<__kindof NSView *> * _Nullable passthroughViews;
 //@property(nonatomic) __weak id <UXPopoverControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)cxx_destruct;
-- (void)dismissPopoverAnimated:(BOOL)arg1;
-- (void)dismissPopover;
-- (void)presentPopoverFromBarButtonItem:(id)arg1 permittedArrowDirections:(unsigned long long)arg2 animated:(BOOL)arg3;
-- (void)presentPopoverFromRect:(CGRect)arg1 inView:(id)arg2 preferredEdge:(unsigned long long)arg3;
-@property(retain, nonatomic) UXViewController *contentViewController;
-@property(nonatomic) CGSize popoverContentSize;
-- (void)setPopoverContentSize:(CGSize)arg1 animated:(BOOL)arg2;
-@property(readonly, nonatomic, getter=isPopoverVisible) BOOL popoverVisible;
-@property(nonatomic) long long popoverBehavior;
-- (void)popoverWillShow:(id)arg1;
-- (void)popoverDidClose:(id)arg1;
-- (id)popover;
-- (void)_updateContentSize;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)dealloc;
-- (id)initWithContentViewController:(id)arg1;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
+- (void)dismissPopoverAnimated:(BOOL)animated;
+
+- (void)dismissPopover;
+
+- (void)presentPopoverFromBarButtonItem:(UXBarButtonItem *)barItem permittedArrowDirections:(UIPopoverArrowDirection)directions animated:(BOOL)animated;
+
+- (void)presentPopoverFromRect:(CGRect)rect inView:(NSView *)view preferredEdge:(NSRectEdge)edge;
+
+@property(retain, nonatomic) UXViewController *contentViewController;
+
+@property(nonatomic) CGSize popoverContentSize;
+
+- (void)setPopoverContentSize:(CGSize)size animated:(BOOL)animated;
+
+@property(readonly, nonatomic, getter=isPopoverVisible) BOOL popoverVisible;
+
+@property(nonatomic) NSInteger popoverBehavior;
+
+- (UXPopover *)popover;
+
+- (instancetype)initWithContentViewController:(UXViewController *)contentViewController;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

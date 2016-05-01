@@ -34,7 +34,7 @@
 
 @implementation TSCTableViewController
 
-- (id)initWithStyle:(UXTableViewStyle)style
+- (id)initWithStyle:(UITableViewStyle)style
 {
     UXCollectionViewFlowLayout *layout = [[UXCollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 0;
@@ -66,7 +66,7 @@
     
     if (self) {
         
-        self.style = UXTableViewStyleGrouped;
+        self.style = UITableViewStyleGrouped;
         self.registeredCellClasses = [NSMutableArray new];
         self.dynamicHeightCells = [NSMutableDictionary dictionary];
         self.shouldMakeFirstTextFieldFirstResponder = true;
@@ -194,13 +194,13 @@
 
 #pragma mark UXCollectionViewDataSource methods
 
-- (NSUInteger)collectionView:(UXCollectionView *)collectionView numberOfItemsInSection:(NSUInteger)section
+- (NSInteger)collectionView:(UXCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSObject <TSCTableSectionDataSource> *tableSection = self.dataSource[section];
     return tableSection.sectionItems.count;
 }
 
-- (NSUInteger)numberOfSectionsInCollectionView:(UXCollectionView *)collectionView
+- (NSInteger)numberOfSectionsInCollectionView:(UXCollectionView *)collectionView
 {
     return self.dataSource.count;
 }
@@ -471,7 +471,7 @@
     cell.contentView.frame = CGRectMake(0, 0, self.view.frame.size.width, 0);
     
     if (!cell) {
-        cell = [[tableViewCellClass alloc] initWithStyle:UXTableViewCellStyleDefault reuseIdentifier:classNameString];
+        cell = [[tableViewCellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:classNameString];
         self.dynamicHeightCells[classNameString] = cell;
     }
     

@@ -11,18 +11,6 @@
 @class NSString;
 
 @interface _UXContainerView : UXView <NSAccessibilityGroup>
-{
-}
-
-- (void)addSubview:(NSView *)view positioned:(long long)arg2 relativeTo:(id)arg3;
-- (void)addSubview:(NSView *)view;
-- (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
 
 @end
 

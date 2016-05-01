@@ -6,7 +6,14 @@
 
 @import  AppKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSImage (Compatibility)
-+ (id)imageNamed:(id)arg1 inBundle:(id)arg2;
+
++ (nullable NSImage *)imageNamed:(NSString *)name inBundle:(nullable NSBundle *)bundle;
+
 @end
+
+NS_ASSUME_NONNULL_END
+
 

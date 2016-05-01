@@ -6,22 +6,39 @@
 
 @import  AppKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
+typedef NSLayoutPriority UILayoutPriority;
+
 @interface NSView (Compatibility)
-- (void)setContentCompressionResistancePriority:(float)arg1 forAxis:(long long)arg2;
-- (float)contentCompressionResistancePriorityForAxis:(long long)arg1;
-- (void)setContentHuggingPriority:(float)arg1 forAxis:(long long)arg2;
-- (float)contentHuggingPriorityForAxis:(long long)arg1;
+
+- (UILayoutPriority)contentHuggingPriorityForAxis:(UILayoutConstraintAxis)axis;
+
+- (void)setContentHuggingPriority:(UILayoutPriority)priority forAxis:(UILayoutConstraintAxis)axis;
+
+- (UILayoutPriority)contentCompressionResistancePriorityForAxis:(UILayoutConstraintAxis)axis;
+
+- (void)setContentCompressionResistancePriority:(UILayoutPriority)priority forAxis:(UILayoutConstraintAxis)axis;
+
 @property(nonatomic) double alpha;
-- (BOOL)pointInside:(CGPoint)arg1 withEvent:(id)arg2;
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(NSEvent *)event;
+
 - (void)layoutIfNeeded;
+
 - (void)layoutSubviews;
+
 - (void)setNeedsUpdateConstraints;
+
 - (void)updateConstraintsIfNeeded;
+
 - (void)setNeedsDisplay;
+
 - (void)setNeedsLayout;
+
 - (void)didMoveToWindow;
 
-// Remaining properties
-@property(readonly, nonatomic, getter=isHidden) BOOL hidden;
 @end
+
+NS_ASSUME_NONNULL_END
 

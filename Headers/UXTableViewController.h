@@ -5,34 +5,25 @@
 //
 
 #import "UXCollectionViewController.h"
+#import "UXTableView.h"
 
 @class UXTableView;
 
-@interface UXTableViewController : UXCollectionViewController
-{
-    id <UXTableViewDelegate> _tableViewDelegate;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, UXTableViewStyle) {
-    UXTableViewStylePlain = 0,
-    UXTableViewStyleGrouped = 1
-};
+@interface UXTableViewController : UXCollectionViewController
 
 + (Class)collectionViewClass;
-- (void)cxx_destruct;
-- (void)_updateContentInsetFromLayoutGuides;
-- (id)preferredFirstResponder;
-- (void)viewDidAppear;
-- (void)viewWillAppear;
-- (void)viewDidLoad;
-- (void)didUpdateLayoutGuides;
-- (void)viewDidLayoutSubviews;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
-- (id)init;
-- (id)initWithStyle:(UXTableViewStyle)style;
 
-@property(readonly, nonatomic) id <UXTableViewDelegate> tableViewDelegate; // @synthesize tableViewDelegate=_tableViewDelegate;
+- (id)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil;
+
+- (id)initWithStyle:(UITableViewStyle)style;
+
+@property(readonly, nonatomic) id <UXTableViewDelegate> tableViewDelegate;
+
 @property(readonly, nonatomic) UXTableView *tableView;
 
 @end
 
+
+NS_ASSUME_NONNULL_END

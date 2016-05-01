@@ -16,14 +16,15 @@
 @class UXNavigationBar;
 @class _UXTableHeaderView;
 @class UXCollectionReusableView;
+@class UXCollectionReusableView;
 
 
 @protocol UXNavigationBarDelegate <UXBarPositioningDelegate>
 @optional
--(BOOL)navigationBar:(UXNavigationBar *)navigationBar shouldPushItem:(id)arg2;
--(void)navigationBar:(UXNavigationBar *)navigationBar didPushItem:(id)arg2;
--(BOOL)navigationBar:(UXNavigationBar *)navigationBar shouldPopItem:(id)arg2;
--(void)navigationBar:(UXNavigationBar *)navigationBar didPopItem:(id)arg2;
+-(BOOL)navigationBar:(UXNavigationBar *)navigationBar shouldPushItem:(id)item;
+-(void)navigationBar:(UXNavigationBar *)navigationBar didPushItem:(id)item;
+-(BOOL)navigationBar:(UXNavigationBar *)navigationBar shouldPopItem:(id)item;
+-(void)navigationBar:(UXNavigationBar *)navigationBar didPopItem:(id)item;
 @end
 
 @protocol UXTableViewDataSource <NSObject>
@@ -34,8 +35,8 @@
 -(BOOL)tableView:(UXTableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 -(BOOL)tableView:(UXTableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath;
 -(id)sectionIndexTitlesFortableView:(UXTableView *)tableView;
--(long long)tableView:(UXTableView *)tableView sectionForSectionIndexTitle:(id)arg2 atIndex:(long long)arg3;
--(void)tableView:(UXTableView *)tableView commitEditingStyle:(long long)arg2 forRowAtIndexPath:(NSIndexPath *)indexPath;
+-(long long)tableView:(UXTableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index;
+-(void)tableView:(UXTableView *)tableView commitEditingStyle:(NSInteger)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
 -(void)tableView:(UXTableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(id)toIndexPath;
 
 @required
@@ -47,11 +48,11 @@
 
 @optional
 -(void)tableView:(UXTableView *)tableView willDisplayCell:(UXTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
--(void)tableView:(UXTableView *)tableView willDisplayHeaderView:(id)arg2 forSection:(long long)section;
--(void)tableView:(UXTableView *)tableView willDisplayFooterView:(id)arg2 forSection:(long long)section;
--(void)tableView:(UXTableView *)tableView didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(NSIndexPath *)indexPath;
--(void)tableView:(UXTableView *)tableView didEndDisplayingHeaderView:(id)arg2 forSection:(long long)section;
--(void)tableView:(UXTableView *)tableView didEndDisplayingFooterView:(id)arg2 forSection:(long long)section;
+-(void)tableView:(UXTableView *)tableView willDisplayHeaderView:(UXCollectionReusableView *)headerView forSection:(NSInteger)section;
+-(void)tableView:(UXTableView *)tableView willDisplayFooterView:(UXCollectionReusableView *)footerView forSection:(NSInteger)section;
+-(void)tableView:(UXTableView *)tableView didEndDisplayingCell:(UXTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+-(void)tableView:(UXTableView *)tableView didEndDisplayingHeaderView:(UXCollectionReusableView *)headerView forSection:(NSInteger)section;
+-(void)tableView:(UXTableView *)tableView didEndDisplayingFooterView:(UXCollectionReusableView *)footerView forSection:(NSInteger)section;
 -(double)tableView:(UXTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 -(double)tableView:(UXTableView *)tableView heightForHeaderInSection:(long long)section;
 -(double)tableView:(UXTableView *)tableView heightForFooterInSection:(long long)section;

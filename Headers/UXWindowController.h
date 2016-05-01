@@ -6,58 +6,37 @@
 
 @import AppKit;
 
-#import "UXAccessoryBarContainerProtocol.h"
-
 @class NSString, NSTitlebarAccessoryViewController, NSToolbarItem, UXToolbar, UXViewController, _UXWindow, UXNavigationController;
 
-@interface UXWindowController : NSWindowController <NSToolbarDelegate, UXAccessoryBarContainer, NSWindowDelegate>
-{
-    NSTitlebarAccessoryViewController *_titlebarAccessoryViewController;
-    UXToolbar *_currentAccessoryToolbar;
-    NSToolbarItem *_navigationBarToolbarItem;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-+ (id)defaultWindow;
-@property __weak NSToolbarItem *navigationBarToolbarItem; // @synthesize navigationBarToolbarItem=_navigationBarToolbarItem;
+@interface UXWindowController : NSWindowController <NSToolbarDelegate, NSWindowDelegate>
 
-- (void)cxx_destruct;
-- (void)windowDidBecomeFirstResponder:(id)arg1;
++ (instancetype)defaultWindow;
 
-- (void)windowDidRecalculateKeyViewLoop:(id)arg1;
-- (void)windowWillRecalculateKeyViewLoop:(id)arg1;
+@property NSToolbarItem * _Nullable navigationBarToolbarItem;
 
-- (void)windowWillExitFullScreen:(id)arg1;
-- (void)windowWillEnterFullScreen:(id)arg1;
+- (void)windowDidBecomeFirstResponder:(id)notification;
 
-- (CGRect)window:(_UXWindow *)arg1 willPositionSheet:(id)arg2 usingRect:(CGRect)arg3;
-- (void)_updateAccessoryBar;
-- (void)_updateToolbarItem;
-- (void)_popoverWillShow:(id)arg1;
-- (void)_setupAccessoryBar;
-- (void)_setupNavigationBarToolbarItem;
-- (void)_setAccessoryBarHidden:(BOOL)hidden;
+- (void)windowDidRecalculateKeyViewLoop:(id)notification;
 
-@property(readonly, nonatomic) double _accessoryBarHeight;
+- (void)windowWillRecalculateKeyViewLoop:(id)notification;
 
-- (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
-- (id)toolbarDefaultItemIdentifiers:(id)identifiers;
-- (id)toolbarAllowedItemIdentifiers:(id)identifiers;
-- (void)setWindow:(_UXWindow *)window;
-- (UXNavigationController *)rootNavigationController;
-@property(retain, nonatomic) UXViewController *rootViewController;
-@property(readonly, nonatomic) NSTitlebarAccessoryViewController *titlebarAccessoryViewController;
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
-- (void)_tearDownViewControllerHierarchyForViewController:(UXViewController *)arg1;
+- (CGRect)window:(_UXWindow *)window willPositionSheet:(NSWindow *)sheet usingRect:(CGRect)rect;
+
+- (UXNavigationController * _Nullable)rootNavigationController;
+
+@property(retain, nonatomic) UXViewController * _Nullable rootViewController;
+
+@property(readonly, nonatomic) NSTitlebarAccessoryViewController * _Nullable titlebarAccessoryViewController;
+
 - (void)teardownViewControllerHierarchy;
-- (void)dealloc;
-- (id)initWithWindow:(_UXWindow *)window;
-- (id)initWithRootViewController:(UXViewController *)vc;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
+- (id)initWithWindow:(_UXWindow * _Nullable)window;
+
+- (id)initWithRootViewController:(UXViewController *)rootViewController;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

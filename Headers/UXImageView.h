@@ -10,33 +10,17 @@
 
 @class NSImage, NSString;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UXImageView : UXView <NSAccessibilityImage>
-{
-    double _backingScaleFactor;
-    CGSize _proposedSize;
-    NSImage *_image;
-}
 
-@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
-- (void)cxx_destruct;
+@property(retain, nonatomic) NSImage * _Nullable image;
+
 - (void)sizeToFit;
-- (void)_updateBackingScaleFactorForWindow:(id)arg1;
-- (void)_updateLayerContentsForWindow:(id)arg1;
-- (CGSize)_proposedSize;
-- (void)_setContentStretchInPixels:(CGRect)arg1 forContentSize:(CGSize)arg2 shouldTile:(BOOL)arg3;
-- (void)setFrameSize:(CGSize)arg1;
-- (void)viewWillMoveToWindow:(id)arg1;
-- (void)viewDidChangeBackingProperties;
-- (CGSize)intrinsicContentSize;
-- (id)initWithImage:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
 
-// Remaining properties
-@property(retain, nonatomic) NSString *accessibilityLabel;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
+- (instancetype)initWithImage:(NSImage * _Nullable)image;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

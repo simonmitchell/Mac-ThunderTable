@@ -8,24 +8,21 @@
 
 @class NSArray, NSSegmentedControl;
 
-@interface UXTabBarController : UXViewController
-{
-    NSArray *_viewControllers;
-    UXViewController *_selectedViewController;
-    NSSegmentedControl *_segmentedControl;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-@property(readonly, nonatomic) NSSegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
-@property(nonatomic) __weak UXViewController *selectedViewController; // @synthesize selectedViewController=_selectedViewController;
-@property(copy, nonatomic) NSArray *viewControllers; // @synthesize viewControllers=_viewControllers;
-- (void)cxx_destruct;
-@property(nonatomic) unsigned long long selectedIndex;
-- (void)viewDidLoad;
-- (void)keyDown:(id)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)segmentChanged:(id)arg1;
-- (void)dealloc;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
+@interface UXTabBarController : UXViewController
+
+@property(readonly, nonatomic) NSSegmentedControl *segmentedControl;
+
+@property(nonatomic, weak) UXViewController * _Nullable selectedViewController;
+
+@property(copy, nonatomic) NSArray <UXViewController *> * _Nullable viewControllers;
+
+@property(nonatomic) NSUInteger selectedIndex;
+
+- (void)segmentChanged:(id)change;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

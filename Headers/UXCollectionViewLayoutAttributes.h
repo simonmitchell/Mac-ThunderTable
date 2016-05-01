@@ -10,64 +10,43 @@
 
 @class NSIndexPath, NSString;
 
-@interface UXCollectionViewLayoutAttributes : NSObject <NSCopying>
-{
-    unsigned long long _hash;
-    NSString *_elementKind;
-    NSString *_reuseIdentifier;
-    CGRect _frame;
-    CGPoint _center;
-    CGSize _size;
-    double _alpha;
-    long long _zIndex;
-    BOOL _isFloating;
-    CGRect _floatingFrame;
-    BOOL _isFloatingPinned;
-    NSIndexPath *_indexPath;
-    NSString *_representedElementKind;
-    NSString *_isCloneString;
-    struct {
-        unsigned int isCellKind:1;
-        unsigned int isDecorationView:1;
-        unsigned int isHidden:1;
-        unsigned int isClone:1;
-    } _layoutFlags;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-+ (id)layoutAttributesForDecorationViewOfKind:(id)arg1 withIndexPath:(NSIndexPath *)indexPath;
-+ (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 withIndexPath:(NSIndexPath *)indexPath;
-+ (id)layoutAttributesForCellWithIndexPath:(NSIndexPath *)indexPath;
+@interface UXCollectionViewLayoutAttributes : NSObject <NSCopying>
+
++ (instancetype)layoutAttributesForDecorationViewOfKind:(NSString *)kind withIndexPath:(NSIndexPath *)indexPath;
+
++ (instancetype)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind withIndexPath:(NSIndexPath *)indexPath;
+
++ (instancetype)layoutAttributesForCellWithIndexPath:(NSIndexPath *)indexPath;
+
 @property(retain, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
+
 @property(nonatomic) BOOL isFloatingPinned; // @synthesize isFloatingPinned=_isFloatingPinned;
+
 @property(nonatomic) CGRect floatingFrame; // @synthesize floatingFrame=_floatingFrame;
+
 @property(nonatomic) BOOL isFloating; // @synthesize isFloating=_isFloating;
+
 @property(nonatomic) long long zIndex; // @synthesize zIndex=_zIndex;
+
 @property(nonatomic) double alpha; // @synthesize alpha=_alpha;
+
 @property(nonatomic) CGSize size; // @synthesize size=_size;
+
 @property(nonatomic) CGPoint center; // @synthesize center=_center;
+
 @property(readonly, nonatomic) NSString *representedElementKind; // @synthesize representedElementKind=_representedElementKind;
+
 @property(readonly, nonatomic) unsigned long long representedElementCategory;
-- (BOOL)_isSupplementaryView;
-- (BOOL)_isDecorationView;
-- (BOOL)_isCell;
-- (unsigned long long)hash;
-- (BOOL)_isTransitionVisibleTo:(id)arg1;
-- (BOOL)_isEquivalentTo:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (id)description;
-@property(nonatomic) CGRect frame; // @synthesize frame=_frame;
+
+@property(nonatomic) CGRect frame;
+
 @property(nonatomic) CGRect bounds;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)_setIndexPath:(NSIndexPath *)indexPath;
-- (id)_reuseIdentifier;
-- (void)_setReuseIdentifier:(NSString *)reuseIdentifier;
-- (id)_elementKind;
-- (void)_setElementKind:(id)arg1;
-- (BOOL)_isClone;
-- (void)_setIsClone:(BOOL)arg1;
+
 @property(nonatomic, getter=isHidden) BOOL hidden;
-- (void)dealloc;
-- (id)init;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

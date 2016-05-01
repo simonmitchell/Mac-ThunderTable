@@ -4,9 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+typedef NS_ENUM(NSInteger, UIBarMetrics) {
+    UIBarMetricsDefault,
+    UIBarMetricsCompact,
+    UIBarMetricsDefaultPrompt = 101, // Applicable only in bars with the prompt property, such as UINavigationBar and UISearchBar
+    UIBarMetricsCompactPrompt,
+    
+    UIBarMetricsLandscapePhone = UIBarMetricsCompact,
+    UIBarMetricsLandscapePhonePrompt = UIBarMetricsCompactPrompt,
+};
 
+typedef NS_ENUM(NSInteger, UIBarPosition) {
+    UIBarPositionAny = 0,
+    UIBarPositionBottom = 1, // The bar is at the bottom of its local context, and directional decoration draws accordingly (e.g., shadow above the bar).
+    UIBarPositionTop = 2, // The bar is at the top of its local context, and directional decoration draws accordingly (e.g., shadow below the bar)
+    UIBarPositionTopAttached = 3, // The bar is at the top of the screen (as well as its local context), and its background extends upward—currently only enough for the status bar.
+};
 
 @protocol UXBarPositioning <NSObject>
-@property(readonly, nonatomic) long long barPosition;
+
+@property(readonly, nonatomic) UIBarPosition barPosition;
+
 @end
 

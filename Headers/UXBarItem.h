@@ -8,22 +8,21 @@
 
 @class NSImage, NSString;
 
-@interface UXBarItem : NSObject
-{
-    BOOL _enabled;
-    NSString *_title;
-    NSString *_accessibilityLabel;
-    NSImage *_image;
-    long long _tag;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic) long long tag; // @synthesize tag=_tag;
-@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
-@property(copy, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;
-@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
-@property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
-- (void)cxx_destruct;
-- (id)init;
+@interface UXBarItem : NSObject
+
+@property(nonatomic) NSInteger tag;
+
+@property(retain, nonatomic) NSImage * _Nullable image;
+
+@property(copy, nonatomic) NSString * _Nullable accessibilityLabel;
+
+@property(retain, nonatomic) NSString * _Nullable title;
+
+@property(nonatomic, getter=isEnabled) BOOL enabled;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

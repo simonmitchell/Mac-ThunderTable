@@ -7,6 +7,8 @@
 
 
 @interface NSObject (UXCollectionView)
-- (void)performWithoutAnimation:(CDUnknownBlockType)arg1;
+
+- (void)performWithoutAnimation:(CDUnknownBlockType)completion;
+
 @end
 

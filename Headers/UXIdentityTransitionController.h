@@ -6,12 +6,15 @@
 
 #import "UXTransitionController.h"
 
-@interface UXIdentityTransitionController : UXTransitionController
-{
-}
+NS_ASSUME_NONNULL_BEGIN
 
-- (void)animateTransition:(id)arg1;
-- (double)transitionDuration:(id)arg1;
+@interface UXIdentityTransitionController : UXTransitionController
+
+- (void)animateTransition:(id)transition;
+
+- (double)transitionDuration:(id)transition;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

@@ -7,6 +7,8 @@
 
 
 @protocol UXNavigationRoot <NSObject>
-- (BOOL)canNavigateToDestination:(id <UXNavigationDestination>)arg1;
+
+- (BOOL)canNavigateToDestination:(id <UXNavigationDestination> _Nonnull)destination;
+
 @end
 

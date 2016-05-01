@@ -7,8 +7,6 @@
 #import "UXCollectionReusableView.h"
 
 @interface _UXCollectionSnapshotView : UXCollectionReusableView
-{
-}
 
 @end
 
