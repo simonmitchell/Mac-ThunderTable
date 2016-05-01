@@ -9,73 +9,61 @@
 
 @class NSArray, NSImage, NSMutableArray, NSView, UXNavigationItem, _UXNavigationItemContainerView;
 
-@interface UXNavigationBar : UXBar
-{
-    BOOL _needsRecalculateWindowKeyViewLoop;
-    BOOL _translucent;
-    BOOL _enableAlernateTitle;
-    BOOL _detached;
-    BOOL _recalculatingWindowKeyViewLoop;
-    id <UXNavigationBarDelegate> _delegate;
-    NSView *_titleCenteringTrackedView;
-    NSArray *_items;
-    NSImage *_backIndicatorImage;
-    NSView *_alternateTitleView;
-    double _leftInteritemSpacing;
-    double _rightInteritemSpacing;
-    double _centerYOffset;
-    NSMutableArray *_internalItems;
-    _UXNavigationItemContainerView *_topItemContainer;
-    long long _currentOperation;
-    UXNavigationItem *_transitioningItem;
-    NSEdgeInsets _edgeInsets;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-+ (id)_itemKeyPathsToObserve;
-@property(nonatomic) BOOL recalculatingWindowKeyViewLoop; // @synthesize recalculatingWindowKeyViewLoop=_recalculatingWindowKeyViewLoop;
-@property(retain, nonatomic) UXNavigationItem *transitioningItem; // @synthesize transitioningItem=_transitioningItem;
-@property(nonatomic) long long currentOperation; // @synthesize currentOperation=_currentOperation;
-@property(retain, nonatomic) _UXNavigationItemContainerView *topItemContainer; // @synthesize topItemContainer=_topItemContainer;
-@property(retain, nonatomic) NSMutableArray *internalItems; // @synthesize internalItems=_internalItems;
-@property(nonatomic) double centerYOffset; // @synthesize centerYOffset=_centerYOffset;
-@property(nonatomic) double rightInteritemSpacing; // @synthesize rightInteritemSpacing=_rightInteritemSpacing;
-@property(nonatomic) double leftInteritemSpacing; // @synthesize leftInteritemSpacing=_leftInteritemSpacing;
-@property(nonatomic, getter=isDetached) BOOL detached; // @synthesize detached=_detached;
-@property(nonatomic) BOOL enableAlernateTitle; // @synthesize enableAlernateTitle=_enableAlernateTitle;
-@property(retain, nonatomic) NSView *alternateTitleView; // @synthesize alternateTitleView=_alternateTitleView;
-@property(retain, nonatomic) NSImage *backIndicatorImage; // @synthesize backIndicatorImage=_backIndicatorImage;
-@property(copy, nonatomic) NSArray *items; // @synthesize items=_items;
-@property(nonatomic) __weak NSView *titleCenteringTrackedView; // @synthesize titleCenteringTrackedView=_titleCenteringTrackedView;
-@property(nonatomic) NSEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
-@property(nonatomic, getter=isTranslucent) BOOL translucent; // @synthesize translucent=_translucent;
-@property(nonatomic) __weak id <UXNavigationBarDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)cxx_destruct;
+@interface UXNavigationBar : UXBar
+
+@property(nonatomic) BOOL recalculatingWindowKeyViewLoop;
+
+@property(retain, nonatomic) UXNavigationItem *transitioningItem;
+
+@property(nonatomic) NSInteger currentOperation;
+
+@property(retain, nonatomic) _UXNavigationItemContainerView *topItemContainer;
+
+@property(retain, nonatomic) NSMutableArray *internalItems;
+
+@property(nonatomic) CGFloat centerYOffset;
+
+@property(nonatomic) CGFloat rightInteritemSpacing;
+
+@property(nonatomic) CGFloat leftInteritemSpacing;
+
+@property(nonatomic, getter=isDetached) BOOL detached;
+
+@property(nonatomic) BOOL enableAlernateTitle;
+
+@property(retain, nonatomic) NSView * _Nullable alternateTitleView;
+
+@property(retain, nonatomic) NSImage * _Nullable backIndicatorImage;
+
+@property(copy, nonatomic) NSArray <UXNavigationItem *> * _Nullable items; // @synthesize items=_items;
+
+@property(nonatomic, weak) NSView * _Nullable titleCenteringTrackedView;
+
+@property(nonatomic) NSEdgeInsets edgeInsets;
+
+@property(nonatomic, getter=isTranslucent) BOOL translucent;
+
+@property(nonatomic, weak) id <UXNavigationBarDelegate> _Nullable delegate;
+
 - (void)setNeedsRecalcuateWindowKeyViewLoop;
+
 - (void)recalculateKeyViewLoop;
-- (void)_completeInteractiveTransition:(BOOL)arg1;
+
 - (void)beginInteractivePop;
-- (void)beginInteractivePushToItem:(id)arg1;
-- (void)_updateItemContainer;
-- (void)_snapshot;
-- (id)_popNavigationItemAnimated:(BOOL)arg1 duration:(double)arg2;
-- (void)_pushNavigationItem:(id)arg1 animated:(BOOL)arg2 duration:(double)arg3;
-- (void)_updateTitleView;
-- (id)_popNavigationItem;
-- (void)_removeItem:(id)arg1;
-- (void)_pushItem:(id)arg1;
-- (void)_removeObserversForItem:(id)arg1;
-- (void)_addObserversForItem:(id)arg1;
-- (id)popNavigationItemAnimated:(BOOL)arg1;
-- (void)pushNavigationItem:(id)arg1 animated:(BOOL)arg2;
+
+- (void)beginInteractivePushToItem:(UXNavigationItem *)item;
+
+- (id)popNavigationItemAnimated:(BOOL)animated;
+
+- (void)pushNavigationItem:(UXNavigationItem *)item animated:(BOOL)animated;
+
 @property(readonly, nonatomic) UXNavigationItem *backItem;
+
 @property(readonly, nonatomic) UXNavigationItem *topItem;
-- (void)mouseDown:(id)arg1;
-- (void)viewDidEndLiveResize;
-- (void)layout;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (long long)barPosition;
-- (void)dealloc;
-- (id)initWithFrame:(CGRect)arg1;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

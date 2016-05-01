@@ -8,13 +8,22 @@
 
 @class UXNavigationController, UXViewController;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol UXNavigationControllerDelegate <NSObject>
 
 @optional
-- (BOOL)navigationController:(UXNavigationController *)arg1 shouldBeginInteractivePopFromViewController:(UXViewController *)arg2 toViewController:(UXViewController *)arg3;
-- (id <UXViewControllerAnimatedTransitioning>)navigationController:(UXNavigationController *)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(UXViewController *)arg3 toViewController:(UXViewController *)arg4;
-- (id <UXViewControllerInteractiveTransitioning>)navigationController:(UXNavigationController *)arg1 interactionControllerForAnimationController:(id <UXViewControllerAnimatedTransitioning>)arg2;
-- (void)navigationController:(UXNavigationController *)arg1 didShowViewController:(UXViewController *)arg2;
-- (void)navigationController:(UXNavigationController *)arg1 willShowViewController:(UXViewController *)arg2;
+
+- (BOOL)navigationController:(UXNavigationController *)navigationController shouldBeginInteractivePopFromViewController:(UXViewController *)fromViewController toViewController:(UXViewController *)toViewController;
+
+- (id <UXViewControllerAnimatedTransitioning>)navigationController:(UXNavigationController *)navigationController animationControllerForOperation:(NSInteger)operation fromViewController:(UXViewController *)fromViewController toViewController:(UXViewController *)toViewController;
+
+- (id <UXViewControllerInteractiveTransitioning>)navigationController:(UXNavigationController *)navigationController interactionControllerForAnimationController:(id <UXViewControllerAnimatedTransitioning>)animagionController;
+
+- (void)navigationController:(UXNavigationController *)navigationController didShowViewController:(UXViewController *)viewController;
+
+- (void)navigationController:(UXNavigationController *)navigationController willShowViewController:(UXViewController *)viewController;
+
 @end
 
+NS_ASSUME_NONNULL_END

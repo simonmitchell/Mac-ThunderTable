@@ -9,12 +9,9 @@
 @class NSSet;
 
 @interface UXTabBarItem : UXBarItem
-{
-    NSSet *_possibleTitles;
-}
 
-@property(copy, nonatomic) NSSet *possibleTitles; // @synthesize possibleTitles=_possibleTitles;
-- (void)cxx_destruct;
+@property(copy, nonatomic) NSSet *possibleTitles;
+
 - (id)initWithTitle:(id)arg1;
 
 @end

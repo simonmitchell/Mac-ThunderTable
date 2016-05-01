@@ -8,7 +8,6 @@
 @import AppKit;
 
 #import "UXCollectionViewLayout.h"
-#import "UXCollectionViewUpdate.h"
 #import "UXCollectionViewDelegate-Protocol.h"
 #import "UXCollectionViewDataSource-Protocol.h"
 #import "UXCollectionDocumentView.h"

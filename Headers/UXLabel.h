@@ -10,50 +10,45 @@
 
 @class NSAttributedString, NSColor, NSFont, NSString, NSTextField;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UXLabel : UXView <NSAccessibilityStaticText>
-{
-    NSTextField *_concreteTextField;
-    BOOL _highlighted;
-    NSColor *_textColor;
-    NSColor *_shadowColor;
-    long long _numberOfLines;
-    NSColor *_highlightedTextColor;
-    CGSize _shadowOffset;
-}
 
-@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
-@property(retain, nonatomic) NSColor *highlightedTextColor; // @synthesize highlightedTextColor=_highlightedTextColor;
-@property(nonatomic) long long numberOfLines; // @synthesize numberOfLines=_numberOfLines;
-@property(nonatomic) CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
-@property(retain, nonatomic) NSColor *shadowColor; // @synthesize shadowColor=_shadowColor;
-@property(retain, nonatomic) NSColor *textColor; // @synthesize textColor=_textColor;
-- (void)cxx_destruct;
-- (id)accessibilityRoleDescription;
-- (void)setAccessibilityRoleDescription:(id)arg1;
-- (id)accessibilityRole;
-- (id)accessibilityLabel;
-- (void)setAccessibilityLabel:(id)arg1;
-- (id)accessibilityValue;
-- (id)textFieldCell;
+@property(nonatomic, getter=isHighlighted) BOOL highlighted;
+
+@property(retain, nonatomic) NSColor * _Nullable highlightedTextColor;
+
+@property(nonatomic) long long numberOfLines;
+
+@property(nonatomic) CGSize shadowOffset;
+
+@property(retain, nonatomic) NSColor * _Nullable shadowColor;
+
+@property(retain, nonatomic) NSColor *textColor;
+
+- (NSCell *)textFieldCell;
+
 @property(nonatomic) BOOL selectable;
-@property(nonatomic) BOOL centerVertically;
-@property(nonatomic) double preferredMaxLayoutWidth;
-@property(nonatomic) NSTextAlignment textAlignment;
-@property(nonatomic) NSLineBreakMode lineBreakMode;
-@property(copy, nonatomic) NSAttributedString *attributedText;
-@property(copy, nonatomic) NSString *text;
-@property(retain, nonatomic) NSFont *font;
-- (CGSize)intrinsicContentSize;
-- (CGSize)sizeThatFits:(CGSize)arg1;
-- (void)sizeToFit;
-- (void)setBackgroundColor:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
+@property(nonatomic) BOOL centerVertically;
+
+@property(nonatomic) CGFloat preferredMaxLayoutWidth;
+
+@property(nonatomic) NSTextAlignment textAlignment;
+
+@property(nonatomic) NSLineBreakMode lineBreakMode;
+
+@property(copy, nonatomic) NSAttributedString * _Nullable attributedText;
+
+@property(copy, nonatomic) NSString * _Nullable text;
+
+@property(retain, nonatomic) NSFont * _Nullable font;
+
+- (void)sizeToFit;
+
+- (CGSize)sizeThatFits:(CGSize)fitSize;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

@@ -8,52 +8,56 @@
 
 @class NSArray, NSMutableArray, NSString, NSView, UXBarButtonItem, UXLabel;
 
-@interface UXNavigationItem : NSObject
-{
-    NSArray *_leftBarButtonItems;
-    NSArray *_rightBarButtonItems;
-    UXLabel *_internalTitleView;
-    NSString *_title;
-    BOOL _hidesBackButton;
-    BOOL _hidesAlternateTitleView;
-    BOOL _leftItemsSupplementBackButton;
-    UXBarButtonItem *_backBarButtonItem;
-    NSView *_titleView;
-    NSString *_prompt;
-    NSMutableArray *_childItems;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-@property(retain) NSMutableArray *childItems; // @synthesize childItems=_childItems;
-@property(nonatomic) BOOL leftItemsSupplementBackButton; // @synthesize leftItemsSupplementBackButton=_leftItemsSupplementBackButton;
-@property(retain, nonatomic) NSArray *rightBarButtonItems; // @synthesize rightBarButtonItems=_rightBarButtonItems;
-@property(nonatomic) BOOL hidesAlternateTitleView; // @synthesize hidesAlternateTitleView=_hidesAlternateTitleView;
-@property(nonatomic) BOOL hidesBackButton; // @synthesize hidesBackButton=_hidesBackButton;
-@property(copy, nonatomic) NSString *prompt; // @synthesize prompt=_prompt;
-@property(retain, nonatomic) NSView *titleView; // @synthesize titleView=_titleView;
-@property(retain, nonatomic) UXBarButtonItem *backBarButtonItem; // @synthesize backBarButtonItem=_backBarButtonItem;
-- (void)cxx_destruct;
-- (void)_removeAllChildItems;
-- (void)removeChildItem:(id)arg1;
-- (void)addChildItem:(id)arg1;
-@property(retain, nonatomic) UXBarButtonItem *rightBarButtonItem;
-@property(retain, nonatomic) NSArray *leftBarButtonItems;
-@property(retain, nonatomic) UXBarButtonItem *leftBarButtonItem;
-- (void)_updateInternalTitleView;
-@property(retain, nonatomic) NSString *title;
-- (id)_rightBarButtonItems:(BOOL)arg1;
-- (id)_leftBarButtonItems:(BOOL)arg1;
-@property(readonly, nonatomic) UXLabel *internalTitleView;
-@property(retain, nonatomic) NSArray *trailingBarButtonItems;
-- (void)setTrailingBarButtonItems:(id)arg1 animated:(BOOL)arg2;
-@property(retain, nonatomic) NSArray *leadingBarButtonItems;
-- (void)setLeadingBarButtonItems:(id)arg1 animated:(BOOL)arg2;
-- (void)setRightBarButtonItems:(id)arg1 animated:(BOOL)arg2;
-- (void)setRightBarButtonItem:(id)arg1 animated:(BOOL)arg2;
-- (void)setLeftBarButtonItems:(id)arg1 animated:(BOOL)arg2;
-- (void)setLeftBarButtonItem:(id)arg1 animated:(BOOL)arg2;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)dealloc;
-- (id)initWithTitle:(id)arg1;
+@interface UXNavigationItem : NSObject
+
+@property(retain) NSMutableArray <UXBarButtonItem *> * _Nullable childItems;
+
+@property(nonatomic) BOOL leftItemsSupplementBackButton;
+
+@property(retain, nonatomic) NSArray <UXBarButtonItem *> * _Nullable rightBarButtonItems;
+
+@property(nonatomic) BOOL hidesAlternateTitleView;
+
+@property(nonatomic) BOOL hidesBackButton;
+
+@property(copy, nonatomic) NSString * _Nullable prompt;
+
+@property(retain, nonatomic) NSView * _Nullable titleView;
+
+- (void)removeChildItem:(UXNavigationItem *)childItem;
+
+- (void)addChildItem:(UXNavigationItem *)childItem;
+
+@property(retain, nonatomic) UXBarButtonItem * _Nullable rightBarButtonItem;
+
+@property(retain, nonatomic) NSArray <UXBarButtonItem *> * _Nullable leftBarButtonItems;
+
+@property(retain, nonatomic) UXBarButtonItem * _Nullable leftBarButtonItem;
+
+@property(retain, nonatomic) NSString * _Nullable title;
+
+@property(readonly, nonatomic) UXLabel * _Nullable internalTitleView;
+
+@property(retain, nonatomic) NSArray <UXBarButtonItem *> * _Nullable trailingBarButtonItems;
+
+- (void)setTrailingBarButtonItems:(NSArray <UXBarButtonItem *> *)trailingItems animated:(BOOL)animated;
+
+@property(retain, nonatomic) NSArray <UXBarButtonItem *> * _Nullable leadingBarButtonItems;
+
+- (void)setLeadingBarButtonItems:(NSArray <UXBarButtonItem *> *)leadingItems animated:(BOOL)animated;
+
+- (void)setRightBarButtonItems:(NSArray <UXBarButtonItem *> *)rightItems animated:(BOOL)animated;
+
+- (void)setRightBarButtonItem:(UXBarButtonItem * _Nullable)rightItem animated:(BOOL)animated;
+
+- (void)setLeftBarButtonItems:(NSArray <UXBarButtonItem *> *)leftItems animated:(BOOL)animated;
+
+- (void)setLeftBarButtonItem:(UXBarButtonItem * _Nullable)leftItem animated:(BOOL)animated;
+
+- (instancetype)initWithTitle:(NSString * _Nullable)title;
 
 @end
 
+NS_ASSUME_NONNULL_END
