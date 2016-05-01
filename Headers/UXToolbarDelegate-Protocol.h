@@ -7,5 +7,6 @@
 #import "UXBarPositioningDelegate-Protocol.h"
 
 @protocol UXToolbarDelegate <UXBarPositioningDelegate>
+
 @end
 

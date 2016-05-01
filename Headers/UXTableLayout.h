@@ -8,40 +8,23 @@
 
 @class NSMutableArray, NSMutableDictionary;
 
-@interface UXTableLayout : UXCollectionViewFlowLayout
-{
-    struct {
-        unsigned int delegateSupplementaryViewDidBeginFloating:1;
-        unsigned int delegateSupplementaryViewDidEndFloating:1;
-        unsigned int delegateRreferenceSizeForHeaderInSection:1;
-        unsigned int delegateLayoutInsetForSectionAtIndex:1;
-        unsigned int needsDelegateFlagsUpdate:1;
-        unsigned int floatingHeadersDisabled:1;
-        unsigned int preparingForUpdates:1;
-        unsigned int showsSectionHeaderForSingleSection:1;
-        unsigned int showsSectionFooterForSingleSection:1;
-    } _tableLayoutFlags;
-    NSMutableArray *_layoutAttributesArray;
-    NSMutableDictionary *_headerAttributesByIndexPath;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-@property(readonly, nonatomic) NSMutableDictionary *headerAttributesByIndexPath; // @synthesize headerAttributesByIndexPath=_headerAttributesByIndexPath;
-@property(readonly, nonatomic) NSMutableArray *layoutAttributesArray; // @synthesize layoutAttributesArray=_layoutAttributesArray;
-- (void)cxx_destruct;
-- (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (NSArray <UXCollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect;
-- (void)invalidateLayoutWithContext:(id)arg1;
-- (id)invalidationContextForBoundsChange:(CGRect)arg1;
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)arg1;
-- (void)prepareLayout;
-- (BOOL)_wantsHeaderForSection:(unsigned long long)arg1;
-- (NSEdgeInsets)insetForSection:(long long)arg1;
+@interface UXTableLayout : UXCollectionViewFlowLayout
+
+@property(readonly, nonatomic) NSMutableDictionary<NSIndexPath *,UXCollectionViewLayoutAttributes *> *headerAttributesByIndexPath;
+
+@property(readonly, nonatomic) NSMutableArray <UXCollectionViewLayoutAttributes *>  *layoutAttributesArray;
+
+- (NSEdgeInsets)insetForSection:(NSEdgeInsets)section;
+
 @property(nonatomic) BOOL showsSectionFooterForSingleSection;
+
 @property(nonatomic) BOOL showsSectionHeaderForSingleSection;
+
 @property(nonatomic) BOOL floatingHeadersDisabled;
-//@property(readonly, nonatomic) id <UXCollectionViewDelegateFlowLayout> delegateFlowLayout;
-- (void)_setCollectionView:(id)arg1;
-- (id)init;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

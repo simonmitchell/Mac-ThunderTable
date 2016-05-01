@@ -4,13 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol UXViewControllerInteractiveTransitioning <NSObject>
+
 - (void)startInteractiveTransition:(id <UXViewControllerContextTransitioning>)arg1;
 
 @optional
-- (long long)completionCurve;
-- (double)completionSpeed;
+
+- (UIViewAnimationCurve)completionCurve;
+
+- (CGFloat)completionSpeed;
+
 @end
 
+NS_ASSUME_NONNULL_END

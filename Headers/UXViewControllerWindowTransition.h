@@ -8,18 +8,18 @@
 
 @class NSWindow, UXWindowController;
 
-@interface UXViewControllerWindowTransition : NSViewControllerPresentationAnimatorObject
-{
-    UXWindowController *_windowController;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-@property(retain) UXWindowController *windowController; // @synthesize windowController=_windowController;
-- (void)cxx_destruct;
-- (void)animateDismissalOfViewController:(id)arg1 fromViewController:(id)arg2;
-- (void)animatePresentationOfViewController:(id)arg1 fromViewController:(id)arg2;
-- (void)_windowWillClose:(id)arg1;
-- (void)dealloc;
+@interface UXViewControllerWindowTransition : NSViewControllerPresentationAnimatorObject
+
+@property(retain) UXWindowController *windowController;
+
+- (void)animateDismissalOfViewController:(NSViewController *)viewController fromViewController:(NSViewController *)fromViewController;
+
+- (void)animatePresentationOfViewController:(NSViewController *)presentingViewController fromViewController:(NSViewController *)fromViewController;
+
 @property(readonly) NSWindow *window;
 
 @end
 
+NS_ASSUME_NONNULL_END

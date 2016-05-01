@@ -33,8 +33,6 @@ typedef NS_ENUM(NSInteger, UICollectionViewScrollDirection) {
 
 @property(nonatomic) UICollectionViewScrollDirection scrollDirection;
 
-- (NSArray <UXCollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect;
-
 - (NSArray <NSIndexPath *> *)indexPathsForItemsInRect:(CGRect)rect;
 
 - (BOOL)shouldUpdateVisibleCellLayoutAttributes;

@@ -8,11 +8,15 @@
 
 @class NSSet;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UXTabBarItem : UXBarItem
 
 @property(copy, nonatomic) NSSet *possibleTitles;
 
-- (id)initWithTitle:(id)arg1;
+- (instancetype)initWithTitle:(NSString * _Nullable)arg1;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

@@ -8,18 +8,35 @@
 
 @class NSString, UXView, UXViewController;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol UXViewControllerContextTransitioning <NSObject>
-- (CGRect)finalFrameForViewController:(UXViewController *)arg1;
-- (CGRect)initialFrameForViewController:(UXViewController *)arg1;
-- (UXViewController *)viewControllerForKey:(NSString *)arg1;
-- (void)completeTransition:(BOOL)arg1;
+
+- (CGRect)finalFrameForViewController:(UXViewController *)viewController;
+
+- (CGRect)initialFrameForViewController:(UXViewController *)viewController;
+
+- (UXViewController * _Nullable)viewControllerForKey:(NSString *)key;
+
+- (void)completeTransition:(BOOL)animated;
+
 - (void)cancelInteractiveTransition;
+
 - (void)finishInteractiveTransition;
-- (void)updateInteractiveTransition:(double)arg1;
+
+- (void)updateInteractiveTransition:(CGFloat)progress;
+
 - (long long)presentationStyle;
+
 - (BOOL)transitionWasCancelled;
+
 - (BOOL)isInteractive;
+
 - (BOOL)isAnimated;
+
 - (UXView *)containerView;
+
 @end
+
+NS_ASSUME_NONNULL_END
 

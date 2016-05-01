@@ -10,6 +10,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class NSArray, NSMutableArray, NSVisualEffectView, UXViewController, UXEventTracker;
 
+typedef NS_ENUM(NSInteger, UIViewAnimationCurve) {
+    UIViewAnimationCurveEaseInOut,         // slow at beginning and end
+    UIViewAnimationCurveEaseIn,            // slow at beginning
+    UIViewAnimationCurveEaseOut,           // slow at end
+    UIViewAnimationCurveLinear
+};
+
 @interface UXView : NSView
 
 + (void)animateWithDuration:(double)duration delay:(double)delay usingSpringWithDamping:(double)damping initialSpringVelocity:(double)velocity options:(unsigned long long)options animations:(void (^ __null_unspecified)(void))animations completion:(void (^ __nullable)(BOOL finished))completion;

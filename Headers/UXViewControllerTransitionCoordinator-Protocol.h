@@ -9,8 +9,12 @@
 @class UXView;
 
 @protocol UXViewControllerTransitionCoordinator <UXViewControllerTransitionCoordinatorContext>
-- (void)notifyWhenInteractionEndsUsingBlock:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))arg1;
-- (BOOL)animateAlongsideTransitionInView:(UXView *)arg1 animation:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))arg2 completion:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))arg3;
-- (BOOL)animateAlongsideTransition:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))arg1 completion:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))arg2;
+
+- (void)notifyWhenInteractionEndsUsingBlock:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))block;
+
+- (BOOL)animateAlongsideTransitionInView:(UXView *)view animation:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))animation completion:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))completion;
+
+- (BOOL)animateAlongsideTransition:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))transition completion:(void (^)(id <UXViewControllerTransitionCoordinatorContext>))completion;
+
 @end
 

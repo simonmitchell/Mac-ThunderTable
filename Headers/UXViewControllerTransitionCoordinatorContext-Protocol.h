@@ -4,21 +4,37 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "UXView.h"
+#import "UXViewController.h"
+@class NSString;
 
-
-@class NSString, UXView, UXViewController;
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol UXViewControllerTransitionCoordinatorContext <NSObject>
+
 - (UXView *)containerView;
-- (UXViewController *)viewControllerForKey:(NSString *)arg1;
-- (long long)completionCurve;
+
+- (UXViewController * _Nullable)viewControllerForKey:(NSString *)arg1;
+
+- (UIViewAnimationCurve)completionCurve;
+
 - (double)completionVelocity;
+
 - (double)percentComplete;
+
 - (double)transitionDuration;
+
 - (BOOL)isCancelled;
+
 - (BOOL)isInteractive;
+
 - (BOOL)initiallyInteractive;
-- (long long)presentationStyle;
+
+- (UIModalPresentationStyle)presentationStyle;
+
 - (BOOL)isAnimated;
+
 @end
+
+NS_ASSUME_NONNULL_END
 

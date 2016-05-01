@@ -11,27 +11,29 @@
 
 @class NSString, UXNavigationController;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UXTransitionController : NSObject <UXViewControllerAnimatedTransitioning, UXViewControllerInteractiveTransitioning>
-{
-    long long _operation;
-    double _percentComplete;
-}
 
-@property(readonly, nonatomic) double percentComplete; // @synthesize percentComplete=_percentComplete;
-@property(nonatomic) long long operation; // @synthesize operation=_operation;
+@property(readonly, nonatomic) CGFloat percentComplete;
+
+@property(nonatomic) NSUInteger operation; // @synthesize operation=_operation;
+
 - (BOOL)navigationController:(UXNavigationController *)navigationController shouldBeginInteractivePopFromViewController:(UXViewController *)fromViewController toViewController:(UXViewController *)toViewController;
-- (id)navigationController:(UXNavigationController *)navigationController animationControllerForOperation:(long long)arg2 fromViewController:(UXViewController *)fromViewController toViewController:(UXViewController *)toViewController;
-- (id)navigationController:(UXNavigationController *)navigationController interactionControllerForAnimationController:(id)arg2;
-- (void)animateTransition:(id)arg1;
-- (double)transitionDuration:(id)arg1;
-- (void)updateInteractiveTransition:(double)arg1 inContext:(id)arg2;
-- (void)startInteractiveTransition:(id)arg1;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
+- (id)navigationController:(UXNavigationController *)navigationController animationControllerForOperation:(NSInteger)operation fromViewController:(UXViewController *)fromViewController toViewController:(UXViewController *)toViewController;
+
+- (id)navigationController:(UXNavigationController *)navigationController interactionControllerForAnimationController:(id)animationController;
+
+- (void)animateTransition:(id)transition;
+
+- (CGFloat)transitionDuration:(id)transition;
+
+- (void)updateInteractiveTransition:(CGFloat)transition inContext:(id)context;
+
+- (void)startInteractiveTransition:(id)transition;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

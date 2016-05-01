@@ -15,22 +15,38 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 - (CGPoint)collectionView:(UXCollectionView *)collectionView targetContentOffsetOnResizeForProposedContentOffset:(CGPoint)offset;
+
 - (void)collectionView:(UXCollectionView *)collectionView didPrepareForOverdraw:(CGRect)overdraw;
+
 - (void)collectionView:(UXCollectionView *)collectionView itemWasRightClickedAtIndexPath:(NSIndexPath *)indexPath withEvent:(NSEvent *)event;
+
 - (void)collectionView:(UXCollectionView *)collectionView itemWasDoubleClickedAtIndexPath:(NSIndexPath *)indexPath withEvent:(NSEvent *)event;
+
 - (void)collectionView:(UXCollectionView *)collectionView mouseDownWithEvent:(NSEvent *)event;
+
 - (void)collectionView:(UXCollectionView *)collectionView didEndDisplayingSupplementaryView:(UXCollectionReusableView *)cell forElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath;
+
 - (void)collectionView:(UXCollectionView *)collectionView didEndDisplayingCell:(UXCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (void)collectionView:(UXCollectionView *)collectionView indexPathsForSelectedItemsDidAdd:(NSArray *)addedItems remove:(NSArray *)removedItems animated:(BOOL)animated;
+
 - (void)collectionView:(UXCollectionView *)collectionView indexPathsForSelectedItemsWillAdd:(NSArray *)addedItems remove:(NSArray *)removedItems animated:(BOOL)animated;
+
 - (void)collectionView:(UXCollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (void)collectionView:(UXCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (BOOL)collectionView:(UXCollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (BOOL)collectionView:(UXCollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)collectionViewDidEndDecelerating:(UXCollectionView *)collectionView;
+
 - (void)collectionViewWillBeginDecelerating:(UXCollectionView *)collectionView targetContentOffset:(CGPoint)offset;
+
 - (void)collectionViewDidEndScrolling:(UXCollectionView *)collectionView;
+
 - (void)collectionViewDidScroll:(UXCollectionView *)collectionView;
+
 - (void)collectionViewWillBeginScrolling:(UXCollectionView *)collectionView;
 
 @end
