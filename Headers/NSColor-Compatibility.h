@@ -7,6 +7,8 @@
 @import  AppKit;
 
 @interface NSColor (Compatibility)
+
 + (id)lightTextColor;
+
 @end
 

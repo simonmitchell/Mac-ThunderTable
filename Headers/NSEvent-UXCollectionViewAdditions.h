@@ -6,7 +6,11 @@
 
 @import  AppKit;
 
+@class UXCollectionView;
+
 @interface NSEvent (UXCollectionViewAdditions)
-- (CGPoint)pointForLayoutOfCollectionView:(id)arg1;
+
+- (CGPoint)pointForLayoutOfCollectionView:(UXCollectionView * _Nonnull)collectionView;
+
 @end
 

@@ -7,9 +7,12 @@
 @import  AppKit;
 
 @interface NSGestureRecognizer (UXKit)
-- (void)__stateChange:(id)arg1;
-- (void)setGestureDidEndHandler:(CDUnknownBlockType)arg1;
-- (void)setGestureDidChangeHandler:(CDUnknownBlockType)arg1;
-- (void)setGestureDidBeginHandler:(CDUnknownBlockType)arg1;
+
+- (void)setGestureDidEndHandler:(CDUnknownBlockType)handler;
+
+- (void)setGestureDidChangeHandler:(CDUnknownBlockType)handler;
+
+- (void)setGestureDidBeginHandler:(CDUnknownBlockType)handler;
+
 @end
 

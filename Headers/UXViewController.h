@@ -9,113 +9,180 @@
 #import "UXLayoutSupport-Protocol.h"
 #import "CDStructures.h"
 
-@class NSArray, NSResponder, NSString, UXNavigationController, UXNavigationItem, UXSourceController, UXTabBarItem, UXView;
+@class NSArray, NSResponder, NSString, UXNavigationController, UXNavigationItem, UXSourceController, UXTabBarItem, UXView, UXTransitionController, UXBarItem, UXTabBarController, UXPopoverController;
+
+@protocol UXNavigationDestination;
+
+typedef NS_ENUM(NSInteger, UIModalTransitionStyle) {
+    UIModalTransitionStyleCoverVertical = 0,
+    UIModalTransitionStyleFlipHorizontal,
+    UIModalTransitionStyleCrossDissolve,
+    UIModalTransitionStylePartialCurl,
+};
+
+typedef NS_ENUM(NSInteger, UIModalPresentationStyle) {
+    UIModalPresentationFullScreen = 0,
+    UIModalPresentationPageSheet,
+    UIModalPresentationFormSheet,
+    UIModalPresentationCurrentContext,
+    UIModalPresentationCustom,
+    UIModalPresentationOverFullScreen,
+    UIModalPresentationOverCurrentContext,
+    UIModalPresentationPopover,
+    UIModalPresentationNone = -1,
+};
+
+typedef NS_ENUM(NSInteger, UIDeviceOrientation) {
+    UIDeviceOrientationUnknown,
+    UIDeviceOrientationPortrait,            // Device oriented vertically, home button on the bottom
+    UIDeviceOrientationPortraitUpsideDown,  // Device oriented vertically, home button on the top
+    UIDeviceOrientationLandscapeLeft,       // Device oriented horizontally, home button on the right
+    UIDeviceOrientationLandscapeRight,      // Device oriented horizontally, home button on the left
+    UIDeviceOrientationFaceUp,              // Device oriented flat, face up
+    UIDeviceOrientationFaceDown             // Device oriented flat, face down
+};
+
+typedef NS_ENUM(NSInteger, UIInterfaceOrientation) {
+    UIInterfaceOrientationUnknown            = UIDeviceOrientationUnknown,
+    UIInterfaceOrientationPortrait           = UIDeviceOrientationPortrait,
+    UIInterfaceOrientationPortraitUpsideDown = UIDeviceOrientationPortraitUpsideDown,
+    UIInterfaceOrientationLandscapeLeft      = UIDeviceOrientationLandscapeRight,
+    UIInterfaceOrientationLandscapeRight     = UIDeviceOrientationLandscapeLeft
+};
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface UXViewController : NSViewController
-{
-    UXNavigationItem *_navigationItem;
-    UXTabBarItem *_tabBarItem;
-    UXViewController *_accessoryViewController;
-    NSArray *_accessoryBarItems;
-    UXViewController *_toolbarViewController;
-    NSArray *_toolbarItems;
-    BOOL _hidesBottomBarWhenPushed;
-    CGSize _ux_preferredContentSize;
-    BOOL _viewDidLoad;
-    BOOL _ignoreViewController;
-    id <UXLayoutSupport> _topLayoutGuide;
-    id <UXLayoutSupport> _bottomLayoutGuide;
-    BOOL _isEditing;
-    BOOL _automaticallyAdjustsScrollViewInsets;
-    long long _modalPresentationStyle;
-    unsigned long long _edgesForExtendedLayout;
-    UXView *_presentedViewControllerContainerView;
-}
 
 + (Class)viewClass;
-@property(retain, nonatomic) UXView *presentedViewControllerContainerView; // @synthesize presentedViewControllerContainerView=_presentedViewControllerContainerView;
-@property(nonatomic) BOOL automaticallyAdjustsScrollViewInsets; // @synthesize automaticallyAdjustsScrollViewInsets=_automaticallyAdjustsScrollViewInsets;
-@property(nonatomic) unsigned long long edgesForExtendedLayout; // @synthesize edgesForExtendedLayout=_edgesForExtendedLayout;
-@property(nonatomic) long long modalPresentationStyle; // @synthesize modalPresentationStyle=_modalPresentationStyle;
-@property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
-- (void)cxx_destruct;
-- (id)menuForEvent:(id)arg1;
-- (id)bottomLayoutGuide;
-- (id)topLayoutGuide;
-- (void)_setupLayoutGuidesForView:(id)arg1;
+
+@property(retain, nonatomic) UXView * _Nullable presentedViewControllerContainerView;
+
+@property(nonatomic) BOOL automaticallyAdjustsScrollViewInsets;
+
+@property(nonatomic) NSRectEdge edgesForExtendedLayout;
+
+@property(nonatomic) UIModalPresentationStyle modalPresentationStyle;
+
+@property(nonatomic) BOOL isEditing;
+
+- (NSMenu * _Nullable)menuForEvent:(NSEvent *)event;
+
+- (id <UXLayoutSupport>)bottomLayoutGuide;
+
+- (id <UXLayoutSupport>)topLayoutGuide;
+
 - (void)didUpdateLayoutGuides;
+
 - (void)invalidateIntrinsicLayoutInsets;
+
 - (NSEdgeInsets)intrinsicLayoutInsets;
-- (CGSize)preferredContentSizeCappedToSize:(CGSize)arg1;
+
+- (CGSize)preferredContentSizeCappedToSize:(CGSize)cappedSize;
+
 @property CGSize preferredContentSize;
-- (BOOL)_requiresWindowForTransitionPreparation;
-- (id)_ancestorViewControllerOfClass:(Class)arg1;
-- (void)_animateView:(id)arg1 fromFrame:(CGRect)arg2 toFrame:(CGRect)arg3;
-- (id)transitionCoordinator;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)presentViewController:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
-@property(readonly, nonatomic) UXViewController *presentedViewController;
-- (void)didMoveToParentViewController:(id)arg1;
-- (void)willMoveToParentViewController:(id)arg1;
+
+- (UXTransitionController *)transitionCoordinator;
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
+
+- (void)dismissViewControllerAnimated:(BOOL)animated completion:(void (^ __nullable)(void))completion;
+
+- (void)presentViewController:(NSViewController *)viewController animated:(BOOL)animated completion:(void (^ __nullable)(void))completion;
+
+@property(readonly, nonatomic) UXViewController * _Nullable presentedViewController;
+
+- (void)didMoveToParentViewController:(NSViewController * _Nullable)viewController;
+
+- (void)willMoveToParentViewController:(NSViewController * _Nullable)viewController;
+
 - (void)removeFromParentViewController;
-- (void)removeChildViewControllerAtIndex:(long long)arg1;
-- (void)addChildViewController:(id)arg1;
+
+- (void)removeChildViewControllerAtIndex:(NSInteger)index;
+
+- (void)addChildViewController:(NSViewController *)viewController;
+
 - (void)viewDidLiveResize;
+
 - (void)viewWillLiveResize;
+
 - (void)viewDidLayoutSubviews;
+
 - (void)viewWillLayoutSubviews;
+
 - (void)viewUpdateLayer;
-- (void)viewDidDisappear;
-- (void)viewWillDisappear;
-- (void)viewDidAppear;
-- (void)viewWillAppear;
-- (void)_sendViewDidLoad;
-- (void)loadView;
-- (CGRect)_defaultInitialFrame;
-- (BOOL)acceptsFirstResponder;
+
 - (void)awakeFromNib;
+
 @property(readonly, nonatomic) NSResponder *preferredFirstResponder;
-@property(copy) NSString *title;
-- (void)setView:(UXView *)view;
-@property(readonly, nonatomic) UXView *uxView;
-- (void)_loadViewIfNotLoaded;
-- (void)_setupResponderChainIfNecessary;
-- (void)_prepareForAnimationInContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
-- (id)init;
+
+@property(copy) NSString * _Nullable title;
+
+@property(readonly, nonatomic) UXView * _Nullable uxView;
+
 @property(nonatomic) BOOL hidesBottomBarWhenPushed;
-- (long long)preferredToolbarPosition;
-- (id)toolbarViewController;
-- (void)setToolbarViewController:(id)arg1;
-- (id)toolbarItems;
-- (void)setToolbarItems:(id)arg1 animated:(BOOL)arg2;
-- (void)setToolbarItems:(id)arg1;
-- (id)accessoryBarItems;
-- (void)setAccessoryBarItems:(id)arg1;
-- (id)accessoryViewController;
-- (void)setAccessoryViewController:(id)arg1;
-@property(readonly, nonatomic) UXNavigationItem *navigationItem;
-@property(readonly, nonatomic) UXNavigationController *navigationController;
-- (id)tabBarController;
-- (id)tabBarItem;
-- (id)popoverController;
+
+- (NSInteger)preferredToolbarPosition;
+
+- (UXViewController * _Nullable)toolbarViewController;
+
+- (void)setToolbarViewController:(UXViewController * _Nullable)toolbarViewController;
+
+- (NSArray <UXBarItem *> * _Nullable)toolbarItems;
+
+- (void)setToolbarItems:(NSArray <UXBarItem *> * _Nullable)items animated:(BOOL)animated;
+
+- (void)setToolbarItems:(NSArray <UXBarItem *> * _Nullable)items;
+
+- (NSArray <UXBarItem *> * _Nullable)accessoryBarItems;
+
+- (void)setAccessoryBarItems:(NSArray <UXBarItem *> * _Nullable)items;
+
+- (UXViewController * _Nullable)accessoryViewController;
+
+- (void)setAccessoryViewController:(UXViewController * _Nullable)accessoryViewController;
+
+@property(readonly, nonatomic) UXNavigationItem * navigationItem;
+
+@property(readonly, nonatomic) UXNavigationController * _Nullable navigationController;
+
+- (UXTabBarController * _Nullable)tabBarController;
+
+- (UXTabBarItem * _Nullable)tabBarItem;
+
+- (UXPopoverController * _Nullable)popoverController;
+
 - (void)updateViewConstraints;
-- (void)prepareForTransitionWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) long long interfaceOrientation;
+
+- (void)prepareForTransitionWithContext:(id)context completion:(CDUnknownBlockType)completion;
+
+@property(readonly, nonatomic) UIInterfaceOrientation interfaceOrientation;
+
 - (void)viewDidDisappear:(BOOL)animated;
+
 - (void)viewWillDisappear:(BOOL)animated;
+
 - (void)viewDidAppear:(BOOL)animated;
+
 - (void)viewWillAppear:(BOOL)animated;
+
 @property(nonatomic) BOOL hidesSourceListWhenPushed;
+
 - (BOOL)isTransitory;
-- (void)setTransitory:(BOOL)arg1;
-- (void)viewControllersForNavigationDestination:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)willEncodeNavigationDestination:(id)arg1;
-- (id)navigationDestination;
-- (id)navigationIdentifier;
-@property(readonly, nonatomic) UXSourceController *sourceController;
+
+- (void)setTransitory:(BOOL)transitory;
+
+- (void)viewControllersForNavigationDestination:(id <UXNavigationDestination>)navigationDestination completion:(CDUnknownBlockType)completion;
+
+- (void)willEncodeNavigationDestination:(id <UXNavigationDestination>)navigationDestination;
+
+- (id <UXNavigationDestination>)navigationDestination;
+
+- (NSString *)navigationIdentifier;
+
+@property (readonly, nonatomic) UXSourceController * _Nullable sourceController;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

@@ -6,22 +6,17 @@
 
 @import AppKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class UXCollectionView;
 
 @interface UXCollectionDocumentView : NSView
-{
-    UXCollectionView *_collectionView;
-}
 
-@property(nonatomic) __weak UXCollectionView *collectionView; // @synthesize collectionView=_collectionView;
-- (id)accessibilityHitTest:(CGPoint)arg1;
-- (BOOL)acceptsFirstResponder;
-- (void)prepareContentInRect:(CGRect)arg1;
-- (void)_invalidateFocus;
-- (BOOL)isFlipped;
-- (BOOL)wantsUpdateLayer;
-- (BOOL)isOpaque;
-- (id)initWithFrame:(CGRect)arg1;
+@property (nonatomic, weak) UXCollectionView * _Nullable collectionView; // @synthesize collectionView=_collectionView;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+
 

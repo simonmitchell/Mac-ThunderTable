@@ -7,20 +7,8 @@
 @import  AppKit;
 
 @interface UIMutableIndexPath : NSIndexPath
-{
-    unsigned long long *_mutableIndexes;
-    BOOL _locked;
-}
 
-+ (void)setIndex:(unsigned long long)arg1 atPosition:(unsigned long long)arg2 forIndexPath:(id *)arg3;
-- (id)retain;
-- (id)description;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (long long)compare:(id)arg1;
-- (void)getIndexes:(unsigned long long *)arg1;
-- (unsigned long long)indexAtPosition:(unsigned long long)arg1;
-- (void)dealloc;
-- (id)initWithIndexes:(const unsigned long long *)arg1 length:(unsigned long long)arg2;
++ (void)setIndex:(NSUInteger)index atPosition:(NSUInteger)position forIndexPath:(NSIndexPath **)indexPath;
 
 @end
 

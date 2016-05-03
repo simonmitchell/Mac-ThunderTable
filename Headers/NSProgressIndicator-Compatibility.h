@@ -8,17 +8,44 @@
 
 @class NSColor;
 
+NS_ASSUME_NONNULL_BEGIN
+
+typedef NS_ENUM(NSInteger, UXProgressViewStyle) {
+    UXProgressViewStyleDefault,
+    UXProgressViewStyleBar
+};
+
+typedef NS_ENUM(NSInteger, UXActivityIndicatorViewStyle) {
+    UXActivityIndicatorViewStyleWhiteLarge,
+    UXActivityIndicatorViewStyleWhite,
+    UXActivityIndicatorViewStyleGray,
+};
+
 @interface NSProgressIndicator (Compatibility)
+
 - (BOOL)isAnimating;
+
 - (void)stopAnimating;
+
 - (void)startAnimating;
+
 @property(retain, nonatomic) NSColor *color;
+
 @property(nonatomic) BOOL hidesWhenStopped;
-@property(nonatomic) long long activityIndicatorViewStyle;
-- (void)setProgress:(double)arg1 animated:(BOOL)arg2;
+
+@property(nonatomic) UXActivityIndicatorViewStyle activityIndicatorViewStyle;
+
+- (void)setProgress:(double)progress animated:(BOOL)animated;
+
 @property(nonatomic) double progress;
-@property(nonatomic) long long progressViewStyle;
-- (id)initWithProgressViewStyle:(long long)arg1;
-- (id)initWithActivityIndicatorStyle:(long long)arg1;
+
+@property(nonatomic) UXProgressViewStyle progressViewStyle;
+
+- (id)initWithProgressViewStyle:(UXProgressViewStyle)style;
+
+- (id)initWithActivityIndicatorStyle:(UXActivityIndicatorViewStyle)style;
+
 @end
+
+NS_ASSUME_NONNULL_END
 

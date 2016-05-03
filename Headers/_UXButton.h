@@ -14,19 +14,11 @@
     NSMutableDictionary *_titleAttributesByState;
 }
 
-+ (Class)cellClass;
-- (void)cxx_destruct;
-- (BOOL)accessibilityPerformPress;
-- (id)accessibilityLabel;
-- (id)_textColorForState:(unsigned long long)state;
-- (id)_AttributedStringForState:(unsigned long long)state;
-- (void)setTitle:(NSString *)title;
-- (void)mouseUp:(id)up;
-- (void)viewWillMoveToSuperview:(UXView *)superView;
 - (void)tintColorDidChange;
-- (void)setTitleAttributes:(NSDictionary *)attributes forState:(unsigned long long)arg2;
-- (void)setTitle:(NSString *)title forState:(unsigned long long)arg2;
-- (id)initWithFrame:(CGRect)frame;
+
+- (void)setTitleAttributes:(NSDictionary * _Nullable)attributes forState:(unsigned long long)state;
+
+- (void)setTitle:(NSString * _Nullable)title forState:(unsigned long long)state;
 
 @end
 

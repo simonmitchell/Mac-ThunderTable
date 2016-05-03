@@ -7,7 +7,10 @@
 @import AppKit;
 
 @interface NSViewController (UXViewController)
-- (void)didMoveToParentViewController:(id)arg1;
-- (void)willMoveToParentViewController:(id)arg1;
+
+- (void)didMoveToParentViewController:(NSViewController * _Nullable)viewController;
+
+- (void)willMoveToParentViewController:(NSViewController * _Nullable)viewController;
+
 @end
 

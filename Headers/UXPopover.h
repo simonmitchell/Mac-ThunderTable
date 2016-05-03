@@ -9,12 +9,8 @@
 @class UXPopoverController;
 
 @interface UXPopover : NSPopover
-{
-    UXPopoverController *_popoverController;
-}
 
-@property(retain, nonatomic) UXPopoverController *popoverController; // @synthesize popoverController=_popoverController;
-- (void)cxx_destruct;
+@property(retain, nonatomic) UXPopoverController * _Nonnull popoverController; // @synthesize popoverController=_popoverController;
 
 @end
 

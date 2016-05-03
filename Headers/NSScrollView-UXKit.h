@@ -6,9 +6,21 @@
 
 @import  AppKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
+@protocol UXScrollViewDelegate;
+
 @interface NSScrollView (UXKit)
-@property(nonatomic) __weak id scrollViewDelegate;
+
+@property(nullable,nonatomic,weak) id <UXScrollViewDelegate> delegate;
+
 @property(nonatomic, getter=isScrollEnabled) BOOL scrollEnabled;
+
 @property(nonatomic) BOOL pagingEnabled;
+
 @end
+
+NS_ASSUME_NONNULL_END
+
+
 

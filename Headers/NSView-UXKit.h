@@ -9,6 +9,8 @@
 @class NSColor;
 
 @interface NSView (UXKit)
-@property(nonatomic) NSColor *backgroundColor;
+
+@property (nonatomic) NSColor * _Nullable backgroundColor;
+
 @end
 

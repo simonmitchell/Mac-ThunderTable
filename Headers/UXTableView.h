@@ -7,109 +7,129 @@
 #import "UXCollectionView.h"
 #import "UXTableView.h"
 #import "UXCollectionViewDataSource-Protocol.h"
+#import "UXTableViewCell.h"
 
 @class NSColor, NSIndexPath, NSMenu, UXCollectionView, UXCollectionViewLayout;
 
-@interface UXTableView : UXCollectionView
-{
-    struct {
-        unsigned int delegateImplementsTitleForHeaderInSection:1;
-        unsigned int delegateImplementsTitleForFooterInSection:1;
-        unsigned int delegateImplementsHeaderViewForSection:1;
-        unsigned int delegateImplementsFooterViewForSection:1;
-        unsigned int delegateImplementsHeightForHeaderInSection:1;
-        unsigned int delegateImplementsHeightForRowAtIndexPath:1;
-        unsigned int delegateImplementsDidSelectionRowAtIndexPath:1;
-        unsigned int delegateImplementsShouldHighlightRowAtIndexPath:1;
-        unsigned int delegateImplementsDidHighlightRowAtIndexPath:1;
-        unsigned int delegateImplementsDidUnhighlightRowAtIndexPath:1;
-        unsigned int delegateImplementsEditingStyleForRowAtIndexPath:1;
-        unsigned int delegateImplementsDidDeselectRowAtIndexPath:1;
-    } _tableViewDelegateFlags;
-    struct {
-        unsigned int dataSourceImplementsNumberOfSectionsInTableView:1;
-        unsigned int dataSourceImplementsCanEditRowAtIndexPath:1;
-        unsigned int dataSourceImplementsCommitEditingStyleForRowAtIndexPath:1;
-    } _tableViewDataSourceFlags;
-    NSIndexPath *_highlightedIndexPath;
-    NSMenu *_observedMenu;
-    BOOL __floatingHeadersDisabled;
-    id <UXTableViewDataSource> _tableViewDataSource;
-    id <UXTableViewDelegate> _tableViewDelegate;
-    double _rowHeight;
-    long long _separatorStyle;
-    NSColor *_separatorColor;
-    NSEdgeInsets _separatorInset;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-+ (unsigned long long)collectionViewScrollPositionFromScrollPosition:(long long)arg1;
+typedef NS_ENUM(NSInteger, UITableViewStyle) {
+    UITableViewStylePlain,          // regular table view
+    UITableViewStyleGrouped         // preferences style table view
+};
+
+typedef NS_ENUM(NSInteger, UITableViewScrollPosition) {
+    UITableViewScrollPositionNone,
+    UITableViewScrollPositionTop,
+    UITableViewScrollPositionMiddle,
+    UITableViewScrollPositionBottom
+};                // scroll so row of interest is completely visible at top/center/bottom of view
+
+typedef NS_ENUM(NSInteger, UITableViewRowAnimation) {
+    UITableViewRowAnimationFade,
+    UITableViewRowAnimationRight,           // slide in from right (or out to right)
+    UITableViewRowAnimationLeft,
+    UITableViewRowAnimationTop,
+    UITableViewRowAnimationBottom,
+    UITableViewRowAnimationNone,            // available in iOS 3.0
+    UITableViewRowAnimationMiddle,          // available in iOS 3.2.  attempts to keep cell centered in the space it will/did occupy
+    UITableViewRowAnimationAutomatic = 100  // available in iOS 5.0.  chooses an appropriate animation style for you
+};
+
+@interface UXTableView : UXCollectionView
+
 + (Class)documentClass;
 
-@property(nonatomic, setter=_setFloatingHeadersDisabled:) BOOL _floatingHeadersDisabled; // @synthesize _floatingHeadersDisabled=__floatingHeadersDisabled;
-@property(nonatomic) NSEdgeInsets separatorInset; // @synthesize separatorInset=_separatorInset;
-@property(copy, nonatomic) NSColor *separatorColor; // @synthesize separatorColor=_separatorColor;
-@property(nonatomic) long long separatorStyle; // @synthesize separatorStyle=_separatorStyle;
-@property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
-@property(nonatomic) __weak id <UXTableViewDelegate> tableViewDelegate; // @synthesize tableViewDelegate=_tableViewDelegate;
-@property(nonatomic) __weak id <UXTableViewDataSource> tableViewDataSource; // @synthesize tableViewDataSource=_tableViewDataSource;
+@property(nonatomic, setter=_setFloatingHeadersDisabled:) BOOL _floatingHeadersDisabled;
 
-- (void)cxx_destruct;
+@property(nonatomic) NSEdgeInsets separatorInset;
 
-@property(nonatomic) double alpha;
+@property(copy, nonatomic) NSColor * _Nullable separatorColor;
 
-- (void)_checkForAccessoryViewsInScrollerAreas;
-- (void)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout supplementaryViewDidEndFloatingAtIndexPath:(NSIndexPath *)indexPath kind:(id)arg4;
-- (void)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout supplementaryViewDidBeginFloatingAtIndexPath:(NSIndexPath *)indexPath kind:(id)arg4;
+@property(nonatomic) UITableViewCellSeparatorStyle separatorStyle;
+
+@property(nonatomic) CGFloat rowHeight;
+
+@property(nonatomic, weak) id <UXTableViewDelegate> _Nullable tableViewDelegate;
+
+@property(nonatomic, weak) id <UXTableViewDataSource> _Nullable tableViewDataSource;
+
+@property(nonatomic) CGFloat alpha;
+
+- (void)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout supplementaryViewDidEndFloatingAtIndexPath:(NSIndexPath *)indexPath kind:(NSString *)kind;
+
+- (void)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout supplementaryViewDidBeginFloatingAtIndexPath:(NSIndexPath *)indexPath kind:(NSString *)kind;
+
 - (CGSize)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (CGSize)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout referenceSizeForFooterInSection:(long long)arg3;
-- (CGSize)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout referenceSizeForHeaderInSection:(long long)arg3;
-- (void)collectionView:(UXCollectionView *)collectionView itemWasRightClickedAtIndexPath:(NSIndexPath *)indexPath withEvent:(id)arg3;
-- (long long)numberOfSectionsInCollectionView:(UXCollectionView *)collectionView;
-- (id)collectionView:(UXCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (long long)collectionView:(UXCollectionView *)collectionView numberOfItemsInSection:(long long)arg2;
-- (id)collectionView:(UXCollectionView *)collectionView viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(NSIndexPath *)indexPath;
-- (void)deleteWordBackward:(id)arg1;
-- (void)moveRight:(id)arg1;
-- (void)keyDown:(id)arg1;
-- (void)mouseDragged:(id)arg1;
-- (void)mouseUp:(id)arg1;
-- (void)mouseDown:(id)arg1;
-- (BOOL)acceptsFirstResponder;
-- (id)menuForEvent:(id)arg1;
-- (void)_menuDidEndTracking:(id)arg1;
-- (void)_menuDidBeginTracking:(id)arg1;
-- (void)deselectRowAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)arg2;
-- (void)selectRowAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)arg2 scrollPosition:(long long)arg3;
-- (id)indexPathForSelectedRow;
-- (id)indexPathForClickedRow;
-- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)indexPath;
-- (void)reloadRowsAtIndexPaths:(id)arg1 withRowAnimation:(long long)arg2;
-- (void)deleteRowsAtIndexPaths:(id)arg1 withRowAnimation:(long long)arg2;
-- (void)insertRowsAtIndexPaths:(id)arg1 withRowAnimation:(long long)arg2;
-- (void)deleteSections:(id)arg1 withRowAnimation:(long long)arg2;
-- (void)insertSections:(id)arg1 withRowAnimation:(long long)arg2;
+
+- (CGSize)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout referenceSizeForFooterInSection:(NSInteger)section;
+
+- (CGSize)collectionView:(UXCollectionView *)collectionView layout:(UXCollectionViewLayout *)layout referenceSizeForHeaderInSection:(NSInteger)section;
+
+- (void)collectionView:(UXCollectionView *)collectionView itemWasRightClickedAtIndexPath:(NSIndexPath *)indexPath withEvent:(NSEvent *)event;
+
+- (void)deselectRowAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
+
+- (void)selectRowAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
+
+- (NSIndexPath * _Nullable)indexPathForSelectedRow;
+
+- (NSIndexPath * _Nullable)indexPathForClickedRow;
+
+- (void)moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
+
+- (void)insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
+
+- (void)deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
+
+- (void)reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
+
+- (void)insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation;
+
+- (void)deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation;
+
 - (void)endUpdates;
 - (void)beginUpdates;
-- (id)indexPathsForVisibleRows;
+
+@property (nonatomic, readonly, nullable) NSArray<NSIndexPath *> *indexPathsForVisibleRows;
+
 - (void)sizeToFit;
+
 - (CGSize)sizeThatFits:(CGSize)size;
-- (long long)numberOfRowsInSection:(long long)section;
-- (id)dequeueReusableHeaderFooterViewWithReuseIdentifier:(NSString *)reuseIdentifier forSection:(long long)arg2;
+
+- (NSInteger)numberOfRowsInSection:(NSInteger)section;
+
+- (UXCollectionReusableView *)dequeueReusableHeaderFooterViewWithReuseIdentifier:(NSString *)reuseIdentifier forSection:(NSInteger)section;
+
 - (UXTableViewCell *)dequeueReusableCellWithReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
+
 - (UXTableViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
+
 - (void)registerClass:(Class)aClass forCellReuseIdentifier:(NSString *)reuseIdentifier;
-- (id)cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)setDelegate:(__weak id <UXTableViewDelegate>)delegate;
-- (void)setDataSource:(__weak id <UXTableViewDataSource>)dataSource;
+
+- (UXTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 - (BOOL)overdrawEnabled;
+
 - (void)setOverdrawEnabled:(BOOL)overdrawEnabled;
-- (id)init;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(CGRect)frame;
-- (id)initWithFrame:(CGRect)frame style:(long long)style;
+
+- (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
+
 - (id)initWithFrame:(CGRect)frame collectionViewlayout:(UXCollectionViewLayout *)layout;
-- (void)setNeedsDisplay:(BOOL)arg1;
+
 @property(nonatomic, getter=isUserInteractionEnabled) BOOL userInteractionEnabled;
 
 @end
+
+@interface NSIndexPath (UXTableView)
+
++ (id)indexPathForRow:(NSInteger)row inSection:(NSInteger)section;
+
+@property(readonly, nonatomic) NSInteger row;
+
+@property(readonly, nonatomic) NSInteger section;
+
+@end
+
+NS_ASSUME_NONNULL_END
 

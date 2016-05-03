@@ -10,18 +10,22 @@
 
 @interface TSCTableViewCell : UXCollectionViewCell
 
-@property (nonatomic, strong) UXLabel *textLabel;
-@property (nonatomic, strong) UXLabel *detailTextLabel;
+@property (nonatomic, strong) UXLabel *cellTextLabel;
+@property (nonatomic, strong) UXLabel *cellDetailTextLabel;
+@property (nonatomic, strong) UXImageView *cellImageView;
 
-@property (nonatomic, weak) UXViewController *parentViewController;
+@property (nonatomic, weak) UXCollectionViewController *parentViewController;
+
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
 @property (nonatomic, strong) NSView *separatorTopView;
 @property (nonatomic, strong) NSView *separatorBottomView;
-@property (nonatomic, assign) BOOL shouldDisplaySeparators;
-@property (nonatomic, strong) UXImageView *imageView;
 
-@property (nonatomic, assign) UXTableViewCellStyle style;
+@property (nonatomic, assign) BOOL shouldDisplaySeparators;
+
+@property (nonatomic, assign) UITableViewCellStyle style;
 
 - (void)setupViews;
+
+- (NSEdgeInsets)edgeInsets;
 
 @end

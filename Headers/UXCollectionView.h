@@ -4,360 +4,266 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+
 @import AppKit;
 
 #import "UXCollectionViewLayout.h"
-#import "UXCollectionViewIndexPathsSet.h"
-#import "UXCollectionViewData.h"
-#import "UXCollectionViewUpdate.h"
 #import "UXCollectionViewDelegate-Protocol.h"
 #import "UXCollectionViewDataSource-Protocol.h"
 #import "UXCollectionDocumentView.h"
-#import "UXCollectionViewMutableIndexPathsSet.h"
 
+typedef NS_OPTIONS(NSUInteger, UXCollectionViewScrollPosition) {
+    UXCollectionViewScrollPositionNone                 = 0,
+    
+    // The vertical positions are mutually exclusive to each other, but are bitwise or-able with the horizontal scroll positions.
+    // Combining positions from the same grouping (horizontal or vertical) will result in an NSInvalidArgumentException.
+    UXCollectionViewScrollPositionTop                  = 1 << 0,
+    UXCollectionViewScrollPositionCenteredVertically   = 1 << 1,
+    UXCollectionViewScrollPositionBottom               = 1 << 2,
+    
+    // Likewise, the horizontal positions are mutually exclusive to each other.
+    UXCollectionViewScrollPositionLeft                 = 1 << 3,
+    UXCollectionViewScrollPositionCenteredHorizontally = 1 << 4,
+    UXCollectionViewScrollPositionRight                = 1 << 5
+};
 
-@class CALayer, NSArray, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, UXCollectionDocumentView, UXCollectionViewData, UXCollectionViewIndexPathsSet, UXCollectionViewLayout, UXCollectionViewMutableIndexPathsSet, UXCollectionViewUpdate, _UXCollectionViewRearrangingCoordinator;
+NS_ASSUME_NONNULL_BEGIN
+
+@class CALayer, NSArray, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, UXCollectionDocumentView, UXCollectionViewLayout, UXCollectionViewUpdate, _UXCollectionViewRearrangingCoordinator, UXCollectionViewCell, UXCollectionReusableView;
 
 @interface UXCollectionView : NSScrollView
-{
-    UXCollectionDocumentView *_collectionDocumentView;
-    NSObject<UXCollectionViewDataSource> *_dataSource;
-    NSObject<UXCollectionViewDelegate> *_delegate;
-    UXCollectionViewLayout *_layout;
-    UXCollectionViewMutableIndexPathsSet *_indexPathsForSelectedItems;
-    NSMutableDictionary *_cellReuseQueues;
-    NSMutableDictionary *_supplementaryViewReuseQueues;
-    long long _reloadingSuspendedCount;
-    long long _updateAnimationCount;
-    NSMutableDictionary *_allVisibleViewsDict;
-    NSMutableDictionary *_clonedViewsDict;
-    NSIndexPath *_lastSelectionAnchorIndexPath;
-    NSIndexPath *_pendingSelectionIndexPath;
-    UXCollectionViewMutableIndexPathsSet *_pendingDeselectionIndexPaths;
-    UXCollectionViewData *_collectionViewData;
-    UXCollectionViewUpdate *_currentUpdate;
-    CGRect _visibleBounds;
-    CGRect _previousBounds;
-    CGPoint _resizeBoundsOffset;
-    long long _resizeAnimationCount;
-    long long _updateCount;
-    NSMutableArray *_insertItems;
-    NSMutableArray *_deleteItems;
-    NSMutableArray *_reloadItems;
-    NSMutableArray *_moveItems;
-    NSArray *_originalInsertItems;
-    NSArray *_originalDeleteItems;
-    CDUnknownBlockType _updateCompletionHandler;
-    NSMutableDictionary *_cellClassDict;
-    NSMutableDictionary *_cellNibDict;
-    NSMutableDictionary *_supplementaryViewClassDict;
-    NSMutableDictionary *_supplementaryViewNibDict;
-    NSMutableSet *_supplementaryElementKinds;
-    BOOL _allowsSelection;
-    BOOL _allowsMultipleSelection;
-    BOOL _allowsEmptySelection;
-    BOOL _allowsContinuousSelection;
-    BOOL _allowsPaintingSelection;
-    BOOL _allowsLassoSelection;
-    BOOL _rightMouseSimulated;
-    CGSize _minReusedViewSize;
-    BOOL _doneFirstLayout;
-    CGPoint _lastContentOffset;
-    CGSize _contentSize;
-    long long _layoutTransitionAnimationCount;
-    BOOL _scrolling;
-    BOOL _liveScrolling;
-    BOOL _involvesScrollWheel;
-    BOOL _decelerating;
-    BOOL _canDetectDeceleration;
-    CGPoint _lastScrollingDistance;
-    float _scrollingVelocity;
-    double _lastScrollingTime;
-    CGRect _lastPreparedOverdrawContentRect;
-    CGPoint _normalizedSavedScrollViewPosition;
-    BOOL _isPaintingSelectionRunning;
-    BOOL _paintingSelectionType;
-    CALayer *_lassoSelectionLayer;
-    CGPoint _lassoSelectionStartPoint;
-    UXCollectionViewIndexPathsSet *_lassoInitiallySelectedItems;
-    BOOL _lassoInvertsSelection;
-    UXCollectionViewIndexPathsSet *_keyboardRangeSelectionPreviouslySelectedItems;
-    NSIndexPath *_keyboardRangeSelectionFirstSelectedItem;
-    NSIndexPath *_keyboardRangeSelectionLastSelectedItem;
-    NSMutableDictionary *_doubleClickContext;
-    _UXCollectionViewRearrangingCoordinator *_rearrangingCoordinator;
-    long long _suspendClipViewBoundsDidChange;
-    struct {
-        unsigned int delegateWillBeginScrolling:1;
-        unsigned int delegateDidScroll:1;
-        unsigned int delegateDidEndScrolling:1;
-        unsigned int delegateWillBeginDeceleratingTargetContentOffset:1;
-        unsigned int delegateDidEndDecelerating:1;
-        unsigned int delegateShouldSelectItemAtIndexPath:1;
-        unsigned int delegateShouldDeselectItemAtIndexPath:1;
-        unsigned int delegateDidSelectItemAtIndexPath:1;
-        unsigned int delegateDidDeselectItemAtIndexPath:1;
-        unsigned int delegateSelectionWillAddAndRemove:1;
-        unsigned int delegateSelectionDidAddAndRemove:1;
-        unsigned int delegateMouseDownWithEvent:1;
-        unsigned int delegateItemWasDoubleClickedAtIndexPathWithEvent:1;
-        unsigned int delegateItemWasRightClickedAtIndexPathWithEvent:1;
-        unsigned int delegateDidEndDisplayingCellForItemAtIndexPath:1;
-        unsigned int delegateDidEndDisplayingSupplementaryViewForElementOfKindAtIndexPath:1;
-        unsigned int delegateDidPrepareForOverdraw:1;
-        unsigned int delegateTargetContentOffsetForProposedContentOffset:1;
-        unsigned int delegateTargetContentOffsetOnResizeForProposedContentOffset:1;
-        unsigned int dataSourceNumberOfSections:1;
-        unsigned int dataSourceViewForSupplementaryElement:1;
-        unsigned int reloadSkippedDuringSuspension:1;
-        unsigned int scheduledUpdateVisibleCells:1;
-        unsigned int scheduledUpdateVisibleCellLayoutAttributes:1;
-        unsigned int allowsSelection:1;
-        unsigned int allowsMultipleSelection:1;
-        unsigned int fadeCellsForBoundsChange:1;
-        unsigned int updatingLayout:1;
-        unsigned int needsReload:1;
-        unsigned int reloading:1;
-        unsigned int skipLayoutDuringSnapshotting:1;
-        unsigned int skipCellsUpdateDuringResizing:1;
-        unsigned int layoutInvalidatedSinceLastCellUpdate:1;
-        unsigned int doneFirstLayout:1;
-        unsigned int loadingOffscreenViews:1;
-        unsigned int updating:1;
-        unsigned int accessibilityDelegateShouldPrepareAccessibilitySection:1;
-        unsigned int accessibilityDelegateAXRoleDescription:1;
-        unsigned int viewIsPrepared:1;
-    } _collectionViewFlags;
-    CGPoint _lastLayoutOffset;
-}
 
-+ (id)_reuseKeyForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier;
-+ (BOOL)isCompatibleWithResponsiveScrolling;
-+ (void)initialize;
 + (Class)documentClass;
-@property(readonly, nonatomic, getter=isDecelerating) BOOL decelerating; // @synthesize decelerating=_decelerating;
-@property(readonly, nonatomic, getter=isScrolling) BOOL scrolling; // @synthesize scrolling=_scrolling;
-@property(nonatomic) BOOL allowsPaintingSelection; // @synthesize allowsPaintingSelection=_allowsPaintingSelection;
-@property(nonatomic) BOOL allowsLassoSelection; // @synthesize allowsLassoSelection=_allowsLassoSelection;
-@property(nonatomic) BOOL allowsContinuousSelection; // @synthesize allowsContinuousSelection=_allowsContinuousSelection;
-@property(retain, nonatomic) UXCollectionViewLayout *collectionViewLayout; // @synthesize collectionViewLayout=_layout;
+
+@property(readonly, nonatomic, getter=isDecelerating) BOOL decelerating;
+
+@property(readonly, nonatomic, getter=isScrolling) BOOL scrolling;
+
+@property(nonatomic) BOOL allowsPaintingSelection;
+
+@property(nonatomic) BOOL allowsLassoSelection;
+
+@property(nonatomic) BOOL allowsContinuousSelection;
+
+@property(retain, nonatomic) UXCollectionViewLayout * _Nullable collectionViewLayout;
+
 - (BOOL)lassoInvertsSelection;
-- (void)setLassoInvertsSelection:(BOOL)arg1;
-- (id)accessibilityHitTest:(CGPoint)arg1;
+
+- (void)setLassoInvertsSelection:(BOOL)invertsSelection;
+
 - (BOOL)accessibilityPerformPressWithItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (id)accessibilityChildren;
-- (id)accessibilityContentSiblingCellFromIndexPath:(NSIndexPath *)indexPath direction:(id)arg2;
-- (void)keyDown:(id)arg1;
-- (BOOL)_performScrollingForKey:(unsigned short)arg1;
-- (void)_scrollPage:(BOOL)arg1;
-- (void)_scrollToEnd:(BOOL)arg1;
-- (BOOL)_performItemSelectionForKey:(unsigned short)arg1 withModifiers:(unsigned long long)arg2;
-- (void)mouseUp:(id)arg1;
-- (void)mouseDragged:(id)arg1;
-- (void)rightMouseDown:(id)arg1;
-- (void)accessibilitySelectItemsAtIndexPaths:(id)arg1;
-- (void)accessibilitySelected:(BOOL)arg1 itemAtIndexPath:(NSIndexPath *)indexPath;
-- (id)_retrieveAccessibiltyRoleDescriptionFromAXDelegate;
-- (void)_notifyAccessibilityDelegateToPrepareSection:(id)arg1;
-- (void)mouseDown:(id)arg1;
-- (id)menuForEvent:(id)arg1;
-- (id)_indexPathForSupplementaryElementOfKind:(id)arg1 hitByEvent:(id)arg2;
-- (id)_indexPathOfSelectableItemHitByEvent:(id)arg1;
-- (void)_respondToDoubleClick;
-- (void)_performItemSelectionForMouseEvent:(id)arg1 onCell:(id)arg2 atIndexPath:(NSIndexPath *)indexPath;
-- (id)_selectableIndexPathForItemContainingHitView:(id)arg1;
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (BOOL)acceptsFirstResponder;
-- (BOOL)canBecomeKeyView;
-- (void)performBatchUpdates:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_endUpdates;
-- (void)_beginUpdates;
-- (void)_updateAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
-- (void)_updateWithItems:(id)arg1;
-- (id)_viewAnimationsForCurrentUpdate;
-- (void)_prepareLayoutForUpdates;
-- (void)_endItemAnimations;
-- (void)_setupCellAnimations;
+
+- (id)accessibilityContentSiblingCellFromIndexPath:(NSIndexPath *)indexPath direction:(id)direction;
+
+- (void)_scrollPage:(BOOL)animated;
+
+- (void)_scrollToEnd:(BOOL)animated;
+
+- (void)accessibilitySelectItemsAtIndexPaths:(NSArray <NSIndexPath *> *)paths;
+
+- (void)accessibilitySelected:(BOOL)selected itemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)performBatchUpdates:(void (^ __nullable)(void))updates completion:(void (^ __nullable)(BOOL finished))completion;
+
 - (void)moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)indexPath;
-- (void)reloadItemsAtIndexPaths:(id)arg1;
-- (void)deleteItemsAtIndexPaths:(id)arg1;
-- (void)insertItemsAtIndexPaths:(id)arg1;
-- (void)_updateRowsAtIndexPaths:(id)arg1 updateAction:(long long)arg2;
-- (void)moveSection:(long long)arg1 toSection:(long long)arg2;
-- (void)reloadSections:(id)arg1;
-- (void)deleteSections:(id)arg1;
-- (void)insertSections:(id)arg1;
-- (void)_updateSections:(id)arg1 updateAction:(long long)arg2;
-- (id)_arrayForUpdateAction:(long long)arg1;
-- (id)_currentUpdate;
-- (void)scrollRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 withInsets:(NSEdgeInsets)arg3 animated:(BOOL)arg4;
-- (void)scrollToItemAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(unsigned long long)arg2 animated:(BOOL)arg3;
-- (void)_scrollRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 withInsets:(NSEdgeInsets)arg3 animated:(BOOL)arg4;
-- (CGPoint)_scrollAmountForMovingRect:(CGRect)arg1 toScrollPosition:(unsigned long long)arg2 inDestinationRect:(CGRect)arg3;
-- (id)nextIndexPath:(NSIndexPath *)indexPath;
-- (id)previousIndexPath:(NSIndexPath *)indexPath;
-- (id)contentSupplementaryViews;
-- (id)visibleSupplementaryViews;
-- (id)_supplementaryViewsIncludingOverdrawArea:(BOOL)arg1;
-- (id)indexPathsForContentItemsInSections:(id)arg1;
-- (id)indexPathsForContentItems;
-- (id)indexPathsForVisibleItemsInSections:(id)arg1;
-- (id)indexPathsForVisibleItems;
-- (id)_indexPathsForItemsInSections:(id)arg1 includingOverdrawArea:(BOOL)arg2;
-- (id)contentCells;
-- (id)visibleCells;
-- (id)_cellsIncludingOverdrawArea:(BOOL)arg1;
-- (id)_dictionaryOfIndexPathsAndContentCells;
-- (unsigned long long)numberOfContentCells;
-- (unsigned long long)numberOfVisibleCells;
-- (id)viewForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
+
+- (void)insertItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
+
+- (void)deleteItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
+
+- (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
+
+- (void)insertSections:(NSIndexSet *)sections;
+
+- (void)deleteSections:(NSIndexSet *)sections;
+
+- (void)reloadSections:(NSIndexSet *)sections;
+
+- (void)moveSection:(NSInteger)section toSection:(NSInteger)newSection;
+
+- (void)scrollRect:(CGRect)rect toscrollPosition:(UXCollectionViewScrollPosition)postion withInsets:(NSEdgeInsets)insets animated:(BOOL)animated;
+
+- (void)scrollToItemAtIndexPath:(NSIndexPath *)indexPath atscrollPosition:(UXCollectionViewScrollPosition)postion animated:(BOOL)animated;
+
+- (CGPoint)_scrollAmountForMovingRect:(CGRect)rect toscrollPosition:(UXCollectionViewScrollPosition)position inDestinationRect:(CGRect)destinationRect;
+
+- (NSIndexPath * _Nullable)nextIndexPath:(NSIndexPath *)indexPath;
+
+- (NSIndexPath * _Nullable)previousIndexPath:(NSIndexPath *)indexPath;
+
+- (NSArray <UXView *> *)contentSupplementaryViews;
+
+- (NSArray <UXView *> *)visibleSupplementaryViews;
+
+- (NSArray<NSIndexPath *> * _Nullable)indexPathsForContentItemsInSections:(NSIndexSet *)sections;
+
+- (NSArray<NSIndexPath *> * _Nullable)indexPathsForContentItems;
+
+- (NSArray<NSIndexPath *> * _Nullable)indexPathsForVisibleItemsInSections:(NSIndexSet *)sections;
+
+- (NSArray<NSIndexPath *> * _Nullable)indexPathsForVisibleItems;
+
+- (NSArray<__kindof UXCollectionViewCell *> *)contentCells;
+
+- (NSArray<__kindof UXCollectionViewCell *> *)visibleCells;
+
+- (NSInteger)numberOfContentCells;
+
+- (NSInteger)numberOfVisibleCells;
+
+- (UXCollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath;
+
 - (UXCollectionViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath;
-- (id)indexPathForSupplementaryView:(id)arg1;
-- (id)indexPathForCell:(id)arg1;
-- (id)_indexPathForView:(id)arg1 ofType:(unsigned long long)arg2;
-- (id)indexPathForSupplementaryElementOfKind:(id)arg1 atPoint:(CGPoint)arg2;
-- (id)indexPathForSupplementaryElementOfKind:(id)arg1 hitByEvent:(id)arg2;
-- (id)indexPathForItemAtPoint:(CGPoint)arg1;
-- (id)indexPathForItemHitByEvent:(id)arg1;
-- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (NSIndexPath * _Nullable)indexPathForSupplementaryView:(UXCollectionReusableView *)view;
+
+- (NSIndexPath * _Nullable)indexPathForCell:(UXCollectionViewCell *)cell;
+
+- (NSIndexPath * _Nullable)indexPathForSupplementaryElementOfKind:(NSString *)kind atPoint:(CGPoint)point;
+
+- (NSIndexPath * _Nullable)indexPathForSupplementaryElementOfKind:(NSString *)kind hitByEvent:(NSEvent *)event;
+
+- (NSIndexPath * _Nullable)indexPathForItemAtPoint:(CGPoint)point;
+
+- (NSIndexPath * _Nullable)indexPathForItemHitByEvent:(NSEvent *)event;
+
+- (id _Nullable)layoutAttributesForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath;
+
+- (id _Nullable)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
+
 - (NSInteger)numberOfSections;
-- (void)_prepareCellsForOverdraw:(CGRect)arg1;
+
 - (void)resetScrollingOverdraw;
+
 - (CGRect)documentContentRect;
-- (void)_addControlledSubview:(id)arg1 atZIndex:(long long)arg2;
+
 - (void)updateLayout;
-- (void)_setCollectionViewLayout:(id)arg1 animated:(BOOL)arg2 isInteractive:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)setCollectionViewLayout:(id)arg1 animated:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)setCollectionViewLayout:(id)arg1 animated:(BOOL)arg2;
-- (void)_reuseSupplementaryView:(id)arg1;
-- (void)_reuseCell:(id)arg1;
-- (long long)_maxNumberOfReusedViews;
-- (long long)_numberOfReusedViewsForIdentifier:(id)arg1;
-- (id)dequeueReusableSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
-- (id)dequeueReusableCellWithReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
-- (id)_dequeueReusableViewOfKind:(id)arg1 withIdentifier:(id)arg2 forIndexPath:(NSIndexPath *)indexPath viewCategory:(unsigned long long)arg4;
-- (void)registerNib:(id)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(id)arg3;
-- (void)registerClass:(Class)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(id)arg3;
-- (Class)registeredClassForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(NSString *)reuseIdentifier;
-- (void)registerNib:(id)arg1 forCellWithReuseIdentifier:(NSString *)reuseIdentifier;
-- (void)registerClass:(Class)arg1 forCellWithReuseIdentifier:(NSString *)reuseIdentifier;
+
+- (void)setCollectionViewLayout:(UXCollectionViewLayout *)layout animated:(BOOL)animated completion:(void (^ __nullable)(void))completion;
+
+- (void)setCollectionViewLayout:(UXCollectionViewLayout *)layout animated:(BOOL)animated;
+
+- (UXCollectionReusableView *)dequeueReusableSupplementaryViewOfKind:(NSString *)kind withReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
+
+- (UXCollectionViewCell *)dequeueReusableCellWithReuseIdentifier:(NSString *)reuseIdentifier forIndexPath:(NSIndexPath *)indexPath;
+
+- (void)registerNib:(NSNib *)nib forSupplementaryViewOfKind:(NSString *)kind withReuseIdentifier:(NSString *)reuseIdentifier;
+
+- (void)registerClass:(Class)viewClass forSupplementaryViewOfKind:(NSString *)kind withReuseIdentifier:(NSString *)reuseIdentifier;
+
+- (Class)registeredClassForSupplementaryViewOfKind:(NSString *)kind withReuseIdentifier:(NSString *)reuseIdentifier;
+
+- (void)registerNib:(NSNib *)nib forCellWithReuseIdentifier:(NSString *)reuseIdentifier;
+
+- (void)registerClass:(Class)viewClass forCellWithReuseIdentifier:(NSString *)reuseIdentifier;
+
 - (Class)registeredClassForCellWithReuseIdentifier:(NSString *)reuseIdentifier;
-- (BOOL)_visible;
-- (void)layoutSubviews;
-- (CGSize)contentSizeForFrameSize:(CGSize)arg1;
-- (CGSize)frameSizeForContentSize:(CGSize)arg1;
-- (void)windowDidChangeBackingProperties:(id)arg1;
-- (void)clipViewBoundsDidChange:(id)arg1;
-- (void)touchesEndedWithEvent:(id)arg1;
-- (void)touchesBeganWithEvent:(id)arg1;
-- (void)scrollViewDidEndLiveScrollNotification:(id)arg1;
-- (void)scrollViewWillStartLiveScrollNotification:(id)arg1;
-- (void)_didEndScrolling:(id)arg1;
-- (void)_willStartScrolling:(id)arg1;
-- (void)scrollWheel:(id)arg1;
-- (void)setContentOffset:(CGPoint)arg1 animated:(BOOL)arg2;
-- (void)setContentOffset:(CGPoint)arg1;
-@property(nonatomic) CGSize contentSize;
-- (void)setDocumentBounds:(CGRect)arg1;
+
+- (CGSize)contentSizeForFrameSize:(CGSize)frameSize;
+
+- (CGSize)frameSizeForContentSize:(CGSize)contentSize;
+
+- (void)windowDidChangeBackingProperties:(id)properties;
+
+- (void)clipViewBoundsDidChange:(NSNotification *)change;
+
+- (void)scrollViewDidEndLiveScrollNotification:(NSNotification *)notification;
+
+- (void)scrollViewWillStartLiveScrollNotification:(NSNotification *)notification;
+
+- (void)setContentOffset:(CGPoint)offset animated:(BOOL)animated;
+
+- (void)setContentOffset:(CGPoint)offset;
+
+- (void)setDocumentBounds:(CGRect)bounds;
+
 - (CGRect)documentBounds;
+
 - (CGSize)documentSize;
+
 - (CGPoint)contentOffset;
-- (BOOL)wantsUpdateLayer;
-- (BOOL)isOpaque;
-- (void)viewWillMoveToSuperview:(id)arg1;
-- (void)viewDidMoveToWindow;
-- (void)viewWillMoveToWindow:(id)arg1;
-- (void)_viewPrepare;
-- (void)_viewCleanup;
-- (id)_doubleSidedAnimationsForView:(id)arg1 withStartingLayoutAttributes:(id)arg2 startingLayout:(id)arg3 endingLayoutAttributes:(id)arg4 endingLayout:(id)arg5 withAnimationSetup:(CDUnknownBlockType)arg6 animationCompletion:(CDUnknownBlockType)arg7 enableCustomAnimations:(BOOL)arg8 customAnimationsType:(unsigned long long)arg9;
-- (void)_updateCellsInRect:(CGRect)arg1 createIfNecessary:(BOOL)arg2;
-- (void)_updateVisibleCellsNow:(BOOL)arg1;
-- (id)_createPreparedSupplementaryViewForElementOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath withLayoutAttributes:(id)arg3 applyAttributes:(BOOL)arg4;
-- (id)_createPreparedCellForItemAtIndexPath:(NSIndexPath *)indexPath withLayoutAttributes:(id)arg2 applyAttributes:(BOOL)arg3;
-- (CGPoint)layoutPointForCollectionViewPoint:(CGPoint)arg1;
-- (CGPoint)collectionViewPointForLayoutPoint:(CGPoint)arg1;
-- (void)setScrollerStyle:(long long)arg1;
-- (void)_setVisibleBounds:(CGRect)arg1;
-- (CGRect)_visibleBounds;
-- (void)setContentInsets:(NSEdgeInsets)arg1;
-- (void)setFrame:(CGRect)arg1;
-- (void)setBounds:(CGRect)arg1;
-- (CGPoint)_contentOffsetForNewFrame:(CGRect)arg1 oldFrame:(CGRect)arg2 newContentSize:(CGSize)arg3 andOldContentSize:(CGSize)arg4;
+
+- (CGPoint)layoutPointForCollectionViewPoint:(CGPoint)viewPoint;
+
+- (CGPoint)collectionViewPointForLayoutPoint:(CGPoint)layoutPoint;
+
 - (BOOL)isBusy;
-- (void)_invalidateLayoutWithContext:(id)arg1;
-- (void)_invalidateLayoutIfNecessary;
+
 - (void)reloadData;
-- (void)_setNeedsVisibleCellsUpdate:(BOOL)arg1 withLayoutAttributes:(BOOL)arg2;
-- (void)_resumeReloads;
-- (void)_suspendReloads;
+
 - (void)setNeedsLayout;
-@property(nonatomic) BOOL allowsEmptySelection; // @synthesize allowsEmptySelection=_allowsEmptySelection;
-@property(nonatomic) BOOL allowsMultipleSelection; // @synthesize allowsMultipleSelection=_allowsMultipleSelection;
-@property(nonatomic) BOOL allowsSelection; // @synthesize allowsSelection=_allowsSelection;
-- (void)deselectAllItems:(BOOL)arg1;
-- (void)selectAllItems:(BOOL)arg1;
-- (void)deselectItemsAtIndexPaths:(id)arg1 animated:(BOOL)arg2;
-- (void)deselectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)arg2;
-- (BOOL)_toggleSelectionStateOfItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)arg2 notifyDelegate:(BOOL)arg3;
-- (BOOL)_deselectItemsAtIndexPaths:(id)arg1 animated:(BOOL)arg2 notifyDelegate:(BOOL)arg3;
-- (void)selectItemsAtIndexPaths:(id)arg1 byExtendingSelection:(BOOL)arg2 animated:(BOOL)arg3 scrollItemAtIndex:(id)arg4 toPosition:(unsigned long long)arg5;
-- (void)selectItemsAtIndexPaths:(id)arg1 byExtendingSelection:(BOOL)arg2 animated:(BOOL)arg3;
-- (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)arg2 scrollPosition:(unsigned long long)arg3;
-- (void)_deselectAllAnimated:(BOOL)arg1 notifyDelegate:(BOOL)arg2;
-- (BOOL)_selectRangeOfItemsFromIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)indexPath byExtendingSelection:(BOOL)arg3 animated:(BOOL)arg4 scroll:(BOOL)arg5 toPosition:(unsigned long long)arg6 notifyDelegate:(BOOL)arg7 candidateLastSelectedItemIndexPath:(id *)arg8;
-- (BOOL)_selectItemsInIndexPathsSet:(id)arg1 byExtendingSelection:(BOOL)arg2 animated:(BOOL)arg3 scrollingKeyItem:(id)arg4 toPosition:(unsigned long long)arg5 notifyDelegate:(BOOL)arg6;
-- (id)_firstSelectableItemIndexPath;
+
+@property (nonatomic) BOOL allowsEmptySelection;
+@property (nonatomic) BOOL allowsMultipleSelection;
+@property (nonatomic) BOOL allowsSelection;
+
+- (void)deselectAllItems:(BOOL)animated;
+
+- (void)selectAllItems:(BOOL)animated;
+
+- (void)deselectItemsAtIndexPaths:(NSArray <NSIndexPath *> *)indexPaths animated:(BOOL)animated;
+
+- (void)deselectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
+
+- (void)selectItemsAtIndexPaths:(NSArray <NSIndexPath *> *)indexPaths byExtendingSelection:(BOOL)extend animated:(BOOL)animated scrollItemAtIndex:(NSIndexPath *)index toPosition:(UXCollectionViewScrollPosition)position;
+
+- (void)selectItemsAtIndexPaths:(NSArray <NSIndexPath *> *)indexPaths byExtendingSelection:(BOOL)extend animated:(BOOL)animated;
+
+- (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UXCollectionViewScrollPosition)position;
+
 - (BOOL)selectedItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (BOOL)selectableItemAtIndexPath:(NSIndexPath *)indexPath;
+
 - (unsigned long long)numberOfSelectedItems;
-- (id)_keyItemIndexPathForItemIndexPathsSet:(id)arg1;
-- (id)_keyItemIndexPathForItemIndexPaths:(id)arg1;
-- (id)_visibleViewsDict;
-- (id)_collectionViewData;
-- (id)_layoutAttributesForItemsInRect:(CGRect)arg1;
-- (id)indexPathsForSelectedItems;
-- (BOOL)_dataSourceImplementsNumberOfSections;
-- (void)_reloadDataIfNeeded;
-@property(nonatomic) __weak NSObject<UXCollectionViewDataSource> *dataSource; // @synthesize dataSource=_dataSource;
-@property(nonatomic) __weak NSObject<UXCollectionViewDelegate> *delegate; // @synthesize delegate=_delegate;
-- (id)_visibleDecorationViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)_visibleSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath;
-- (id)_visibleSupplementaryViewOfKind:(id)arg1 atIndexPath:(NSIndexPath *)indexPath isDecorationView:(BOOL)arg3;
-- (id)_keysForObject:(id)arg1 inDictionary:(id)arg2;
-- (void)_addEntriesFromDictionary:(id)arg1 inDictionary:(id)arg2;
-- (void)_addEntriesFromDictionary:(id)arg1 inDictionary:(id)arg2 andSet:(id)arg3;
-- (void)_setObject:(id)arg1 inDictionary:(id)arg2 forKind:(id)arg3 IndexPath:(NSIndexPath *)indexPath;
-- (id)_objectInDictionary:(id)arg1 forKind:(id)arg2 IndexPath:(NSIndexPath *)indexPath;
-- (id)description;
-- (void)dealloc;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(CGRect)arg1 collectionViewLayout:(id)arg2;
-- (id)initWithFrame:(CGRect)arg1;
-- (void)updateDraggingItemsForDrag:(id)arg1;
-- (BOOL)wantsPeriodicDraggingUpdates;
-- (void)draggingEnded:(id)arg1;
-- (void)concludeDragOperation:(id)arg1;
-- (BOOL)performDragOperation:(id)arg1;
-- (BOOL)prepareForDragOperation:(id)arg1;
-- (void)draggingExited:(id)arg1;
-- (unsigned long long)draggingUpdated:(id)arg1;
-- (unsigned long long)draggingEntered:(id)arg1;
-- (void)draggingSession:(id)arg1 endedAtPoint:(CGPoint)arg2 operation:(unsigned long long)arg3;
-- (void)draggingSession:(id)arg1 movedToPoint:(CGPoint)arg2;
-- (void)draggingSession:(id)arg1 willBeginAtPoint:(CGPoint)arg2;
-- (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
-- (void)rearrangingCoordinatorReloadLayout_;
+
+- (NSArray <NSIndexPath *> * _Nullable)indexPathsForSelectedItems;
+
+@property (nonatomic, weak, nullable) NSObject<UXCollectionViewDataSource> *dataSource;
+@property (nonatomic, weak, nullable) NSObject<UXCollectionViewDelegate> *delegate;
+
+- (id)initWithFrame:(CGRect)frame collectionViewLayout:(UXCollectionViewLayout *)layout;
+
+- (void)draggingSession:(id)session endedAtPoint:(CGPoint)point operation:(unsigned long long)operation;
+
+- (void)draggingSession:(id)session movedToPoint:(CGPoint)point;
+
+- (void)draggingSession:(id)session willBeginAtPoint:(CGPoint)point;
+
+- (unsigned long long)draggingSession:(id)session sourceOperationMaskForDraggingContext:(long long)context;
+
 @property(readonly, nonatomic) BOOL isRearranging_;
+
 @property(nonatomic) double rearrangingPreviewDelay_;
+
 @property(nonatomic) BOOL rearrangingContinuouslyUpdateInsideCells_;
+
 @property(nonatomic) long long rearrangingInitiationMode_;
+
 @property(nonatomic) BOOL rearrangingExternalDropEnabled_;
+
 @property(nonatomic) BOOL rearrangingAllowAutoscroll_;
+
 @property(nonatomic) BOOL rearrangingEnabled_;
+
 - (id)_rearrangingCoordinator;
 
 @end
+
+@interface NSIndexPath (UXCollectionViewAdditions)
+
++ (NSIndexPath *)indexPathForItem:(NSInteger)item inSection:(NSInteger)section;
+
+@property(readonly, nonatomic) NSUInteger section;
+
+@property(readonly, nonatomic) NSUInteger item;
+
+@end
+
+NS_ASSUME_NONNULL_END
+
 

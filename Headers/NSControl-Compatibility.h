@@ -7,6 +7,8 @@
 @import  AppKit;
 
 @interface NSControl (Compatibility)
-- (void)setTarget:(id)arg1 action:(SEL)arg2;
+
+- (void)setTarget:(id _Nullable)target action:(SEL _Nullable)action;
+
 @end
 

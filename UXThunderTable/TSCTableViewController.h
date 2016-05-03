@@ -29,7 +29,7 @@
  Initializes the `tableView`
  @param style The `UITableViewStyle` to initialise the `tableView` with.
  */
-- (instancetype)initWithStyle:(UXTableViewStyle)style;
+- (instancetype)initWithStyle:(UITableViewStyle)style;
 
 ///---------------------------------------------------------------------------------------
 /// @name Configuring the Data Source

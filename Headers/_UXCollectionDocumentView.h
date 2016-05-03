@@ -7,12 +7,8 @@
 #import "UXCollectionDocumentView.h"
 
 @interface _UXCollectionDocumentView : UXCollectionDocumentView
-{
-    BOOL _overdrawEnabled;
-}
 
-@property(nonatomic) BOOL overdrawEnabled; // @synthesize overdrawEnabled=_overdrawEnabled;
-- (void)prepareContentInRect:(CGRect)rect;
+@property(nonatomic) BOOL overdrawEnabled;
 
 @end
 

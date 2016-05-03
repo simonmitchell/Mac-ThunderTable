@@ -7,18 +7,16 @@
 
 
 @interface UXViewAnimationContext : NSObject
-{
-    double _mass;
-    double _stiffness;
-    double _damping;
-    double _velocity;
-}
 
-@property(nonatomic) double velocity; // @synthesize velocity=_velocity;
-@property(nonatomic) double damping; // @synthesize damping=_damping;
-@property(nonatomic) double stiffness; // @synthesize stiffness=_stiffness;
-@property(nonatomic) double mass; // @synthesize mass=_mass;
-- (void)generateSpringPropertiesForDuration:(double)arg1 damping:(double)arg2 velocity:(double)arg3;
+@property(nonatomic) CGFloat velocity;
+
+@property(nonatomic) CGFloat damping;
+
+@property(nonatomic) CGFloat stiffness;
+
+@property(nonatomic) CGFloat mass;
+
+- (void)generateSpringPropertiesForDuration:(CGFloat)duration damping:(CGFloat)damping velocity:(CGFloat)velocity;
 
 @end
 

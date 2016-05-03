@@ -8,46 +8,53 @@
 
 @class NSEvent, NSMapTable, UXView;
 
-@interface UXEventTracker : NSResponder
-{
-    UXView *_view;
-    BOOL _cancelsEventsInView;
-    BOOL _enabled;
-    long long _state;
-    NSEvent *_trackingEvent;
-    unsigned long long _modifiers;
-    double _velocity;
-    unsigned long long _ignoredModifiers;
-    CDUnknownBlockType _eventTrackerDidBeginHandler;
-    CDUnknownBlockType _eventTrackerDidChangeHandler;
-    CDUnknownBlockType _eventTrackerDidEndHandler;
-    NSMapTable *_selectorsByTarget;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-@property(retain, nonatomic) NSMapTable *selectorsByTarget; // @synthesize selectorsByTarget=_selectorsByTarget;
-@property(copy, nonatomic) CDUnknownBlockType eventTrackerDidEndHandler; // @synthesize eventTrackerDidEndHandler=_eventTrackerDidEndHandler;
-@property(copy, nonatomic) CDUnknownBlockType eventTrackerDidChangeHandler; // @synthesize eventTrackerDidChangeHandler=_eventTrackerDidChangeHandler;
-@property(copy, nonatomic) CDUnknownBlockType eventTrackerDidBeginHandler; // @synthesize eventTrackerDidBeginHandler=_eventTrackerDidBeginHandler;
-@property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic) BOOL cancelsEventsInView; // @synthesize cancelsEventsInView=_cancelsEventsInView;
-@property(nonatomic) unsigned long long ignoredModifiers; // @synthesize ignoredModifiers=_ignoredModifiers;
-@property(nonatomic) double velocity; // @synthesize velocity=_velocity;
-@property(nonatomic) unsigned long long modifiers; // @synthesize modifiers=_modifiers;
-@property(retain, nonatomic) NSEvent *trackingEvent; // @synthesize trackingEvent=_trackingEvent;
-@property(nonatomic) __weak UXView *view; // @synthesize view=_view;
-@property(nonatomic) long long state; // @synthesize state=_state;
-- (void)cxx_destruct;
-- (id)description;
+@interface UXEventTracker : NSResponder
+
+@property(retain, nonatomic) NSMapTable *selectorsByTarget;
+
+@property(copy, nonatomic) CDUnknownBlockType eventTrackerDidEndHandler;
+
+@property(copy, nonatomic) CDUnknownBlockType eventTrackerDidChangeHandler;
+
+@property(copy, nonatomic) CDUnknownBlockType eventTrackerDidBeginHandler;
+
+@property(nonatomic, getter=isEnabled) BOOL enabled;
+
+@property(nonatomic) BOOL cancelsEventsInView;
+
+@property(nonatomic) unsigned long long ignoredModifiers;
+
+@property(nonatomic) CGFloat velocity;
+
+@property(nonatomic) unsigned long long modifiers;
+
+@property(retain, nonatomic) NSEvent *trackingEvent;
+
+@property(nonatomic, weak) UXView * _Nullable view;
+
+@property(nonatomic) NSUInteger state;
+
 - (BOOL)eventTrackerRequiresTouches;
+
 - (void)reset;
-@property(readonly, nonatomic) unsigned long long numberOfTouches;
-- (CGPoint)locationOfTouch:(unsigned long long)arg1 inView:(id)arg2;
-- (CGPoint)locationInView:(id)arg1;
+
+@property(readonly, nonatomic) NSUInteger numberOfTouches;
+
+- (CGPoint)locationOfTouch:(NSUInteger)touch inView:(NSView *)view;
+
+- (CGPoint)locationInView:(NSView *)view;
+
 - (void)cancelTracking;
-- (void)removeTarget:(id)arg1;
-- (void)addTarget:(id)arg1 action:(SEL)arg2;
-- (id)init;
-- (id)initWithTarget:(id)arg1 action:(SEL)arg2;
+
+- (void)removeTarget:(id)target;
+
+- (void)addTarget:(id)target action:(SEL)action;
+
+- (id)initWithTarget:(id)target action:(SEL)action;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

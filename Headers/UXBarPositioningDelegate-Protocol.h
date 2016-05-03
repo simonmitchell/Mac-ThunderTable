@@ -9,6 +9,8 @@
 @protocol UXBarPositioningDelegate <NSObject>
 
 @optional
-- (long long)positionForBar:(id <UXBarPositioning>)arg1;
+
+- (UIBarPosition)positionForBar:(id <UXBarPositioning> _Nonnull)bar;
+
 @end
 

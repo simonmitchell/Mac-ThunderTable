@@ -8,65 +8,80 @@
 
 #import "UXKitAppearance-Protocol.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class NSColor, NSString, NSView, UXViewController;
 
-typedef NS_ENUM(NSUInteger, UXBarButtonItemStyle) {
-    
-    UXBarButtonItemStylePlain = 0,
-    UXBarButtonItemStyleButton = 1
+typedef NS_ENUM(NSInteger, UIBarButtonItemStyle) {
+    UIBarButtonItemStylePlain,
+    UIBarButtonItemStyleBordered,
+    UIBarButtonItemStyleDone,
+};
+
+typedef NS_ENUM(NSInteger, UIBarButtonSystemItem) {
+    UIBarButtonSystemItemDone,
+    UIBarButtonSystemItemCancel,
+    UIBarButtonSystemItemEdit,
+    UIBarButtonSystemItemSave,
+    UIBarButtonSystemItemAdd,
+    UIBarButtonSystemItemFlexibleSpace,
+    UIBarButtonSystemItemFixedSpace,
+    UIBarButtonSystemItemCompose,
+    UIBarButtonSystemItemReply,
+    UIBarButtonSystemItemAction,
+    UIBarButtonSystemItemOrganize,
+    UIBarButtonSystemItemBookmarks,
+    UIBarButtonSystemItemSearch,
+    UIBarButtonSystemItemRefresh,
+    UIBarButtonSystemItemStop,
+    UIBarButtonSystemItemCamera,
+    UIBarButtonSystemItemTrash,
+    UIBarButtonSystemItemPlay,
+    UIBarButtonSystemItemPause,
+    UIBarButtonSystemItemRewind,
+    UIBarButtonSystemItemFastForward,
+    UIBarButtonSystemItemUndo,
+    UIBarButtonSystemItemRedo,
+    UIBarButtonSystemItemPageCurl,
 };
 
 @interface UXBarButtonItem : UXBarItem <UXKitAppearance>
-{
-    NSView *__view;
-    NSColor *_tintColor;
-    long long _tintAdjustmentMode;
-    long long _style;
-    double _width;
-    NSView *_customView;
-    SEL _action;
-    id _target;
-    NSString *_toolTip;
-    NSString *_keyEquivalent;
-    unsigned long long _keyEquivalentModifierMask;
-    UXViewController *_contentViewController;
-    long long _systemItem;
-    UXBarButtonItem *__widthConstrainingItem;
-}
 
-@property(nonatomic, setter=_setWidthConstrainingItem:) __weak UXBarButtonItem *_widthConstrainingItem; // @synthesize _widthConstrainingItem=__widthConstrainingItem;
-@property(readonly, nonatomic) long long systemItem; // @synthesize systemItem=_systemItem;
-@property(readonly, nonatomic) UXViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
-@property(nonatomic) unsigned long long keyEquivalentModifierMask; // @synthesize keyEquivalentModifierMask=_keyEquivalentModifierMask;
-@property(retain, nonatomic) NSString *keyEquivalent; // @synthesize keyEquivalent=_keyEquivalent;
-@property(retain, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
-@property(nonatomic) __weak id target; // @synthesize target=_target;
+@property(nonatomic, setter=_setWidthConstrainingItem:, weak) UXBarButtonItem * _Nullable _widthConstrainingItem;
+
+@property(readonly, nonatomic) UIBarButtonSystemItem systemItem;
+
+@property(readonly, nonatomic) UXViewController *contentViewController;
+
+@property(nonatomic) unsigned long long keyEquivalentModifierMask;
+
+@property(retain, nonatomic) NSString * _Nullable keyEquivalent; // @synthesize keyEquivalent=_keyEquivalent;
+@property(retain, nonatomic) NSString * _Nullable toolTip; // @synthesize toolTip=_toolTip;
+@property(nonatomic, weak) id _Nullable target; // @synthesize target=_target;
 @property(nonatomic) SEL action; // @synthesize action=_action;
-@property(retain, nonatomic) NSView *customView; // @synthesize customView=_customView;
-@property(nonatomic) double width; // @synthesize width=_width;
-@property(nonatomic) UXBarButtonItemStyle style; // @synthesize style=_style;
-- (void)cxx_destruct;
-@property(readonly, nonatomic) NSView *_view;
-- (void)_performAction:(id)action;
-- (id)_viewOfClass:(Class)class;
-- (void)setImage:(NSImage *)image;
-- (void)setEnabled:(BOOL)enabled;
-- (void)setTitle:(NSString *)title;
-- (void)tintColorDidChange;
-@property(nonatomic) long long tintAdjustmentMode; // @synthesize tintAdjustmentMode=_tintAdjustmentMode;
-@property(retain, nonatomic) NSColor *tintColor; // @synthesize tintColor=_tintColor;
-- (id)initWithStyle:(UXBarButtonItemStyle)style target:(id)target action:(SEL)action;
-- (id)initWithContentViewController:(NSViewController *)contentVC;
-- (id)initWithCustomView:(NSView *)view;
-- (id)initWithBarButtonSystemItem:(long long)arg1 target:(id)target action:(SEL)action;
-- (id)initWithTitle:(NSString *)title style:(UXBarButtonItemStyle)style target:(id)target action:(SEL)action;
-- (id)initWithImage:(NSImage *)image style:(UXBarButtonItemStyle)style target:(id)target action:(SEL)action;
+@property(retain, nonatomic) NSView * _Nullable customView; // @synthesize customView=_customView;
+@property(nonatomic) CGFloat width; // @synthesize width=_width;
+@property(nonatomic) UIBarButtonItemStyle style; // @synthesize style=_style;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
+- (void)setImage:(NSImage * _Nullable)image;
+
+- (void)setEnabled:(BOOL)enabled;
+
+- (void)setTitle:(NSString * _Nullable)title;
+
+- (id)initWithStyle:(UIBarButtonItemStyle)style target:(id)target action:(SEL)action;
+
+- (id)initWithContentViewController:(NSViewController *)contentVC;
+
+- (id)initWithCustomView:(NSView *)view;
+
+- (id)initWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem target:(id)target action:(SEL)action;
+
+- (id)initWithTitle:(NSString * _Nullable)title style:(UIBarButtonItemStyle)style target:(id)target action:(SEL)action;
+
+- (id)initWithImage:(NSImage * _Nullable)image style:(UIBarButtonItemStyle)style target:(id)target action:(SEL)action;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

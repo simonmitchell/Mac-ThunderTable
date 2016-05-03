@@ -9,9 +9,17 @@
 
 @class NSString, UXAuxiliaryNavigationStore;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol UXNavigationDestination <NSObject, NSSecureCoding>
+
 @property(readonly, nonatomic) UXAuxiliaryNavigationStore *auxiliaryNavigationStore;
+
 @property(readonly, nonatomic) NSString *destinationTitle;
+
 @property(readonly, nonatomic) NSString *destinationType;
+
 @end
+
+NS_ASSUME_NONNULL_END
 

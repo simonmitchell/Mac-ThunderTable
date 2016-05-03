@@ -11,52 +11,28 @@
 
 @class NSBox, NSCursor, NSLayoutConstraint, NSString, _UXContainerView;
 
-@interface _UXSourceSplitView : UXView <NSAccessibilityGroup>
-{
-    NSLayoutConstraint *_separatorRightConstraint;
-    NSLayoutConstraint *_masterViewWidthConstraint;
-    BOOL _collapsed;
-    BOOL _resizing;
-    _UXContainerView *_masterView;
-    _UXContainerView *_detailView;
-    NSBox *_separator;
-    double _minimumMasterWidth;
-    double _maximumMasterWidth;
-    id <_UXSourceSplitViewDelegate> _delegate;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic) __weak id <_UXSourceSplitViewDelegate> delegate; // @synthesize delegate=_delegate;
+@interface _UXSourceSplitView : UXView <NSAccessibilityGroup>
+
+@property(nonatomic) __weak id <_UXSourceSplitViewDelegate> _Nullable delegate; // @synthesize delegate=_delegate;
+
 @property(nonatomic) BOOL resizing; // @synthesize resizing=_resizing;
 @property(nonatomic) BOOL collapsed; // @synthesize collapsed=_collapsed;
+
 @property(nonatomic) double maximumMasterWidth; // @synthesize maximumMasterWidth=_maximumMasterWidth;
 @property(nonatomic) double minimumMasterWidth; // @synthesize minimumMasterWidth=_minimumMasterWidth;
-@property(readonly, nonatomic) NSBox *separator; // @synthesize separator=_separator;
-@property(readonly, nonatomic) _UXContainerView *detailView; // @synthesize detailView=_detailView;
-@property(readonly, nonatomic) _UXContainerView *masterView; // @synthesize masterView=_masterView;
 
-- (void)cxx_destruct;
-- (id)accessibilityRole;
-- (id)accessibilityChildren;
-- (id)accessibilitySplitters;
-- (void)cursorUpdate:(id)arg1;
-- (void)mouseUp:(id)arg1;
-- (void)mouseDragged:(id)arg1;
-- (void)mouseDown:(id)arg1;
-- (void)resetCursorRects;
-- (id)hitTest:(CGPoint)point;
-- (void)_endSeparatorLiveResize;
-- (void)_startSeparatorLiveResize;
-- (void)_resizeToWidth:(double)arg1;
-@property(readonly, nonatomic) NSCursor *separatorCursor;
+@property(readonly, nonatomic) NSBox * _Nonnull separator; // @synthesize separator=_separator;
+@property(readonly, nonatomic) _UXContainerView * _Nonnull detailView; // @synthesize detailView=_detailView;
+@property(readonly, nonatomic) _UXContainerView * _Nonnull masterView; // @synthesize masterView=_masterView;
+
+@property(readonly, nonatomic) NSCursor * _Nonnull separatorCursor;
+
 - (void)setCollapsed:(BOOL)collapsed animated:(BOOL)animated completion:(CDUnknownBlockType)completion;
-@property(nonatomic) double masterWidth;
-- (id)initWithFrame:(CGRect)frame;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) NSUInteger hash;
-@property(readonly) Class superclass;
+@property(nonatomic) CGFloat masterWidth;
 
 @end
 
+NS_ASSUME_NONNULL_END
